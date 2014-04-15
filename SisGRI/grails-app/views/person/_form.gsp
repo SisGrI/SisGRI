@@ -115,7 +115,9 @@
 		<g:message code="person.baptismHollySpirit.label" default="Baptism Holly Spirit" />
 		
 	</label>
-	<g:checkBox name="baptismHollySpirit" value="${personInstance?.baptismHollySpirit}" />
+	<g:radioGroup name="baptismHollySpirit" labels="['Sim','Não']" values="['true','false']" value="${personInstance?.baptismHollySpirit}">
+		<span>${it.radio} ${it.label}</span>
+	</g:radioGroup>
 
 </div>
 
@@ -223,7 +225,9 @@
 		<g:message code="person.situation.label" default="Situation" />
 		
 	</label>
-	<g:checkBox name="situation" value="${personInstance?.situation}" />
+	<g:radioGroup name="situation" labels="['Sim','Não']" values="['true','false']" value="${personInstance?.situation}">
+		<span>${it.radio} ${it.label}</span>
+	</g:radioGroup>
 
 </div>
 

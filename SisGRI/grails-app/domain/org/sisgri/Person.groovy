@@ -11,7 +11,7 @@ class Person {
 	String cellular
 	String email
 	Date birth
-	Date birthPlace
+	String birthPlace
 	String father
 	String mother
 	Date batism
@@ -38,7 +38,7 @@ class Person {
     	birthPlace blank:false
     	cpf blank:false
     	rg blank:false
-    	maritalStatus blank:false, inList:['Casado','Solteiro']
+    	maritalStatus blank:false, inList:['Solteiro','Casado']
     	department blank:false
     	post blank:false
     	function blank:false
