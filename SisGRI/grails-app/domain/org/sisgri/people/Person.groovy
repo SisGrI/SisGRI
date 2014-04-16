@@ -41,19 +41,19 @@ class Person {
     	telephone nullable:true
     	cellular nullable:true
     	email nullable:true, email:true
-    	birth blank:false, years:1920..2014
+    	birth blank:false, attributes:[years:1920..2014]
     	birthPlace blank:false
     	father nullable:true
     	mother nullable:true
-    	baptism nullable:true, years:1920..2014
-    	memberSince nullable:true, years:1920..2014
-    	conversion nullable:true, years:1920..2014
+    	baptism nullable:true, attributes:[years:1920..2014]
+    	memberSince nullable:true, attributes:[years:1920..2014]
+    	conversion nullable:true, attributes:[years:1920..2014]
     	baptismHollySpirit nullable:true
-    	maritalStatus blank:false, inList:['Solteiro(a)','Casado(a)','Divorciado(a)','Viuvo' ]
+    	maritalStatus blank:false, inList:['Solteiro(a)','Casado(a)','Divorciado(a)','Viuvo(a)' ]
     	spouse nullable:true
-    	marriageDate nullable:true, years:1920..2014
-    	department blank:false, inList:['Varoes','Senhoras','Jovens', 'Adolescentes','Criancas']
-    	post blank:false, inList:['Congregado','Membro','Cooperador(a)','Diacono(a)','Presbitero','Evangelista','Missionario(a)','Pastor']
+    	marriageDate nullable:true, attributes:[years:1920..2014]
+    	department blank:false, inList:['Varões','Senhoras','Jovens', 'Adolescentes','Crianças']
+    	post blank:false, inList:['Congregado','Membro','Cooperador(a)','Diácono(a)','Presbítero','Evangelista','Missionário(a)','Pastor']
     	observation nullable:true, widget:'textarea'
     }
 
