@@ -1,5 +1,5 @@
 
-<%@ page import="org.sisgri.Person" %>
+<%@ page import="org.sisgri.people.Person" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -52,7 +52,7 @@
 					
 						<td><g:formatDate date="${personInstance.birth}" /></td>
 					
-						<td><g:formatDate date="${personInstance.birthPlace}" /></td>
+						<td>${fieldValue(bean: personInstance, field: "birthPlace")}</td>
 					
 					</tr>
 				</g:each>

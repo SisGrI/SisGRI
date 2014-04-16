@@ -1,4 +1,4 @@
-<%@ page import="org.sisgri.Person" %>
+<%@ page import="org.sisgri.people.Person" %>
 
 
 
@@ -52,7 +52,7 @@
 		<g:message code="person.birthPlace.label" default="Birth Place" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="birthPlace" precision="day"  value="${personInstance?.birthPlace}"  />
+	<g:textField name="birthPlace" required="" value="${personInstance?.birthPlace}"/>
 
 </div>
 
@@ -98,15 +98,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="post" required="" value="${personInstance?.post}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'function', 'error')} required">
-	<label for="function">
-		<g:message code="person.function.label" default="Function" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="function" required="" value="${personInstance?.function}"/>
 
 </div>
 

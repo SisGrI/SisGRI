@@ -1,4 +1,4 @@
-<%@ page import="org.sisgri.Person" %>
+<%@ page import="org.sisgri.people.Person" %>
 <!DOCTYPE html>
 <html>
 	<head>

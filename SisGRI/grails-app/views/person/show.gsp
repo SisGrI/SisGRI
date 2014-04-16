@@ -1,5 +1,5 @@
 
-<%@ page import="org.sisgri.Person" %>
+<%@ page import="org.sisgri.people.Person" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -72,7 +72,7 @@
 				<li class="fieldcontain">
 					<span id="birthPlace-label" class="property-label"><g:message code="person.birthPlace.label" default="Birth Place" /></span>
 					
-						<span class="property-value" aria-labelledby="birthPlace-label"><g:formatDate date="${personInstance?.birthPlace}" /></span>
+						<span class="property-value" aria-labelledby="birthPlace-label"><g:fieldValue bean="${personInstance}" field="birthPlace"/></span>
 					
 				</li>
 				</g:if>
@@ -118,15 +118,6 @@
 					<span id="post-label" class="property-label"><g:message code="person.post.label" default="Post" /></span>
 					
 						<span class="property-value" aria-labelledby="post-label"><g:fieldValue bean="${personInstance}" field="post"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${personInstance?.function}">
-				<li class="fieldcontain">
-					<span id="function-label" class="property-label"><g:message code="person.function.label" default="Function" /></span>
-					
-						<span class="property-value" aria-labelledby="function-label"><g:fieldValue bean="${personInstance}" field="function"/></span>
 					
 				</li>
 				</g:if>
