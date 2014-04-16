@@ -20,7 +20,7 @@ environments {
         }
 
         hibernate {
-            show_sql = true
+            show_sql = false
         }
     }
     test {

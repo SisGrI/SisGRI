@@ -126,9 +126,9 @@ grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.sisgri.authen
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.sisgri.authentication.UserRole'
 grails.plugin.springsecurity.authority.className = 'org.sisgri.authentication.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
+	'/':                              ['isAuthenticated()'],
+	'/index':                         ['isAuthenticated()'],
+	'/index.gsp':                     ['isAuthenticated()'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
