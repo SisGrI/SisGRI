@@ -24,17 +24,17 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="photo" title="${message(code: 'person.photo.label', default: 'Photo')}" />
+					
 						<g:sortableColumn property="name" title="${message(code: 'person.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="address" title="${message(code: 'person.address.label', default: 'Address')}" />
+						<g:sortableColumn property="cpf" title="${message(code: 'person.cpf.label', default: 'Cpf')}" />
 					
-						<g:sortableColumn property="city" title="${message(code: 'person.city.label', default: 'City')}" />
+						<g:sortableColumn property="rg" title="${message(code: 'person.rg.label', default: 'Rg')}" />
 					
-						<g:sortableColumn property="zipCode" title="${message(code: 'person.zipCode.label', default: 'Zip Code')}" />
+						<g:sortableColumn property="situation" title="${message(code: 'person.situation.label', default: 'Situation')}" />
 					
-						<g:sortableColumn property="birth" title="${message(code: 'person.birth.label', default: 'Birth')}" />
-					
-						<g:sortableColumn property="birthPlace" title="${message(code: 'person.birthPlace.label', default: 'Birth Place')}" />
+						<g:sortableColumn property="profession" title="${message(code: 'person.profession.label', default: 'Profession')}" />
 					
 					</tr>
 				</thead>
@@ -42,17 +42,17 @@
 				<g:each in="${personInstanceList}" status="i" var="personInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "name")}</g:link></td>
+						<td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "photo")}</g:link></td>
 					
-						<td>${fieldValue(bean: personInstance, field: "address")}</td>
+						<td>${fieldValue(bean: personInstance, field: "name")}</td>
 					
-						<td>${fieldValue(bean: personInstance, field: "city")}</td>
+						<td>${fieldValue(bean: personInstance, field: "cpf")}</td>
 					
-						<td>${fieldValue(bean: personInstance, field: "zipCode")}</td>
+						<td>${fieldValue(bean: personInstance, field: "rg")}</td>
 					
-						<td><g:formatDate date="${personInstance.birth}" /></td>
+						<td><g:formatBoolean boolean="${personInstance.situation}" /></td>
 					
-						<td>${fieldValue(bean: personInstance, field: "birthPlace")}</td>
+						<td>${fieldValue(bean: personInstance, field: "profession")}</td>
 					
 					</tr>
 				</g:each>

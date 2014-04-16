@@ -2,12 +2,59 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'photo', 'error')} ">
+	<label for="photo">
+		<g:message code="person.photo.label" default="Photo" />
+		
+	</label>
+	<input type="file" id="photo" name="photo" />
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: personInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="person.name.label" default="Name" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="name" required="" value="${personInstance?.name}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cpf', 'error')} required">
+	<label for="cpf">
+		<g:message code="person.cpf.label" default="Cpf" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="cpf" required="" value="${personInstance?.cpf}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'rg', 'error')} required">
+	<label for="rg">
+		<g:message code="person.rg.label" default="Rg" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="rg" required="" value="${personInstance?.rg}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'situation', 'error')} ">
+	<label for="situation">
+		<g:message code="person.situation.label" default="Situation" />
+		
+	</label>
+	<g:radioGroup name="situation" labels="['Sim','Não']" values="['true','false']" value="${personInstance?.situation}">
+		<span>${it.radio} ${it.label}</span>
+	</g:radioGroup>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'profession', 'error')} ">
+	<label for="profession">
+		<g:message code="person.profession.label" default="Profession" />
+		
+	</label>
+	<g:textField name="profession" value="${personInstance?.profession}"/>
 
 </div>
 
@@ -38,6 +85,33 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'telephone', 'error')} ">
+	<label for="telephone">
+		<g:message code="person.telephone.label" default="Telephone" />
+		
+	</label>
+	<g:textField name="telephone" value="${personInstance?.telephone}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cellular', 'error')} ">
+	<label for="cellular">
+		<g:message code="person.cellular.label" default="Cellular" />
+		
+	</label>
+	<g:textField name="cellular" value="${personInstance?.cellular}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'email', 'error')} ">
+	<label for="email">
+		<g:message code="person.email.label" default="Email" />
+		
+	</label>
+	<g:field type="email" name="email" value="${personInstance?.email}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birth', 'error')} required">
 	<label for="birth">
 		<g:message code="person.birth.label" default="Birth" />
@@ -56,48 +130,48 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cpf', 'error')} required">
-	<label for="cpf">
-		<g:message code="person.cpf.label" default="Cpf" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'father', 'error')} ">
+	<label for="father">
+		<g:message code="person.father.label" default="Father" />
+		
 	</label>
-	<g:textField name="cpf" required="" value="${personInstance?.cpf}"/>
+	<g:textField name="father" value="${personInstance?.father}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'rg', 'error')} required">
-	<label for="rg">
-		<g:message code="person.rg.label" default="Rg" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'mother', 'error')} ">
+	<label for="mother">
+		<g:message code="person.mother.label" default="Mother" />
+		
 	</label>
-	<g:textField name="rg" required="" value="${personInstance?.rg}"/>
+	<g:textField name="mother" value="${personInstance?.mother}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'maritalStatus', 'error')} required">
-	<label for="maritalStatus">
-		<g:message code="person.maritalStatus.label" default="Marital Status" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'baptism', 'error')} ">
+	<label for="baptism">
+		<g:message code="person.baptism.label" default="Baptism" />
+		
 	</label>
-	<g:select name="maritalStatus" from="${personInstance.constraints.maritalStatus.inList}" required="" value="${personInstance?.maritalStatus}" valueMessagePrefix="person.maritalStatus"/>
+	<g:datePicker name="baptism" precision="day"  value="${personInstance?.baptism}" default="none" noSelection="['': '']" />
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'department', 'error')} required">
-	<label for="department">
-		<g:message code="person.department.label" default="Department" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'memberSince', 'error')} ">
+	<label for="memberSince">
+		<g:message code="person.memberSince.label" default="Member Since" />
+		
 	</label>
-	<g:textField name="department" required="" value="${personInstance?.department}"/>
+	<g:datePicker name="memberSince" precision="day"  value="${personInstance?.memberSince}" default="none" noSelection="['': '']" />
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} required">
-	<label for="post">
-		<g:message code="person.post.label" default="Post" />
-		<span class="required-indicator">*</span>
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'conversion', 'error')} ">
+	<label for="conversion">
+		<g:message code="person.conversion.label" default="Conversion" />
+		
 	</label>
-	<g:textField name="post" required="" value="${personInstance?.post}"/>
+	<g:datePicker name="conversion" precision="day"  value="${personInstance?.conversion}" default="none" noSelection="['': '']" />
 
 </div>
 
@@ -112,113 +186,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'batism', 'error')} required">
-	<label for="batism">
-		<g:message code="person.batism.label" default="Batism" />
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'maritalStatus', 'error')} required">
+	<label for="maritalStatus">
+		<g:message code="person.maritalStatus.label" default="Marital Status" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:datePicker name="batism" precision="day"  value="${personInstance?.batism}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cellular', 'error')} ">
-	<label for="cellular">
-		<g:message code="person.cellular.label" default="Cellular" />
-		
-	</label>
-	<g:textField name="cellular" value="${personInstance?.cellular}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'conversion', 'error')} required">
-	<label for="conversion">
-		<g:message code="person.conversion.label" default="Conversion" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="conversion" precision="day"  value="${personInstance?.conversion}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'email', 'error')} ">
-	<label for="email">
-		<g:message code="person.email.label" default="Email" />
-		
-	</label>
-	<g:textField name="email" value="${personInstance?.email}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'father', 'error')} ">
-	<label for="father">
-		<g:message code="person.father.label" default="Father" />
-		
-	</label>
-	<g:textField name="father" value="${personInstance?.father}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'marriageDate', 'error')} required">
-	<label for="marriageDate">
-		<g:message code="person.marriageDate.label" default="Marriage Date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="marriageDate" precision="day"  value="${personInstance?.marriageDate}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'memberSince', 'error')} required">
-	<label for="memberSince">
-		<g:message code="person.memberSince.label" default="Member Since" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="memberSince" precision="day"  value="${personInstance?.memberSince}"  />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'mother', 'error')} ">
-	<label for="mother">
-		<g:message code="person.mother.label" default="Mother" />
-		
-	</label>
-	<g:textField name="mother" value="${personInstance?.mother}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'observation', 'error')} ">
-	<label for="observation">
-		<g:message code="person.observation.label" default="Observation" />
-		
-	</label>
-	<g:textField name="observation" value="${personInstance?.observation}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'photo', 'error')} required">
-	<label for="photo">
-		<g:message code="person.photo.label" default="Photo" />
-		<span class="required-indicator">*</span>
-	</label>
-	<input type="file" id="photo" name="photo" />
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'profession', 'error')} ">
-	<label for="profession">
-		<g:message code="person.profession.label" default="Profession" />
-		
-	</label>
-	<g:textField name="profession" value="${personInstance?.profession}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'situation', 'error')} ">
-	<label for="situation">
-		<g:message code="person.situation.label" default="Situation" />
-		
-	</label>
-	<g:radioGroup name="situation" labels="['Sim','Não']" values="['true','false']" value="${personInstance?.situation}">
-		<span>${it.radio} ${it.label}</span>
-	</g:radioGroup>
+	<g:select name="maritalStatus" from="${personInstance.constraints.maritalStatus.inList}" required="" value="${personInstance?.maritalStatus}" valueMessagePrefix="person.maritalStatus"/>
 
 </div>
 
@@ -231,12 +204,39 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'telephone', 'error')} ">
-	<label for="telephone">
-		<g:message code="person.telephone.label" default="Telephone" />
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'marriageDate', 'error')} ">
+	<label for="marriageDate">
+		<g:message code="person.marriageDate.label" default="Marriage Date" />
 		
 	</label>
-	<g:textField name="telephone" value="${personInstance?.telephone}"/>
+	<g:datePicker name="marriageDate" precision="day"  value="${personInstance?.marriageDate}" default="none" noSelection="['': '']" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'department', 'error')} required">
+	<label for="department">
+		<g:message code="person.department.label" default="Department" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="department" from="${personInstance.constraints.department.inList}" required="" value="${personInstance?.department}" valueMessagePrefix="person.department"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} required">
+	<label for="post">
+		<g:message code="person.post.label" default="Post" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="post" from="${personInstance.constraints.post.inList}" required="" value="${personInstance?.post}" valueMessagePrefix="person.post"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'observation', 'error')} ">
+	<label for="observation">
+		<g:message code="person.observation.label" default="Observation" />
+		
+	</label>
+	<g:textArea name="observation" cols="40" rows="5" value="${personInstance?.observation}"/>
 
 </div>
 
