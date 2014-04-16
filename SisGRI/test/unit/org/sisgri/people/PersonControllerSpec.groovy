@@ -1,4 +1,4 @@
-package org.sisgri
+package org.sisgri.people
 
 
 

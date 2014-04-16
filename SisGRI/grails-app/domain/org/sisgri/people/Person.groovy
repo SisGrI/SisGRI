@@ -1,4 +1,4 @@
-package org.sisgri
+package org.sisgri.people
 
 class Person {
 	byte[] photo
@@ -26,7 +26,6 @@ class Person {
 	boolean baptismHollySpirit
 	Date conversion
 	String post
-	String function
 	String observation
 
     static constraints = {
@@ -38,14 +37,12 @@ class Person {
     	birthPlace blank:false
     	cpf blank:false
     	rg blank:false
-    	maritalStatus blank:false, inList:['Solteiro','Casado']
+    	maritalStatus blank:false, inList:['Solteiro(a)','Casado(a)']
     	department blank:false
     	post blank:false
-    	function blank:false
     }
 
     static mapping = {
     	photo sqlType:'longblob'
     }
-
 }
