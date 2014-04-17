@@ -1,6 +1,6 @@
 package org.sisgri.church
 
-class Church {
+abstract class Church {
 	String name
 	String address
 	
