@@ -7,8 +7,9 @@ class Worship {
 	String prelector
 	
     static constraints = {
-	type nullable: false, blank: false
-	ruling nullable: false, blank: false
-	prelector nullable: false, blank: false
+		type blank: false
+		date blank: false, attributes:[years:2013..2014]
+		ruling blank: false
+		prelector blank: false
     }
 }

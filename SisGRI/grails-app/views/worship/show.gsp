@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${worshipInstance?.date}">
+				<li class="fieldcontain">
+					<span id="date-label" class="property-label"><g:message code="worship.date.label" default="Date" /></span>
+					
+						<span class="property-value" aria-labelledby="date-label"><g:formatDate date="${worshipInstance?.date}" /></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${worshipInstance?.ruling}">
 				<li class="fieldcontain">
 					<span id="ruling-label" class="property-label"><g:message code="worship.ruling.label" default="Ruling" /></span>
@@ -46,15 +55,6 @@
 					<span id="prelector-label" class="property-label"><g:message code="worship.prelector.label" default="Prelector" /></span>
 					
 						<span class="property-value" aria-labelledby="prelector-label"><g:fieldValue bean="${worshipInstance}" field="prelector"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${worshipInstance?.date}">
-				<li class="fieldcontain">
-					<span id="date-label" class="property-label"><g:message code="worship.date.label" default="Date" /></span>
-					
-						<span class="property-value" aria-labelledby="date-label"><g:formatDate date="${worshipInstance?.date}" /></span>
 					
 				</li>
 				</g:if>

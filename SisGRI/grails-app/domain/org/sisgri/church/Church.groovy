@@ -5,7 +5,7 @@ class Church {
 	String address
 	
     static constraints = {
-	name nullable: false, blank: false
-	address nullable: false, blank: false
+		name blank: false
+		address blank: false
     }
 }

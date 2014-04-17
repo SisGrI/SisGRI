@@ -26,11 +26,11 @@
 					
 						<g:sortableColumn property="type" title="${message(code: 'worship.type.label', default: 'Type')}" />
 					
+						<g:sortableColumn property="date" title="${message(code: 'worship.date.label', default: 'Date')}" />
+					
 						<g:sortableColumn property="ruling" title="${message(code: 'worship.ruling.label', default: 'Ruling')}" />
 					
 						<g:sortableColumn property="prelector" title="${message(code: 'worship.prelector.label', default: 'Prelector')}" />
-					
-						<g:sortableColumn property="date" title="${message(code: 'worship.date.label', default: 'Date')}" />
 					
 					</tr>
 				</thead>
@@ -40,11 +40,11 @@
 					
 						<td><g:link action="show" id="${worshipInstance.id}">${fieldValue(bean: worshipInstance, field: "type")}</g:link></td>
 					
+						<td><g:formatDate date="${worshipInstance.date}" /></td>
+					
 						<td>${fieldValue(bean: worshipInstance, field: "ruling")}</td>
 					
 						<td>${fieldValue(bean: worshipInstance, field: "prelector")}</td>
-					
-						<td><g:formatDate date="${worshipInstance.date}" /></td>
 					
 					</tr>
 				</g:each>

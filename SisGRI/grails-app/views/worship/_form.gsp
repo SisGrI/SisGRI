@@ -11,6 +11,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'date', 'error')} required">
+	<label for="date">
+		<g:message code="worship.date.label" default="Date" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:datePicker name="date" years="[2013, 2014]" precision="day"  value="${worshipInstance?.date}"  />
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'ruling', 'error')} required">
 	<label for="ruling">
 		<g:message code="worship.ruling.label" default="Ruling" />
@@ -26,15 +35,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="prelector" required="" value="${worshipInstance?.prelector}"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'date', 'error')} required">
-	<label for="date">
-		<g:message code="worship.date.label" default="Date" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:datePicker name="date" precision="day"  value="${worshipInstance?.date}"  />
 
 </div>
 
