@@ -1,13 +1,12 @@
 <%@ page import="org.sisgri.people.Person" %>
 
 
-
 <div class="fieldcontain ${hasErrors(bean: personInstance, field: 'photo', 'error')} ">
 	<label for="photo">
 		<g:message code="person.photo.label" default="Photo" />
 		
 	</label>
-	<input type="file" id="photo" name="photo" />
+	<input type="file" name="photo" />
 
 </div>
 

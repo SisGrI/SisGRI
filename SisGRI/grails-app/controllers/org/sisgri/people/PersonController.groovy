@@ -10,6 +10,8 @@ class PersonController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def photoService
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Person.list(params), model:[personInstanceCount: Person.count()]
@@ -35,7 +37,10 @@ class PersonController {
             return
         }
 
+        def photo = request.getFile('photo')
+        
         personInstance.save flush:true
+        photoService.upload(personInstance, photo)
 
         request.withFormat {
             form multipartForm {

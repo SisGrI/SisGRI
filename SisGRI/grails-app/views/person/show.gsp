@@ -23,13 +23,6 @@
 			</g:if>
 			<ol class="property-list person">
 			
-				<g:if test="${personInstance?.photo}">
-				<li class="fieldcontain">
-					<span id="photo-label" class="property-label"><g:message code="person.photo.label" default="Photo" /></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${personInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="person.name.label" default="Name" /></span>

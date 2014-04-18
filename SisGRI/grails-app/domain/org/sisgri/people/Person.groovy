@@ -1,7 +1,6 @@
 package org.sisgri.people
 
 class Person {
-	byte[] photo
 	boolean situation
 	String name
 	String address
@@ -29,8 +28,7 @@ class Person {
 	String observation
 
     static constraints = {
-    	photo nullable:true
-    	name blank:false
+    	name blank:false, unique:true
     	cpf blank:false
     	rg blank:false
     	situation blank:false
