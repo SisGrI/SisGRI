@@ -8,7 +8,7 @@ import grails.plugin.springsecurity.annotation.Secured
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
 class PersonController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
     def photoService
 
@@ -37,10 +37,8 @@ class PersonController {
             return
         }
 
-        def photo = request.getFile('photo')
-        
         personInstance.save flush:true
-        photoService.upload(personInstance, photo)
+        photoService.upload(personInstance, params.photo)
 
         request.withFormat {
             form multipartForm {
@@ -68,6 +66,7 @@ class PersonController {
         }
 
         personInstance.save flush:true
+        photoService.upload(personInstance, params.photo)
 
         request.withFormat {
             form multipartForm {

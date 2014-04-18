@@ -27,13 +27,13 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:uploadForm url="[resource:personInstance, action:'update']" method="PUT" >
+			<g:uploadForm url="[resource:personInstance, action:'update']" >
 				<g:hiddenField name="version" value="${personInstance?.version}" />
 				<fieldset class="form">
 					<g:render template="form"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" />
+					<g:submitButton name="update" class="save" value="${message(code: 'default.button.update.label', default: 'Update')}" />
 				</fieldset>
 			</g:uploadForm>
 		</div>
