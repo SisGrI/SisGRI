@@ -8,6 +8,8 @@
 	</label>
 	<input type="file" name="photo" />
 
+	<g:actionSubmit action="deletePhoto" value="${message(code: 'default.button.deletePhoto.label', default: 'Delete Photo')}" />
+
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: personInstance, field: 'name', 'error')} required">

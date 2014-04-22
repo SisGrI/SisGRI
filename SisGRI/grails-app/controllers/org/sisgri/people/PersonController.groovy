@@ -79,6 +79,7 @@ class PersonController {
 
     @Transactional
     def delete(Person personInstance) {
+        photoService.delete(personInstance)
 
         if (personInstance == null) {
             notFound()
@@ -94,6 +95,13 @@ class PersonController {
             }
             '*'{ render status: NO_CONTENT }
         }
+    }
+
+    @Transactional
+    def deletePhoto(Person personInstance) {
+        photoService.delete(personInstance)
+        flash.message = "Foto Excluida"
+        redirect action:"edit", id:personInstance.id
     }
 
     protected void notFound() {

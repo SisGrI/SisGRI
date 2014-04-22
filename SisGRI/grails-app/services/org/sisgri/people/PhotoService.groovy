@@ -15,4 +15,12 @@ class PhotoService {
         }
         return
     }
+
+    def delete(Person personInstance) {
+    	def photoPath = '/home/jefferson/SisGRI/fotos/'+personInstance.id+'.jpg'
+    	def file = new File(photoPath)
+    	
+    	if(file != null)
+    		file.delete()
+    }
 }
