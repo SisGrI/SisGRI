@@ -27,10 +27,13 @@ class HeadquarterController {
 
     @Transactional
     def save(Headquarter headquarterInstance) {
+        if (!validateRegister(headquarterInstance))
+            return
+
         if (headquarterInstance == null) {
             notFound()
             return
-        }
+        }   
 
         if (headquarterInstance.hasErrors()) {
             respond headquarterInstance.errors, view:'create'
@@ -102,5 +105,15 @@ class HeadquarterController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    protected boolean validateRegister(Headquarter headquarterInstance) {
+        if(headquarterInstance.count()) {
+            flash.message = "Não pode haver mais de uma Igreja Sede cadastrada!"
+            redirect action:"index", method:"GET"
+            return false
+        }
+
+        return true
     }
 }
