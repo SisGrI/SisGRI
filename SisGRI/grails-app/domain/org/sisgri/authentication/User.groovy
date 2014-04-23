@@ -1,6 +1,8 @@
 package org.sisgri.authentication
 
-class User {
+import org.sisgri.people.Person
+
+class User extends Person{
 
 	transient springSecurityService
 

@@ -56,6 +56,6 @@ class Person {
     }
 
     static mapping = {
-    	photo sqlType:'longblob'
+        tablePerHierarchy false
     }
 }
