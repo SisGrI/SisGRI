@@ -18,6 +18,7 @@ class User extends Person{
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
+		email email:true, nullable: false
 	}
 
 	static mapping = {

@@ -11,7 +11,7 @@ class BootStrap {
 
       def testUser = new User(username: 'admin', password: '123456', name: 'Álex', address: 'a', 
          city:'sa', zipCode:'d', birthPlace:'s', cpf:'s', rg:'s', maritalStatus:'Solteiro(a)',
-         department:'Varões', post:'Congregado', observation: 'd', situation: true,
+         department:'Varões', post:'Congregado', observation: 'd', situation: true, email: 'alex@unb.br',
          birth: dateConversion)
       
       testUser.save(flush: true)
