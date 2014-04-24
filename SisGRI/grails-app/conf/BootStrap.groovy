@@ -1,22 +1,25 @@
 import org.sisgri.authentication.Role
-import org.sisgri.authentication.User
-import org.sisgri.authentication.UserRole
+import org.sisgri.authentication.Profile
+import org.sisgri.authentication.ProfileRole
+import org.sisgri.people.Person
 
 class BootStrap {
 
    def init = { servletContext ->
-        Date dateConversion = new Date()
+      Date dateConversion = new Date()
 
-      def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
-
-      def testUser = new User(username: 'admin', password: '123456', name: 'Álex', address: 'a', 
+      def testPerson = new Person(name: 'Álex', address: 'a', 
          city:'sa', zipCode:'d', birthPlace:'s', cpf:'s', rg:'s', maritalStatus:'Solteiro(a)',
          department:'Varões', post:'Congregado', observation: 'd', situation: true, email: 'alex@unb.br',
-         birth: dateConversion)
+         birth: dateConversion).save(flush: true)
+
+      def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
       
-      testUser.save(flush: true)
+      def testProfile = new Profile(username: 'admin', password: 'admin', person: testPerson)
+      
+      testProfile.save(flush: true)
 
-      UserRole.create testUser, adminRole, true
 
+      ProfileRole.create testProfile, adminRole, true
    }
 }

@@ -122,8 +122,8 @@ log4j = {
 
 
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.sisgri.authentication.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.sisgri.authentication.UserRole'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'org.sisgri.authentication.Profile'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'org.sisgri.authentication.ProfileRole'
 grails.plugin.springsecurity.authority.className = 'org.sisgri.authentication.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['isAuthenticated()'],
@@ -134,4 +134,3 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll']
 ]
-

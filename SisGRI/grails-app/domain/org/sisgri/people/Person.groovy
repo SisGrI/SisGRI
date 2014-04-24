@@ -1,5 +1,7 @@
 package org.sisgri.people
 
+import org.sisgri.authentication.Profile
+
 class Person {
 	boolean situation
 	String name
@@ -26,11 +28,12 @@ class Person {
 	Date conversion
 	String post
 	String observation
+    Profile profile
 
     static constraints = {
-    	name blank:false, unique:true
-    	cpf blank:false
-    	rg blank:false
+    	name blank:false
+    	cpf blank:false, unique:true
+    	rg blank:false, unique:true
     	situation blank:false
     	profession nullable:true
     	address blank:false
@@ -53,9 +56,9 @@ class Person {
     	department blank:false, inList:['Varões','Senhoras','Jovens', 'Adolescentes','Crianças']
     	post blank:false, inList:['Congregado','Membro','Cooperador(a)','Diácono(a)','Presbítero','Evangelista','Missionário(a)','Pastor']
     	observation nullable:true, widget:'textarea'
+        profile nullable:true, display: false
     }
 
     static mapping = {
-        tablePerHierarchy false
     }
 }

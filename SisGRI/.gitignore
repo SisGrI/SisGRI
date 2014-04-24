@@ -36,5 +36,7 @@
 # "temporary" build files
 /target
 
+/fotos
+
 # other
 *.iws

@@ -6,8 +6,8 @@ import grails.transaction.Transactional
 class PhotoService {
 
     def upload(Person personInstance, def photo) {
-    	new File('/home/jefferson/SisGRI/fotos').mkdirs()
-        def photoPath = '/home/jefferson/SisGRI/fotos/'+personInstance.id+'.jpg'
+    	new File('fotos').mkdirs()
+        def photoPath = 'fotos/'+personInstance.id+'.jpg'
         
         if (!photo.empty) {
             photo.transferTo(new File(photoPath))
@@ -17,7 +17,7 @@ class PhotoService {
     }
 
     def delete(Person personInstance) {
-    	def photoPath = '/home/jefferson/SisGRI/fotos/'+personInstance.id+'.jpg'
+    	def photoPath = 'fotos/'+personInstance.id+'.jpg'
     	def file = new File(photoPath)
     	
     	if(file != null)
