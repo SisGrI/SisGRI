@@ -59,6 +59,5 @@ class Person {
         profile nullable:true, display: false
     }
 
-    static mapping = {
-    }
+    String toString() { "$name" }
 }

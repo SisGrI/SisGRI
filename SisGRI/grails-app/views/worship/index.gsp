@@ -24,13 +24,15 @@
 			<thead>
 					<tr>
 					
+						<th><g:message code="worship.church.label" default="Church" /></th>
+					
 						<g:sortableColumn property="type" title="${message(code: 'worship.type.label', default: 'Type')}" />
 					
 						<g:sortableColumn property="date" title="${message(code: 'worship.date.label', default: 'Date')}" />
 					
-						<g:sortableColumn property="ruling" title="${message(code: 'worship.ruling.label', default: 'Ruling')}" />
+						<th><g:message code="worship.ruling.label" default="Ruling" /></th>
 					
-						<g:sortableColumn property="prelector" title="${message(code: 'worship.prelector.label', default: 'Prelector')}" />
+						<th><g:message code="worship.prelector.label" default="Prelector" /></th>
 					
 					</tr>
 				</thead>
@@ -38,7 +40,9 @@
 				<g:each in="${worshipInstanceList}" status="i" var="worshipInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${worshipInstance.id}">${fieldValue(bean: worshipInstance, field: "type")}</g:link></td>
+						<td><g:link action="show" id="${worshipInstance.id}">${fieldValue(bean: worshipInstance, field: "church")}</g:link></td>
+					
+						<td>${fieldValue(bean: worshipInstance, field: "type")}</td>
 					
 						<td><g:formatDate date="${worshipInstance.date}" /></td>
 					
