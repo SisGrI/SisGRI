@@ -1,6 +1,7 @@
 package org.sisgri.people
 
 import org.sisgri.authentication.Profile
+import org.sisgri.church.Church
 
 class Person {
 	boolean situation
@@ -30,7 +31,10 @@ class Person {
 	String observation
     Profile profile
 
+    static belongsTo = [church:Church]
+
     static constraints = {
+        church blank:false
     	name blank:false
     	cpf blank:false, unique:true
     	rg blank:false, unique:true

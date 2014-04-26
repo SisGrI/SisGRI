@@ -28,7 +28,7 @@
 				<li class="fieldcontain">
 					<span id="church-label" class="property-label"><g:message code="worship.church.label" default="Church" /></span>
 					
-						<span class="property-value" aria-labelledby="church-label"><g:link controller="church" action="show" id="${worshipInstance?.id}">${worshipInstance?.church?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="church-label"><g:link controller="church" action="showToWorship" id="${worshipInstance?.id}">${worshipInstance?.church?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

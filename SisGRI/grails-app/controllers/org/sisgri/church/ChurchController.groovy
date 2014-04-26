@@ -1,6 +1,6 @@
 package org.sisgri.church
 
-
+import org.sisgri.people.Person
 import org.sisgri.worship.Worship
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -17,7 +17,7 @@ class ChurchController {
         respond Church.list(params), model:[churchInstanceCount: Church.count()]
     }
 
-    def show(Worship worshipInstance) {
+    def showToWorship(Worship worshipInstance) {
         if(worshipInstance.church.instanceOf(Headquarter))
             showHeadquarter(worshipInstance.church)
         else if(worshipInstance.church.instanceOf(SubHeadquarter))
@@ -26,15 +26,24 @@ class ChurchController {
             showCongregation(worshipInstance.church)
     }
 
-    def showHeadquarter(Headquarter headquarterInstance) {
+    def showToPerson(Person personInstance) {
+        if(personInstance.church.instanceOf(Headquarter))
+            showHeadquarter(personInstance.church)
+        else if(personInstance.church.instanceOf(SubHeadquarter))
+            showSubHeadquarter(personInstance.church)
+        else
+            showCongregation(personInstance.church)
+    }
+
+    protected def showHeadquarter(Headquarter headquarterInstance) {
         redirect controller:"headquarter", action:"show", id:headquarterInstance.id
     }
 
-    def showSubHeadquarter(SubHeadquarter subHeadquarterInstance) {
+    protected def showSubHeadquarter(SubHeadquarter subHeadquarterInstance) {
         redirect controller:"subHeadquarter", action:"show", id:subHeadquarterInstance.id
     }
 
-    def showCongregation(Congregation congregationInstance) {
+    protected def showCongregation(Congregation congregationInstance) {
         redirect controller:"congregation", action:"show", id:congregationInstance.id
     }
 }
