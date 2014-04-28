@@ -1,5 +1,6 @@
 
 <%@ page import="org.sisgri.worship.Worship" %>
+<%@ page import="org.sisgri.church.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -23,6 +24,15 @@
 			</g:if>
 			<ol class="property-list worship">
 			
+				<g:if test="${worshipInstance?.church}">
+				<li class="fieldcontain">
+					<span id="church-label" class="property-label"><g:message code="worship.church.label" default="Church" /></span>
+					
+						<span class="property-value" aria-labelledby="church-label"><g:link controller="church" action="showToWorship" id="${worshipInstance?.id}">${worshipInstance?.church?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${worshipInstance?.type}">
 				<li class="fieldcontain">
 					<span id="type-label" class="property-label"><g:message code="worship.type.label" default="Type" /></span>
@@ -45,7 +55,7 @@
 				<li class="fieldcontain">
 					<span id="ruling-label" class="property-label"><g:message code="worship.ruling.label" default="Ruling" /></span>
 					
-						<span class="property-value" aria-labelledby="ruling-label"><g:fieldValue bean="${worshipInstance}" field="ruling"/></span>
+						<span class="property-value" aria-labelledby="ruling-label"><g:link controller="person" action="show" id="${worshipInstance?.ruling?.id}">${worshipInstance?.ruling?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -54,7 +64,7 @@
 				<li class="fieldcontain">
 					<span id="prelector-label" class="property-label"><g:message code="worship.prelector.label" default="Prelector" /></span>
 					
-						<span class="property-value" aria-labelledby="prelector-label"><g:fieldValue bean="${worshipInstance}" field="prelector"/></span>
+						<span class="property-value" aria-labelledby="prelector-label"><g:link controller="person" action="show" id="${worshipInstance?.prelector?.id}">${worshipInstance?.prelector?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

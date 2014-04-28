@@ -11,6 +11,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'church', 'error')} required">
+	<label for="church">
+		<g:message code="person.church.label" default="Church" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${personInstance?.church?.id}" class="many-to-one"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: personInstance, field: 'name', 'error')} required">
 	<label for="name">
 		<g:message code="person.name.label" default="Name" />
