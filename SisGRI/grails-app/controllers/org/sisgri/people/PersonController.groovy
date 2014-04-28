@@ -3,6 +3,7 @@ package org.sisgri.people
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
+import org.sisgri.authentication.Profile
 
 @Transactional(readOnly = true)
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
@@ -111,6 +112,23 @@ class PersonController {
                 redirect action: "index", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
+        }
+    }
+    @Transactional
+    def removeProfile(Person personInstance) {
+        if (!personInstance) {
+            notFound()
+            return
+        }
+        try {
+            def profileInstance = Profile.get(personInstance.profile.id)
+            profileInstance.delete(flush: true)
+
+            flash.message = "Perfil Removido"
+            redirect(action: "show", id: personInstance.id)
+        }catch (Exception e) {
+            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'person.label', default: 'Person'), personInstance.id])
+            redirect(action: "show", id: personInstance.id)            
         }
     }
 }

@@ -36,8 +36,7 @@ class ProfileController {
             respond profileInstance.errors, view:'create'
             return
         }
-
-        profileInstance.save flush:true
+        profileInstance.save(flush:true)
 
         request.withFormat {
             form multipartForm {
@@ -47,7 +46,6 @@ class ProfileController {
             '*' { respond profileInstance, [status: CREATED] }
         }
     }
-
     def edit(Profile profileInstance) {
         respond profileInstance
     }

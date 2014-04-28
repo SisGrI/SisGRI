@@ -28,7 +28,8 @@ class Person {
 	Date conversion
 	String post
 	String observation
-    Profile profile
+
+    static belongsTo = [profile: Profile]
 
     static constraints = {
     	name blank:false

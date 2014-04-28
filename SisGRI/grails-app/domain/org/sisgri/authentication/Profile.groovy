@@ -12,7 +12,8 @@ class Profile {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-	Person person
+
+	static belongsTo = [person: Person]
 
 	static transients = ['springSecurityService']
 
@@ -27,6 +28,7 @@ class Profile {
 	}
 
 	static mapping = {
+		person cascade: "save-update"
 		password column: '`password`'
 	}
 

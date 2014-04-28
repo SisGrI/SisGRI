@@ -249,8 +249,18 @@
 				</g:if>
 
 			</ol>
-			<g:form url="[resource:personInstance, action:'delete']" method="DELETE">
+			<g:form>
 				<fieldset class="buttons">
+					<g:hiddenField name="id" value="${personInstance?.id}" />
+
+					<g:if test="${personInstance?.profile?.id == null}">
+						<g:link controller="profile" action="create" class="edit">Criar Perfil</g:link>
+					</g:if>
+
+					<g:if test="${personInstance?.profile?.id != null}">
+						<g:actionSubmit class="delete" action="removeProfile" value="Remover Perfil" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+					</g:if>
+
 					<g:link class="edit" action="edit" resource="${personInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
