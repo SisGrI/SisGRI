@@ -30,8 +30,7 @@ class Person {
 	String post
 	String observation
 
-    static belongsTo = [profile: Profile]
-
+    static hasOne = [profile:Profile]
     static belongsTo = [church:Church]
 
     static constraints = {

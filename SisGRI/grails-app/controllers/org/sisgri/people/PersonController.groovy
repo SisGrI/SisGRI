@@ -121,7 +121,8 @@ class PersonController {
             return
         }
         try {
-            def profileInstance = Profile.get(personInstance.profile.id)
+            def profileInstance = personInstance.profile
+            personInstance.discard()
             profileInstance.delete(flush: true)
 
             flash.message = "Perfil Removido"

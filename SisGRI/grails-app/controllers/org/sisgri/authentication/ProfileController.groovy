@@ -6,7 +6,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
+@Secured(['ROLE_ADMIN'])
 @Transactional(readOnly = true)
 class ProfileController {
 
@@ -75,12 +75,12 @@ class ProfileController {
 
     @Transactional
     def delete(Profile profileInstance) {
-
         if (profileInstance == null) {
             notFound()
             return
         }
 
+        profileInstance.person.discard()
         profileInstance.delete flush:true
 
         request.withFormat {

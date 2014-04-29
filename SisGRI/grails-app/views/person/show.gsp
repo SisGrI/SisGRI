@@ -262,11 +262,11 @@
 				<fieldset class="buttons">
 					<g:hiddenField name="id" value="${personInstance?.id}" />
 
-					<g:if test="${personInstance?.profile?.id == null}">
+					<g:if test="${personInstance?.profile == null}">
 						<g:link controller="profile" action="create" class="edit">Criar Perfil</g:link>
 					</g:if>
 
-					<g:if test="${personInstance?.profile?.id != null}">
+					<g:if test="${personInstance?.profile != null}">
 						<g:actionSubmit class="delete" action="removeProfile" value="Remover Perfil" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 					</g:if>
 

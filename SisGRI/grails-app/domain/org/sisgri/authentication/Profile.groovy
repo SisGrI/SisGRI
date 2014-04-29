@@ -28,7 +28,6 @@ class Profile {
 	}
 
 	static mapping = {
-		person cascade: "save-update"
 		password column: '`password`'
 	}
 
