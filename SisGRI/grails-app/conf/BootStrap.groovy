@@ -17,6 +17,8 @@ class BootStrap {
          birth: dateConversion).save(flush: true)
 
       def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
+      def secretaryRole = new Role(authority: 'ROLE_SECRETARY').save(flush: true)
+      def treasurerRole = new Role(authority: 'ROLE_TREASURER').save(flush: true)
       
       def testProfile = new Profile(username: 'admin', password: 'admin', person: testPerson)
       

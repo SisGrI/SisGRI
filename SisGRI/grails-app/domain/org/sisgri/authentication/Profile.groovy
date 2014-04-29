@@ -48,4 +48,21 @@ class Profile {
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
 	}
+
+	boolean deleteProfileCurrent(Profile profileInstance) {
+        if(springSecurityService.currentUser == profileInstance) {
+            profileInstance.person.discard()
+            ProfileRole.removeAll(profileInstance)
+            profileInstance.delete flush:true
+
+            return true
+        }
+        else {
+            profileInstance.person.discard()
+            ProfileRole.removeAll(profileInstance)
+            profileInstance.delete flush:true
+
+            return false
+        }
+    }
 }

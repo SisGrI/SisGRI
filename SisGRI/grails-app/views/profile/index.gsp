@@ -24,11 +24,11 @@
 			<thead>
 					<tr>
 					
+						<th><g:message code="profile.person.label" default="Person" /></th>
+					
 						<g:sortableColumn property="username" title="${message(code: 'profile.username.label', default: 'Username')}" />
 					
 						<g:sortableColumn property="password" title="${message(code: 'profile.password.label', default: 'Password')}" />
-					
-						<th><g:message code="profile.person.label" default="Person" /></th>
 					
 					</tr>
 				</thead>
@@ -36,11 +36,11 @@
 				<g:each in="${profileInstanceList}" status="i" var="profileInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${profileInstance.id}">${fieldValue(bean: profileInstance, field: "username")}</g:link></td>
+						<td><g:link action="show" id="${profileInstance.id}">${fieldValue(bean: profileInstance, field: "person")}</g:link></td>
+					
+						<td>${fieldValue(bean: profileInstance, field: "username")}</td>
 					
 						<td>${fieldValue(bean: profileInstance, field: "password")}</td>
-					
-						<td>${fieldValue(bean: profileInstance, field: "person")}</td>
 					
 					</tr>
 				</g:each>

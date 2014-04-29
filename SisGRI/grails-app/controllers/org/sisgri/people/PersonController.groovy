@@ -3,11 +3,13 @@ package org.sisgri.people
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
-import org.sisgri.authentication.Profile
+import org.sisgri.authentication.*
 
 @Transactional(readOnly = true)
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
 class PersonController {
+
+    def springSecurityService
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
@@ -122,13 +124,16 @@ class PersonController {
         }
         try {
             def profileInstance = personInstance.profile
-            personInstance.discard()
-            profileInstance.delete(flush: true)
+
+            if(profileInstance.deleteProfileCurrent(profileInstance)) {
+                redirect controller:"logout", method:"GET"
+                return
+            }
 
             flash.message = "Perfil Removido"
             redirect(action: "show", id: personInstance.id)
         }catch (Exception e) {
-            flash.message = message(code: 'default.not.deleted.message', args: [message(code: 'person.label', default: 'Person'), personInstance.id])
+            flash.message = "Perfil não pôde ser removido"
             redirect(action: "show", id: personInstance.id)            
         }
     }

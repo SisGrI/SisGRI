@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list profile">
 			
+				<g:if test="${profileInstance?.person}">
+				<li class="fieldcontain">
+					<span id="person-label" class="property-label"><g:message code="profile.person.label" default="Person" /></span>
+					
+						<span class="property-value" aria-labelledby="person-label"><g:link controller="person" action="show" id="${profileInstance?.person?.id}">${profileInstance?.person?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${profileInstance?.username}">
 				<li class="fieldcontain">
 					<span id="username-label" class="property-label"><g:message code="profile.username.label" default="Username" /></span>
@@ -37,15 +46,6 @@
 					<span id="password-label" class="property-label"><g:message code="profile.password.label" default="Password" /></span>
 					
 						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${profileInstance}" field="password"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${profileInstance?.person}">
-				<li class="fieldcontain">
-					<span id="person-label" class="property-label"><g:message code="profile.person.label" default="Person" /></span>
-					
-						<span class="property-value" aria-labelledby="person-label"><g:link controller="person" action="show" id="${profileInstance?.person?.id}">${profileInstance?.person?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
