@@ -13,7 +13,7 @@ class BootStrap {
 
       def testPerson = new Person(church:headquarter, name: 'Álex', address: 'a', 
          city:'sa', zipCode:'d', birthPlace:'s', cpf:'s', rg:'s', maritalStatus:'Solteiro(a)',
-         department:'Varões', post:'Congregado', observation: 'd', situation: true, email: 'alex@unb.br',
+         department:'Varões', type:'Congregado', observation: 'd', situation: true, email: 'alex@unb.br',
          birth: dateConversion).save(flush: true)
 
       def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)

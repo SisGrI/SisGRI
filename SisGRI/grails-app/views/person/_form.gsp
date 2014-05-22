@@ -1,15 +1,6 @@
 <%@ page import="org.sisgri.people.Person" %>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'photo', 'error')} ">
-	<label for="photo">
-		<g:message code="person.photo.label" default="Photo" />
-		
-	</label>
-	<input type="file" name="photo" />
 
-	<g:actionSubmit action="deletePhoto" value="${message(code: 'default.button.deletePhoto.label', default: 'Delete Photo')}" />
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: personInstance, field: 'church', 'error')} required">
 	<label for="church">
@@ -231,12 +222,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} required">
-	<label for="post">
-		<g:message code="person.post.label" default="Post" />
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'type', 'error')} required">
+	<label for="type">
+		<g:message code="person.type.label" default="Type" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select name="post" from="${personInstance.constraints.post.inList}" required="" value="${personInstance?.post}" valueMessagePrefix="person.post"/>
+	<g:select name="type" from="${personInstance.constraints.type.inList}" required="" value="${personInstance?.type}" valueMessagePrefix="person.type"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} ">
+	<label for="post">
+		<g:message code="person.post.label" default="Post" />
+		
+	</label>
+	<g:select name="post" from="${personInstance.constraints.post.inList}" value="${personInstance?.post}" valueMessagePrefix="person.post" noSelection="['': '']"/>
 
 </div>
 

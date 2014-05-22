@@ -27,6 +27,7 @@ class Person {
 	String profession
 	boolean baptismHollySpirit
 	Date conversion
+    String type
 	String post
 	String observation
 
@@ -58,7 +59,8 @@ class Person {
     	spouse nullable:true
     	marriageDate nullable:true, attributes:[years:1920..2014]
     	department blank:false, inList:['Varões','Senhoras','Jovens', 'Adolescentes','Crianças']
-    	post blank:false, inList:['Congregado','Membro','Cooperador(a)','Diácono(a)','Presbítero','Evangelista','Missionário(a)','Pastor']
+        type blank:false, inList:['Congregado','Membro']
+    	post nullable:true, inList:['Cooperador(a)','Diácono(a)','Presbítero','Evangelista','Missionário(a)','Pastor']
     	observation nullable:true, widget:'textarea'
         profile nullable:true, display: false
     }
