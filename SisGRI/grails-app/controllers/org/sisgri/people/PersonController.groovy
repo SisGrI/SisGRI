@@ -25,7 +25,48 @@ class PersonController {
     }
 
     def resultSearch(){
-        render params
+        def dateBefore = new Date()
+        def dateString ="01/01/2014"
+
+        if(params.birth_year==""){
+            params.birth_year = (dateBefore.year + 1900).toString()
+        }
+        if(params.birth_month!=""){
+            dateString = "01"+"/"+params.birth_month+"/"+ params.birth_year
+        }
+
+        dateBefore = dateBefore.parse('dd/MM/yyyy', dateString)
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.MONTH, dateBefore.month); 
+
+        def dateAfter = new Date()
+        dateAfter.month = dateBefore.month
+        dateAfter.year = dateBefore.year
+        dateAfter.date = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        
+        def criteria = Person.createCriteria()
+        def search = criteria.list {
+            church{
+                if(params.church!=""){
+                    like("name", "%"+params.church+"%")
+                }
+            }
+            if(params.birth_month!="")
+                between('birth', dateBefore, dateAfter)
+            if(params.type!="")
+                like("type", "%"+params.type+"%")
+            if(params.name!="")
+                like("name", "%"+params.name+"%")
+            if(params.situation!=null)
+                eq('situation', params.situation.toBoolean())
+            if(params.cpf!="")
+                like("cpf", "%"+params.cpf+"%")
+            if(params.post!="")
+                like("post", "%"+params.post+"%")
+            
+        }
+        respond search, model:[personInstanceCount: Person.count()]
     }
 
     def show(Person personInstance) {
