@@ -6,6 +6,9 @@ import grails.transaction.Transactional
 class PhotoService {
 
     def upload(Person personInstance, def photo) {
+        if (!photo) {
+            return
+        }
     	new File('fotos').mkdirs()
         def photoPath = 'fotos/'+personInstance.id+'.jpg'
         

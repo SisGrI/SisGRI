@@ -22,7 +22,43 @@ class WorshipController {
     }
 
     def resultSearch() {
-        render params
+        def dateBefore = new Date()
+        def dateString ="01/01/2014"
+
+        if(params.date_year==""){
+            params.date_year = (dateBefore.year + 1900).toString()
+        }
+        if(params.date_month!=""){
+            dateString = "01"+"/"+params.date_month+"/"+ params.date_year
+        }
+
+        dateBefore = dateBefore.parse('dd/MM/yyyy', dateString)
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.MONTH, dateBefore.month); 
+
+        def dateAfter = new Date()
+        dateAfter.month = dateBefore.month
+        dateAfter.year = dateBefore.year
+        dateAfter.date = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+
+        def criteria = Worship.createCriteria()
+        def search = criteria.list {
+            ruling{
+                if(params.ruling!="")
+                    like("name", "%"+params.ruling+"%")
+            }
+            prelector{
+                if(params.prelector!="")
+                    like("name", "%"+params.prelector+"%")
+            }
+            if(params.date_month!="")
+                between('date', dateBefore, dateAfter)
+
+            if(params.type!="")
+                eq("type", params.type)
+        }
+        respond search, model:[worshipInstanceCount: Worship.count()]
     }
 
     def show(Worship worshipInstance) {
