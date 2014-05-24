@@ -17,6 +17,14 @@ class WorshipController {
         respond Worship.list(params), model:[worshipInstanceCount: Worship.count()]
     }
 
+    def search() {
+        respond new Worship(params)
+    }
+
+    def resultSearch() {
+        render params
+    }
+
     def show(Worship worshipInstance) {
         respond worshipInstance
     }
