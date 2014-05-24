@@ -27,7 +27,7 @@
 				<li class="fieldcontain">
 					<span id="church-label" class="property-label"><g:message code="person.church.label" default="Church" /></span>
 					
-						<span class="property-value" aria-labelledby="church-label"><g:link controller="church" action="show" id="${personInstance?.church?.id}">${personInstance?.church?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="church-label"><g:link controller="church" action="showToPerson" id="${personInstance?.id}">${personInstance?.church?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -267,8 +267,17 @@
 				</g:if>
 			
 			</ol>
-			<g:form url="[resource:personInstance, action:'delete']" method="DELETE">
+			<g:form>
 				<fieldset class="buttons">
+					<g:hiddenField name="id" value="${personInstance?.id}" />
+ 
+ 					<g:if test="${personInstance?.profile == null}">
+ 						<g:link controller="profile" action="create" class="edit" id="${personInstance?.id}">Criar Perfil</g:link>
+ 					</g:if>
+ 
+ 					<g:if test="${personInstance?.profile != null}">
+ 						<g:actionSubmit class="delete" action="removeProfile" value="Remover Perfil" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+ 					</g:if>
 					<g:link class="edit" action="edit" resource="${personInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
 					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 				</fieldset>
@@ -276,3 +285,4 @@
 		</div>
 	</body>
 </html>
+personInstance?.

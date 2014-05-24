@@ -38,6 +38,12 @@ class ProfileController {
             return
         }
 
+        if (profileInstance.person.email == null) {
+            flash.message = "Não se pode criar um perfil para uma pessoa que não tenha um email válido!"
+            redirect action:"create", id:profileInstance.person.id
+            return
+        }
+
         profileInstance.save(flush:true)
 
         connectRole(profileInstance, params.type)

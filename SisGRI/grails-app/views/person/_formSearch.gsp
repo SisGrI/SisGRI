@@ -21,7 +21,7 @@
 	<label for="situation">
 		<g:message code="person.situation.label" default="situation" />
 	</label>
-	<g:radioGroup name="situation" labels="['Sim','Não']" values="['true','false']" value="${personInstance?.situation}">
+	<g:radioGroup name="situation" labels="['Sim','Não']" values="['true','false']" value="" >
 		<span>${it.radio} ${it.label}</span>
 	</g:radioGroup>
 

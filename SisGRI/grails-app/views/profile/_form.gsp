@@ -7,7 +7,7 @@
 		<g:message code="profile.person.label" default="Person" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="person" name="person.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${profileInstance?.person?.id}" class="many-to-one"/>
+	<g:select id="person" name="person.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${params.id}" class="many-to-one"/>
 
 </div>
 
