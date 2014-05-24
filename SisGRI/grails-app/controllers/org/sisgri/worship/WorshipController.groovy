@@ -44,6 +44,11 @@ class WorshipController {
 
         def criteria = Worship.createCriteria()
         def search = criteria.list {
+            church{
+                if(params.church!=""){
+                    like("name", "%"+params.church+"%")
+                }
+            }
             ruling{
                 if(params.ruling!="")
                     like("name", "%"+params.ruling+"%")

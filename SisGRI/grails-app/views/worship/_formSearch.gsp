@@ -6,7 +6,7 @@
 	<label for="church">
 		<g:message code="worship.church.label" default="Church" />
 	</label>
-	<g:select id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" value="${worshipInstance?.church?.id}" class="many-to-one" noSelection="['': '']"/>
+	<g:textField name="church" value=""/>
 
 </div>
 

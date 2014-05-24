@@ -20,6 +20,14 @@ class PersonController {
         respond Person.list(params), model:[personInstanceCount: Person.count()]
     }
 
+    def search(){
+        respond new Person(params)
+    }
+
+    def resultSearch(){
+        render params
+    }
+
     def show(Person personInstance) {
         respond personInstance
     }
