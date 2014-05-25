@@ -111,7 +111,9 @@
 
 			<p>
 				<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
-				<g:link action="recoveryProfile"> Recuperar Perfil</g:link>
+			</p>
+			<p>
+				<g:link action="recoveryProfile"> Esqueci minha senha</g:link>
 			</p>
 		</form>
 	</div>

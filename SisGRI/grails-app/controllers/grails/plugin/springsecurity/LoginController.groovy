@@ -73,13 +73,13 @@ final RANGE = 90000000
 		int newPassword = Math.abs(new Random().nextInt() % RANGE) + RANGE/9
 		user.profile.password=newPassword.toString()
 
-		String mensagem = "Segue abaixo os seus dados de login, juntamente com a sua nova senha.\n\nLogin: " + user.profile.username + 
-			"\n\nA sua nova senha é:\n" + newPassword + "\n\nOBS:Após o login, sugerimos a troca da senha.\n\nAtt,\nSisGRI"
-		println mensagem
+		String message = "Segue abaixo os seus dados de login, juntamente com a sua nova senha.\n\n"+
+			"Usuário: " + user.profile.username + "\n\nA sua nova senha é:\n" + newPassword + 
+			"\n\nOBS:Após o login, sugerimos a troca da senha.\n\nAtt,\nSisGRI"
 		
-		notificationService.sendProfile(params.email, mensagem)
+		notificationService.sendProfile(params.email, message)
 		
-		user.save()
+		user.save flush:true
 		
 		flash.message = "Dados enviados! Verifique o seu email"
 		redirect action: 'auth'
