@@ -20,6 +20,24 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: subHeadquarterInstance, field: 'registers', 'error')} ">
+	<label for="registers">
+		<g:message code="subHeadquarter.registers.label" default="Registers" />
+		
+	</label>
+	
+<ul class="one-to-many">
+<g:each in="${subHeadquarterInstance?.registers?}" var="r">
+    <li><g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="register" action="create" params="['subHeadquarter.id': subHeadquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'register.label', default: 'Register')])}</g:link>
+</li>
+</ul>
+
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: subHeadquarterInstance, field: 'congregations', 'error')} ">
 	<label for="congregations">
 		<g:message code="subHeadquarter.congregations.label" default="Congregations" />

@@ -41,6 +41,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${congregationInstance?.registers}">
+				<li class="fieldcontain">
+					<span id="registers-label" class="property-label"><g:message code="congregation.registers.label" default="Registers" /></span>
+					
+						<g:each in="${congregationInstance.registers}" var="r">
+						<span class="property-value" aria-labelledby="registers-label"><g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${congregationInstance?.subHeadquarter}">
 				<li class="fieldcontain">
 					<span id="subHeadquarter-label" class="property-label"><g:message code="congregation.subHeadquarter.label" default="Sub Headquarter" /></span>

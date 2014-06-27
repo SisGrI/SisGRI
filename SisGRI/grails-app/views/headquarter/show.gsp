@@ -41,6 +41,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${headquarterInstance?.registers}">
+				<li class="fieldcontain">
+					<span id="registers-label" class="property-label"><g:message code="headquarter.registers.label" default="Registers" /></span>
+					
+						<g:each in="${headquarterInstance.registers}" var="r">
+						<span class="property-value" aria-labelledby="registers-label"><g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${headquarterInstance?.subHeadquarters}">
 				<li class="fieldcontain">
 					<span id="subHeadquarters-label" class="property-label"><g:message code="headquarter.subHeadquarters.label" default="Sub Headquarters" /></span>
