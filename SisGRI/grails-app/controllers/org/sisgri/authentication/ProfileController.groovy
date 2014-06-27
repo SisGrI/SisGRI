@@ -18,6 +18,10 @@ class ProfileController {
         respond Profile.list(params), model:[profileInstanceCount: Profile.count()]
     }
 
+    def showCurrentProfile() {
+        redirect action:"show", id:springSecurityService.currentUser.id
+    }
+
     def show(Profile profileInstance) {
         respond profileInstance
     }

@@ -420,8 +420,8 @@ Header and header elements.
   border: 0px;
   padding: 0px; 
   box-shadow: none;
-  height: 42px; 
-  min-height: 42px;
+  height: 50px; 
+  min-height: 50px;
 }
 
 .header.navbar.navbar-fixed-top {
@@ -435,7 +435,7 @@ Header and header elements.
   padding-left: 0;
   padding-right: 0;
   width: 225px;
-  height: 42px;
+  height: 50px;
 }
 
 .header.navbar .navbar-brand img {
@@ -625,7 +625,7 @@ Page container
 }
 
 .page-header-fixed .page-container {
-  margin-top: 42px;  
+  margin-top: 50px;  
 }
 
 /*** IE 8 Fixes ***/
@@ -964,7 +964,7 @@ Sidebar toggler(show/hide)
   float: left;
   display: inline-block;
   margin-top: 6px;
-  margin-left: -42px;
+  margin-left: -50px;
 }
 
 /***
@@ -2320,7 +2320,7 @@ Chats
 }
 
 .chat-form .btn-cont {
-  margin-top: -42px;
+  margin-top: -50px;
   position: relative;
   float: right;
   width:44px;
@@ -3387,7 +3387,7 @@ Mega Menu(new in v1.6)
 }
 
 .page-boxed .mega-menu .mega-menu-dropdown .dropdown-menu {  
-  top: 42px;
+  top: 50px;
 }
 
 .page-boxed .mega-menu .mega-menu-dropdown.mega-menu-full .dropdown-menu {
@@ -3509,7 +3509,7 @@ Horezantal Menu(new in v1.2)
 
 .header.navbar .hor-menu .search-form {
   margin: 0;
-  top:42px; 
+  top:50px; 
   right:0px; 
   padding:0 4px; 
   display:none;
