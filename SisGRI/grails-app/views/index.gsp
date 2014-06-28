@@ -3,6 +3,7 @@
 	<head>
 		<meta name="layout" content="main"/>
 		<title>SisGrI - Gerenciamento de Igrejas</title>
+		<link rel="stylesheet" href="${resource(dir: 'css', file: 'error.css')}" type="text/css">
 	</head>
 	<body>
 		<div id="page-body" role="main">

@@ -17,6 +17,10 @@
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'uniform.default.css')}" type="text/css">
 
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'select2.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'select2-metronic.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'DT_bootstrap.css')}" type="text/css">
+
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'style-metronic.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'style-responsive.css')}" type="text/css">
@@ -92,6 +96,57 @@
 							</li>
 							<li>
 								<a href="javascript:;">
+									<i class="fa fa-building-o"></i>
+									<span class="title">
+										Igrejas
+									</span>
+									<span class="arrow ">
+									</span>
+								</a>
+								<ul class="sub-menu">
+									<li>
+										<g:link controller="headquarter">
+											Sedes
+										</g:link>
+									</li>
+									<li>
+										<g:link controller="subHeadquarter">
+											Sub-Sedes
+										</g:link>
+									</li>
+									<li>
+										<g:link controller="congregation">
+											Congregações
+										</g:link>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<i class="fa fa-book"></i>
+									<span class="title">
+										Cultos
+									</span>
+									<span class="arrow ">
+									</span>
+								</a>
+								<ul class="sub-menu">
+									<li>
+										<g:link controller="worship" action="search">
+											<i class="fa fa-search"></i>
+											Pesquisar Cultos
+										</g:link>
+									</li>
+									<li>
+										<g:link controller="worship" action="create">
+											<i class="fa fa-plus"></i>
+											Cadastrar Culto
+										</g:link>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="javascript:;">
 									<i class="fa fa-users"></i>
 									<span class="title">
 										Pessoas
@@ -100,6 +155,12 @@
 									</span>
 								</a>
 								<ul class="sub-menu">
+									<li>
+										<g:link controller="profile">
+											<i class="fa fa-user"></i>
+											Perfis
+										</g:link>
+									</li>
 									<li>
 										<g:link controller="person" action="search">
 											<i class="fa fa-search"></i>
@@ -145,11 +206,17 @@
         <g:javascript src="jquery.cokie.min.js" />
         <g:javascript src="jquery.uniform.min.js" />
 
+        <g:javascript src="select2.min.js" />
+        <g:javascript src="jquery.dataTables.js" />
+        <g:javascript src="DT_bootstrap.js" />
+
         <g:javascript src="app.js" />
+        <g:javascript src="table-managed.js" />
 
         <script>
 			jQuery(document).ready(function() {    
 			   App.init();
+			   TableManaged.init();
 			});
 		</script>
 

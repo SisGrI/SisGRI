@@ -15,11 +15,6 @@ class PersonController {
 
     def photoService
 
-    def index(Integer max) {
-        params.max = Math.min(max ?: 10, 100)
-        respond Person.list(params), model:[personInstanceCount: Person.count()]
-    }
-
     def search(){
         respond new Person(params)
     }

@@ -502,7 +502,7 @@ Header and header elements.
 }
 
 .header.navbar .navbar-nav > li.dropdown.user .dropdown-toggle {
-  padding: 7px 0px 6px 6px;
+  padding: 7px 0px 11px 6px;
 }
 
 .header.navbar .navbar-nav > li.dropdown.user .dropdown-toggle:hover {
