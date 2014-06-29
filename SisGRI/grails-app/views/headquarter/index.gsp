@@ -21,7 +21,7 @@
 					</li>
 					<li>
 						<g:link>
-							Sedes
+							Headquarters
 						</g:link>
 					</li>
 				</ul>
@@ -40,7 +40,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Sedes
+							<i class="fa fa-list"></i>Headquarters
 						</div>
 						<div class="tools">
 							<a href="javascript:;" class="collapse">
@@ -55,58 +55,31 @@
 							</a>
 						</div>
 					</div>
-
 					<div class="portlet-body">
-						<table class="table table-striped table-bordered table-hover" id="sample_1">
+						<table class="table table-striped table-bordered table-hover" id="sample_2">
 							<thead>
 								<tr>
-									<th>
-										Nome
-									</th>
-									<th>
-										Endereço
-									</th>
+								
+									<th><g:message code="headquarter.name.label" default="Name" /></th>
+								
+									<th><g:message code="headquarter.address.label" default="Address" /></th>
+								
 								</tr>
 							</thead>
+							<tbody>
+								<g:each in="${headquarterInstanceList}" status="i" var="headquarterInstance">
+									<tr class="odd gradeX">
+									
+										<td><g:link action="show" id="${headquarterInstance.id}">${fieldValue(bean: headquarterInstance, field: "name")}</g:link></td>
+									
+										<td>${fieldValue(bean: headquarterInstance, field: "address")}</td>
+									
+									</tr>
+								</g:each>
+							</tbody>
 						</table>
 					</div>
 				</div>
-			</div>
-		</div>
-
-
-
-
-
-		<div id="list-headquarter" class="content scaffold-list" role="main">
-			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-				<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<table>
-			<thead>
-					<tr>
-					
-						<g:sortableColumn property="name" title="${message(code: 'headquarter.name.label', default: 'Name')}" />
-					
-						<g:sortableColumn property="address" title="${message(code: 'headquarter.address.label', default: 'Address')}" />
-					
-					</tr>
-				</thead>
-				<tbody>
-				<g:each in="${headquarterInstanceList}" status="i" var="headquarterInstance">
-					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${headquarterInstance.id}">${fieldValue(bean: headquarterInstance, field: "name")}</g:link></td>
-					
-						<td>${fieldValue(bean: headquarterInstance, field: "address")}</td>
-					
-					</tr>
-				</g:each>
-				</tbody>
-			</table>
-			<div class="pagination">
-				<g:paginate total="${headquarterInstanceCount ?: 0}" />
 			</div>
 		</div>
 	</body>
