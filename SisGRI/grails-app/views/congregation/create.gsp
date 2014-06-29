@@ -6,8 +6,6 @@
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#create-congregation" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-
 		<div class="row">
 	        <div class="col-md-12">
 	            <h3 class="page-title">Congregation</h3>
@@ -31,7 +29,6 @@
 						</g:link>
 	                </li>
 	            </ul>
-	            <!-- END PAGE TITLE & BREADCRUMB-->
 	        </div>
 
 
@@ -49,8 +46,6 @@
 				</div>
 			</div>
 			
-			
-			%{-- AKI --}%
 			<div class="row">
 				<div class="col-md-12">
 					<g:hasErrors bean="${congregationInstance}">
