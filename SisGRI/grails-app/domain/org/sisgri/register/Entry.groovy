@@ -7,7 +7,7 @@ class Entry extends Register{
 	float value
 
     static constraints = {
-    	category inList:['1.01 - (*) DIZIMO OBREIROS', '1.02 - (*) DIZIMO MEMBROS', 
+    	category blank:false, inList:['1.01 - (*) DIZIMO OBREIROS', '1.02 - (*) DIZIMO MEMBROS', 
     		'1.03 - (*) OFERTA DOS CULTOS', '1.04 - (*) ESCOLA DOMINICAL', 
     		'1.05 - REPASSE DE SUB-SEDE', '1.06 - REPASSE CONGREGAÇÃO', 
     		'1.07 - REPASSE SUB-CONGREG.', '1.08 - REPASSE CONG. ADOLESC.', 

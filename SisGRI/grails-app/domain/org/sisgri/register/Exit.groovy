@@ -6,7 +6,7 @@ class Exit extends Register{
 	float value
 
     static constraints = {
-    	category inList:['2.01 REPASSE P/ SEDE', '2.02 REP. CONGRESSO JOVENS', 
+    	category blank:false, inList:['2.01 REPASSE P/ SEDE', '2.02 REP. CONGRESSO JOVENS', 
     		'2.03 REP. CONGRES. ADOLESCENTES', '2.04 REP. CONGRES. CRIANÇAS', 
     		'2.05 REP. CONGRESSO CIBE', '2.06 REP. CONGRESSO MISSÕES', 
     		'2.07 REP. OUTRAS FINALIDADES', '2.08 REP. P/ CONGREGAÇÃO', 
