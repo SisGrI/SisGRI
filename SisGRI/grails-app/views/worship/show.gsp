@@ -1,6 +1,5 @@
 
 <%@ page import="org.sisgri.worship.Worship" %>
-<%@ page import="org.sisgri.church.*" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,73 +8,146 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-worship" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="search" action="search"><g:message code="default.search.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-worship" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list worship">
-			
-				<g:if test="${worshipInstance?.church}">
-				<li class="fieldcontain">
-					<span id="church-label" class="property-label"><g:message code="worship.church.label" default="Church" /></span>
-					
-						<span class="property-value" aria-labelledby="church-label"><g:link controller="church" action="showToWorship" id="${worshipInstance?.id}">${worshipInstance?.church?.encodeAsHTML()}</g:link></span>
-					
-				</li>
+		<div class="row">
+	        <div class="col-md-12">
+	            <h3 class="page-title">Worship</h3>
+	            <ul class="page-breadcrumb breadcrumb">
+	                <li>
+	                    <i class="fa fa-home"></i>
+	                    <a href="${createLink(uri: '/')}">
+							Página Inicial
+						</a>
+	                    <i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+	                	<g:link>
+							Worships
+						</g:link>
+						<i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+						Detalhar
+	                </li>
+	            </ul>
+	        </div>
+	    	<div class="col-md-12">
+				<g:if test="${flash.message}">
+					<div class="alert alert-info alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					    ${flash.message}
+					</div>
 				</g:if>
-			
-				<g:if test="${worshipInstance?.type}">
-				<li class="fieldcontain">
-					<span id="type-label" class="property-label"><g:message code="worship.type.label" default="Type" /></span>
-					
-						<span class="property-value" aria-labelledby="type-label"><g:fieldValue bean="${worshipInstance}" field="type"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${worshipInstance?.date}">
-				<li class="fieldcontain">
-					<span id="date-label" class="property-label"><g:message code="worship.date.label" default="Date" /></span>
-					
-						<span class="property-value" aria-labelledby="date-label"><g:formatDate date="${worshipInstance?.date}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${worshipInstance?.ruling}">
-				<li class="fieldcontain">
-					<span id="ruling-label" class="property-label"><g:message code="worship.ruling.label" default="Ruling" /></span>
-					
-						<span class="property-value" aria-labelledby="ruling-label"><g:link controller="person" action="show" id="${worshipInstance?.ruling?.id}">${worshipInstance?.ruling?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${worshipInstance?.prelector}">
-				<li class="fieldcontain">
-					<span id="prelector-label" class="property-label"><g:message code="worship.prelector.label" default="Prelector" /></span>
-					
-						<span class="property-value" aria-labelledby="prelector-label"><g:link controller="person" action="show" id="${worshipInstance?.prelector?.id}">${worshipInstance?.prelector?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:worshipInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${worshipInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
+			</div>
+			<div class="col-md-12">
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-reorder"></i>Detalhar Worship
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<!-- BEGIN FORM-->
+						<g:form class="form-horizontal" role="form">
+							<div class="form-body">
+								<h3 class="form-section">Dados</h3>
+								<div class="row">
+									
+									<g:if test="${worshipInstance?.church}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Church</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:link controller="church" action="show" id="${worshipInstance?.church?.id}">${worshipInstance?.church?.encodeAsHTML()}</g:link>
+												</p>
+											</div>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${worshipInstance?.type}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Type</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${worshipInstance}" field="type"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${worshipInstance?.date}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Date</label>
+												
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:formatDate date="${worshipInstance?.date}" />
+													</p>
+												</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${worshipInstance?.ruling}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Ruling</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:link controller="person" action="show" id="${worshipInstance?.ruling?.id}">${worshipInstance?.ruling?.encodeAsHTML()}</g:link>
+												</p>
+											</div>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${worshipInstance?.prelector}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Prelector</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:link controller="person" action="show" id="${worshipInstance?.prelector?.id}">${worshipInstance?.prelector?.encodeAsHTML()}</g:link>
+												</p>
+											</div>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									</div>
+								</div>
+							<div class="form-actions right">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-offset-3 col-md-9">
+											<g:hiddenField name="id" value="${worshipInstance?.id}" />
+
+											<g:link class="btn blue" action="edit" id="${worshipInstance?.id}">
+											<i class="fa fa-pencil"></i> Editar	</g:link>
+
+											<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+											</g:actionSubmit>
+										</div>
+									</div>
+								</div>
+							</div>
+						</g:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

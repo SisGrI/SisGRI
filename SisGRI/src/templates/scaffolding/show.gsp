@@ -8,53 +8,131 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-${domainClass.propertyName}" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="\${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-${domainClass.propertyName}" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="\${flash.message}">
-			<div class="message" role="status">\${flash.message}</div>
-			</g:if>
-			<ol class="property-list ${domainClass.propertyName}">
-			<%  excludedProps = Event.allEvents.toList() << 'id' << 'version'
-				allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
-				props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) && (domainClass.constrainedProperties[it.name] ? domainClass.constrainedProperties[it.name].display : true) }
-				Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
-				props.each { p -> %>
-				<g:if test="\${${propertyName}?.${p.name}}">
-				<li class="fieldcontain">
-					<span id="${p.name}-label" class="property-label"><g:message code="${domainClass.propertyName}.${p.name}.label" default="${p.naturalName}" /></span>
-					<%  if (p.isEnum()) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:fieldValue bean="\${${propertyName}}" field="${p.name}"/></span>
-					<%  } else if (p.oneToMany || p.manyToMany) { %>
-						<g:each in="\${${propertyName}.${p.name}}" var="${p.name[0]}">
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:link controller="${p.referencedDomainClass?.propertyName}" action="show" id="\${${p.name[0]}.id}">\${${p.name[0]}?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					<%  } else if (p.manyToOne || p.oneToOne) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:link controller="${p.referencedDomainClass?.propertyName}" action="show" id="\${${propertyName}?.${p.name}?.id}">\${${propertyName}?.${p.name}?.encodeAsHTML()}</g:link></span>
-					<%  } else if (p.type == Boolean || p.type == boolean) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:formatBoolean boolean="\${${propertyName}?.${p.name}}" /></span>
-					<%  } else if (p.type == Date || p.type == java.sql.Date || p.type == java.sql.Time || p.type == Calendar) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:formatDate date="\${${propertyName}?.${p.name}}" /></span>
-					<%  } else if (!p.type.isArray()) { %>
-						<span class="property-value" aria-labelledby="${p.name}-label"><g:fieldValue bean="\${${propertyName}}" field="${p.name}"/></span>
-					<%  } %>
-				</li>
+		<div class="row">
+	        <div class="col-md-12">
+	            <h3 class="page-title">${className}</h3>
+	            <ul class="page-breadcrumb breadcrumb">
+	                <li>
+	                    <i class="fa fa-home"></i>
+	                    <a href="\${createLink(uri: '/')}">
+							Página Inicial
+						</a>
+	                    <i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+	                	<g:link>
+							${className}s
+						</g:link>
+						<i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+						Detalhar
+	                </li>
+	            </ul>
+	        </div>
+	    	<div class="col-md-12">
+				<g:if test="\${flash.message}">
+					<div class="alert alert-info alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					    \${flash.message}
+					</div>
 				</g:if>
-			<%  } %>
-			</ol>
-			<g:form url="[resource:${propertyName}, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="\${${propertyName}}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
+			</div>
+			<div class="col-md-12">
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-reorder"></i>Detalhar ${className}
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<!-- BEGIN FORM-->
+						<g:form class="form-horizontal" role="form">
+							<div class="form-body">
+								<h3 class="form-section">Dados</h3>
+								<div class="row">
+									<% excludedProps = Event.allEvents.toList() << 'id' << 'version'
+									allowedNames = domainClass.persistentProperties*.name << 'dateCreated' << 'lastUpdated'
+									props = domainClass.properties.findAll { allowedNames.contains(it.name) && !excludedProps.contains(it.name) }
+									Collections.sort(props, comparator.constructors[0].newInstance([domainClass] as Object[]))
+									props.each { p -> %>
+									<g:if test="\${${propertyName}?.${p.name}}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">${p.naturalName}</label>
+												<% if (p.isEnum()) { %>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:fieldValue bean="\${${propertyName}}" field="${p.name}"/>
+													</p>
+												</div>
+										<%  } else if (p.oneToMany || p.manyToMany) { %>
+											<g:each status="i" in="\${${propertyName}.${p.name}}" var="${p.name[0]}">
+												<g:if test="\${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="${p.referencedDomainClass?.propertyName}" action="show" id="\${${p.name[0]}.id}">\${${p.name[0]}?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										<%  } else if (p.manyToOne || p.oneToOne) { %>
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:link controller="${p.referencedDomainClass?.propertyName}" action="show" id="\${${propertyName}?.${p.name}?.id}">\${${propertyName}?.${p.name}?.encodeAsHTML()}</g:link>
+												</p>
+											</div>
+										<%  } else if (p.type == Boolean || p.type == boolean) { %>
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:formatBoolean boolean="\${${propertyName}?.${p.name}}" />
+												</p>
+											</div>	
+											<% } else if (p.type == Date || p.type == java.sql.Date || p.type == java.sql.Time || p.type == Calendar) { %>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:formatDate date="\${${propertyName}?.${p.name}}" />
+													</p>
+												</div>
+											<% } else if ((p.type==([] as byte[]).class) || (p.type==([] as Byte[]).class)) { %>
+												<span class="property-value" aria-labelledby="${p.name}-label">
+													<g:link action="download${p.name}" id="\${${propertyName}.id}">
+														<g:img dir="images" file="icon-file2.gif"/>
+													</g:link>
+												</span>
+											<% } else if (!p.type.isArray()) { %>
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="\${${propertyName}}" field="${p.name}"/>
+												</p>
+											</div>
+											<% } %>
+											</div>
+										</div>
+									</g:if>
+									<% } %>
+									</div>
+								</div>
+							<div class="form-actions right">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-offset-3 col-md-9">
+											<g:hiddenField name="id" value="\${${propertyName}?.id}" />
+
+											<g:link class="btn blue" action="edit" id="\${${propertyName}?.id}">
+											<i class="fa fa-pencil"></i> Editar	</g:link>
+
+											<g:actionSubmit class="btn red" action="delete" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+											</g:actionSubmit>
+										</div>
+									</div>
+								</div>
+							</div>
+						</g:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

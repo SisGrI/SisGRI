@@ -18,13 +18,13 @@
 
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: entryInstance, field: 'category', 'error')} ">
+	<div class="fieldcontain ${hasErrors(bean: entryInstance, field: 'category', 'error')} required">
 		<label class="control-label col-md-3" for="category">
 			<g:message code="entry.category.label" default="Category" />
-			
+			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select name="category" from="${entryInstance.constraints.category.inList}" value="${entryInstance?.category}" valueMessagePrefix="entry.category" noSelection="['': '']"/>
+			<g:select name="category" from="${entryInstance.constraints.category.inList}" required="" value="${entryInstance?.category}" valueMessagePrefix="entry.category"/>
 
 		</div>
 	</div>

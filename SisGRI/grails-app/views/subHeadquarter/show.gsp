@@ -8,77 +8,196 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-subHeadquarter" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-subHeadquarter" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list subHeadquarter">
-			
-				<g:if test="${subHeadquarterInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="subHeadquarter.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${subHeadquarterInstance}" field="name"/></span>
-					
-				</li>
+		<div class="row">
+	        <div class="col-md-12">
+	            <h3 class="page-title">SubHeadquarter</h3>
+	            <ul class="page-breadcrumb breadcrumb">
+	                <li>
+	                    <i class="fa fa-home"></i>
+	                    <a href="${createLink(uri: '/')}">
+							Página Inicial
+						</a>
+	                    <i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+	                	<g:link>
+							SubHeadquarters
+						</g:link>
+						<i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+						Detalhar
+	                </li>
+	            </ul>
+	        </div>
+	    	<div class="col-md-12">
+				<g:if test="${flash.message}">
+					<div class="alert alert-info alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					    ${flash.message}
+					</div>
 				</g:if>
-			
-				<g:if test="${subHeadquarterInstance?.address}">
-				<li class="fieldcontain">
-					<span id="address-label" class="property-label"><g:message code="subHeadquarter.address.label" default="Address" /></span>
-					
-						<span class="property-value" aria-labelledby="address-label"><g:fieldValue bean="${subHeadquarterInstance}" field="address"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${subHeadquarterInstance?.registers}">
-				<li class="fieldcontain">
-					<span id="registers-label" class="property-label"><g:message code="subHeadquarter.registers.label" default="Registers" /></span>
-					
-						<g:each in="${subHeadquarterInstance.registers}" var="r">
-						<span class="property-value" aria-labelledby="registers-label"><g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${subHeadquarterInstance?.congregations}">
-				<li class="fieldcontain">
-					<span id="congregations-label" class="property-label"><g:message code="subHeadquarter.congregations.label" default="Congregations" /></span>
-					
-						<g:each in="${subHeadquarterInstance.congregations}" var="c">
-						<span class="property-value" aria-labelledby="congregations-label"><g:link controller="congregation" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${subHeadquarterInstance?.headquarter}">
-				<li class="fieldcontain">
-					<span id="headquarter-label" class="property-label"><g:message code="subHeadquarter.headquarter.label" default="Headquarter" /></span>
-					
-						<span class="property-value" aria-labelledby="headquarter-label"><g:link controller="headquarter" action="show" id="${subHeadquarterInstance?.headquarter?.id}">${subHeadquarterInstance?.headquarter?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:subHeadquarterInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${subHeadquarterInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
+			</div>
+			<div class="col-md-12">
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-reorder"></i>Detalhar SubHeadquarter
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<!-- BEGIN FORM-->
+						<g:form class="form-horizontal" role="form">
+							<div class="form-body">
+								<h3 class="form-section">Dados</h3>
+								<div class="row">
+									
+									<g:if test="${subHeadquarterInstance?.name}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Name</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${subHeadquarterInstance}" field="name"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${subHeadquarterInstance?.address}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Address</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${subHeadquarterInstance}" field="address"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${subHeadquarterInstance?.worship}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Worship</label>
+												
+											<g:each status="i" in="${subHeadquarterInstance.worship}" var="w">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="worship" action="show" id="${w.id}">${w?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${subHeadquarterInstance?.person}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Person</label>
+												
+											<g:each status="i" in="${subHeadquarterInstance.person}" var="p">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="person" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${subHeadquarterInstance?.registers}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Registers</label>
+												
+											<g:each status="i" in="${subHeadquarterInstance.registers}" var="r">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${subHeadquarterInstance?.congregations}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Congregations</label>
+												
+											<g:each status="i" in="${subHeadquarterInstance.congregations}" var="c">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="congregation" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${subHeadquarterInstance?.headquarter}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Headquarter</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:link controller="headquarter" action="show" id="${subHeadquarterInstance?.headquarter?.id}">${subHeadquarterInstance?.headquarter?.encodeAsHTML()}</g:link>
+												</p>
+											</div>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									</div>
+								</div>
+							<div class="form-actions right">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-offset-3 col-md-9">
+											<g:hiddenField name="id" value="${subHeadquarterInstance?.id}" />
+
+											<g:link class="btn blue" action="edit" id="${subHeadquarterInstance?.id}">
+											<i class="fa fa-pencil"></i> Editar	</g:link>
+
+											<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+											</g:actionSubmit>
+										</div>
+									</div>
+								</div>
+							</div>
+						</g:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

@@ -10,12 +10,12 @@
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="page-title">SisGrI <small>Sistema de Gerênciamento de Igrejas</small></h3>
+				<h3 class="page-title">Profile</h3>
 				<ul class="page-breadcrumb breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
 						<a href="${createLink(uri: '/')}">
-							Início
+							Página Inicial
 						</a>
 						<i class="fa fa-angle-right"></i>
 					</li>
@@ -42,8 +42,12 @@
 						<div class="caption">
 							<i class="fa fa-list"></i>Profiles
 						</div>
-						<div class="tools">
-							<a href="javascript:;" class="collapse">
+						<div class="actions">
+							<g:link class="btn green" action="create">
+								<i class="fa fa-plus"></i> Novo
+							</g:link>
+							<a href="#" class="btn yellow">
+								<i class="fa fa-print"></i> Imprimir
 							</a>
 						</div>
 					</div>

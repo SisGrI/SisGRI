@@ -8,59 +8,141 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-newsletter" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-newsletter" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list newsletter">
-			
-				<g:if test="${newsletterInstance?.church}">
-				<li class="fieldcontain">
-					<span id="church-label" class="property-label"><g:message code="newsletter.church.label" default="Church" /></span>
-					
-						<span class="property-value" aria-labelledby="church-label"><g:link controller="church" action="show" id="${newsletterInstance?.church?.id}">${newsletterInstance?.church?.encodeAsHTML()}</g:link></span>
-					
-				</li>
+		<div class="row">
+	        <div class="col-md-12">
+	            <h3 class="page-title">Newsletter</h3>
+	            <ul class="page-breadcrumb breadcrumb">
+	                <li>
+	                    <i class="fa fa-home"></i>
+	                    <a href="${createLink(uri: '/')}">
+							Página Inicial
+						</a>
+	                    <i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+	                	<g:link>
+							Newsletters
+						</g:link>
+						<i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+						Detalhar
+	                </li>
+	            </ul>
+	        </div>
+	    	<div class="col-md-12">
+				<g:if test="${flash.message}">
+					<div class="alert alert-info alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					    ${flash.message}
+					</div>
 				</g:if>
-			
-				<g:if test="${newsletterInstance?.registersEntry}">
-				<li class="fieldcontain">
-					<span id="registersEntry-label" class="property-label"><g:message code="newsletter.registersEntry.label" default="Registers Entry" /></span>
-					
-						<g:each in="${newsletterInstance.registersEntry}" var="r">
-						<span class="property-value" aria-labelledby="registersEntry-label"><g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${newsletterInstance?.registersExit}">
-				<li class="fieldcontain">
-					<span id="registersExit-label" class="property-label"><g:message code="newsletter.registersExit.label" default="Registers Exit" /></span>
-					
-						<g:each in="${newsletterInstance.registersExit}" var="r">
-						<span class="property-value" aria-labelledby="registersExit-label"><g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></span>
-						</g:each>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:newsletterInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${newsletterInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
+			</div>
+			<div class="col-md-12">
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-reorder"></i>Detalhar Newsletter
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<!-- BEGIN FORM-->
+						<g:form class="form-horizontal" role="form">
+							<div class="form-body">
+								<h3 class="form-section">Dados</h3>
+								<div class="row">
+									
+									<g:if test="${newsletterInstance?.date}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Date</label>
+												
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:formatDate date="${newsletterInstance?.date}" />
+													</p>
+												</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${newsletterInstance?.church}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Church</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:link controller="church" action="show" id="${newsletterInstance?.church?.id}">${newsletterInstance?.church?.encodeAsHTML()}</g:link>
+												</p>
+											</div>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${newsletterInstance?.registersEntry}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Registers Entry</label>
+												
+											<g:each status="i" in="${newsletterInstance.registersEntry}" var="r">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${newsletterInstance?.registersExit}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Registers Exit</label>
+												
+											<g:each status="i" in="${newsletterInstance.registersExit}" var="r">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									</div>
+								</div>
+							<div class="form-actions right">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-offset-3 col-md-9">
+											<g:hiddenField name="id" value="${newsletterInstance?.id}" />
+
+											<g:link class="btn blue" action="edit" id="${newsletterInstance?.id}">
+											<i class="fa fa-pencil"></i> Editar	</g:link>
+
+											<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+											</g:actionSubmit>
+										</div>
+									</div>
+								</div>
+							</div>
+						</g:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

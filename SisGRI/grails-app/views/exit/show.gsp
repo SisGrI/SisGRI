@@ -8,64 +8,146 @@
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<a href="#show-exit" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-exit" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list exit">
-			
-				<g:if test="${exitInstance?.category}">
-				<li class="fieldcontain">
-					<span id="category-label" class="property-label"><g:message code="exit.category.label" default="Category" /></span>
-					
-						<span class="property-value" aria-labelledby="category-label"><g:fieldValue bean="${exitInstance}" field="category"/></span>
-					
-				</li>
+		<div class="row">
+	        <div class="col-md-12">
+	            <h3 class="page-title">Exit</h3>
+	            <ul class="page-breadcrumb breadcrumb">
+	                <li>
+	                    <i class="fa fa-home"></i>
+	                    <a href="${createLink(uri: '/')}">
+							Página Inicial
+						</a>
+	                    <i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+	                	<g:link>
+							Exits
+						</g:link>
+						<i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+						Detalhar
+	                </li>
+	            </ul>
+	        </div>
+	    	<div class="col-md-12">
+				<g:if test="${flash.message}">
+					<div class="alert alert-info alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					    ${flash.message}
+					</div>
 				</g:if>
-			
-				<g:if test="${exitInstance?.name}">
-				<li class="fieldcontain">
-					<span id="name-label" class="property-label"><g:message code="exit.name.label" default="Name" /></span>
-					
-						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${exitInstance}" field="name"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${exitInstance?.value}">
-				<li class="fieldcontain">
-					<span id="value-label" class="property-label"><g:message code="exit.value.label" default="Value" /></span>
-					
-						<span class="property-value" aria-labelledby="value-label"><g:fieldValue bean="${exitInstance}" field="value"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${exitInstance?.church}">
-				<li class="fieldcontain">
-					<span id="church-label" class="property-label"><g:message code="exit.church.label" default="Church" /></span>
-					
-						<span class="property-value" aria-labelledby="church-label"><g:link controller="church" action="show" id="${exitInstance?.church?.id}">${exitInstance?.church?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:exitInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${exitInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
+			</div>
+			<div class="col-md-12">
+				<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-reorder"></i>Detalhar Exit
+						</div>
+					</div>
+					<div class="portlet-body form">
+						<!-- BEGIN FORM-->
+						<g:form class="form-horizontal" role="form">
+							<div class="form-body">
+								<h3 class="form-section">Dados</h3>
+								<div class="row">
+									
+									<g:if test="${exitInstance?.date}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Date</label>
+												
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:formatDate date="${exitInstance?.date}" />
+													</p>
+												</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${exitInstance?.church}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Church</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:link controller="church" action="show" id="${exitInstance?.church?.id}">${exitInstance?.church?.encodeAsHTML()}</g:link>
+												</p>
+											</div>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${exitInstance?.category}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Category</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${exitInstance}" field="category"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${exitInstance?.name}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Name</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${exitInstance}" field="name"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${exitInstance?.value}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Value</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${exitInstance}" field="value"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									</div>
+								</div>
+							<div class="form-actions right">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="col-md-offset-3 col-md-9">
+											<g:hiddenField name="id" value="${exitInstance?.id}" />
+
+											<g:link class="btn blue" action="edit" id="${exitInstance?.id}">
+											<i class="fa fa-pencil"></i> Editar	</g:link>
+
+											<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+											</g:actionSubmit>
+										</div>
+									</div>
+								</div>
+							</div>
+						</g:form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

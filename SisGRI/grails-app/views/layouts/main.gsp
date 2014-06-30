@@ -175,6 +175,44 @@
 									</li>
 								</ul>
 							</li>
+							<li>
+								<a href="javascript:;">
+									<i class="fa fa-scissors"></i>
+									<span class="title">
+										Tesouraria
+									</span>
+									<span class="arrow ">
+									</span>
+								</a>
+								<ul class="sub-menu">
+									<li>
+										<g:link controller="entry" action="create">
+											<i class="fa fa-plus"></i>
+											Registrar entrada
+										</g:link>
+									</li>
+									<li>
+										<g:link controller="exit" action="create">
+											<i class="fa fa-plus"></i>
+											Registrar Sáída
+										</g:link>
+									</li>
+									<li>
+										<g:link controller="newsletter">
+											<i class="fa fa-search"></i>
+											Ver Boletim
+										</g:link>
+									</li>
+								</ul>
+							</li>
+							<li class="last">
+		                        <g:link controller="logout">
+		                            <i class="fa fa-sign-out"></i>
+		                            <span class="title">
+		                                 Sair
+		                            </span>
+		                        </g:link>
+		                    </li>
 						</ul>
 					</div>
 				</div>
