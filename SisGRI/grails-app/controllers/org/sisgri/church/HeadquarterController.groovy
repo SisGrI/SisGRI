@@ -22,7 +22,13 @@ class HeadquarterController {
     }
 
     def create() {
-        respond new Headquarter(params)
+        if(Headquarter.count() == 0) {
+            respond new Headquarter(params)
+        }
+        else {
+            flash.message = "Já existe uma Igreja Sede cadastrada!"
+            redirect action:"index"
+        }
     }
 
     @Transactional

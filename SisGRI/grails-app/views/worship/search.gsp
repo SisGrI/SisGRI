@@ -8,7 +8,7 @@
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-	            <h3 class="page-title">Culto</h3>
+	            <h3 class="page-title">Cultos</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	            	<li>
 	                    <i class="fa fa-home"></i>
@@ -57,7 +57,7 @@
 						</div>
 						<g:form url="[resource:worshipInstance, action:'resultSearch']" class="form-horizontal">
 							<div class="form-body">
-								<h3 class="form-section"><small>Pesquisar um Culto!</small></h3>
+								<h3 class="form-section"><small>Pesquisar Cultos!</small></h3>
 								<div class="alert alert-danger display-hide">
 									<button class="close" data-close="alert"></button>
 									O formulário contêm erros. Por favor verifique abaixo.

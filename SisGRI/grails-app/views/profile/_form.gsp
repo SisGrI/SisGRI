@@ -10,8 +10,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField name="username" required="" value="${profileInstance?.username}"/>
-
+			<g:textField class="form-control" name="username" required="" value="${profileInstance?.username}"/>
 		</div>
 	</div>
 </div>
@@ -24,8 +23,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField name="password" required="" value="${profileInstance?.password}"/>
-
+			<g:textField class="form-control" name="password" required="" value="${profileInstance?.password}"/>
 		</div>
 	</div>
 </div>
@@ -38,8 +36,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select id="person" name="person.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${profileInstance?.person?.id}" class="many-to-one"/>
-
+			<g:select class="form-control" id="person" name="person.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${profileInstance?.person?.id}" class="many-to-one"/>
 		</div>
 	</div>
 </div>

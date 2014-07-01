@@ -10,8 +10,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${exitInstance?.church?.id}" class="many-to-one"/>
-
+			<g:select class="form-control" id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${exitInstance?.church?.id}" class="many-to-one"/>
 		</div>
 	</div>
 </div>
@@ -24,8 +23,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select name="category" from="${exitInstance.constraints.category.inList}" required="" value="${exitInstance?.category}" valueMessagePrefix="exit.category"/>
-
+			<g:select class="form-control" name="category" from="${exitInstance.constraints.category.inList}" required="" value="${exitInstance?.category}" valueMessagePrefix="exit.category"/>
 		</div>
 	</div>
 </div>
@@ -38,8 +36,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField name="name" required="" value="${exitInstance?.name}"/>
-
+			<g:textField class="form-control" name="name" required="" value="${exitInstance?.name}"/>
 		</div>
 	</div>
 </div>
@@ -52,8 +49,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:field name="value" value="${fieldValue(bean: exitInstance, field: 'value')}" required=""/>
-
+			<g:field class="form-control" name="value" value="${fieldValue(bean: exitInstance, field: 'value')}" required=""/>
 		</div>
 	</div>
 </div>

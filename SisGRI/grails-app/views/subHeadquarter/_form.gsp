@@ -10,8 +10,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField name="name" required="" value="${subHeadquarterInstance?.name}"/>
-
+			<g:textField class="form-control" name="name" required="" value="${subHeadquarterInstance?.name}"/>
 		</div>
 	</div>
 </div>
@@ -24,8 +23,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField name="address" required="" value="${subHeadquarterInstance?.address}"/>
-
+			<g:textField class="form-control" name="address" required="" value="${subHeadquarterInstance?.address}"/>
 		</div>
 	</div>
 </div>
@@ -40,14 +38,10 @@
 		<div class="col-md-4">
 			
 <ul class="one-to-many">
-<g:each in="${subHeadquarterInstance?.registers?}" var="r">
-    <li><g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
-</g:each>
 <li class="add">
-<g:link controller="register" action="create" params="['subHeadquarter.id': subHeadquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'register.label', default: 'Register')])}</g:link>
+<g:link class="btn blue" controller="register" action="create" params="['subHeadquarter.id': subHeadquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'register.label', default: 'Register')])}</g:link>
 </li>
 </ul>
-
 
 		</div>
 	</div>
@@ -63,14 +57,10 @@
 		<div class="col-md-4">
 			
 <ul class="one-to-many">
-<g:each in="${subHeadquarterInstance?.congregations?}" var="c">
-    <li><g:link controller="congregation" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
-</g:each>
 <li class="add">
-<g:link controller="congregation" action="create" params="['subHeadquarter.id': subHeadquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'congregation.label', default: 'Congregation')])}</g:link>
+<g:link class="btn blue" controller="congregation" action="create" params="['subHeadquarter.id': subHeadquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'congregation.label', default: 'Congregation')])}</g:link>
 </li>
 </ul>
-
 
 		</div>
 	</div>
@@ -84,8 +74,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select id="headquarter" name="headquarter.id" from="${org.sisgri.church.Headquarter.list()}" optionKey="id" required="" value="${subHeadquarterInstance?.headquarter?.id}" class="many-to-one"/>
-
+			<g:select class="form-control" id="headquarter" name="headquarter.id" from="${org.sisgri.church.Headquarter.list()}" optionKey="id" required="" value="${subHeadquarterInstance?.headquarter?.id}" class="many-to-one"/>
 		</div>
 	</div>
 </div>

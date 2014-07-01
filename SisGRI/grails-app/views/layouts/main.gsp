@@ -194,7 +194,7 @@
 									<li>
 										<g:link controller="exit" action="create">
 											<i class="fa fa-plus"></i>
-											Registrar Sáída
+											Registrar Saída
 										</g:link>
 									</li>
 									<li>

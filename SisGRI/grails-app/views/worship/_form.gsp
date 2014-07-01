@@ -10,8 +10,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${worshipInstance?.church?.id}" class="many-to-one"/>
-
+			<g:select class="form-control" id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${worshipInstance?.church?.id}" class="many-to-one"/>
 		</div>
 	</div>
 </div>
@@ -24,8 +23,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select name="type" from="${worshipInstance.constraints.type.inList}" required="" value="${worshipInstance?.type}" valueMessagePrefix="worship.type"/>
-
+			<g:select class="form-control" name="type" from="${worshipInstance.constraints.type.inList}" required="" value="${worshipInstance?.type}" valueMessagePrefix="worship.type"/>
 		</div>
 	</div>
 </div>
@@ -39,7 +37,6 @@
 		</label>
 		<div class="col-md-4">
 			<g:datePicker name="date" years="[2013, 2014]" precision="day"  value="${worshipInstance?.date}"  />
-
 		</div>
 	</div>
 </div>
@@ -52,8 +49,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select id="ruling" name="ruling.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.ruling?.id}" class="many-to-one"/>
-
+			<g:select class="form-control" id="ruling" name="ruling.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.ruling?.id}" class="many-to-one"/>
 		</div>
 	</div>
 </div>
@@ -66,8 +62,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select id="prelector" name="prelector.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.prelector?.id}" class="many-to-one"/>
-
+			<g:select class="form-control" id="prelector" name="prelector.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.prelector?.id}" class="many-to-one"/>
 		</div>
 	</div>
 </div>

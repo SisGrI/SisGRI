@@ -10,8 +10,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField name="name" required="" value="${headquarterInstance?.name}"/>
-
+			<g:textField class="form-control" name="name" required="" value="${headquarterInstance?.name}"/>
 		</div>
 	</div>
 </div>
@@ -24,8 +23,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField name="address" required="" value="${headquarterInstance?.address}"/>
-
+			<g:textField class="form-control" name="address" required="" value="${headquarterInstance?.address}"/>
 		</div>
 	</div>
 </div>
@@ -40,14 +38,10 @@
 		<div class="col-md-4">
 			
 <ul class="one-to-many">
-<g:each in="${headquarterInstance?.registers?}" var="r">
-    <li><g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link></li>
-</g:each>
 <li class="add">
-<g:link controller="register" action="create" params="['headquarter.id': headquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'register.label', default: 'Register')])}</g:link>
+<g:link class="btn blue" controller="register" action="create" params="['headquarter.id': headquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'register.label', default: 'Register')])}</g:link>
 </li>
 </ul>
-
 
 		</div>
 	</div>
@@ -63,14 +57,10 @@
 		<div class="col-md-4">
 			
 <ul class="one-to-many">
-<g:each in="${headquarterInstance?.subHeadquarters?}" var="s">
-    <li><g:link controller="subHeadquarter" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></li>
-</g:each>
 <li class="add">
-<g:link controller="subHeadquarter" action="create" params="['headquarter.id': headquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'subHeadquarter.label', default: 'SubHeadquarter')])}</g:link>
+<g:link class="btn blue" controller="subHeadquarter" action="create" params="['headquarter.id': headquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'subHeadquarter.label', default: 'SubHeadquarter')])}</g:link>
 </li>
 </ul>
-
 
 		</div>
 	</div>
