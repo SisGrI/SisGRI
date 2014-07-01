@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'congregation.label', default: 'Congregation')}" />
+		<g:set var="entityName" value="${message(code: 'congregation.label', default: 'Congregação')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Congregation</h3>
+	            <h3 class="page-title">Congregação</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 	                </li>
 	                <li>
 	                	<g:link>
-							Congregations
+							Congregações
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
@@ -42,7 +42,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Congregation
+							<i class="fa fa-reorder"></i>Detalhar Congregação
 						</div>
 					</div>
 					<div class="portlet-body form">
@@ -55,7 +55,7 @@
 									<g:if test="${congregationInstance?.name}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Name</label>
+												<label class="control-label col-md-3">Nome</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -70,7 +70,7 @@
 									<g:if test="${congregationInstance?.address}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Address</label>
+												<label class="control-label col-md-3">Endereço</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -85,7 +85,7 @@
 									<g:if test="${congregationInstance?.worship}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Worship</label>
+												<label class="control-label col-md-3">Cultos</label>
 												
 											<g:each status="i" in="${congregationInstance.worship}" var="w">
 												<g:if test="${i}">
@@ -105,7 +105,7 @@
 									<g:if test="${congregationInstance?.person}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Person</label>
+												<label class="control-label col-md-3">Pessoas</label>
 												
 											<g:each status="i" in="${congregationInstance.person}" var="p">
 												<g:if test="${i}">
@@ -122,30 +122,10 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${congregationInstance?.registers}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Registers</label>
-												
-											<g:each status="i" in="${congregationInstance.registers}" var="r">
-												<g:if test="${i}">
-													<label class="control-label col-md-3"></label>
-												</g:if>
-												<div class="col-md-9">
-													<p class="form-control-static">
-														<g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
-													</p>
-												</div>
-											</g:each>
-										
-											</div>
-										</div>
-									</g:if>
-									
 									<g:if test="${congregationInstance?.subHeadquarter}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Sub Headquarter</label>
+												<label class="control-label col-md-3">Sub-Sede</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">

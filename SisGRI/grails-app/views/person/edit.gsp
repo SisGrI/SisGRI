@@ -3,13 +3,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'person.label', default: 'Person')}" />
+		<g:set var="entityName" value="${message(code: 'person.label', default: 'Pessoa')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>		
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Person</h3>
+	            <h3 class="page-title">Pessoa</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -20,12 +20,12 @@
 	                </li>
 	                <li>
 	                	<g:link action="show" id="${personInstance.id}">
-							Detalhar Person
+							Detalhar Pessoa
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-						Editar Person
+						Editar Pessoa
 	                </li>
 	            </ul>
 	        </div>
@@ -62,7 +62,7 @@
 						</div>
 						<g:form url="[resource:personInstance, action:'update']" method="PUT" class="form-horizontal">
 							<div class="form-body">
-								<h3 class="form-section"><small>Edite uma Person!</small></h3>
+								<h3 class="form-section"><small>Edite uma Pessoa!</small></h3>
 								<div class="alert alert-danger display-hide">
 									<button class="close" data-close="alert"></button>
 									O formulário contêm erros. Por favor verifique abaixo.

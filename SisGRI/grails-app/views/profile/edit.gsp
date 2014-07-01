@@ -3,13 +3,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Profile')}" />
+		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Perfil')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>		
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Profile</h3>
+	            <h3 class="page-title">Perfil</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -20,12 +20,12 @@
 	                </li>
 	                <li>
 	                	<g:link action="show" id="${profileInstance.id}">
-							Detalhar Profile
+							Detalhar Perfil
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-						Editar Profile
+						Editar Perfil
 	                </li>
 	            </ul>
 	        </div>
@@ -62,7 +62,7 @@
 						</div>
 						<g:form url="[resource:profileInstance, action:'update']" method="PUT" class="form-horizontal">
 							<div class="form-body">
-								<h3 class="form-section"><small>Edite uma Profile!</small></h3>
+								<h3 class="form-section"><small>Edite um Perfil!</small></h3>
 								<div class="alert alert-danger display-hide">
 									<button class="close" data-close="alert"></button>
 									O formulário contêm erros. Por favor verifique abaixo.

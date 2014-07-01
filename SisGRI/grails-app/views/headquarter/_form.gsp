@@ -6,7 +6,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: headquarterInstance, field: 'name', 'error')} required">
 		<label class="control-label col-md-3" for="name">
-			<g:message code="headquarter.name.label" default="Name" />
+			<g:message code="headquarter.name.label" default="Nome" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -19,7 +19,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: headquarterInstance, field: 'address', 'error')} required">
 		<label class="control-label col-md-3" for="address">
-			<g:message code="headquarter.address.label" default="Address" />
+			<g:message code="headquarter.address.label" default="Endereço" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -28,30 +28,10 @@
 	</div>
 </div>
 
-
-<div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: headquarterInstance, field: 'registers', 'error')} ">
-		<label class="control-label col-md-3" for="registers">
-			<g:message code="headquarter.registers.label" default="Registers" />
-			
-		</label>
-		<div class="col-md-4">
-			
-<ul class="one-to-many">
-<li class="add">
-<g:link class="btn blue" controller="register" action="create" params="['headquarter.id': headquarterInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'register.label', default: 'Register')])}</g:link>
-</li>
-</ul>
-
-		</div>
-	</div>
-</div>
-
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: headquarterInstance, field: 'subHeadquarters', 'error')} ">
 		<label class="control-label col-md-3" for="subHeadquarters">
-			<g:message code="headquarter.subHeadquarters.label" default="Sub Headquarters" />
+			<g:message code="headquarter.subHeadquarters.label" default="Sub-Sedes" />
 			
 		</label>
 		<div class="col-md-4">

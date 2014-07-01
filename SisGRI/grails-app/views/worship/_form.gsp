@@ -6,7 +6,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'church', 'error')} required">
 		<label class="control-label col-md-3" for="church">
-			<g:message code="worship.church.label" default="Church" />
+			<g:message code="worship.church.label" default="Igreja" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -19,7 +19,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'type', 'error')} required">
 		<label class="control-label col-md-3" for="type">
-			<g:message code="worship.type.label" default="Type" />
+			<g:message code="worship.type.label" default="Tipo" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -32,7 +32,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'date', 'error')} required">
 		<label class="control-label col-md-3" for="date">
-			<g:message code="worship.date.label" default="Date" />
+			<g:message code="worship.date.label" default="Data" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -45,7 +45,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'ruling', 'error')} required">
 		<label class="control-label col-md-3" for="ruling">
-			<g:message code="worship.ruling.label" default="Ruling" />
+			<g:message code="worship.ruling.label" default="Dirigente" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -58,7 +58,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'prelector', 'error')} required">
 		<label class="control-label col-md-3" for="prelector">
-			<g:message code="worship.prelector.label" default="Prelector" />
+			<g:message code="worship.prelector.label" default="Preleitor" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">

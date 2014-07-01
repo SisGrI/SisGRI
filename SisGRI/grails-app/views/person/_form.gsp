@@ -6,7 +6,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'church', 'error')} required">
 		<label class="control-label col-md-3" for="church">
-			<g:message code="person.church.label" default="Church" />
+			<g:message code="person.church.label" default="Igreja" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -19,7 +19,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'name', 'error')} required">
 		<label class="control-label col-md-3" for="name">
-			<g:message code="person.name.label" default="Name" />
+			<g:message code="person.name.label" default="Nome" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -32,7 +32,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cpf', 'error')} required">
 		<label class="control-label col-md-3" for="cpf">
-			<g:message code="person.cpf.label" default="Cpf" />
+			<g:message code="person.cpf.label" default="CPF" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -45,7 +45,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'rg', 'error')} required">
 		<label class="control-label col-md-3" for="rg">
-			<g:message code="person.rg.label" default="Rg" />
+			<g:message code="person.rg.label" default="RG" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -58,7 +58,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'situation', 'error')} ">
 		<label class="control-label col-md-3" for="situation">
-			<g:message code="person.situation.label" default="Situation" />
+			<g:message code="person.situation.label" default="Situação" />
 			
 		</label>
 		<div class="col-md-4">
@@ -73,7 +73,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'profession', 'error')} ">
 		<label class="control-label col-md-3" for="profession">
-			<g:message code="person.profession.label" default="Profession" />
+			<g:message code="person.profession.label" default="Profissão" />
 			
 		</label>
 		<div class="col-md-4">
@@ -86,7 +86,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'address', 'error')} required">
 		<label class="control-label col-md-3" for="address">
-			<g:message code="person.address.label" default="Address" />
+			<g:message code="person.address.label" default="Endereço" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -99,7 +99,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'city', 'error')} required">
 		<label class="control-label col-md-3" for="city">
-			<g:message code="person.city.label" default="City" />
+			<g:message code="person.city.label" default="Cidade" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -112,7 +112,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'zipCode', 'error')} required">
 		<label class="control-label col-md-3" for="zipCode">
-			<g:message code="person.zipCode.label" default="Zip Code" />
+			<g:message code="person.zipCode.label" default="CEP" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -125,7 +125,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'telephone', 'error')} ">
 		<label class="control-label col-md-3" for="telephone">
-			<g:message code="person.telephone.label" default="Telephone" />
+			<g:message code="person.telephone.label" default="Telefone" />
 			
 		</label>
 		<div class="col-md-4">
@@ -138,7 +138,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cellular', 'error')} ">
 		<label class="control-label col-md-3" for="cellular">
-			<g:message code="person.cellular.label" default="Cellular" />
+			<g:message code="person.cellular.label" default="Celular" />
 			
 		</label>
 		<div class="col-md-4">
@@ -164,7 +164,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birth', 'error')} required">
 		<label class="control-label col-md-3" for="birth">
-			<g:message code="person.birth.label" default="Birth" />
+			<g:message code="person.birth.label" default="Nascimento" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -177,7 +177,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birthPlace', 'error')} required">
 		<label class="control-label col-md-3" for="birthPlace">
-			<g:message code="person.birthPlace.label" default="Birth Place" />
+			<g:message code="person.birthPlace.label" default="Naturalidade" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -190,7 +190,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'father', 'error')} ">
 		<label class="control-label col-md-3" for="father">
-			<g:message code="person.father.label" default="Father" />
+			<g:message code="person.father.label" default="Pai" />
 			
 		</label>
 		<div class="col-md-4">
@@ -203,7 +203,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'mother', 'error')} ">
 		<label class="control-label col-md-3" for="mother">
-			<g:message code="person.mother.label" default="Mother" />
+			<g:message code="person.mother.label" default="Mãe" />
 			
 		</label>
 		<div class="col-md-4">
@@ -216,7 +216,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'baptism', 'error')} ">
 		<label class="control-label col-md-3" for="baptism">
-			<g:message code="person.baptism.label" default="Baptism" />
+			<g:message code="person.baptism.label" default="Batismo" />
 			
 		</label>
 		<div class="col-md-4">
@@ -229,7 +229,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'memberSince', 'error')} ">
 		<label class="control-label col-md-3" for="memberSince">
-			<g:message code="person.memberSince.label" default="Member Since" />
+			<g:message code="person.memberSince.label" default="Membro Desde" />
 			
 		</label>
 		<div class="col-md-4">
@@ -242,7 +242,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'conversion', 'error')} ">
 		<label class="control-label col-md-3" for="conversion">
-			<g:message code="person.conversion.label" default="Conversion" />
+			<g:message code="person.conversion.label" default="Conversão" />
 			
 		</label>
 		<div class="col-md-4">
@@ -255,7 +255,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'baptismHollySpirit', 'error')} ">
 		<label class="control-label col-md-3" for="baptismHollySpirit">
-			<g:message code="person.baptismHollySpirit.label" default="Baptism Holly Spirit" />
+			<g:message code="person.baptismHollySpirit.label" default="Batismo com Espírito Santo" />
 			
 		</label>
 		<div class="col-md-4">
@@ -270,7 +270,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'maritalStatus', 'error')} required">
 		<label class="control-label col-md-3" for="maritalStatus">
-			<g:message code="person.maritalStatus.label" default="Marital Status" />
+			<g:message code="person.maritalStatus.label" default="Estado Civil" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -283,7 +283,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'spouse', 'error')} ">
 		<label class="control-label col-md-3" for="spouse">
-			<g:message code="person.spouse.label" default="Spouse" />
+			<g:message code="person.spouse.label" default="Conjuge" />
 			
 		</label>
 		<div class="col-md-4">
@@ -296,7 +296,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'marriageDate', 'error')} ">
 		<label class="control-label col-md-3" for="marriageDate">
-			<g:message code="person.marriageDate.label" default="Marriage Date" />
+			<g:message code="person.marriageDate.label" default="Casamento" />
 			
 		</label>
 		<div class="col-md-4">
@@ -309,7 +309,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'department', 'error')} required">
 		<label class="control-label col-md-3" for="department">
-			<g:message code="person.department.label" default="Department" />
+			<g:message code="person.department.label" default="Departamento" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -322,7 +322,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'type', 'error')} required">
 		<label class="control-label col-md-3" for="type">
-			<g:message code="person.type.label" default="Type" />
+			<g:message code="person.type.label" default="Tipo" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -335,7 +335,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} ">
 		<label class="control-label col-md-3" for="post">
-			<g:message code="person.post.label" default="Post" />
+			<g:message code="person.post.label" default="Cargo" />
 			
 		</label>
 		<div class="col-md-4">
@@ -348,7 +348,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'observation', 'error')} ">
 		<label class="control-label col-md-3" for="observation">
-			<g:message code="person.observation.label" default="Observation" />
+			<g:message code="person.observation.label" default="Observação" />
 			
 		</label>
 		<div class="col-md-4">

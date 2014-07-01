@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'subHeadquarter.label', default: 'SubHeadquarter')}" />
+		<g:set var="entityName" value="${message(code: 'subHeadquarter.label', default: 'Sub-Sede')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="page-title">SubHeadquarter</h3>
+				<h3 class="page-title">Sub-Sede</h3>
 				<ul class="page-breadcrumb breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 					</li>
 					<li>
 						<g:link>
-							SubHeadquarters
+							Sub-Sedes
 						</g:link>
 					</li>
 				</ul>
@@ -40,7 +40,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>SubHeadquarters
+							<i class="fa fa-list"></i>Sub-Sedes
 						</div>
 						<div class="actions">
 							<g:link class="btn green" action="create">
@@ -56,11 +56,11 @@
 							<thead>
 								<tr>
 								
-									<th><g:message code="subHeadquarter.name.label" default="Name" /></th>
+									<th><g:message code="subHeadquarter.name.label" default="Nome" /></th>
 								
-									<th><g:message code="subHeadquarter.address.label" default="Address" /></th>
+									<th><g:message code="subHeadquarter.address.label" default="Endereço" /></th>
 								
-									<th><g:message code="subHeadquarter.headquarter.label" default="Headquarter" /></th>
+									<th><g:message code="subHeadquarter.headquarter.label" default="Sede" /></th>
 								
 								</tr>
 							</thead>

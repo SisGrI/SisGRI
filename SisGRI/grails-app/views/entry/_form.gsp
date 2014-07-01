@@ -6,7 +6,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: entryInstance, field: 'church', 'error')} required">
 		<label class="control-label col-md-3" for="church">
-			<g:message code="entry.church.label" default="Church" />
+			<g:message code="entry.church.label" default="Igreja" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -19,7 +19,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: entryInstance, field: 'category', 'error')} required">
 		<label class="control-label col-md-3" for="category">
-			<g:message code="entry.category.label" default="Category" />
+			<g:message code="entry.category.label" default="Categoria" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -32,7 +32,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: entryInstance, field: 'name', 'error')} required">
 		<label class="control-label col-md-3" for="name">
-			<g:message code="entry.name.label" default="Name" />
+			<g:message code="entry.name.label" default="Nome" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -45,7 +45,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: entryInstance, field: 'value', 'error')} required">
 		<label class="control-label col-md-3" for="value">
-			<g:message code="entry.value.label" default="Value" />
+			<g:message code="entry.value.label" default="Valor" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">

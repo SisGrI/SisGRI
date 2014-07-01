@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'entry.label', default: 'Entry')}" />
+		<g:set var="entityName" value="${message(code: 'entry.label', default: 'Entrada')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="page-title">Entry</h3>
+				<h3 class="page-title">Entrada</h3>
 				<ul class="page-breadcrumb breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 					</li>
 					<li>
 						<g:link>
-							Entrys
+							Entradas
 						</g:link>
 					</li>
 				</ul>
@@ -40,7 +40,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Entrys
+							<i class="fa fa-list"></i>Entradas
 						</div>
 						<div class="actions">
 							<g:link class="btn green" action="create">
@@ -56,13 +56,13 @@
 							<thead>
 								<tr>
 								
-									<th><g:message code="entry.church.label" default="Church" /></th>
+									<th><g:message code="entry.church.label" default="Igreja" /></th>
 								
-									<th><g:message code="entry.category.label" default="Category" /></th>
+									<th><g:message code="entry.category.label" default="Categoria" /></th>
 								
-									<th><g:message code="entry.name.label" default="Name" /></th>
+									<th><g:message code="entry.name.label" default="Nome" /></th>
 								
-									<th><g:message code="entry.value.label" default="Value" /></th>
+									<th><g:message code="entry.value.label" default="Valor" /></th>
 								
 								</tr>
 							</thead>

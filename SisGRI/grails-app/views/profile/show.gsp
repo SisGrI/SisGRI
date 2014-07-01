@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Profile')}" />
+		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Perfil')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Profile</h3>
+	            <h3 class="page-title">Perfil</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 	                </li>
 	                <li>
 	                	<g:link>
-							Profiles
+							Perfis
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
@@ -42,7 +42,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Profile
+							<i class="fa fa-reorder"></i>Detalhar Perfil
 						</div>
 					</div>
 					<div class="portlet-body form">
@@ -55,7 +55,7 @@
 									<g:if test="${profileInstance?.username}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Username</label>
+												<label class="control-label col-md-3">Usuário</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -67,25 +67,10 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${profileInstance?.password}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Password</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:fieldValue bean="${profileInstance}" field="password"/>
-												</p>
-											</div>
-											
-											</div>
-										</div>
-									</g:if>
-									
 									<g:if test="${profileInstance?.person}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Person</label>
+												<label class="control-label col-md-3">Pessoa</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -93,66 +78,6 @@
 												</p>
 											</div>
 										
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${profileInstance?.enabled}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Enabled</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:formatBoolean boolean="${profileInstance?.enabled}" />
-												</p>
-											</div>	
-											
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${profileInstance?.accountExpired}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Account Expired</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:formatBoolean boolean="${profileInstance?.accountExpired}" />
-												</p>
-											</div>	
-											
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${profileInstance?.accountLocked}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Account Locked</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:formatBoolean boolean="${profileInstance?.accountLocked}" />
-												</p>
-											</div>	
-											
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${profileInstance?.passwordExpired}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Password Expired</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:formatBoolean boolean="${profileInstance?.passwordExpired}" />
-												</p>
-											</div>	
-											
 											</div>
 										</div>
 									</g:if>

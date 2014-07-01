@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'headquarter.label', default: 'Headquarter')}" />
+		<g:set var="entityName" value="${message(code: 'headquarter.label', default: 'Sede')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Headquarter</h3>
+	            <h3 class="page-title">Sede</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 	                </li>
 	                <li>
 	                	<g:link>
-							Headquarters
+							Sedes
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
@@ -42,7 +42,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Headquarter
+							<i class="fa fa-reorder"></i>Detalhar Sede
 						</div>
 					</div>
 					<div class="portlet-body form">
@@ -55,7 +55,7 @@
 									<g:if test="${headquarterInstance?.name}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Name</label>
+												<label class="control-label col-md-3">Nome</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -70,7 +70,7 @@
 									<g:if test="${headquarterInstance?.address}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Address</label>
+												<label class="control-label col-md-3">Endereço</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -82,70 +82,10 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${headquarterInstance?.worship}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Worship</label>
-												
-											<g:each status="i" in="${headquarterInstance.worship}" var="w">
-												<g:if test="${i}">
-													<label class="control-label col-md-3"></label>
-												</g:if>
-												<div class="col-md-9">
-													<p class="form-control-static">
-														<g:link controller="worship" action="show" id="${w.id}">${w?.encodeAsHTML()}</g:link>
-													</p>
-												</div>
-											</g:each>
-										
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${headquarterInstance?.person}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Person</label>
-												
-											<g:each status="i" in="${headquarterInstance.person}" var="p">
-												<g:if test="${i}">
-													<label class="control-label col-md-3"></label>
-												</g:if>
-												<div class="col-md-9">
-													<p class="form-control-static">
-														<g:link controller="person" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link>
-													</p>
-												</div>
-											</g:each>
-										
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${headquarterInstance?.registers}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Registers</label>
-												
-											<g:each status="i" in="${headquarterInstance.registers}" var="r">
-												<g:if test="${i}">
-													<label class="control-label col-md-3"></label>
-												</g:if>
-												<div class="col-md-9">
-													<p class="form-control-static">
-														<g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
-													</p>
-												</div>
-											</g:each>
-										
-											</div>
-										</div>
-									</g:if>
-									
 									<g:if test="${headquarterInstance?.subHeadquarters}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Sub Headquarters</label>
+												<label class="control-label col-md-3">Sub-Sedes</label>
 												
 											<g:each status="i" in="${headquarterInstance.subHeadquarters}" var="s">
 												<g:if test="${i}">

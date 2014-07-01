@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'newsletter.label', default: 'Newsletter')}" />
+		<g:set var="entityName" value="${message(code: 'newsletter.label', default: 'Boletim')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="page-title">Newsletter</h3>
+				<h3 class="page-title">Boletim</h3>
 				<ul class="page-breadcrumb breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 					</li>
 					<li>
 						<g:link>
-							Newsletters
+							Boletins
 						</g:link>
 					</li>
 				</ul>
@@ -40,7 +40,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Newsletters
+							<i class="fa fa-list"></i>Boletins
 						</div>
 						<div class="actions">
 							<g:link class="btn green" action="create">
@@ -56,7 +56,7 @@
 							<thead>
 								<tr>
 								
-									<th><g:message code="newsletter.church.label" default="Church" /></th>
+									<th><g:message code="newsletter.church.label" default="Igreja" /></th>
 								
 								</tr>
 							</thead>

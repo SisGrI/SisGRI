@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Profile')}" />
+		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Perfil')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="page-title">Profile</h3>
+				<h3 class="page-title">Perfil</h3>
 				<ul class="page-breadcrumb breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 					</li>
 					<li>
 						<g:link>
-							Profiles
+							Perfis
 						</g:link>
 					</li>
 				</ul>
@@ -40,7 +40,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Profiles
+							<i class="fa fa-list"></i>Perfis
 						</div>
 						<div class="actions">
 							<g:link class="btn green" action="create">
@@ -56,11 +56,9 @@
 							<thead>
 								<tr>
 								
-									<th><g:message code="profile.username.label" default="Username" /></th>
+									<th><g:message code="profile.username.label" default="Usuário" /></th>
 								
-									<th><g:message code="profile.password.label" default="Password" /></th>
-								
-									<th><g:message code="profile.person.label" default="Person" /></th>
+									<th><g:message code="profile.person.label" default="Pessoa" /></th>
 								
 								</tr>
 							</thead>
@@ -69,8 +67,6 @@
 									<tr class="odd gradeX">
 									
 										<td><g:link action="show" id="${profileInstance.id}">${fieldValue(bean: profileInstance, field: "username")}</g:link></td>
-									
-										<td>${fieldValue(bean: profileInstance, field: "password")}</td>
 									
 										<td>${fieldValue(bean: profileInstance, field: "person")}</td>
 									

@@ -3,7 +3,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'name', 'error')} ">
 		<label class="control-label col-md-3" for="name">
-			<g:message code="person.name.label" default="Name" />
+			<g:message code="person.name.label" default="Nome" />
 		</label>
 		<div class="col-md-4">
 			<g:textField class="form-control" name="name" value=""/>
@@ -14,7 +14,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'church', 'error')} ">
 		<label class="control-label col-md-3" for="church">
-			<g:message code="person.church.label" default="Church" />
+			<g:message code="person.church.label" default="Igreja" />
 		</label>
 		<div class="col-md-4">
 			<g:textField class="form-control" name="church" value=""/>
@@ -25,7 +25,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'situation', 'error')} ">
 		<label class="control-label col-md-3" for="situation">
-			<g:message code="person.situation.label" default="Situation" />
+			<g:message code="person.situation.label" default="Situação" />
 			
 		</label>
 		<div class="col-md-4">
@@ -50,7 +50,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} ">
 		<label class="control-label col-md-3" for="post">
-			<g:message code="person.post.label" default="Post" />
+			<g:message code="person.post.label" default="Cargo" />
 			
 		</label>
 		<div class="col-md-4">
@@ -62,7 +62,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'type', 'error')} required">
 		<label class="control-label col-md-3" for="type">
-			<g:message code="person.type.label" default="Type" />
+			<g:message code="person.type.label" default="Tipo" />
 		</label>
 		<div class="col-md-4">
 			<g:select class="form-control" name="type" from="${personInstance.constraints.type.inList}" value="${personInstance?.type}" valueMessagePrefix="person.type" noSelection="['': '']"/>
@@ -73,7 +73,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birth', 'error')} required">
 		<label class="control-label col-md-3" for="birth">
-			<g:message code="person.birth.label" default="Birth" />
+			<g:message code="person.birth.label" default="Nascimento" />
 		</label>
 		<div class="col-md-4">
 			<g:datePicker name="birth" years="[2013, 2014]" precision="month"  value="${personInstance?.birth}" default="none" noSelection="['': '']" />

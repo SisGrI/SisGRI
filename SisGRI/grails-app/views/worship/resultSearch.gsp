@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'worship.label', default: 'Worship')}" />
+		<g:set var="entityName" value="${message(code: 'worship.label', default: 'Culto')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
@@ -68,7 +68,7 @@
 									<th>Tipo</th>
 									<th>Data</th>
 									<th>Dirigente</th>
-									<th>Preletor</th>
+									<th>Preleitor</th>
 								</tr>
 							</thead>
 							<tbody>

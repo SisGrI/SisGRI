@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'newsletter.label', default: 'Newsletter')}" />
+		<g:set var="entityName" value="${message(code: 'newsletter.label', default: 'Boletim')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Newsletter</h3>
+	            <h3 class="page-title">Boletim</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 	                </li>
 	                <li>
 	                	<g:link>
-							Newsletters
+							Boletins
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
@@ -42,7 +42,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Newsletter
+							<i class="fa fa-reorder"></i>Detalhar Boletim
 						</div>
 					</div>
 					<div class="portlet-body form">
@@ -55,7 +55,7 @@
 									<g:if test="${newsletterInstance?.date}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Date</label>
+												<label class="control-label col-md-3">Data</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -70,7 +70,7 @@
 									<g:if test="${newsletterInstance?.church}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Church</label>
+												<label class="control-label col-md-3">Igreja</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -85,7 +85,7 @@
 									<g:if test="${newsletterInstance?.registersEntry}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Registers Entry</label>
+												<label class="control-label col-md-3">Registros de Entrada</label>
 												
 											<g:each status="i" in="${newsletterInstance.registersEntry}" var="r">
 												<g:if test="${i}">
@@ -105,7 +105,7 @@
 									<g:if test="${newsletterInstance?.registersExit}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Registers Exit</label>
+												<label class="control-label col-md-3">Registros de Saída</label>
 												
 											<g:each status="i" in="${newsletterInstance.registersExit}" var="r">
 												<g:if test="${i}">

@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'person.label', default: 'Person')}" />
+		<g:set var="entityName" value="${message(code: 'person.label', default: 'Pessoa')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Person</h3>
+	            <h3 class="page-title">Pessoa</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -42,7 +42,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Person
+							<i class="fa fa-reorder"></i>Detalhar Pessoa
 						</div>
 					</div>
 					<div class="portlet-body form">
@@ -55,7 +55,7 @@
 									<g:if test="${personInstance?.church}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Church</label>
+												<label class="control-label col-md-3">Igreja</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -70,7 +70,7 @@
 									<g:if test="${personInstance?.name}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Name</label>
+												<label class="control-label col-md-3">Nome</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -85,7 +85,7 @@
 									<g:if test="${personInstance?.cpf}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Cpf</label>
+												<label class="control-label col-md-3">CPF</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -100,7 +100,7 @@
 									<g:if test="${personInstance?.rg}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Rg</label>
+												<label class="control-label col-md-3">RG</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -115,11 +115,16 @@
 									<g:if test="${personInstance?.situation}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Situation</label>
+												<label class="control-label col-md-3">Situação</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:formatBoolean boolean="${personInstance?.situation}" />
+													<g:if test="${personInstance.situation == true}">
+														Ativo
+													</g:if>
+													<g:if test="${personInstance.situation == false}">
+														Inativo
+													</g:if>
 												</p>
 											</div>	
 											
@@ -130,7 +135,7 @@
 									<g:if test="${personInstance?.profession}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Profession</label>
+												<label class="control-label col-md-3">Profissão</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -145,7 +150,7 @@
 									<g:if test="${personInstance?.address}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Address</label>
+												<label class="control-label col-md-3">Endereço</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -160,7 +165,7 @@
 									<g:if test="${personInstance?.city}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">City</label>
+												<label class="control-label col-md-3">Cidade</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -175,7 +180,7 @@
 									<g:if test="${personInstance?.zipCode}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Zip Code</label>
+												<label class="control-label col-md-3">CEP</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -190,7 +195,7 @@
 									<g:if test="${personInstance?.telephone}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Telephone</label>
+												<label class="control-label col-md-3">Telefone</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -205,7 +210,7 @@
 									<g:if test="${personInstance?.cellular}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Cellular</label>
+												<label class="control-label col-md-3">Celular</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -235,7 +240,7 @@
 									<g:if test="${personInstance?.birth}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Birth</label>
+												<label class="control-label col-md-3">Nascimento</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -250,7 +255,7 @@
 									<g:if test="${personInstance?.birthPlace}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Birth Place</label>
+												<label class="control-label col-md-3">Naturalidade</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -265,7 +270,7 @@
 									<g:if test="${personInstance?.father}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Father</label>
+												<label class="control-label col-md-3">Pai</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -280,7 +285,7 @@
 									<g:if test="${personInstance?.mother}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Mother</label>
+												<label class="control-label col-md-3">Mãe</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -295,7 +300,7 @@
 									<g:if test="${personInstance?.baptism}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Baptism</label>
+												<label class="control-label col-md-3">Batismo</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -310,7 +315,7 @@
 									<g:if test="${personInstance?.memberSince}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Member Since</label>
+												<label class="control-label col-md-3">Membro Desde</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -325,7 +330,7 @@
 									<g:if test="${personInstance?.conversion}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Conversion</label>
+												<label class="control-label col-md-3">Conversão</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -340,7 +345,7 @@
 									<g:if test="${personInstance?.baptismHollySpirit}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Baptism Holly Spirit</label>
+												<label class="control-label col-md-3">Batismo com Espírito Santo</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -355,7 +360,7 @@
 									<g:if test="${personInstance?.maritalStatus}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Marital Status</label>
+												<label class="control-label col-md-3">Estado Civil</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -370,7 +375,7 @@
 									<g:if test="${personInstance?.spouse}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Spouse</label>
+												<label class="control-label col-md-3">Conjuge</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -385,7 +390,7 @@
 									<g:if test="${personInstance?.marriageDate}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Marriage Date</label>
+												<label class="control-label col-md-3">Casamento</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -400,7 +405,7 @@
 									<g:if test="${personInstance?.department}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Department</label>
+												<label class="control-label col-md-3">Departamento</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -415,7 +420,7 @@
 									<g:if test="${personInstance?.type}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Type</label>
+												<label class="control-label col-md-3">Tipo</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -430,7 +435,7 @@
 									<g:if test="${personInstance?.post}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Post</label>
+												<label class="control-label col-md-3">Cargo</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -445,7 +450,7 @@
 									<g:if test="${personInstance?.observation}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Observation</label>
+												<label class="control-label col-md-3">Observação</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -460,7 +465,7 @@
 									<g:if test="${personInstance?.profile}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Profile</label>
+												<label class="control-label col-md-3">Perfil</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">

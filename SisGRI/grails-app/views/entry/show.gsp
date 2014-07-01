@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'entry.label', default: 'Entry')}" />
+		<g:set var="entityName" value="${message(code: 'entry.label', default: 'Entrada')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Entry</h3>
+	            <h3 class="page-title">Entrada</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 	                </li>
 	                <li>
 	                	<g:link>
-							Entrys
+							Entradas
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
@@ -42,7 +42,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Entry
+							<i class="fa fa-reorder"></i>Detalhar Entrada
 						</div>
 					</div>
 					<div class="portlet-body form">
@@ -55,7 +55,7 @@
 									<g:if test="${entryInstance?.date}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Date</label>
+												<label class="control-label col-md-3">Data</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
@@ -70,7 +70,7 @@
 									<g:if test="${entryInstance?.church}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Church</label>
+												<label class="control-label col-md-3">Igreja</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -85,7 +85,7 @@
 									<g:if test="${entryInstance?.category}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Category</label>
+												<label class="control-label col-md-3">Categoria</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -100,7 +100,7 @@
 									<g:if test="${entryInstance?.name}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Name</label>
+												<label class="control-label col-md-3">Nome</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
@@ -115,7 +115,7 @@
 									<g:if test="${entryInstance?.value}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Value</label>
+												<label class="control-label col-md-3">Valor</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">

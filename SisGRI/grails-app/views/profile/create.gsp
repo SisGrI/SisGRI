@@ -2,13 +2,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Profile')}" />
+		<g:set var="entityName" value="${message(code: 'profile.label', default: 'Perfil')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Profile</h3>
+	            <h3 class="page-title">Perfil</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	            	<li>
 	                    <i class="fa fa-home"></i>
@@ -19,12 +19,12 @@
 	                </li>
 	                <li>
 	                	<g:link action="index">
-							Profiles
+							Perfis
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-						Criar Profile
+						Criar Perfil
 	                </li>
 	            </ul>
 	        </div>
@@ -61,7 +61,7 @@
 						</div>
 						<g:form url="[resource:profileInstance, action:'save']"  class="form-horizontal">
 							<div class="form-body">
-								<h3 class="form-section"><small>Crie um novo Profile!</small></h3>
+								<h3 class="form-section"><small>Crie um novo Perfil!</small></h3>
 								<div class="alert alert-danger display-hide">
 									<button class="close" data-close="alert"></button>
 									O formulário contêm erros. Por favor verifique abaixo.

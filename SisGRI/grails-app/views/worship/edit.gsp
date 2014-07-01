@@ -3,13 +3,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'worship.label', default: 'Worship')}" />
+		<g:set var="entityName" value="${message(code: 'worship.label', default: 'Culto')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>		
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Worship</h3>
+	            <h3 class="page-title">Culto</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -20,12 +20,12 @@
 	                </li>
 	                <li>
 	                	<g:link action="show" id="${worshipInstance.id}">
-							Detalhar Worship
+							Detalhar Culto
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-						Editar Worship
+						Editar Culto
 	                </li>
 	            </ul>
 	        </div>
@@ -62,7 +62,7 @@
 						</div>
 						<g:form url="[resource:worshipInstance, action:'update']" method="PUT" class="form-horizontal">
 							<div class="form-body">
-								<h3 class="form-section"><small>Edite uma Worship!</small></h3>
+								<h3 class="form-section"><small>Edite um Culto!</small></h3>
 								<div class="alert alert-danger display-hide">
 									<button class="close" data-close="alert"></button>
 									O formulário contêm erros. Por favor verifique abaixo.

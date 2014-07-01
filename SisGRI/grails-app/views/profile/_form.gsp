@@ -6,7 +6,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'username', 'error')} required">
 		<label class="control-label col-md-3" for="username">
-			<g:message code="profile.username.label" default="Username" />
+			<g:message code="profile.username.label" default="Usuário" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -19,7 +19,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'password', 'error')} required">
 		<label class="control-label col-md-3" for="password">
-			<g:message code="profile.password.label" default="Password" />
+			<g:message code="profile.password.label" default="Senha" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
@@ -32,7 +32,7 @@
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'person', 'error')} required">
 		<label class="control-label col-md-3" for="person">
-			<g:message code="profile.person.label" default="Person" />
+			<g:message code="profile.person.label" default="Pessoa" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
