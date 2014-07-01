@@ -19,8 +19,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="index">
-							Entrys
+	                	<g:link action="show" id="${entryInstance.id}">
+							Detalhar Entry
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>

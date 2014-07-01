@@ -19,8 +19,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="index">
-							Exits
+	                	<g:link action="show" id="${exitInstance.id}">
+							Detalhar Exit
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>

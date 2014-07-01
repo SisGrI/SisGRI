@@ -19,8 +19,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="index">
-							Congregations
+	                	<g:link action="show" id="${congregationInstance.id}">
+							Detalhar Congregation
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>

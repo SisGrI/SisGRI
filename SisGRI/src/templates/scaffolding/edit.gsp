@@ -19,8 +19,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="index">
-							${className}s
+	                	<g:link action="show" id="\${${domainClass.propertyName}Instance.id}">
+							Detalhar ${className}
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>

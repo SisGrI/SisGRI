@@ -13,7 +13,7 @@
 	            	<li>
 	                    <i class="fa fa-home"></i>
 	                    <a href="\${createLink(uri: '/')}">
-									Página Inicial
+							Página Inicial
 						</a>
 	                    <i class="fa fa-angle-right"></i>
 	                </li>

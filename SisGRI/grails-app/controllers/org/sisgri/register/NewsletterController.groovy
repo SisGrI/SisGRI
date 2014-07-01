@@ -21,10 +21,6 @@ class NewsletterController {
         respond newsletterInstance
     }
 
-    def create() {
-        respond new Newsletter(params)
-    }
-
     protected void notFound() {
         request.withFormat {
             form multipartForm {

@@ -19,8 +19,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="index">
-							Profiles
+	                	<g:link action="show" id="${profileInstance.id}">
+							Detalhar Profile
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>

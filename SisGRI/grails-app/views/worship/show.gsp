@@ -20,8 +20,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link>
-							Worships
+	                	<g:link action="search">
+							Pesquisar Worships
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>

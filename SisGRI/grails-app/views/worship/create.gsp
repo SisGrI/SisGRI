@@ -13,15 +13,9 @@
 	            	<li>
 	                    <i class="fa fa-home"></i>
 	                    <a href="${createLink(uri: '/')}">
-									Página Inicial
+							Página Inicial
 						</a>
 	                    <i class="fa fa-angle-right"></i>
-	                </li>
-	                <li>
-	                	<g:link action="index">
-							Worships
-						</g:link>
-						<i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
 						Criar Worship

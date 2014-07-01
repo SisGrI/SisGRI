@@ -20,8 +20,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link>
-							Persons
+	                	<g:link action="search">
+							Pesquisar Pesoas
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
@@ -480,6 +480,9 @@
 										<div class="col-md-offset-3 col-md-9">
 											<g:hiddenField name="id" value="${personInstance?.id}" />
 
+											<g:link class="btn blue" action="edit" id="${personInstance?.id}">
+											<i class="fa fa-pencil"></i> Editar	</g:link>
+
 											<g:if test="${personInstance?.profile == null}">
 						 						<g:link controller="profile" action="create" class="btn blue" id="${personInstance?.id}"> <i class="fa fa-plus"></i> Criar Perfil</g:link>
 						 					</g:if>
@@ -487,9 +490,6 @@
 						 					<g:if test="${personInstance?.profile != null}">
 						 						<g:actionSubmit class="btn red" action="removeProfile" value="Remover Perfil" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 						 					</g:if>
-
-											<g:link class="btn blue" action="edit" id="${personInstance?.id}">
-											<i class="fa fa-pencil"></i> Editar	</g:link>
 
 											<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
 											</g:actionSubmit>
