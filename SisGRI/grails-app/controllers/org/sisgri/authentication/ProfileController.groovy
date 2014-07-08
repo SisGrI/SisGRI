@@ -76,6 +76,7 @@ class ProfileController {
             return
         }
 
+        updatePassword(profileInstance, params.newPassword)
         profileInstance.save flush:true
 
         ProfileRole.removeAll(profileInstance)
@@ -136,5 +137,10 @@ class ProfileController {
         }
 
         ProfileRole.create(profileInstance, roleInstance, true)
+    }
+
+    protected void updatePassword(Profile profileInstance, String newPassword) {
+        if(params.newPassword != "")
+            profileInstance.password = newPassword
     }
 }

@@ -12,17 +12,19 @@
 	</div>
 </div>
 
-<div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'password', 'error')} required">
-		<label class="control-label col-md-3" for="password">
-			<g:message code="profile.password.label" default="Senha" />
-			<span class="required-indicator">*</span>
-		</label>
-		<div class="col-md-4">
-			<g:textField class="form-control" name="password" required="" value="${profileInstance?.password}"/>
+<g:if test="${profileInstance.password == null}">
+	<div class="form-group">
+		<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'password', 'error')} required">
+			<label class="control-label col-md-3" for="password">
+				<g:message code="profile.password.label" default="Senha" />
+				<span class="required-indicator">*</span>
+			</label>
+			<div class="col-md-4">
+				<g:textField class="form-control" name="password" required="" value="${profileInstance?.password}"/>
+			</div>
 		</div>
 	</div>
-</div>
+</g:if>
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'person', 'error')} required">
@@ -47,3 +49,16 @@
 		</div>
 	</div>
 </div>
+
+<g:if test="${profileInstance.password != null}">
+	<div class="form-group">
+		<div class="fieldcontain ${hasErrors(bean: profileInstance, field: 'password', 'error')} required">
+			<label class="control-label col-md-3" for="newPassword">
+				<g:message code="profile.newPassword.label" default="Nova Senha" />
+			</label>
+			<div class="col-md-4">
+				<g:textField class="form-control" name="newPassword" value="" placeholder="Preencha para alterar sua senha!"/>
+			</div>
+		</div>
+	</div>
+</g:if>
