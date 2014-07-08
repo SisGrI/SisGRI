@@ -22,4 +22,8 @@ class Entry extends Register{
     	name blank: false
 		value blank: false
     }
+
+    String toString() {
+        "$category"
+    }
 }

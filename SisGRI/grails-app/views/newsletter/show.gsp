@@ -93,7 +93,7 @@
 												</g:if>
 												<div class="col-md-9">
 													<p class="form-control-static">
-														<g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
+														<g:link controller="entry" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
 													</p>
 												</div>
 											</g:each>
@@ -113,7 +113,7 @@
 												</g:if>
 												<div class="col-md-9">
 													<p class="form-control-static">
-														<g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
+														<g:link controller="exit" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
 													</p>
 												</div>
 											</g:each>

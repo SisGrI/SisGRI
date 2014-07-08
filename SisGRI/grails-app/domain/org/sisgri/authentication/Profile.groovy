@@ -65,4 +65,8 @@ class Profile {
             return false
         }
     }
+
+    String toString(){
+		return username
+	}
 }

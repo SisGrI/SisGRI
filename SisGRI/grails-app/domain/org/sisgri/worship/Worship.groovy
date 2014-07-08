@@ -18,4 +18,8 @@ class Worship {
 		ruling blank: false
 		prelector blank: false
     }
+
+    String toString() {
+    	"$date - "+"$type"
+    }
 }

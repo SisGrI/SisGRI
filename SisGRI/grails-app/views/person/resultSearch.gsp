@@ -48,10 +48,6 @@
 						<div class="caption">
 							<i class="fa fa-list"></i>Pessoas
 						</div>
-						<div class="tools">
-							<a href="javascript:;" class="collapse">
-							</a>
-						</div>
 						<div class="actions">
 							<g:link class="btn green" action="create">
 								<i class="fa fa-plus"></i> Novo
