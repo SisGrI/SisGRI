@@ -1,8 +1,5 @@
 <%@ page import="org.sisgri.church.Headquarter" %>
 
-
-
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: headquarterInstance, field: 'name', 'error')} required">
 		<label class="control-label col-md-3" for="name">

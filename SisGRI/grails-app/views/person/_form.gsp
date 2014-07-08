@@ -1,8 +1,5 @@
 <%@ page import="org.sisgri.people.Person" %>
 
-
-
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'church', 'error')} required">
 		<label class="control-label col-md-3" for="church">
@@ -10,11 +7,10 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${personInstance?.church?.id}" class="many-to-one"/>
+			<g:select class="form-control" id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${personInstance?.church?.id}"/>
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'name', 'error')} required">
@@ -28,7 +24,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cpf', 'error')} required">
 		<label class="control-label col-md-3" for="cpf">
@@ -40,8 +35,6 @@
 		</div>
 	</div>
 </div>
-
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'rg', 'error')} required">
 		<label class="control-label col-md-3" for="rg">
@@ -53,7 +46,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'situation', 'error')} ">
@@ -69,7 +61,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'profession', 'error')} ">
 		<label class="control-label col-md-3" for="profession">
@@ -81,7 +72,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'address', 'error')} required">
@@ -95,7 +85,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'city', 'error')} required">
 		<label class="control-label col-md-3" for="city">
@@ -107,7 +96,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'zipCode', 'error')} required">
@@ -121,7 +109,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'telephone', 'error')} ">
 		<label class="control-label col-md-3" for="telephone">
@@ -133,7 +120,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cellular', 'error')} ">
@@ -147,7 +133,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'email', 'error')} ">
 		<label class="control-label col-md-3" for="email">
@@ -159,7 +144,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birth', 'error')} required">
@@ -173,7 +157,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birthPlace', 'error')} required">
 		<label class="control-label col-md-3" for="birthPlace">
@@ -185,7 +168,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'father', 'error')} ">
@@ -199,7 +181,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'mother', 'error')} ">
 		<label class="control-label col-md-3" for="mother">
@@ -211,7 +192,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'baptism', 'error')} ">
@@ -225,7 +205,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'memberSince', 'error')} ">
 		<label class="control-label col-md-3" for="memberSince">
@@ -238,7 +217,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'conversion', 'error')} ">
 		<label class="control-label col-md-3" for="conversion">
@@ -250,7 +228,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'baptismHollySpirit', 'error')} ">
@@ -266,7 +243,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'maritalStatus', 'error')} required">
 		<label class="control-label col-md-3" for="maritalStatus">
@@ -278,7 +254,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'spouse', 'error')} ">
@@ -292,7 +267,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'marriageDate', 'error')} ">
 		<label class="control-label col-md-3" for="marriageDate">
@@ -304,7 +278,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'department', 'error')} required">
@@ -318,7 +291,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'type', 'error')} required">
 		<label class="control-label col-md-3" for="type">
@@ -331,7 +303,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} ">
 		<label class="control-label col-md-3" for="post">
@@ -343,7 +314,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'observation', 'error')} ">

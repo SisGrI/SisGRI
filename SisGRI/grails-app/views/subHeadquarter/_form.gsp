@@ -1,8 +1,5 @@
 <%@ page import="org.sisgri.church.SubHeadquarter" %>
 
-
-
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: subHeadquarterInstance, field: 'name', 'error')} required">
 		<label class="control-label col-md-3" for="name">
@@ -15,7 +12,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: subHeadquarterInstance, field: 'address', 'error')} required">
 		<label class="control-label col-md-3" for="address">
@@ -27,7 +23,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: subHeadquarterInstance, field: 'headquarter', 'error')} required">
 		<label class="control-label col-md-3" for="headquarter">
@@ -35,7 +30,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="headquarter" name="headquarter.id" from="${org.sisgri.church.Headquarter.list()}" optionKey="id" required="" value="${subHeadquarterInstance?.headquarter?.id}" class="many-to-one"/>
+			<g:select class="form-control" id="headquarter" name="headquarter.id" from="${org.sisgri.church.Headquarter.list()}" optionKey="id" required="" value="${subHeadquarterInstance?.headquarter?.id}"/>
 		</div>
 	</div>
 </div>

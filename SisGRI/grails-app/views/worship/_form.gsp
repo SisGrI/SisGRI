@@ -1,8 +1,5 @@
 <%@ page import="org.sisgri.worship.Worship" %>
 
-
-
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'church', 'error')} required">
 		<label class="control-label col-md-3" for="church">
@@ -10,11 +7,10 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${worshipInstance?.church?.id}" class="many-to-one"/>
+			<g:select class="form-control" id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${worshipInstance?.church?.id}"/>
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'type', 'error')} required">
@@ -28,7 +24,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'date', 'error')} required">
 		<label class="control-label col-md-3" for="date">
@@ -41,7 +36,6 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'ruling', 'error')} required">
 		<label class="control-label col-md-3" for="ruling">
@@ -49,11 +43,10 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="ruling" name="ruling.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.ruling?.id}" class="many-to-one"/>
+			<g:select class="form-control" id="ruling" name="ruling.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.ruling?.id}"/>
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'prelector', 'error')} required">
@@ -62,7 +55,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="prelector" name="prelector.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.prelector?.id}" class="many-to-one"/>
+			<g:select class="form-control" id="prelector" name="prelector.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.prelector?.id}"/>
 		</div>
 	</div>
 </div>

@@ -1,8 +1,5 @@
 <%@ page import="org.sisgri.church.Congregation" %>
 
-
-
-
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: congregationInstance, field: 'name', 'error')} required">
 		<label class="control-label col-md-3" for="name">
@@ -14,7 +11,6 @@
 		</div>
 	</div>
 </div>
-
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: congregationInstance, field: 'address', 'error')} required">
@@ -35,7 +31,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="subHeadquarter" name="subHeadquarter.id" from="${org.sisgri.church.SubHeadquarter.list()}" optionKey="id" required="" value="${congregationInstance?.subHeadquarter?.id}" class="many-to-one"/>
+			<g:select class="form-control" id="subHeadquarter" name="subHeadquarter.id" from="${org.sisgri.church.SubHeadquarter.list()}" optionKey="id" required="" value="${congregationInstance?.subHeadquarter?.id}"/>
 		</div>
 	</div>
 </div>
