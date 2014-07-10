@@ -112,8 +112,8 @@ class PersonController {
             return
         }
 
-        personInstance.save flush:true
-        photoService.upload(personInstance, params.photo)
+        //personInstance.save flush:true
+        //photoService.upload(personInstance, params.photo)
 
         request.withFormat {
             form multipartForm {

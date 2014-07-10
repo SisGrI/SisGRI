@@ -57,12 +57,16 @@
 			
 			<div class="col-md-12">
 				<div class="portlet box blue">
-					<div class="portlet-body form">
-						<div class="portlet box blue">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-list"></i>Editar Entrada
 						</div>
+					</div>
+					<div class="portlet-body form">
 						<g:form url="[resource:entryInstance, action:'update']" method="PUT" class="form-horizontal">
 							<div class="form-body">
-								<h3 class="form-section"><small>Edite uma Entrada!</small></h3>
+								<div class="form-section">
+								</div>
 								<div class="alert alert-danger display-hide">
 									<button class="close" data-close="alert"></button>
 									O formulário contêm erros. Por favor verifique abaixo.
