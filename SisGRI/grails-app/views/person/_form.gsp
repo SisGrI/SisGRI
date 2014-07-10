@@ -1,6 +1,37 @@
 <%@ page import="org.sisgri.people.Person" %>
 
 <div class="form-group">
+	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'photo', 'error')} required">
+		<label class="control-label col-md-3" for="church">
+			<g:message code="person.photo.label" default="Foto" />
+		</label>
+		<div class="col-md-9">
+			<div class="fileinput fileinput-new" data-provides="fileinput">
+				<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+					<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=Sem+Imagem" alt=""/>
+				</div>
+				<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+				</div>
+				<div>
+					<span class="btn default btn-file">
+						<span class="fileinput-new">
+							 Selecionar Imagem
+						</span>
+						<span class="fileinput-exists">
+							 Mudar
+						</span>
+						<input type="file" name="photo" />
+					</span>
+					<a href="#" class="btn default fileinput-exists" data-dismiss="fileinput">
+						 Remover
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'church', 'error')} required">
 		<label class="control-label col-md-3" for="church">
 			<g:message code="person.church.label" default="Igreja" />

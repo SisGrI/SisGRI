@@ -17,6 +17,12 @@
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap.min.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'uniform.default.css')}" type="text/css">
 
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-fileinput.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-switch.min.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'jquery.tagsinput.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'bootstrap-markdown.min.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'typeahead.css')}" type="text/css">
+
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'select2.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'select2-metronic.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'DT_bootstrap.css')}" type="text/css">
@@ -238,22 +244,37 @@
 		<g:javascript src="jquery-1.10.2.min.js" />
         <g:javascript src="jquery-migrate-1.2.1.min.js" />
         <g:javascript src="bootstrap.min.js" />
+        <g:javascript src="bootstrap2-typeahead.min.js" />
         <g:javascript src="bootstrap-hover-dropdown.min.js" />
         <g:javascript src="jquery.slimscroll.min.js" />
         <g:javascript src="jquery.blockui.min.js" />
         <g:javascript src="jquery.cokie.min.js" />
         <g:javascript src="jquery.uniform.min.js" />
 
+		<g:javascript src="spinner.min.js" />
+		<g:javascript src="bootstrap-fileinput.js" />
+		<g:javascript src="jquery.inputmask.bundle.min.js" />
+		<g:javascript src="jquery.input-ip-address-control-1.0.min.js" />
+		<g:javascript src="pwstrength.js" />
+		<g:javascript src="bootstrap-switch.min.js" />
+		<g:javascript src="jquery.tagsinput.min.js" />
+		<g:javascript src="bootstrap-maxlength.min.js" />
+		<g:javascript src="bootstrap.touchspin.js" />
+		<g:javascript src="handlebars.min.js" />
+		<g:javascript src="typeahead.min.js" />
+
         <g:javascript src="select2.min.js" />
         <g:javascript src="jquery.dataTables.js" />
         <g:javascript src="DT_bootstrap.js" />
 
         <g:javascript src="app.js" />
+        <g:javascript src="components-form-tools.js" />
         <g:javascript src="table-managed.js" />
 
         <script>
 			jQuery(document).ready(function() {    
 			   App.init();
+			   ComponentsFormTools.init();
 			   TableManaged.init();
 			});
 		</script>

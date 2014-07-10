@@ -59,9 +59,8 @@ class PersonController {
                 like("cpf", "%"+params.cpf+"%")
             if(params.post!="")
                 like("post", "%"+params.post+"%")
-            
         }
-        respond search, model:[personInstanceCount: Person.count()]
+        respond search
     }
 
     def show(Person personInstance) {

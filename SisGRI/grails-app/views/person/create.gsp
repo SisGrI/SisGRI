@@ -62,7 +62,7 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<g:form url="[resource:personInstance, action:'save']"  class="form-horizontal">
+						<g:uploadForm url="[resource:personInstance, action:'save']" class="form-horizontal">
 							<div class="form-body">
 								<div class="form-section">
 								</div>
@@ -77,7 +77,7 @@
 									<button type="submit" class="btn blue">Submeter</button>
 								</div>
 							</div>
-						</g:form>
+						</g:uploadForm>
 					</div>
 				</div>
 			</div>
