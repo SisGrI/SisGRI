@@ -61,29 +61,29 @@
 						<table class="table table-striped table-bordered table-hover" id="sample_2">
 							<thead>
 								<tr>
-									<th>Igreja</th>
 									<th>Nome</th>
-									<th>CPF</th>
-									<th>RG</th>
-									<th>Situação</th>
-									<th>Profissão</th>
+									<th>Nascimento</th>
+									<th>Batismo</th>
+									<th>Telefone</th>
+									<th>Celular</th>
+									<th>Cargo</th>
 								</tr>
 							</thead>
 							<tbody>
 								<g:each in="${personInstanceList}" status="i" var="personInstance">
 									<tr class="odd gradeX">
 									
-										<td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "church")}</g:link></td>
+										<td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "name")}</g:link></td>
 					
-										<td>${fieldValue(bean: personInstance, field: "name")}</td>
+										<td><g:formatDate date="${personInstance.birth}" /></td>
 									
-										<td>${fieldValue(bean: personInstance, field: "cpf")}</td>
+										<td><g:formatDate date="${personInstance.baptism}" /></td>
 									
-										<td>${fieldValue(bean: personInstance, field: "rg")}</td>
-									
-										<td><g:formatBoolean boolean="${personInstance.situation}" /></td>
-									
-										<td>${fieldValue(bean: personInstance, field: "profession")}</td>
+										<td>${fieldValue(bean: personInstance, field: "telephone")}</td>
+
+										<td>${fieldValue(bean: personInstance, field: "cellular")}</td>
+
+										<td>${fieldValue(bean: personInstance, field: "post")}</td>
 									
 									</tr>
 								</g:each>
