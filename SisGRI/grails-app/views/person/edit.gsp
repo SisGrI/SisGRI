@@ -63,7 +63,7 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<g:form url="[resource:personInstance, action:'update']" method="POST" class="form-horizontal">
+						<g:uploadForm url="[resource:personInstance, action:'update']" method="POST" class="form-horizontal">
 							<div class="form-body">
 								<div class="form-section">
 								</div>
@@ -81,7 +81,7 @@
 									<g:actionSubmit class="btn blue" action="update" value="Atualizar" />
 								</div>
 							</div>
-						</g:form>
+						</g:uploadForm>
 					</div>
 				</div>
 			</div>

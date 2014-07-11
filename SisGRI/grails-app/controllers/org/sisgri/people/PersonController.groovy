@@ -32,8 +32,8 @@ class PersonController {
 
         dateBefore = dateBefore.parse('dd/MM/yyyy', dateString)
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.MONTH, dateBefore.month); 
+        Calendar calendar = Calendar.getInstance()
+        calendar.set(Calendar.MONTH, dateBefore.month) 
 
         def dateAfter = new Date()
         dateAfter.month = dateBefore.month
@@ -65,6 +65,11 @@ class PersonController {
 
     def show(Person personInstance) {
         respond personInstance
+    }
+
+    def showPhoto = {
+        long id = Long.parseLong(params.id)
+        response.outputStream << photoService.getPhoto(id)
     }
 
     def create() {
@@ -111,8 +116,8 @@ class PersonController {
             return
         }
 
-        //personInstance.save flush:true
-        //photoService.upload(personInstance, params.photo)
+        personInstance.save flush:true
+        photoService.upload(personInstance, params.photo)
 
         request.withFormat {
             form multipartForm {
@@ -141,13 +146,6 @@ class PersonController {
             }
             '*'{ render status: NO_CONTENT }
         }
-    }
-
-    @Transactional
-    def deletePhoto(Person personInstance) {
-        photoService.delete(personInstance)
-        flash.message = "Foto Excluida"
-        redirect action:"edit", id:personInstance.id
     }
 
     protected void notFound() {

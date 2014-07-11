@@ -51,7 +51,19 @@
 							<div class="form-body">
 								<h3 class="form-section">Dados</h3>
 								<div class="row">
-									
+									<div class="col-md-6">
+										<div class="form-group">
+											<div class="col-md-9">
+												<div class="fileinput fileinput-new" data-provides="fileinput">
+													<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+														<img src="${createLink(action:'showPhoto', id: personInstance.id)}" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
 									<g:if test="${personInstance?.church}">
 										<div class="col-md-6">
 											<div class="form-group">

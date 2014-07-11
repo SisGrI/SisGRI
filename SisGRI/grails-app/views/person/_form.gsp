@@ -8,7 +8,12 @@
 		<div class="col-md-9">
 			<div class="fileinput fileinput-new" data-provides="fileinput">
 				<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-					<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=Sem+Imagem" alt=""/>
+					<g:if test="${personInstance.id != null}">
+						<img src="${createLink(action:'showPhoto', id: personInstance.id)}" />
+					</g:if>
+					<g:if test="${personInstance.id == null}">
+						<img src="${resource(dir: 'images', file: 'no_photo.gif')}" alt=""/>
+					</g:if>
 				</div>
 				<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
 				</div>

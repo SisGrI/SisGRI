@@ -18,8 +18,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="index">
-							Pessoas
+	                	<g:link action="search">
+							Pesquisar Pessoas
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
