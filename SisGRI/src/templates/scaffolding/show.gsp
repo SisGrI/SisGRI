@@ -47,7 +47,7 @@
 					</div>
 					<div class="portlet-body form">
 						<!-- BEGIN FORM-->
-						<g:form class="form-horizontal" role="form">
+						<div class="form-horizontal" role="form">
 							<div class="form-body">
 								<h3 class="form-section">Dados</h3>
 								<div class="row">
@@ -112,24 +112,26 @@
 										</div>
 									</g:if>
 									<% } %>
-									</div>
 								</div>
-							<div class="form-actions right">
-								<div class="row">
-									<div class="col-md-12">
-										<div class="col-md-offset-3 col-md-9">
-											<g:hiddenField name="id" value="\${${propertyName}?.id}" />
+							</div>
+							<g:form url="[resource:profileInstance, action:'delete']" method="DELETE">
+								<div class="form-actions right">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="col-md-offset-3 col-md-9">
+												<g:hiddenField name="id" value="\${${propertyName}?.id}" />
 
-											<g:link class="btn blue" action="edit" id="\${${propertyName}?.id}">
-											<i class="fa fa-pencil"></i> Editar	</g:link>
+												<g:link class="btn blue" action="edit" id="\${${propertyName}?.id}">
+												<i class="fa fa-pencil"></i> Editar	</g:link>
 
-											<g:actionSubmit class="btn red" action="delete" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
-											</g:actionSubmit>
+												<g:actionSubmit class="btn red" action="delete" value="\${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('\${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+												</g:actionSubmit>
+											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-						</g:form>
+							</g:form>
+						</div>
 					</div>
 				</div>
 			</div>

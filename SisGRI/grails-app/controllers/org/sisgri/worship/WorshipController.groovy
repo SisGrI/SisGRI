@@ -132,7 +132,7 @@ class WorshipController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Worship.label', default: 'Worship'), worshipInstance.id])
-                redirect action:"index", method:"GET"
+                redirect action:"search", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -142,7 +142,7 @@ class WorshipController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'worshipInstance.label', default: 'Worship'), params.id])
-                redirect action: "index", method: "GET"
+                redirect action: "search", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

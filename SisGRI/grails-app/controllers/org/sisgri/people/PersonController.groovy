@@ -142,7 +142,7 @@ class PersonController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Person.label', default: 'Person'), personInstance.id])
-                redirect action:"index", method:"GET"
+                redirect action:"search", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
         }
@@ -152,7 +152,7 @@ class PersonController {
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'personInstance.label', default: 'Person'), params.id])
-                redirect action: "index", method: "GET"
+                redirect action: "search", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }

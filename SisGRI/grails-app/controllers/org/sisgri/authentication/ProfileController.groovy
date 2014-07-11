@@ -1,7 +1,7 @@
 package org.sisgri.authentication
 
 
-
+import org.sisgri.people.Person
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
@@ -18,16 +18,21 @@ class ProfileController {
         respond Profile.list(params), model:[profileInstanceCount: Profile.count()]
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_SECRETARY','ROLE_TREASURER'])
     def showCurrentProfile() {
         redirect action:"show", id:springSecurityService.currentUser.id
     }
 
+    @Secured(['ROLE_ADMIN','ROLE_SECRETARY','ROLE_TREASURER'])
     def show(Profile profileInstance) {
         respond profileInstance
     }
 
     def create() {
-        respond new Profile(params)
+        def profileInstance = new Profile(params)
+        profileInstance.person = Person.get(params.id)
+
+        respond profileInstance
     }
 
     @Transactional
