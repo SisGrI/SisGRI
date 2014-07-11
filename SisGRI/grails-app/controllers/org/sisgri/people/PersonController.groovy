@@ -130,13 +130,12 @@ class PersonController {
 
     @Transactional
     def delete(Person personInstance) {
-        photoService.delete(personInstance)
-
         if (personInstance == null) {
             notFound()
             return
         }
 
+        photoService.delete(personInstance.id)
         personInstance.delete flush:true
 
         request.withFormat {

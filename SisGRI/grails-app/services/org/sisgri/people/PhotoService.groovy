@@ -5,14 +5,17 @@ import grails.transaction.Transactional
 
 @Transactional
 class PhotoService {
+    
+    def path = ApplicationHolder.application.parentContext.getResource("resources/photos").getFile().toString()
 
     def upload(Person personInstance, def photo) {
         if (!photo) {
             return
         }
-    	new File('fotos').mkdirs()
-        def photoPath = 'fotos/'+personInstance.id+'.jpg'
-        
+
+    	new File(this.path).mkdirs()
+        def photoPath = this.path + '/' + personInstance.id + '.jpg'
+
         if (!photo.empty) {
             photo.transferTo(new File(photoPath))
             return
@@ -21,7 +24,7 @@ class PhotoService {
     }
 
     def getPhoto(long id) {
-        def photoPath = 'fotos/'+id+'.jpg'
+        def photoPath = this.path + '/' + id + '.jpg'
         def photo = new File(photoPath)
 
         if(!photo.length()) {
@@ -43,8 +46,8 @@ class PhotoService {
         return file
     }
 
-    def delete(Person personInstance) {
-    	def photoPath = 'fotos/'+personInstance.id+'.jpg'
+    def delete(long id) {
+    	def photoPath = this.path + '/' + id + '.jpg'
     	def photo = new File(photoPath)
     	
     	if(!photo.length())
