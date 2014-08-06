@@ -182,7 +182,7 @@
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birth', 'error')} required">
+	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birth', 'error')}">
 		<label class="control-label col-md-3" for="birth">
 			<g:message code="person.birth.label" default="Nascimento" />
 			<span class="required-indicator">*</span>

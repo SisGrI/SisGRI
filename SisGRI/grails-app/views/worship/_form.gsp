@@ -31,7 +31,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:datePicker name="date" years="[2013, 2014]" precision="day"  value="${worshipInstance?.date}"  />
+			<g:textField class="form-control" id="mask_date" name="date1" required="" value=""/>
 		</div>
 	</div>
 </div>

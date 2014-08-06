@@ -1,7 +1,7 @@
 package org.sisgri.worship
 
 
-
+import java.text.SimpleDateFormat
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
@@ -76,6 +76,8 @@ class WorshipController {
             return
         }
 
+        convertDates(worshipInstance)
+        
         if (worshipInstance.hasErrors()) {
             respond worshipInstance.errors, view:'create'
             return
@@ -102,6 +104,8 @@ class WorshipController {
             notFound()
             return
         }
+
+        convertDates(worshipInstance)
 
         if (worshipInstance.hasErrors()) {
             respond worshipInstance.errors, view:'edit'
@@ -146,5 +150,10 @@ class WorshipController {
             }
             '*'{ render status: NOT_FOUND }
         }
+    }
+
+    protected void convertDates(Worship worshipInstance) {
+        if(params.date1 != null && params.date1 != "")
+            worshipInstance.date = new SimpleDateFormat("dd/MM/yyyy").parse(params.date1)
     }
 }
