@@ -20,8 +20,6 @@ class ChurchController {
     def showToWorship(Worship worshipInstance) {
         if(worshipInstance.church.instanceOf(Headquarter))
             showHeadquarter(worshipInstance.church)
-        else if(worshipInstance.church.instanceOf(SubHeadquarter))
-            showSubHeadquarter(worshipInstance.church)
         else
             showCongregation(worshipInstance.church)
     }
@@ -29,18 +27,12 @@ class ChurchController {
     def showToPerson(Person personInstance) {
         if(personInstance.church.instanceOf(Headquarter))
             showHeadquarter(personInstance.church)
-        else if(personInstance.church.instanceOf(SubHeadquarter))
-            showSubHeadquarter(personInstance.church)
         else
             showCongregation(personInstance.church)
     }
 
     protected def showHeadquarter(Headquarter headquarterInstance) {
         redirect controller:"headquarter", action:"show", id:headquarterInstance.id
-    }
-
-    protected def showSubHeadquarter(SubHeadquarter subHeadquarterInstance) {
-        redirect controller:"subHeadquarter", action:"show", id:subHeadquarterInstance.id
     }
 
     protected def showCongregation(Congregation congregationInstance) {

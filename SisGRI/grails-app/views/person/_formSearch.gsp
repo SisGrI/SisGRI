@@ -29,7 +29,7 @@
 			
 		</label>
 		<div class="col-md-4">
-			<g:radioGroup name="situation" labels="['Sim','Não']" values="['true','false']" value="">
+			<g:radioGroup name="situation" labels="['Ativo','Inativo']" values="['true','false']" value="">
 		<span>${it.radio} ${it.label}</span>
 	</g:radioGroup>
 		</div>

@@ -47,7 +47,7 @@ class Person {
     	telephone nullable:true
     	cellular nullable:true
     	email nullable:true, email:true
-    	birth blank:false, attributes:[years:1920..2014]
+    	birth attributes:[years:1920..2014]
     	birthPlace blank:false
     	father nullable:true
     	mother nullable:true
