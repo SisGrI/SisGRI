@@ -116,11 +116,6 @@
 										</g:link>
 									</li>
 									<li>
-										<g:link controller="subHeadquarter">
-											Sub-Sedes
-										</g:link>
-									</li>
-									<li>
 										<g:link controller="congregation">
 											Congregações
 										</g:link>

@@ -102,34 +102,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${congregationInstance?.person}">
+									<g:if test="${congregationInstance?.headquarter}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Pessoas</label>
-												
-											<g:each status="i" in="${congregationInstance.person}" var="p">
-												<g:if test="${i}">
-													<label class="control-label col-md-3"></label>
-												</g:if>
-												<div class="col-md-9">
-													<p class="form-control-static">
-														<g:link controller="person" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link>
-													</p>
-												</div>
-											</g:each>
-										
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${congregationInstance?.subHeadquarter}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Sub-Sede</label>
+												<label class="control-label col-md-3">Sede</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:link controller="subHeadquarter" action="show" id="${congregationInstance?.subHeadquarter?.id}">${congregationInstance?.subHeadquarter?.encodeAsHTML()}</g:link>
+													<g:link controller="headquarter" action="show" id="${congregationInstance?.headquarter?.id}">${congregationInstance?.headquarter?.encodeAsHTML()}</g:link>
 												</p>
 											</div>
 										

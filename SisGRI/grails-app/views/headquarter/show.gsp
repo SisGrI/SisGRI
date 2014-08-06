@@ -82,18 +82,38 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${headquarterInstance?.subHeadquarters}">
+									<g:if test="${headquarterInstance?.worship}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Sub-Sedes</label>
+												<label class="control-label col-md-3">Cultos</label>
 												
-											<g:each status="i" in="${headquarterInstance.subHeadquarters}" var="s">
+											<g:each status="i" in="${headquarterInstance.worship}" var="w">
 												<g:if test="${i}">
 													<label class="control-label col-md-3"></label>
 												</g:if>
 												<div class="col-md-9">
 													<p class="form-control-static">
-														<g:link controller="subHeadquarter" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link>
+														<g:link controller="worship" action="show" id="${w.id}">${w?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${headquarterInstance?.congregations}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Congregações</label>
+												
+											<g:each status="i" in="${headquarterInstance.congregations}" var="c">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="congregation" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link>
 													</p>
 												</div>
 											</g:each>

@@ -2,7 +2,7 @@ package org.sisgri.church
 
 class Congregation extends Church{
 
-	static belongsTo = [subHeadquarter: SubHeadquarter]
+	static belongsTo = [headquarter: Headquarter]
 
     static constraints = {
     }

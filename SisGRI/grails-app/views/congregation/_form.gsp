@@ -12,6 +12,7 @@
 	</div>
 </div>
 
+
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: congregationInstance, field: 'address', 'error')} required">
 		<label class="control-label col-md-3" for="address">
@@ -24,14 +25,15 @@
 	</div>
 </div>
 
+
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: congregationInstance, field: 'subHeadquarter', 'error')} required">
-		<label class="control-label col-md-3" for="subHeadquarter">
-			<g:message code="congregation.subHeadquarter.label" default="Sub-Sede" />
+	<div class="fieldcontain ${hasErrors(bean: congregationInstance, field: 'headquarter', 'error')} required">
+		<label class="control-label col-md-3" for="headquarter">
+			<g:message code="congregation.headquarter.label" default="Sede" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="subHeadquarter" name="subHeadquarter.id" from="${org.sisgri.church.SubHeadquarter.list()}" optionKey="id" required="" value="${congregationInstance?.subHeadquarter?.id}"/>
+			<g:select class="form-control" id="headquarter" name="headquarter.id" from="${org.sisgri.church.Headquarter.list()}" optionKey="id" required="" value="${congregationInstance?.headquarter?.id}"/>
 		</div>
 	</div>
 </div>

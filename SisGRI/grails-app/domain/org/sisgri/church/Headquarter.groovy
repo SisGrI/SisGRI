@@ -2,7 +2,7 @@ package org.sisgri.church
 
 class Headquarter extends Church{
 
-	static hasMany = [subHeadquarters: SubHeadquarter]
+	static hasMany = [congregations: Congregation]
 
     static constraints = {
     }

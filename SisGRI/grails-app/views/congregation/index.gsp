@@ -46,6 +46,9 @@
 							<g:link class="btn green" action="create">
 								<i class="fa fa-plus"></i> Novo
 							</g:link>
+							<a href="#" class="btn yellow">
+								<i class="fa fa-print"></i> Imprimir
+							</a>
 						</div>
 					</div>
 					<div class="portlet-body">
@@ -57,8 +60,6 @@
 								
 									<th><g:message code="congregation.address.label" default="Endereço" /></th>
 								
-									<th><g:message code="congregation.subHeadquarter.label" default="Sub-Sede" /></th>
-								
 								</tr>
 							</thead>
 							<tbody>
@@ -68,8 +69,6 @@
 										<td><g:link action="show" id="${congregationInstance.id}">${fieldValue(bean: congregationInstance, field: "name")}</g:link></td>
 									
 										<td>${fieldValue(bean: congregationInstance, field: "address")}</td>
-									
-										<td>${fieldValue(bean: congregationInstance, field: "subHeadquarter")}</td>
 									
 									</tr>
 								</g:each>
