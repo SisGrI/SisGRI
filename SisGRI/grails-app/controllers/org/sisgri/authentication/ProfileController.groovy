@@ -104,6 +104,12 @@ class ProfileController {
             notFound()
             return
         }
+        if(profileInstance.id == 1) {
+            flash.message = "O Perfil do Administrador não pode ser excluído!"
+            redirect action:"show", id:profileInstance.id
+            return
+        }
+
         if(profileInstance.deleteProfileCurrent(profileInstance)) {
             redirect controller:"logout", method:"GET"
             return

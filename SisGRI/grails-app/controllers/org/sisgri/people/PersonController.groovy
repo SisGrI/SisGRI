@@ -135,8 +135,24 @@ class PersonController {
             return
         }
 
+        if(personInstance.id == 1) {
+            flash.message = "O Administrador não pode ser excluído!"
+            redirect action:"show", id:personInstance.id
+            return
+        }
+
+        if(personInstance.profile != null) {
+            def profileInstance = personInstance.profile
+            personInstance.profile.discard()
+            ProfileRole.removeAll(profileInstance)
+        }
         photoService.delete(personInstance.id)
         personInstance.delete flush:true
+
+        if(springSecurityService.currentUser == null) {
+            redirect controller:"logout", method:"GET"
+            return
+        }
 
         request.withFormat {
             form multipartForm {
@@ -162,6 +178,12 @@ class PersonController {
             notFound()
             return
         }
+        if(personInstance.id == 1) {
+            flash.message = "O Perfil do Administrador não pode ser excluído!"
+            redirect action:"show", id:personInstance.id
+            return
+        }
+
         try {
             def profileInstance = personInstance.profile
 

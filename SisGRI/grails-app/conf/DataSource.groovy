@@ -32,7 +32,7 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/SisGrI?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/SisGrIProd?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
 }
