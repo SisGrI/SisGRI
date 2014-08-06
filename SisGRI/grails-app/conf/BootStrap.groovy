@@ -9,12 +9,10 @@ class BootStrap {
    def init = { servletContext ->
       def headquarter = new Headquarter(name:'Igreja Sede', address:'Ocidental').save(flush:true)
 
-      Date dateConversion = new Date()
-
-      def testPerson = new Person(church:headquarter, name: 'Álex', address: 'a', 
-         city:'sa', zipCode:'d', birthPlace:'s', cpf:'s', rg:'s', maritalStatus:'Solteiro(a)',
-         department:'Varões', type:'Congregado', observation: 'd', situation: true, email: 'alex.mesquita06@hotmail.com',
-         birth: dateConversion).save(flush: true)
+      def testPerson = new Person(church:headquarter, name: 'Administrador', address: 'Ocidental', 
+         city:'Ocidental', zipCode:'00000-000', birthPlace:'Ocidental', cpf:'000.000.000-00', rg:'0000000', maritalStatus:'Solteiro(a)',
+         department:'Varões', type:'Congregado', situation: true, email: 'administrador@sisgri.com',
+         birth: new Date()).save(flush: true)
 
       def adminRole = new Role(authority: 'ROLE_ADMIN').save(flush: true)
       def secretaryRole = new Role(authority: 'ROLE_SECRETARY').save(flush: true)

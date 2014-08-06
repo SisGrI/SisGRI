@@ -16,7 +16,7 @@ environments {
     development {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost/SisGRI?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/SisGrI?useUnicode=yes&characterEncoding=UTF-8"
         }
 
         hibernate {
@@ -26,13 +26,13 @@ environments {
     test {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost/SisGRI_TEST?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/SisGrI_TEST?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/SisGRI?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/SisGrI?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
 }
