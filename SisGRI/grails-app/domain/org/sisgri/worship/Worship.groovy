@@ -2,6 +2,7 @@ package org.sisgri.worship
 
 import org.sisgri.people.Person
 import org.sisgri.church.Church
+import java.text.SimpleDateFormat
 
 class Worship {
 	String type
@@ -10,6 +11,8 @@ class Worship {
 	Person prelector
 	
 	static belongsTo = [church:Church]
+
+	static transients = ['stringDate']
 
     static constraints = {
     	church blank:false
@@ -21,5 +24,18 @@ class Worship {
 
     String toString() {
     	"$date - "+"$type"
+    }
+
+    public String getStringDate() {
+        if(this.date != null)
+            return new SimpleDateFormat("dd/MM/yyyy").format(this.date)
+        else
+            return ""
+    }
+
+    public void setStringDate(String stringDate) {
+        if(stringDate != null && stringDate != "") {
+            this.date = new SimpleDateFormat("dd/MM/yyyy").parse(stringDate)
+        }
     }
 }

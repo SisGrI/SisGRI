@@ -31,7 +31,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" id="mask_date" name="date1" required="" value=""/>
+			<g:textField class="form-control" id="mask_date" name="stringDate" required="" value="${worshipInstance?.stringDate}"/>
 		</div>
 	</div>
 </div>

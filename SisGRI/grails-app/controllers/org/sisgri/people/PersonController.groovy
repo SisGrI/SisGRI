@@ -83,8 +83,6 @@ class PersonController {
             notFound()
             return
         }
-        
-        convertDates(personInstance)
 
         if (personInstance.hasErrors()) {
             respond personInstance.errors, view:'create'
@@ -113,8 +111,6 @@ class PersonController {
             notFound()
             return
         }
-
-        convertDates(personInstance)
 
         if (personInstance.hasErrors()) {
             respond personInstance.errors, view:'edit'
@@ -203,18 +199,5 @@ class PersonController {
             flash.message = "Perfil não pôde ser removido"
             redirect(action: "show", id: personInstance.id)            
         }
-    }
-
-    protected void convertDates(Person personInstance) {
-        if(params.date1 != null && params.date1 != "")
-            personInstance.birth = new SimpleDateFormat("dd/MM/yyyy").parse(params.date1)
-        if(params.date2 != null && params.date2 != "")
-            personInstance.baptism = new SimpleDateFormat("dd/MM/yyyy").parse(params.date2)
-        if(params.date3 != null && params.date3 != "")
-            personInstance.memberSince = new SimpleDateFormat("dd/MM/yyyy").parse(params.date3)
-        if(params.date4 != null && params.date4 != "")
-            personInstance.conversion = new SimpleDateFormat("dd/MM/yyyy").parse(params.date4)
-        if(params.date5 != null && params.date5 != "")
-            personInstance.marriageDate = new SimpleDateFormat("dd/MM/yyyy").parse(params.date5)
     }
 }

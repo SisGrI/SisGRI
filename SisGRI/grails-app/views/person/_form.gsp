@@ -188,7 +188,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" id="mask_date" name="date1" required="" value=""/>
+			<g:textField class="form-control" id="mask_date" name="stringBirth" required="" value="${personInstance?.stringBirth}"/>
 		</div>
 	</div>
 </div>
@@ -236,7 +236,7 @@
 			
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" id="mask_date2" name="date2" value=""/>
+			<g:textField class="form-control" id="mask_date2" name="stringBaptism" value="${personInstance?.stringBaptism}"/>
 		</div>
 	</div>
 </div>
@@ -248,7 +248,7 @@
 			
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" id="mask_date3" name="date3" value=""/>
+			<g:textField class="form-control" id="mask_date3" name="stringMemberSince" value="${personInstance?.stringMemberSince}"/>
 		</div>
 	</div>
 </div>
@@ -260,7 +260,7 @@
 			
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" id="mask_date4" name="date4" value=""/>
+			<g:textField class="form-control" id="mask_date4" name="stringConversion" value="${personInstance?.stringConversion}"/>
 		</div>
 	</div>
 </div>
@@ -310,7 +310,7 @@
 			
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" id="mask_date5" name="date5" value=""/>
+			<g:textField class="form-control" id="mask_date5" name="stringMarriageDate" value="${personInstance?.stringMarriageDate}"/>
 		</div>
 	</div>
 </div>

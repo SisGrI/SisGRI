@@ -75,8 +75,6 @@ class WorshipController {
             notFound()
             return
         }
-
-        convertDates(worshipInstance)
         
         if (worshipInstance.hasErrors()) {
             respond worshipInstance.errors, view:'create'
@@ -104,8 +102,6 @@ class WorshipController {
             notFound()
             return
         }
-
-        convertDates(worshipInstance)
 
         if (worshipInstance.hasErrors()) {
             respond worshipInstance.errors, view:'edit'
@@ -150,10 +146,5 @@ class WorshipController {
             }
             '*'{ render status: NOT_FOUND }
         }
-    }
-
-    protected void convertDates(Worship worshipInstance) {
-        if(params.date1 != null && params.date1 != "")
-            worshipInstance.date = new SimpleDateFormat("dd/MM/yyyy").parse(params.date1)
     }
 }

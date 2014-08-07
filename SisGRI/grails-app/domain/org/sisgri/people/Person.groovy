@@ -2,6 +2,7 @@ package org.sisgri.people
 
 import org.sisgri.authentication.Profile
 import org.sisgri.church.Church
+import java.text.SimpleDateFormat
 
 class Person {
 	boolean situation
@@ -33,6 +34,8 @@ class Person {
 
     static hasOne = [profile:Profile]
     static belongsTo = [church:Church]
+
+    static transients = ['stringBirth', 'stringBaptism', 'stringMemberSince', 'stringMarriageDate', 'stringConversion']
 
     static constraints = {
         church blank:false
@@ -66,4 +69,69 @@ class Person {
     }
 
     String toString() { "$name" }
+
+    public String getStringBirth() {
+        if(this.birth != null)
+            return new SimpleDateFormat("dd/MM/yyyy").format(this.birth)
+        else
+            return ""
+    }
+
+    public void setStringBirth(String stringBirth) {
+        if(stringBirth != null && stringBirth != "") {
+            this.birth = new SimpleDateFormat("dd/MM/yyyy").parse(stringBirth)
+        }
+    }
+
+    public String getStringBaptism() {
+        if(this.baptism != null)
+            return new SimpleDateFormat("dd/MM/yyyy").format(this.baptism)
+        else
+            return ""
+    }
+
+    public void setStringBaptism(String stringBaptism) {
+        if(stringBaptism != null && stringBaptism != "") {
+            this.baptism = new SimpleDateFormat("dd/MM/yyyy").parse(stringBaptism)
+        }
+    }
+
+    public String getStringMemberSince() {
+        if(this.memberSince != null)
+            return new SimpleDateFormat("dd/MM/yyyy").format(this.memberSince)
+        else
+            return ""
+    }
+
+    public void setStringMemberSince(String stringMemberSince) {
+        if(stringMemberSince != null && stringMemberSince != "") {
+            this.memberSince = new SimpleDateFormat("dd/MM/yyyy").parse(stringMemberSince)
+        }
+    }
+
+    public String getStringMarriageDate() {
+        if(this.marriageDate != null)
+            return new SimpleDateFormat("dd/MM/yyyy").format(this.marriageDate)
+        else
+            return ""
+    }
+
+    public void setStringMarriageDate(String stringMarriageDate) {
+        if(stringMarriageDate != null && stringMarriageDate != "") {
+            this.marriageDate = new SimpleDateFormat("dd/MM/yyyy").parse(stringMarriageDate)
+        }
+    }
+
+    public String getStringConversion() {
+        if(this.conversion != null)
+            return new SimpleDateFormat("dd/MM/yyyy").format(this.conversion)
+        else
+            return ""
+    }
+
+    public void setStringConversion(String stringConversion) {
+        if(stringConversion != null && stringConversion != "") {
+            this.conversion = new SimpleDateFormat("dd/MM/yyyy").parse(stringConversion)
+        }
+    }
 }
