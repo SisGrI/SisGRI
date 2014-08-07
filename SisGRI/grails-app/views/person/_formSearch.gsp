@@ -54,7 +54,7 @@
 			
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" name="post" from="${personInstance.constraints.post.inList}" value="${personInstance?.post}" valueMessagePrefix="person.post" noSelection="['': '']"/>
+			<g:select class="form-control" name="post" from="${['Todos', 'Cooperador(a)','Diácono(a)','Presbítero','Evangelista','Missionário(a)','Pastor']}" value="${personInstance?.post}" valueMessagePrefix="person.post" noSelection="['': '']"/>
 		</div>
 	</div>
 </div>

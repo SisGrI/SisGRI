@@ -60,7 +60,9 @@ class PersonController {
                 eq('situation', params.situation.toBoolean())
             if(params.cpf!="")
                 like("cpf", "%"+params.cpf+"%")
-            if(params.post!="")
+            if(params.post=="Todos")
+                isNotNull("post")
+            else if(params.post!="")
                 like("post", "%"+params.post+"%")
         }
         respond search
