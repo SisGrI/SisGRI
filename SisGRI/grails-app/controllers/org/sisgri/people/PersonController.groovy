@@ -22,16 +22,11 @@ class PersonController {
 
     def resultSearch(){
         def dateBefore = new Date()
-        def dateString ="01/01/2014"
 
-        if(params.birth_year==""){
-            params.birth_year = (dateBefore.year + 1900).toString()
+        if(params.month != "00"){
+            def dateString = "01"+"/"+params.month+"/"+(dateBefore.year + 1900).toString()
+            dateBefore = dateBefore.parse('dd/MM/yyyy', dateString)
         }
-        if(params.birth_month!=""){
-            dateString = "01"+"/"+params.birth_month+"/"+ params.birth_year
-        }
-
-        dateBefore = dateBefore.parse('dd/MM/yyyy', dateString)
 
         Calendar calendar = Calendar.getInstance()
         calendar.set(Calendar.MONTH, dateBefore.month) 
@@ -48,7 +43,7 @@ class PersonController {
                     like("name", "%"+params.church+"%")
                 }
             }
-            if(params.birth_month!="")
+            if(params.month != "00")
                 between('birth', dateBefore, dateAfter)
             if(params.type!="")
                 like("type", "%"+params.type+"%")

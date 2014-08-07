@@ -66,6 +66,7 @@
 									<th>Batismo</th>
 									<th>Telefone</th>
 									<th>Celular</th>
+									<th>Tipo</th>
 									<th>Cargo</th>
 								</tr>
 							</thead>
@@ -82,6 +83,8 @@
 										<td>${fieldValue(bean: personInstance, field: "telephone")}</td>
 
 										<td>${fieldValue(bean: personInstance, field: "cellular")}</td>
+
+										<td>${fieldValue(bean: personInstance, field: "type")}</td>
 
 										<td>${fieldValue(bean: personInstance, field: "post")}</td>
 									
