@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat
 class PersonController {
 
     def springSecurityService
+    def dateBefore = new Date()
+    def dateAfter = new Date()
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
@@ -20,31 +22,36 @@ class PersonController {
         respond new Person(params)
     }
 
-    def resultSearch(){
-        def dateBefore = new Date()
-
-        if(params.month != "00"){
-            def dateString = "01"+"/"+params.month+"/"+(dateBefore.year + 1900).toString()
-            dateBefore = dateBefore.parse('dd/MM/yyyy', dateString)
+    protected void setDates(Date dateBefore, Date dateAfter) {
+        if(params.birth_year != "" && params.birth_month == "") {
+            this.dateBefore = this.dateBefore.parse('dd/MM/yyyy', '01/01/'+params.birth_year)
+            this.dateAfter = this.dateAfter.parse('dd/MM/yyyy', '31/12/'+params.birth_year)
         }
+        else if(params.birth_year != "" && params.birth_month != "") {
+            this.dateBefore = this.dateBefore.parse('dd/MM/yyyy', '01/'+params.birth_month+'/'+params.birth_year)
 
-        Calendar calendar = Calendar.getInstance()
-        calendar.set(Calendar.MONTH, dateBefore.month) 
+            Calendar calendar = Calendar.getInstance()
+            calendar.setTime(this.dateBefore)
+            def lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+            this.dateAfter = this.dateAfter.parse('dd/MM/yyyy', lastDay+'/'+params.birth_month+'/'+params.birth_year)
+        }
+    }
 
-        def dateAfter = new Date()
-        dateAfter.month = dateBefore.month
-        dateAfter.year = dateBefore.year
-        dateAfter.date = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-        
+    def resultSearch(){
+        setDates(this.dateBefore, this.dateAfter)
+
         def criteria = Person.createCriteria()
         def search = criteria.list {
+            gt("id",Person.get(1).id)
             church{
                 if(params.church!=""){
                     like("name", "%"+params.church+"%")
                 }
             }
-            if(params.month != "00")
-                between('birth', dateBefore, dateAfter)
+            if(params.birth_year != "" || (params.birth_year != "" && params.birth_month != ""))
+                between('birth', this.dateBefore, this.dateAfter)
+            else if(params.birth_year == "" && params.birth_month != "")
+                sqlRestriction "extract( month from birth ) = "+params.birth_month
             if(params.type!="")
                 like("type", "%"+params.type+"%")
             if(params.name!="")

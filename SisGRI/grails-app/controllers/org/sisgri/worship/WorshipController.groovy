@@ -10,32 +10,32 @@ import grails.plugin.springsecurity.annotation.Secured
 @Transactional(readOnly = true)
 class WorshipController {
 
+    def dateBefore = new Date()
+    def dateAfter = new Date()
+
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def search() {
         respond new Worship(params)
     }
 
+    protected void setDates(Date dateBefore, Date dateAfter) {
+        if(params.date_year != "" && params.date_month == "") {
+            this.dateBefore = this.dateBefore.parse('dd/MM/yyyy', '01/01/'+params.date_year)
+            this.dateAfter = this.dateAfter.parse('dd/MM/yyyy', '31/12/'+params.date_year)
+        }
+        else if(params.date_year != "" && params.date_month != "") {
+            this.dateBefore = this.dateBefore.parse('dd/MM/yyyy', '01/'+params.date_month+'/'+params.date_year)
+
+            Calendar calendar = Calendar.getInstance()
+            calendar.setTime(this.dateBefore)
+            def lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+            this.dateAfter = this.dateAfter.parse('dd/MM/yyyy', lastDay+'/'+params.date_month+'/'+params.date_year)
+        }
+    }
+
     def resultSearch() {
-        def dateBefore = new Date()
-        def dateString ="01/01/2014"
-
-        if(params.date_year==""){
-            params.date_year = (dateBefore.year + 1900).toString()
-        }
-        if(params.date_month!=""){
-            dateString = "01"+"/"+params.date_month+"/"+ params.date_year
-        }
-
-        dateBefore = dateBefore.parse('dd/MM/yyyy', dateString)
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.MONTH, dateBefore.month); 
-
-        def dateAfter = new Date()
-        dateAfter.month = dateBefore.month
-        dateAfter.year = dateBefore.year
-        dateAfter.date = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+        setDates(this.dateBefore, this.dateAfter)
 
         def criteria = Worship.createCriteria()
         def search = criteria.list {
@@ -52,8 +52,10 @@ class WorshipController {
                 if(params.prelector!="")
                     like("name", "%"+params.prelector+"%")
             }
-            if(params.date_month!="")
-                between('date', dateBefore, dateAfter)
+            if(params.date_year != "" || (params.date_year != "" && params.date_month != ""))
+                between('date', this.dateBefore, this.dateAfter)
+            else if(params.date_year == "" && params.date_month != "")
+                sqlRestriction "extract( month from date ) = "+params.date_month
 
             if(params.type!="")
                 eq("type", params.type)
