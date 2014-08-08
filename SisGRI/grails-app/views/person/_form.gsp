@@ -61,24 +61,22 @@
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cpf', 'error')} required">
+	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cpf', 'error')}">
 		<label class="control-label col-md-3" for="cpf">
 			<g:message code="person.cpf.label" default="CPF" />
-			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" id="mask_cpf" name="cpf" required="" value="${personInstance?.cpf}"/>
+			<g:textField class="form-control" id="mask_cpf" name="cpf" value="${personInstance?.cpf}"/>
 		</div>
 	</div>
 </div>
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'rg', 'error')} required">
+	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'rg', 'error')}">
 		<label class="control-label col-md-3" for="rg">
 			<g:message code="person.rg.label" default="RG" />
-			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="rg" required="" value="${personInstance?.rg}"/>
+			<g:textField class="form-control" name="rg" value="${personInstance?.rg}"/>
 		</div>
 	</div>
 </div>

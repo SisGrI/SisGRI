@@ -40,8 +40,8 @@ class Person {
     static constraints = {
         church blank:false
     	name blank:false
-    	cpf blank:false, unique:true
-    	rg blank:false, unique:true
+    	cpf nullable:true
+    	rg nullable:true
     	situation blank:false
     	profession nullable:true
     	address blank:false

@@ -38,7 +38,7 @@
 								<g:each in="${personInstanceList}" status="i" var="personInstance">
 									<tr class="odd gradeX">
 									
-										<td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "name")}</g:link></td>
+										<td><g:link controller="person" action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "name")}</g:link></td>
 					
 										<td><g:formatDate date="${personInstance.birth}" /></td>
 									

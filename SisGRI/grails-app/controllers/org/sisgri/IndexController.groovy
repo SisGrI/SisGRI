@@ -3,7 +3,7 @@ package org.sisgri
 import grails.plugin.springsecurity.annotation.Secured
 import org.sisgri.people.Person
 
-@Secured(['permitAll'])
+@Secured(['isAuthenticated()'])
 class IndexController {
 
     def index() {
@@ -12,7 +12,6 @@ class IndexController {
     	def criteria = Person.createCriteria()
     	def search = criteria.list {
     		gt("id",Person.get(1).id)
-    		eq("situation",true)
     		sqlRestriction "extract( month from birth ) = "+(date.month+1)
     	}
 
