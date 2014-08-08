@@ -48,6 +48,17 @@
 </div>
 
 <div class="form-group">
+	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'department', 'error')} required">
+		<label class="control-label col-md-3" for="department">
+			<g:message code="person.department.label" default="Departamento" />
+		</label>
+		<div class="col-md-4">
+			<g:select class="form-control" name="department" from="${personInstance.constraints.department.inList}" value="${personInstance?.department}" valueMessagePrefix="person.department" noSelection="['': '']"/>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} ">
 		<label class="control-label col-md-3" for="post">
 			<g:message code="person.post.label" default="Cargo" />

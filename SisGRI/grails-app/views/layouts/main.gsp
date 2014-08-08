@@ -32,6 +32,7 @@
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'style-responsive.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'plugins.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'default.css')}" type="text/css" id="style_color" >
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'error.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'custom.css')}" type="text/css">
 
 

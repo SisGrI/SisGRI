@@ -4,7 +4,6 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import org.sisgri.authentication.*
-import java.text.SimpleDateFormat
 
 @Transactional(readOnly = true)
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
@@ -60,6 +59,8 @@ class PersonController {
                 eq('situation', params.situation.toBoolean())
             if(params.cpf!="")
                 like("cpf", "%"+params.cpf+"%")
+            if(params.department!="")
+                like("department", "%"+params.department+"%")
             if(params.post=="Todos")
                 isNotNull("post")
             else if(params.post!="")
