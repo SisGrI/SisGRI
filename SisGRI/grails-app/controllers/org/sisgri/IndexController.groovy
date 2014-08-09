@@ -11,7 +11,7 @@ class IndexController {
 
     	def criteria = Person.createCriteria()
     	def search = criteria.list {
-    		gt("id",Person.get(1).id)
+    		gt("id",Person.findByName("Administrador").id)
     		sqlRestriction "extract( month from birth ) = "+(date.month+1)
     	}
 

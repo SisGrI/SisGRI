@@ -41,7 +41,7 @@ class PersonController {
 
         def criteria = Person.createCriteria()
         def search = criteria.list {
-            gt("id",Person.get(1).id)
+            gt("name","Administrador")
             church{
                 if(params.church!=""){
                     like("name", "%"+params.church+"%")
@@ -94,6 +94,12 @@ class PersonController {
             return
         }
 
+        if(params.name == "Administrador") {
+            flash.message = "Não é possível colocar o nome Administrador em uma pessoa"
+            respond personInstance, view:'create'
+            return
+        }
+
         personInstance.save flush:true
         photoService.upload(personInstance, params.photo)
 
@@ -122,15 +128,22 @@ class PersonController {
             return
         }
 
-        personInstance.save flush:true
-        photoService.upload(personInstance, params.photo)
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Person.label', default: 'Person'), personInstance.id])
-                redirect personInstance
+        if(params.name == "Administrador") {
+            flash.message = "Não é possível colocar o nome Administrador em uma pessoa"
+            redirect action:"edit", id:params.id
+            return
+        }
+        else {
+            personInstance.save flush:true
+            photoService.upload(personInstance, params.photo)
+        
+            request.withFormat {
+                form multipartForm {
+                    flash.message = message(code: 'default.updated.message', args: [message(code: 'Person.label', default: 'Person'), personInstance.id])
+                    redirect personInstance
+                }
+                '*'{ respond personInstance, [status: OK] }
             }
-            '*'{ respond personInstance, [status: OK] }
         }
     }
 
@@ -141,7 +154,7 @@ class PersonController {
             return
         }
 
-        if(personInstance.id == 1) {
+        if(personInstance == Person.findByName("Administrador")) {
             flash.message = "O Administrador não pode ser excluído!"
             redirect action:"show", id:personInstance.id
             return
