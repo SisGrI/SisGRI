@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import org.sisgri.authentication.*
+import org.sisgri.church.*
 
 @Transactional(readOnly = true)
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
@@ -18,7 +19,7 @@ class PersonController {
     def photoService
 
     def search(){
-        respond new Person(params)
+        respond new Person(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     protected void setDates(Date dateBefore, Date dateAfter) {
@@ -79,7 +80,7 @@ class PersonController {
     }
 
     def create() {
-        respond new Person(params)
+        respond new Person(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     @Transactional
@@ -113,7 +114,7 @@ class PersonController {
     }
 
     def edit(Person personInstance) {
-        respond personInstance
+        respond personInstance, model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     @Transactional

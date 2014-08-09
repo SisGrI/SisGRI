@@ -17,7 +17,7 @@
 			<g:message code="person.church.label" default="Igreja" />
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="church" value=""/>
+			<g:select class="form-control" name="church" from="${churchList}" value="${personInstance?.church?.id}" noSelection="['': '']"/>
 		</div>
 	</div>
 </div>

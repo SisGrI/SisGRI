@@ -43,7 +43,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="church" name="church.id" from="${org.sisgri.church.Church.list()}" optionKey="id" required="" value="${personInstance?.church?.id}"/>
+			<g:select class="form-control" id="church" name="church.id" from="${churchList}" optionKey="id" required="" value="${personInstance?.church?.id}"/>
 		</div>
 	</div>
 </div>

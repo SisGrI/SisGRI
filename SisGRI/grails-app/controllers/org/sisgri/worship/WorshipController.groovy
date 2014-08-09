@@ -10,13 +10,14 @@ import grails.plugin.springsecurity.annotation.Secured
 @Transactional(readOnly = true)
 class WorshipController {
 
+    def springSecurityService
     def dateBefore = new Date()
     def dateAfter = new Date()
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def search() {
-        respond new Worship(params)
+        respond new Worship(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     protected void setDates(Date dateBefore, Date dateAfter) {
@@ -60,7 +61,7 @@ class WorshipController {
             if(params.type!="")
                 eq("type", params.type)
         }
-        respond search, model:[worshipInstanceCount: Worship.count()]
+        respond search
     }
 
     def show(Worship worshipInstance) {
@@ -68,7 +69,7 @@ class WorshipController {
     }
 
     def create() {
-        respond new Worship(params)
+        respond new Worship(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     @Transactional
@@ -95,7 +96,7 @@ class WorshipController {
     }
 
     def edit(Worship worshipInstance) {
-        respond worshipInstance
+        respond worshipInstance, model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     @Transactional
