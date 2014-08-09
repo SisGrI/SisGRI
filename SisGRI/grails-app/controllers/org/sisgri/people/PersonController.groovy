@@ -42,7 +42,7 @@ class PersonController {
 
         def criteria = Person.createCriteria()
         def search = criteria.list {
-            gt("name","Administrador")
+            ne("name","Administrador")
             church{
                 if(params.church!=""){
                     like("name", "%"+params.church+"%")

@@ -15,7 +15,12 @@ class ProfileController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Profile.list(params), model:[profileInstanceCount: Profile.count()]
+
+        def criteria = Profile.createCriteria()
+        def list = criteria.list {
+            ne("username","admin")
+        }
+        respond list, model:[profileInstanceCount: Profile.count()]
     }
 
     @Secured(['ROLE_ADMIN','ROLE_SECRETARY','ROLE_TREASURER'])
@@ -104,7 +109,7 @@ class ProfileController {
             notFound()
             return
         }
-        if(profileInstance.id == 1) {
+        if(profileInstance.username == admin) {
             flash.message = "O Perfil do Administrador não pode ser excluído!"
             redirect action:"show", id:profileInstance.id
             return

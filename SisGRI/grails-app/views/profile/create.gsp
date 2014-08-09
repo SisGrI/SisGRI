@@ -19,7 +19,7 @@
 	                </li>
 	                <li>
 	                	<g:link action="index">
-							Perfils
+							Perfis
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
