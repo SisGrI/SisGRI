@@ -109,7 +109,7 @@ class ProfileController {
             notFound()
             return
         }
-        if(profileInstance.username == admin) {
+        if(profileInstance.username == "admin") {
             flash.message = "O Perfil do Administrador não pode ser excluído!"
             redirect action:"show", id:profileInstance.id
             return

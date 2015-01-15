@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 @Transactional
 class PhotoService {
     
-    def path = ApplicationHolder.application.parentContext.getResource("resources/photos").getFile().toString()
+    def path = "/opt/sisgri/photos"
 
     def upload(Person personInstance, def photo) {
         if (!photo) {
@@ -49,7 +49,7 @@ class PhotoService {
     def delete(long id) {
     	def photoPath = this.path + '/' + id + '.jpg'
     	def photo = new File(photoPath)
-    	
+
     	if(!photo.length())
     		photo.delete()
     }

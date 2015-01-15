@@ -3,7 +3,7 @@ dataSource {
     driverClassName = "com.mysql.jdbc.Driver"
     dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
     username = "sisgri"
-    password = "sisgri" 
+    password = "sisgri"
 }
 
 hibernate {
@@ -12,11 +12,11 @@ hibernate {
     cache.provider_class = 'net.sf.ehcache.hibernate.EhCacheProvider'
 }
 // environment specific settings
-environments {    
+environments {
     development {
         dataSource {
-            dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost/SisGrI?useUnicode=yes&characterEncoding=UTF-8"
+            dbCreate = "update" // one of 'create', 'create-drop','update'
+            url = "jdbc:mysql://localhost/sisgri_dev?useUnicode=yes&characterEncoding=UTF-8"
         }
 
         hibernate {
@@ -26,13 +26,13 @@ environments {
     test {
         dataSource {
             dbCreate = "create-drop" // one of 'create', 'create-drop','update'
-            url = "jdbc:mysql://localhost/SisGrI_TEST?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/sisgri_test?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/SisGrIProd?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/sisgri_prod?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
 }
