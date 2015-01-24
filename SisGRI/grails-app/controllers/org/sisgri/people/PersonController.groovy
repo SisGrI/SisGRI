@@ -71,7 +71,10 @@ class PersonController {
     }
 
     def show(Person personInstance) {
-        respond personInstance
+        if(personInstance.name == "Administrador")
+            render "Essa pessoa não pode ser visualizada!"
+        else
+            respond personInstance
     }
 
     def showPhoto = {
@@ -114,12 +117,15 @@ class PersonController {
     }
 
     def edit(Person personInstance) {
-        respond personInstance, model:[churchList:springSecurityService.currentUser.person.church]
+        if(personInstance.name == "Administrador")
+            render "Essa pessoa não pode ser editada!"
+        else
+            respond personInstance, model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     @Transactional
     def update(Person personInstance) {
-        if (personInstance == null) {
+        if (personInstance == null || personInstance.name == "Administrador") {
             notFound()
             return
         }

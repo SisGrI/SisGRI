@@ -94,8 +94,10 @@
 												<g:link class="btn blue" action="edit" id="${profileInstance?.id}">
 												<i class="fa fa-pencil"></i> Editar	</g:link>
 
-												<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
-												</g:actionSubmit>
+												<sec:ifAnyGranted roles="ROLE_ADMIN">
+													<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+													</g:actionSubmit>
+												</sec:ifAnyGranted>
 											</div>
 										</div>
 									</div>

@@ -5,6 +5,7 @@ import org.sisgri.people.Person
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
+import grails.plugin.springsecurity.SpringSecurityUtils
 
 @Secured(['ROLE_ADMIN'])
 @Transactional(readOnly = true)
@@ -23,14 +24,19 @@ class ProfileController {
         respond list, model:[profileInstanceCount: Profile.count()]
     }
 
-    @Secured(['ROLE_ADMIN','ROLE_SECRETARY','ROLE_TREASURER'])
+    @Secured(['isAuthenticated()'])
     def showCurrentProfile() {
         redirect action:"show", id:springSecurityService.currentUser.id
     }
 
-    @Secured(['ROLE_ADMIN','ROLE_SECRETARY','ROLE_TREASURER'])
+    @Secured(['isAuthenticated()'])
     def show(Profile profileInstance) {
-        respond profileInstance
+        if (profileInstance != springSecurityService.currentUser && 
+            SpringSecurityUtils.ifNotGranted('ROLE_ADMIN')) {
+            render "Desculpe, você não possui autorização para acessar esta página."
+        }
+        else
+            respond profileInstance
     }
 
     def create() {
@@ -70,10 +76,23 @@ class ProfileController {
             '*' { respond profileInstance, [status: CREATED] }
         }
     }
+
+    @Secured(['isAuthenticated()'])
     def edit(Profile profileInstance) {
-        respond profileInstance
+        if (profileInstance != springSecurityService.currentUser && 
+            SpringSecurityUtils.ifNotGranted('ROLE_ADMIN')) {
+            render "Desculpe, você não possui autorização para acessar esta página."
+        }
+        else if(profileInstance.username == "admin") {
+            flash.message = "O Perfil do Administrador não pode ser editado!"
+            redirect action:"show", id:profileInstance.id
+            return
+        }
+        else
+            respond profileInstance
     }
 
+    @Secured(['isAuthenticated()'])
     @Transactional
     def update(Profile profileInstance) {
         if (profileInstance == null) {
@@ -86,11 +105,19 @@ class ProfileController {
             return
         }
 
+        if (profileInstance != springSecurityService.currentUser && 
+            SpringSecurityUtils.ifNotGranted('ROLE_ADMIN')) {
+            render "Desculpe, você não possui autorização para acessar esta página."
+            return
+        }
+
         updatePassword(profileInstance, params.newPassword)
         profileInstance.save flush:true
 
-        ProfileRole.removeAll(profileInstance)
-        connectRole(profileInstance, params.type)
+        if (SpringSecurityUtils.ifAnyGranted('ROLE_ADMIN')) {
+            ProfileRole.removeAll(profileInstance)
+            connectRole(profileInstance, params.type)
+        }
 
         springSecurityService.reauthenticate springSecurityService.currentUser.username
 

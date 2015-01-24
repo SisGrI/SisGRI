@@ -101,112 +101,122 @@
 									</span>
 								</a>
 							</li>
-							<li>
-								<a href="javascript:;">
-									<i class="fa fa-building-o"></i>
-									<span class="title">
-										Igrejas
-									</span>
-									<span class="arrow ">
-									</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<g:link controller="headquarter">
-											Sedes
-										</g:link>
-									</li>
-									<li>
-										<g:link controller="congregation">
-											Congregações
-										</g:link>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<i class="fa fa-book"></i>
-									<span class="title">
-										Cultos
-									</span>
-									<span class="arrow ">
-									</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<g:link controller="worship" action="search">
-											<i class="fa fa-search"></i>
-											Pesquisar Cultos
-										</g:link>
-									</li>
-									<li>
-										<g:link controller="worship" action="create">
-											<i class="fa fa-plus"></i>
-											Cadastrar Culto
-										</g:link>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<i class="fa fa-users"></i>
-									<span class="title">
-										Pessoas
-									</span>
-									<span class="arrow ">
-									</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<g:link controller="profile">
-											<i class="fa fa-user"></i>
-											Perfis
-										</g:link>
-									</li>
-									<li>
-										<g:link controller="person" action="search">
-											<i class="fa fa-search"></i>
-											Pesquisar Pessoas
-										</g:link>
-									</li>
-									<li>
-										<g:link controller="person" action="create">
-											<i class="fa fa-plus"></i>
-											Cadastrar Pessoa
-										</g:link>
-									</li>
-								</ul>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<i class="fa fa-scissors"></i>
-									<span class="title">
-										Tesouraria
-									</span>
-									<span class="arrow ">
-									</span>
-								</a>
-								<ul class="sub-menu">
-									<li>
-										<g:link controller="entry" action="create">
-											<i class="fa fa-plus"></i>
-											Registrar entrada
-										</g:link>
-									</li>
-									<li>
-										<g:link controller="exit" action="create">
-											<i class="fa fa-plus"></i>
-											Registrar Saída
-										</g:link>
-									</li>
-									<li>
-										<g:link controller="newsletter">
-											<i class="fa fa-search"></i>
-											Ver Boletim
-										</g:link>
-									</li>
-								</ul>
-							</li>
+							<sec:ifAnyGranted roles="ROLE_ADMIN">
+								<li>
+									<a href="javascript:;">
+										<i class="fa fa-building-o"></i>
+										<span class="title">
+											Igrejas
+										</span>
+										<span class="arrow ">
+										</span>
+									</a>
+									<ul class="sub-menu">
+										<li>
+											<g:link controller="headquarter">
+												Sedes
+											</g:link>
+										</li>
+										<li>
+											<g:link controller="congregation">
+												Congregações
+											</g:link>
+										</li>
+									</ul>
+								</li>
+							</sec:ifAnyGranted>
+							<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SECRETARY">
+								<li>
+									<a href="javascript:;">
+										<i class="fa fa-book"></i>
+										<span class="title">
+											Cultos
+										</span>
+										<span class="arrow ">
+										</span>
+									</a>
+									<ul class="sub-menu">
+										<li>
+											<g:link controller="worship" action="search">
+												<i class="fa fa-search"></i>
+												Pesquisar Cultos
+											</g:link>
+										</li>
+										<li>
+											<g:link controller="worship" action="create">
+												<i class="fa fa-plus"></i>
+												Cadastrar Culto
+											</g:link>
+										</li>
+									</ul>
+								</li>
+							</sec:ifAnyGranted>
+							<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SECRETARY">
+								<li>
+									<a href="javascript:;">
+										<i class="fa fa-users"></i>
+										<span class="title">
+											Pessoas
+										</span>
+										<span class="arrow ">
+										</span>
+									</a>
+									<ul class="sub-menu">
+										<sec:ifAnyGranted roles="ROLE_ADMIN">
+											<li>
+												<g:link controller="profile">
+													<i class="fa fa-user"></i>
+													Perfis
+												</g:link>
+											</li>
+										</sec:ifAnyGranted>
+										<li>
+											<g:link controller="person" action="search">
+												<i class="fa fa-search"></i>
+												Pesquisar Pessoas
+											</g:link>
+										</li>
+										<li>
+											<g:link controller="person" action="create">
+												<i class="fa fa-plus"></i>
+												Cadastrar Pessoa
+											</g:link>
+										</li>
+									</ul>
+								</li>
+							</sec:ifAnyGranted>
+							<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_TREASURER">
+								<li>
+									<a href="javascript:;">
+										<i class="fa fa-scissors"></i>
+										<span class="title">
+											Tesouraria
+										</span>
+										<span class="arrow ">
+										</span>
+									</a>
+									<ul class="sub-menu">
+										<li>
+											<g:link controller="entry" action="create">
+												<i class="fa fa-plus"></i>
+												Registrar entrada
+											</g:link>
+										</li>
+										<li>
+											<g:link controller="exit" action="create">
+												<i class="fa fa-plus"></i>
+												Registrar Saída
+											</g:link>
+										</li>
+										<li>
+											<g:link controller="newsletter">
+												<i class="fa fa-search"></i>
+												Ver Boletim
+											</g:link>
+										</li>
+									</ul>
+								</li>
+							</sec:ifAnyGranted>
 							<li class="last">
 		                        <g:link controller="logout">
 		                            <i class="fa fa-sign-out"></i>

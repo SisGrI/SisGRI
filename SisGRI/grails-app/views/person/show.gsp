@@ -501,16 +501,18 @@
 												<g:link class="btn blue" action="edit" id="${personInstance?.id}">
 												<i class="fa fa-pencil"></i> Editar	</g:link>
 
-												<g:if test="${personInstance?.profile == null}">
-							 						<g:link controller="profile" action="create" class="btn blue" id="${personInstance.id}"> <i class="fa fa-plus"></i> Criar Perfil</g:link>
-							 					</g:if>
-							 
-							 					<g:if test="${personInstance?.profile != null}">
-							 						<g:actionSubmit class="btn red" action="removeProfile" value="Remover Perfil" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-							 					</g:if>
+												<sec:ifAnyGranted roles="ROLE_ADMIN">
+													<g:if test="${personInstance?.profile == null}">
+								 						<g:link controller="profile" action="create" class="btn blue" id="${personInstance.id}"> <i class="fa fa-plus"></i> Criar Perfil</g:link>
+								 					</g:if>
 
-												<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
-												</g:actionSubmit>
+								 					<g:if test="${personInstance?.profile != null}">
+								 						<g:actionSubmit class="btn red" action="removeProfile" value="Remover Perfil" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+								 					</g:if>
+
+													<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+													</g:actionSubmit>
+												</sec:ifAnyGranted>
 											</div>
 										</div>
 									</div>
