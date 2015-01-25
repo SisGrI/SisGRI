@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main">
+		<meta name="layout" content="principal_main">
 		<g:set var="entityName" value="${message(code: 'person.label', default: 'Pessoa')}" />
 		<title>SisGrI - Gerenciamento de Igrejas</title>
 	</head>
 	<body>
 
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-12">
 				<h3 class="page-title">SisGrI <small>Sistema de Gerênciamento de Igrejas</small></h3>
 			</div>
@@ -59,6 +59,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
+
+		<h1>TESTESTES</h1>
 	</body>
 </html>
