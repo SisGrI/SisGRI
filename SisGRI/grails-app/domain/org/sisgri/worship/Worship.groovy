@@ -16,7 +16,7 @@ class Worship {
 
     static constraints = {
     	church blank:false
-		type blank: false, inList:['Público', 'Ensino', 'Santa Ceia', 'Varões', 'Irmãs', 'Jovens', 'Crianças']
+		type blank: false, inList:['Público', 'Ensino', 'Santa Ceia', 'Escola Bíblica', 'Oração', 'Varões', 'Irmãs', 'Jovens', 'Crianças']
 		date nullable:true, attributes:[years:2013..2014]
 		ruling blank: false
 		prelector blank: false

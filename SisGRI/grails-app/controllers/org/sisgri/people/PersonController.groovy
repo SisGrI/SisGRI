@@ -70,6 +70,8 @@ class PersonController {
                 isNotNull("post")
             else if(params.post!="")
                 like("post", "%"+params.post+"%")
+
+            order("name", "asc")
         }
         respond people
     }
