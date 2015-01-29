@@ -17,7 +17,7 @@
 		<band height="143" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="171" height="111" uuid="439d6420-e7ad-4a2e-a26a-7f8a8fd91b35"/>
-				<imageExpression><![CDATA["/home/jefferson/Imagens/igreja.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["/opt/sisgri/reports/images/igreja.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="133" y="0" width="300" height="20" uuid="a516bd03-ac67-422c-ae8a-67f6b688afd8"/>
@@ -28,7 +28,7 @@
 			</staticText>
 			<image>
 				<reportElement x="416" y="0" width="139" height="111" uuid="37ce1124-0937-4128-aeb4-9e82e13cfade"/>
-				<imageExpression><![CDATA["/home/jefferson/Imagens/adoci.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["/opt/sisgri/reports/images/adoci.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="133" y="47" width="300" height="20" uuid="6d3e34cc-1c22-4c61-b1df-5fd7f28188f4"/>

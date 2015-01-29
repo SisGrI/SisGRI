@@ -9,7 +9,7 @@
 	</head>
 	<body>
 
-		<!-- <div class="row">
+		<div class="row">
 			<div class="col-md-12">
 				<h3 class="page-title">SisGrI <small>Sistema de Gerênciamento de Igrejas</small></h3>
 			</div>
@@ -59,8 +59,6 @@
 					</div>
 				</div>
 			</div>
-		</div> -->
-
-		<h1>TESTESTES</h1>
+		</div>
 	</body>
 </html>
