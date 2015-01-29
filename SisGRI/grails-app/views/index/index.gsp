@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="principal_main">
+		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'person.label', default: 'Pessoa')}" />
 		<title>SisGrI - Gerenciamento de Igrejas</title>
 	</head>

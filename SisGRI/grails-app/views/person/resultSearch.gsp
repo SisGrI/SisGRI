@@ -52,9 +52,9 @@
 							<g:link class="btn green" action="create">
 								<i class="fa fa-plus"></i> Novo
 							</g:link>
-							<a href="#" class="btn yellow">
+							<g:link class="btn yellow" action="print">
 								<i class="fa fa-print"></i> Imprimir
-							</a>
+							</g:link>
 						</div>
 					</div>
 					<div class="portlet-body">

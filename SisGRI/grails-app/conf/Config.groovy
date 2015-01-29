@@ -129,6 +129,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['isAuthenticated()'],
 	'/index':                         ['isAuthenticated()'],
 	'/index.gsp':                     ['isAuthenticated()'],
+  '/jasperDemo/*':                  ['permitAll'],
   '/404':                           ['permitAll'],
   '/error':                         ['permitAll'],
 	'/**/js/**':                      ['permitAll'],

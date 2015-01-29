@@ -5,14 +5,18 @@ import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import org.sisgri.authentication.*
 import org.sisgri.church.*
+import org.codehaus.groovy.grails.plugins.jasper.JasperExportFormat
+import org.codehaus.groovy.grails.plugins.jasper.JasperReportDef
 
 @Transactional(readOnly = true)
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
 class PersonController {
 
     def springSecurityService
+    def jasperService
     def dateBefore = new Date()
     def dateAfter = new Date()
+    def static people = []
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
 
@@ -41,7 +45,7 @@ class PersonController {
         setDates(this.dateBefore, this.dateAfter)
 
         def criteria = Person.createCriteria()
-        def search = criteria.list {
+        people = criteria.list {
             ne("name","Administrador")
             church{
                 if(params.church!=""){
@@ -67,7 +71,16 @@ class PersonController {
             else if(params.post!="")
                 like("post", "%"+params.post+"%")
         }
-        respond search
+        respond people
+    }
+
+    def print() {
+        def reportDef = new JasperReportDef(name:'person_list.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: people)
+
+        response.setContentType("application/octet-stream")
+        response.setHeader("Content-disposition", "filename=lista_pessoas.pdf")
+        response.outputStream << jasperService.generateReport(reportDef).toByteArray()
     }
 
     def show(Person personInstance) {

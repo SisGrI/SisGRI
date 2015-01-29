@@ -70,6 +70,7 @@ grails.project.dependency.resolution = {
 
         compile ":spring-security-core:2.0-RC2"
         compile ":mail:1.0.5"
+        compile ":jasper:1.10.0"
         // Uncomment these (or add new ones) to enable additional resources capabilities
         //runtime ":zipped-resources:1.0.1"
         //runtime ":cached-resources:1.1"
