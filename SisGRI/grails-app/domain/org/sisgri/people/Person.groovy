@@ -61,7 +61,7 @@ class Person {
     	maritalStatus blank:false, inList:['Solteiro(a)','Casado(a)','Divorciado(a)','Viuvo(a)' ]
     	spouse nullable:true
     	marriageDate nullable:true, attributes:[years:1920..2014]
-    	department blank:false, inList:['Varões','Senhoras','Jovens', 'Adolescentes','Crianças']
+    	department blank:false, inList:['Varões','Senhoras','Jovens','Crianças']
         type blank:false, inList:['Congregado','Membro']
     	post nullable:true, inList:['Cooperador(a)','Diácono(a)','Presbítero','Evangelista','Missionário(a)','Pastor']
     	observation nullable:true, widget:'textarea'

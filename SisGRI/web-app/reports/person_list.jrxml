@@ -14,15 +14,78 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="143" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="171" height="111" uuid="439d6420-e7ad-4a2e-a26a-7f8a8fd91b35"/>
+				<imageExpression><![CDATA["/home/jefferson/Imagens/igreja.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="133" y="0" width="300" height="20" uuid="a516bd03-ac67-422c-ae8a-67f6b688afd8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Assembléia de Deus em]]></text>
+			</staticText>
+			<image>
+				<reportElement x="416" y="0" width="139" height="111" uuid="37ce1124-0937-4128-aeb4-9e82e13cfade"/>
+				<imageExpression><![CDATA["/home/jefferson/Imagens/adoci.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="133" y="47" width="300" height="20" uuid="6d3e34cc-1c22-4c61-b1df-5fd7f28188f4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pr. Presidente Wisley Meneses]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="67" width="300" height="20" uuid="6cfaf2f4-e846-414b-9403-61c5567c20a3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub-Sede Jardim ABC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="88" width="300" height="20" uuid="35ae3d5e-2170-4612-8ac4-0c28b60d581c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pr. Dirigente Samoel Xavier de Barros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="20" width="300" height="20" uuid="703baa87-eee2-43e0-8eff-65bea7fcc7e8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade Ocidental]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="111" width="554" height="31" uuid="b54a34e4-85d1-4ab0-9a1e-70227be2cd32"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lista de Pessoas]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="0" width="554" height="143" uuid="aaafecf3-2a30-4db1-9f6f-2cebc704376d"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+			</frame>
+		</band>
 	</title>
-	<pageHeader>
-		<band height="35" splitType="Stretch"/>
-	</pageHeader>
 	<columnHeader>
 		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement mode="Transparent" x="1" y="0" width="238" height="20" uuid="df7af495-f4fe-4d18-9449-211086783ac0"/>
+				<reportElement mode="Transparent" x="0" y="0" width="239" height="20" uuid="df7af495-f4fe-4d18-9449-211086783ac0"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -30,7 +93,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font isBold="true" isUnderline="false" isStrikeThrough="false"/>
+					<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Nome]]></text>
 			</staticText>
@@ -43,7 +106,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font isBold="true" isUnderline="false" isStrikeThrough="false"/>
+					<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Nascimento]]></text>
 			</staticText>
@@ -56,7 +119,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font isBold="true" isUnderline="false" isStrikeThrough="false"/>
+					<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Telefone]]></text>
 			</staticText>
@@ -69,12 +132,12 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font isBold="true" isUnderline="false" isStrikeThrough="false"/>
+					<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Celular]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Transparent" x="483" y="0" width="70" height="20" uuid="87e7be92-c068-4779-953c-0cea1f89b6fd"/>
+				<reportElement mode="Transparent" x="483" y="0" width="71" height="20" uuid="87e7be92-c068-4779-953c-0cea1f89b6fd"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -82,7 +145,7 @@
 					<rightPen lineWidth="1.0"/>
 				</box>
 				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
-					<font isBold="true" isUnderline="false" isStrikeThrough="false"/>
+					<font isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Tipo]]></text>
 			</staticText>
@@ -91,7 +154,7 @@
 	<detail>
 		<band height="20" splitType="Stretch">
 			<textField isBlankWhenNull="true">
-				<reportElement x="1" y="0" width="238" height="20" uuid="677a9200-2db5-40d1-a1c0-aed7fe42f953"/>
+				<reportElement x="0" y="0" width="239" height="20" uuid="677a9200-2db5-40d1-a1c0-aed7fe42f953"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
@@ -135,7 +198,7 @@
 				<textFieldExpression><![CDATA[$F{cellular}]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
-				<reportElement x="483" y="0" width="70" height="20" uuid="c675e0b3-bc39-4980-a65f-7eb033791f3c"/>
+				<reportElement x="483" y="0" width="71" height="20" uuid="c675e0b3-bc39-4980-a65f-7eb033791f3c"/>
 				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 					<topPen lineWidth="1.0"/>
 					<leftPen lineWidth="1.0"/>
