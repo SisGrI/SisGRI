@@ -5,14 +5,18 @@ import java.text.SimpleDateFormat
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
+import org.codehaus.groovy.grails.plugins.jasper.JasperExportFormat
+import org.codehaus.groovy.grails.plugins.jasper.JasperReportDef
 
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
 @Transactional(readOnly = true)
 class WorshipController {
 
     def springSecurityService
+    def jasperService
     def dateBefore = new Date()
     def dateAfter = new Date()
+    def static worships = []
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -39,7 +43,7 @@ class WorshipController {
         setDates(this.dateBefore, this.dateAfter)
 
         def criteria = Worship.createCriteria()
-        def search = criteria.list {
+        worships = criteria.list {
             church{
                 if(params.church!=""){
                     like("name", "%"+params.church+"%")
@@ -61,7 +65,16 @@ class WorshipController {
             if(params.type!="")
                 eq("type", params.type)
         }
-        respond search
+        respond worships
+    }
+
+    def print() {
+        def reportDef = new JasperReportDef(name:'worship_list.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: worships)
+
+        response.setContentType("application/octet-stream")
+        response.setHeader("Content-disposition", "filename=lista_cultos.pdf")
+        response.outputStream << jasperService.generateReport(reportDef).toByteArray()
     }
 
     def show(Worship worshipInstance) {

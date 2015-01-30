@@ -88,6 +88,8 @@ grails.hibernate.cache.queries = false
 grails.hibernate.pass.readonly = false
 // configure passing read-only to OSIV session by default, requires "singleSession = false" OSIV mode
 grails.hibernate.osiv.readonly = false
+//jasper locale
+jasper.dir.reports = '/opt/sisgri/reports'
 
 environments {
     development {
