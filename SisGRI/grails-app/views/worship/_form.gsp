@@ -60,3 +60,15 @@
 	</div>
 </div>
 
+<div class="form-group">
+	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'observation', 'error')} ">
+		<label class="control-label col-md-3" for="observation">
+			<g:message code="worship.observation.label" default="Observação" />
+			
+		</label>
+		<div class="col-md-4">
+			<g:textArea class="form-control" name="observation" cols="40" rows="5" value="${worshipInstance?.observation}"/>
+		</div>
+	</div>
+</div>
+

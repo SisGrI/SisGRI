@@ -126,6 +126,21 @@
 											</div>
 										</div>
 									</g:if>
+
+									<g:if test="${worshipInstance?.observation}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Observação</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${worshipInstance}" field="observation"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
 									
 								</div>
 							</div>

@@ -7,8 +7,9 @@ import java.text.SimpleDateFormat
 class Worship {
 	String type
 	Date date
-	Person ruling
-	Person prelector
+    String observation
+    Person ruling
+    Person prelector
 	
 	static belongsTo = [church:Church]
 
@@ -20,6 +21,7 @@ class Worship {
 		date nullable:true, attributes:[years:2013..2014]
 		ruling blank: false
 		prelector blank: false
+        observation nullable:true, widget:'textarea'
     }
 
     String toString() {
