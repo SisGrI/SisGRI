@@ -10,11 +10,17 @@ class IndexController {
     	def date = new Date()
 
     	def criteria = Person.createCriteria()
-    	def search = criteria.list {
-    		gt("id",Person.findByName("Administrador").id)
+    	def people = criteria.list {
+    		ne("name","Administrador")
     		sqlRestriction "extract( month from birth ) = "+(date.month+1)
     	}
 
-    	respond search
+    	people.sort {
+    		Calendar calendar = Calendar.getInstance();
+    		calendar.setTime(it.birth)
+    		calendar.get(Calendar.DAY_OF_MONTH)
+    	}
+
+    	respond people
     }
 }

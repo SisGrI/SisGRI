@@ -64,10 +64,12 @@ class WorshipController {
 
             if(params.type!="")
                 eq("type", params.type)
+
+            order("date", "asc")
         }
         respond worships
     }
-
+    
     def print() {
         def reportDef = new JasperReportDef(name:'worship_list.jrxml',
             fileFormat:JasperExportFormat.PDF_FORMAT, reportData: worships)
