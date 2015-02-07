@@ -43,7 +43,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="ruling" name="ruling.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.ruling?.id}"/>
+			<g:textField class="form-control" name="ruling_name" value="" require="" oninput="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'ruling_name=\' + escape(this.value)')}"/>
 		</div>
 	</div>
 </div>
@@ -55,7 +55,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" id="prelector" name="prelector.id" from="${org.sisgri.people.Person.list()}" optionKey="id" required="" value="${worshipInstance?.prelector?.id}"/>
+			<g:textField class="form-control" name="prelector_name" value="" require="" oninput="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'prelector_name=\' + escape(this.value)')}"/>
 		</div>
 	</div>
 </div>
@@ -72,3 +72,4 @@
 	</div>
 </div>
 
+<g:render template='choosePerson' />

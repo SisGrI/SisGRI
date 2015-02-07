@@ -7,6 +7,7 @@ import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import org.codehaus.groovy.grails.plugins.jasper.JasperExportFormat
 import org.codehaus.groovy.grails.plugins.jasper.JasperReportDef
+import org.sisgri.people.Person
 
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
 @Transactional(readOnly = true)
@@ -153,6 +154,27 @@ class WorshipController {
                 redirect action:"search", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
+        }
+    }
+
+    def choosePerson() {
+        String name = ''
+        
+        if(params.ruling_name)
+            name = params.ruling_name
+        else
+            name = params.prelector_name
+
+        render template: "choosePerson", model: [people: searchPeople(name)]
+    }
+
+    protected def searchPeople(String name) {
+        if(name?.isAllWhitespace())
+            return []
+
+        def criteria = Person.createCriteria()
+        def people = criteria.list {
+            like("name", "%"+name+"%")
         }
     }
 
