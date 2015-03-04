@@ -136,6 +136,8 @@ class WorshipController {
             return
         }
 
+        setRulingAndPrelector(worshipInstance, params)
+
         if (worshipInstance.hasErrors()) {
             respond worshipInstance.errors, view:'edit'
             return
@@ -174,16 +176,20 @@ class WorshipController {
     def choosePerson() {
         String name = params.person
         
-        render template: "choosePerson", model: [people: searchPeople(name)]
+        render template: "people", model: [people: searchPeople(name)]
     }
 
     protected def searchPeople(String name) {
-        if(name?.isAllWhitespace())
-            return Person.list()
-
         def criteria = Person.createCriteria()
+
         def people = criteria.list {
-            like("name", "%"+name+"%")
+            ne("name","Administrador")
+            eq('situation', true)
+            
+            if(!name?.isAllWhitespace())
+                like("name", "%"+name+"%")
+
+            order("name", "asc")
         }
     }
 

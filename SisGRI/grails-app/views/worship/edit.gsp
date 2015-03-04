@@ -6,7 +6,14 @@
 		<g:set var="entityName" value="${message(code: 'worship.label', default: 'Culto')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
-	<body>		
+	<body>
+		<g:javascript>
+			$(document).ready(function() {
+				$('#rulingName').attr("readonly", true);
+				$('#prelectorName').attr("readonly", true);
+			});
+		</g:javascript>
+
 		<div class="row">
 	        <div class="col-md-12">
 	            <h3 class="page-title">Culto</h3>

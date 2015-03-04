@@ -1,44 +1,25 @@
-<script type="text/javascript">
-	function choosePerson(element) {
-		var personInstanceId = element.id;
-		var name = element.headers;
+<g:javascript>
+	function setPerson() {
 		var typeSearch = $('#typeSearch').val();
-
-        if (typeSearch == 'searchRuling') {
-        	$('#rulingID').val(personInstanceId);
-        	$('#rulingName').val(name);
-        	$("#rulingName").attr("readonly", true);
+		
+		if (typeSearch == 'searchRuling') {
+			var name = $('#rulingName').val();
         }
         else {
-        	$('#prelectorID').val(personInstanceId);
-        	$('#prelectorName').val(name);
-        	$('#prelectorName').attr("readonly", true);
+        	var name = $('#prelectorName').val();
         }
 
-		$("#modalSearchPerson").modal('hide');
+		$('#person').val(name);
 	}
-</script>
+</g:javascript>
 
-<div id="choosePerson">
-	<g:if test="${people}">
-		<h3>Selecionar Pessoa</h3>
-
-		<div class="portlet-body">
-			<table class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>Nome</th>
-					</tr>
-				</thead>
-				<tbody>
-					<g:each in="${people}" status="i" var="personInstance">
-						<tr class="odd gradeX">
-						
-							<td id="${personInstance.id}" headers="${personInstance.name}" onclick="choosePerson(this)">${fieldValue(bean: personInstance, field: "name")}</td>
-						</tr>
-					</g:each>
-				</tbody>
-			</table>
-		</div>
-	</g:if>
+<div class="form-group">
+	<label class="control-label col-md-3" for="person">
+		Pesquisar
+	</label>
+	<div class="col-md-6">
+		<g:textField class="form-control" id="person" name="person" oninput="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'person=\' + escape(this.value)')};"/>
+	</div>
 </div>
+
+<g:render template="people" />

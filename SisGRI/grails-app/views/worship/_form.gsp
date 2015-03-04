@@ -1,10 +1,20 @@
 <%@ page import="org.sisgri.worship.Worship" %>
 
-<script type="text/javascript">
+<g:javascript>
 	function setTypeSearch(element) {
 		$('#typeSearch').val(element.id);
 	}
-</script>
+	function clearRulingField() {
+		$('#rulingName').val("");
+		$('#rulingID').val("");
+		$('#rulingName').attr("readonly", false);
+	}
+	function clearPrelectorField() {
+		$('#prelectorName').val("");
+		$('#prelectorID').val("");
+		$('#prelectorName').attr("readonly", false);
+	}
+</g:javascript>
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'church', 'error')} required">
@@ -48,11 +58,12 @@
 			<g:message code="worship.rulingName.label" default="Dirigente" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<div class="input-group">
 				<g:textField class="form-control" name="rulingName" value="${worshipInstance?.rulingName}" require=""/>
 				<span class="input-group-btn">
-	                <a class="btn btn-default blue" id="searchRuling" data-toggle="modal" href="#modalSearchPerson" onclick="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'person=\' + escape(rulingName.value)')};setTypeSearch(this);" title="Pesquisar Dirigente"><i class="fa fa-search"></i></a>
+	                <a class="btn btn-default blue" id="searchRuling" data-toggle="modal" href="#modalSearchPerson" onclick="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'person=\' + escape(rulingName.value)')};setTypeSearch(this);setPerson();" title="Pesquisar Dirigente"><i class="fa fa-search"></i></a>
+	                <button type="button" class="btn btn-default yellow" id="clearRuling" onclick="clearRulingField();"><i class="fa fa-refresh"></i>Limpar</button>
 	            </span>
             </div>
 		</div>
@@ -65,11 +76,12 @@
 			<g:message code="worship.prelectorName.label" default="Preleitor" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<div class="input-group">
 				<g:textField class="form-control" name="prelectorName" value="${worshipInstance?.prelectorName}" require=""/>
 				<span class="input-group-btn">
-	                <a class="btn btn-default blue" id="searchPrelector" data-toggle="modal" href="#modalSearchPerson" onclick="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'person=\' + escape(prelectorName.value)')};setTypeSearch(this);" title="Pesquisar Dirigente"><i class="fa fa-search"></i></a>
+	                <a class="btn btn-default blue" id="searchPrelector" data-toggle="modal" href="#modalSearchPerson" onclick="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'person=\' + escape(prelectorName.value)')};setTypeSearch(this);setPerson();" title="Pesquisar Dirigente"><i class="fa fa-search"></i></a>
+	                <button type="button" class="btn btn-default yellow" id="clearPrelector" onclick="clearPrelectorField();"><i class="fa fa-refresh"></i>Limpar</button>
 	            </span>
             </div>
 		</div>
