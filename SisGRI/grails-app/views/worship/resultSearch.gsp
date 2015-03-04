@@ -77,9 +77,18 @@
 									
 										<td><g:formatDate date="${worshipInstance.date}" /></td>
 									
-										<td>${fieldValue(bean: worshipInstance, field: "ruling")}</td>
-									
-										<td>${fieldValue(bean: worshipInstance, field: "prelector")}</td>
+										<g:if test="${worshipInstance?.ruling}">
+											<td><g:link controller="person" action="show" id="${worshipInstance.ruling.id}">${fieldValue(bean: worshipInstance, field: "ruling")}</g:link></td>
+										</g:if>
+										<g:else>
+											<td>${fieldValue(bean: worshipInstance, field: "rulingName")}</td>
+										</g:else>
+										<g:if test="${worshipInstance?.prelector}">
+											<td><g:link controller="person" action="show" id="${worshipInstance.prelector.id}">${fieldValue(bean: worshipInstance, field: "prelector")}</g:link></td>
+										</g:if>
+										<g:else>
+											<td>${fieldValue(bean: worshipInstance, field: "prelectorName")}</td>
+										</g:else>
 									
 									</tr>
 								</g:each>

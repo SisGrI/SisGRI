@@ -50,14 +50,10 @@ class WorshipController {
                     like("name", "%"+params.church+"%")
                 }
             }
-            ruling{
-                if(params.ruling!="")
-                    like("name", "%"+params.ruling+"%")
-            }
-            prelector{
-                if(params.prelector!="")
-                    like("name", "%"+params.prelector+"%")
-            }
+            if(params.rulingName!="")
+                like("rulingName", "%"+params.rulingName+"%")
+            if(params.prelectorName!="") 
+                like("prelectorName", "%"+params.prelectorName+"%")
             if(params.date_year != "" || (params.date_year != "" && params.date_month != ""))
                 between('date', this.dateBefore, this.dateAfter)
             else if(params.date_year == "" && params.date_month != "")
@@ -68,6 +64,7 @@ class WorshipController {
 
             order("date", "asc")
         }
+
         respond worships
     }
     
@@ -94,6 +91,8 @@ class WorshipController {
             notFound()
             return
         }
+
+        setRulingAndPrelector(worshipInstance, params)
         
         if (worshipInstance.hasErrors()) {
             respond worshipInstance.errors, view:'create'
@@ -109,6 +108,21 @@ class WorshipController {
             }
             '*' { respond worshipInstance, [status: CREATED] }
         }
+    }
+
+    protected def setRulingAndPrelector(Worship worshipInstance, def params) {
+        worshipInstance.ruling = Person.get(params.rulingID)
+        worshipInstance.prelector = Person.get(params.prelectorID)
+
+        if (!worshipInstance.ruling)
+            worshipInstance.rulingName = params.rulingName
+        else
+            worshipInstance.rulingName = worshipInstance.ruling.name
+
+        if (!worshipInstance.prelector)
+            worshipInstance.prelectorName = params.prelectorName
+        else
+            worshipInstance.prelectorName = worshipInstance.prelector.name
     }
 
     def edit(Worship worshipInstance) {
@@ -158,19 +172,14 @@ class WorshipController {
     }
 
     def choosePerson() {
-        String name = ''
+        String name = params.person
         
-        if(params.ruling_name)
-            name = params.ruling_name
-        else
-            name = params.prelector_name
-
         render template: "choosePerson", model: [people: searchPeople(name)]
     }
 
     protected def searchPeople(String name) {
         if(name?.isAllWhitespace())
-            return []
+            return Person.list()
 
         def criteria = Person.createCriteria()
         def people = criteria.list {

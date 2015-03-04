@@ -34,23 +34,23 @@
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'ruling', 'error')} ">
-		<label class="control-label col-md-3" for="ruling">
-			<g:message code="person.ruling.label" default="Dirigente" />
+	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'rulingName', 'error')} ">
+		<label class="control-label col-md-3" for="rulingName">
+			<g:message code="person.rulingName.label" default="Dirigente" />
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="ruling" value=""/>
+			<g:textField class="form-control" name="rulingName" value=""/>
 		</div>
 	</div>
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'prelector', 'error')} ">
-		<label class="control-label col-md-3" for="prelector">
-			<g:message code="person.prelector.label" default="Preleitor" />
+	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'prelectorName', 'error')} ">
+		<label class="control-label col-md-3" for="prelectorName">
+			<g:message code="person.prelectorName.label" default="Preleitor" />
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="prelector" value=""/>
+			<g:textField class="form-control" name="prelectorName" value=""/>
 		</div>
 	</div>
 </div>

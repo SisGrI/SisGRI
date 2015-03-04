@@ -1,3 +1,24 @@
+<script type="text/javascript">
+	function choosePerson(element) {
+		var personInstanceId = element.id;
+		var name = element.headers;
+		var typeSearch = $('#typeSearch').val();
+
+        if (typeSearch == 'searchRuling') {
+        	$('#rulingID').val(personInstanceId);
+        	$('#rulingName').val(name);
+        	$("#rulingName").attr("readonly", true);
+        }
+        else {
+        	$('#prelectorID').val(personInstanceId);
+        	$('#prelectorName').val(name);
+        	$('#prelectorName').attr("readonly", true);
+        }
+
+		$("#modalSearchPerson").modal('hide');
+	}
+</script>
+
 <div id="choosePerson">
 	<g:if test="${people}">
 		<h3>Selecionar Pessoa</h3>
@@ -13,7 +34,7 @@
 					<g:each in="${people}" status="i" var="personInstance">
 						<tr class="odd gradeX">
 						
-							<td><g:link action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "name")}</g:link></td>
+							<td id="${personInstance.id}" headers="${personInstance.name}" onclick="choosePerson(this)">${fieldValue(bean: personInstance, field: "name")}</td>
 						</tr>
 					</g:each>
 				</tbody>

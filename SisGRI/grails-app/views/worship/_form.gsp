@@ -1,5 +1,11 @@
 <%@ page import="org.sisgri.worship.Worship" %>
 
+<script type="text/javascript">
+	function setTypeSearch(element) {
+		$('#typeSearch').val(element.id);
+	}
+</script>
+
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'church', 'error')} required">
 		<label class="control-label col-md-3" for="church">
@@ -37,25 +43,35 @@
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'ruling', 'error')} required">
-		<label class="control-label col-md-3" for="ruling">
-			<g:message code="worship.ruling.label" default="Dirigente" />
+	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'rulingName', 'error')} required">
+		<label class="control-label col-md-3" for="rulingName">
+			<g:message code="worship.rulingName.label" default="Dirigente" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="ruling_name" value="" require="" oninput="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'ruling_name=\' + escape(this.value)')}"/>
+			<div class="input-group">
+				<g:textField class="form-control" name="rulingName" value="${worshipInstance?.rulingName}" require=""/>
+				<span class="input-group-btn">
+	                <a class="btn btn-default blue" id="searchRuling" data-toggle="modal" href="#modalSearchPerson" onclick="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'person=\' + escape(rulingName.value)')};setTypeSearch(this);" title="Pesquisar Dirigente"><i class="fa fa-search"></i></a>
+	            </span>
+            </div>
 		</div>
 	</div>
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'prelector', 'error')} required">
-		<label class="control-label col-md-3" for="prelector">
-			<g:message code="worship.prelector.label" default="Preleitor" />
+	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'prelectorName', 'error')} required">
+		<label class="control-label col-md-3" for="prelectorName">
+			<g:message code="worship.prelectorName.label" default="Preleitor" />
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="prelector_name" value="" require="" oninput="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'prelector_name=\' + escape(this.value)')}"/>
+			<div class="input-group">
+				<g:textField class="form-control" name="prelectorName" value="${worshipInstance?.prelectorName}" require=""/>
+				<span class="input-group-btn">
+	                <a class="btn btn-default blue" id="searchPrelector" data-toggle="modal" href="#modalSearchPerson" onclick="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'person=\' + escape(prelectorName.value)')};setTypeSearch(this);" title="Pesquisar Dirigente"><i class="fa fa-search"></i></a>
+	            </span>
+            </div>
 		</div>
 	</div>
 </div>
@@ -72,4 +88,20 @@
 	</div>
 </div>
 
-<g:render template='choosePerson' />
+<g:hiddenField name="typeSearch" value="" />
+<g:hiddenField name="rulingID" value="${worshipInstance?.ruling?.id}" />
+<g:hiddenField name="prelectorID" value="${worshipInstance?.prelector?.id}" />
+
+<div class="modal fade" id="modalSearchPerson" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+                <h4 class="modal-title" id="myModalLabel">Pesquisar Pessoa</h4>
+            </div>
+            <div class="modal-body">
+                <g:render template="choosePerson"/>
+            </div>
+        </div>
+    </div>
+</div>

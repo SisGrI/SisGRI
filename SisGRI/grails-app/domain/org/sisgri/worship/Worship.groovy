@@ -10,6 +10,8 @@ class Worship {
     String observation
     Person ruling
     Person prelector
+    String rulingName
+    String prelectorName
 	
 	static belongsTo = [church:Church]
 
@@ -19,8 +21,10 @@ class Worship {
     	church blank:false
 		type blank: false, inList:['Público', 'Ensino', 'Santa Ceia', 'Escola Bíblica', 'Oração', 'Varões', 'Irmãs', 'Jovens', 'Crianças']
 		date nullable:true, attributes:[years:2013..2014]
-		ruling blank: false
-		prelector blank: false
+		rulingName blank: false
+        ruling nullable: true
+		prelectorName blank: false
+        prelector nullable: true
         observation nullable:true, widget:'textarea'
     }
 

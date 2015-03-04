@@ -97,35 +97,41 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${worshipInstance?.ruling}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Dirigente</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label col-md-3">Dirigente</label>
+											
+										<div class="col-md-9">
+											<p class="form-control-static">
+												<g:if test="${worshipInstance?.ruling}">
 													<g:link controller="person" action="show" id="${worshipInstance?.ruling?.id}">${worshipInstance?.ruling?.encodeAsHTML()}</g:link>
-												</p>
-											</div>
-										
-											</div>
+												</g:if>
+												<g:else>
+													<g:fieldValue bean="${worshipInstance}" field="rulingName"/>
+												</g:else>
+											</p>
 										</div>
-									</g:if>
 									
-									<g:if test="${worshipInstance?.prelector}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Preleitor</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:link controller="person" action="show" id="${worshipInstance?.prelector?.id}">${worshipInstance?.prelector?.encodeAsHTML()}</g:link>
-												</p>
-											</div>
-										
-											</div>
 										</div>
-									</g:if>
+									</div>
+									
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label col-md-3">Preleitor</label>
+											
+										<div class="col-md-9">
+											<p class="form-control-static">
+												<g:if test="${worshipInstance?.prelector}">
+													<g:link controller="person" action="show" id="${worshipInstance?.prelector?.id}">${worshipInstance?.prelector?.encodeAsHTML()}</g:link>
+												</g:if>
+												<g:else>
+													<g:fieldValue bean="${worshipInstance}" field="prelectorName"/>
+												</g:else>
+											</p>
+										</div>
+									
+										</div>
+									</div>
 
 									<g:if test="${worshipInstance?.observation}">
 										<div class="col-md-6">
