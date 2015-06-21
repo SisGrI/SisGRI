@@ -1,16 +1,16 @@
 
-<%@ page import="org.sisgri.register.Entry" %>
+<%@ page import="org.sisgri.register.Register" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'entry.label', default: 'Entrada')}" />
+		<g:set var="entityName" value="${message(code: 'register.label', default: 'Registro Financeiro')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Entrada</h3>
+	            <h3 class="page-title">Registro Financeiro</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 	                </li>
 	                <li>
 	                	<g:link>
-							Entradas
+							Registros
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
@@ -42,7 +42,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Entrada
+							<i class="fa fa-reorder"></i>Detalhar Registro Financeiro
 						</div>
 					</div>
 					<div class="portlet-body form">
@@ -52,29 +52,14 @@
 								<h3 class="form-section">Dados</h3>
 								<div class="row">
 									
-									<g:if test="${entryInstance?.date}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Data</label>
-												
-												<div class="col-md-9">
-													<p class="form-control-static">
-														<g:formatDate date="${entryInstance?.date}" />
-													</p>
-												</div>
-											
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${entryInstance?.church}">
+									<g:if test="${registerInstance?.church}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Igreja</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:link controller="church" action="show" id="${entryInstance?.church?.id}">${entryInstance?.church?.encodeAsHTML()}</g:link>
+													<g:link controller="church" action="show" id="${registerInstance?.church?.id}">${registerInstance?.church?.encodeAsHTML()}</g:link>
 												</p>
 											</div>
 										
@@ -82,14 +67,29 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${entryInstance?.category}">
+									<g:if test="${registerInstance?.date}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Categoria</label>
+												<label class="control-label col-md-3">Data</label>
+												
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:formatDate date="${registerInstance?.date}" />
+													</p>
+												</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${registerInstance?.type}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Tipo</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${entryInstance}" field="category"/>
+													<g:fieldValue bean="${registerInstance}" field="type"/>
 												</p>
 											</div>
 											
@@ -97,14 +97,44 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${entryInstance?.name}">
+									<g:if test="${registerInstance?.entryRegister}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Entrada</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${registerInstance}" field="entryRegister"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${registerInstance?.exitRegister}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Saída</label>
+												
+											<div class="col-md-9">
+												<p class="form-control-static">
+													<g:fieldValue bean="${registerInstance}" field="exitRegister"/>
+												</p>
+											</div>
+											
+											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${registerInstance?.name}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Nome</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${entryInstance}" field="name"/>
+													<g:fieldValue bean="${registerInstance}" field="name"/>
 												</p>
 											</div>
 											
@@ -112,14 +142,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${entryInstance?.value}">
+									<g:if test="${registerInstance?.value}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Valor</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${entryInstance}" field="value"/>
+													<g:fieldValue bean="${registerInstance}" field="value"/>
 												</p>
 											</div>
 											
@@ -134,9 +164,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="col-md-offset-3 col-md-9">
-												<g:hiddenField name="id" value="${entryInstance?.id}" />
+												<g:hiddenField name="id" value="${registerInstance?.id}" />
 
-												<g:link class="btn blue" action="edit" id="${entryInstance?.id}">
+												<g:link class="btn blue" action="edit" id="${registerInstance?.id}">
 												<i class="fa fa-pencil"></i> Editar	</g:link>
 
 												<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">

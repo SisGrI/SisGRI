@@ -2,13 +2,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'entry.label', default: 'Entrada')}" />
+		<g:set var="entityName" value="${message(code: 'register.label', default: 'Registro Financeiro')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Entrada</h3>
+	            <h3 class="page-title">Registro Financeiro</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	            	<li>
 	                    <i class="fa fa-home"></i>
@@ -19,12 +19,12 @@
 	                </li>
 	                <li>
 	                	<g:link action="index">
-							Entradas
+							Registros
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-						Criar Entrada
+						Criar Registro Financeiro
 	                </li>
 	            </ul>
 	        </div>
@@ -39,9 +39,9 @@
 			</div>
 			
 			<div class="col-md-12">
-				<g:hasErrors bean="${entryInstance}">
+				<g:hasErrors bean="${registerInstance}">
 					<ul class="errors" role="alert">
-						<g:eachError bean="${entryInstance}" var="error">
+						<g:eachError bean="${registerInstance}" var="error">
 							<div class="alert alert-danger alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								<g:if test="${error in org.springframework.validation.FieldError}">
@@ -58,11 +58,11 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Criar nova Entrada
+							<i class="fa fa-list"></i>Criar novo Registro Financeiro
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<g:form url="[resource:entryInstance, action:'save']"  class="form-horizontal">
+						<g:form url="[resource:registerInstance, action:'save']"  class="form-horizontal">
 							<div class="form-body">
 								<div class="form-section">
 								</div>

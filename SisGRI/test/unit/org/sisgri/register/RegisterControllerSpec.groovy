@@ -5,9 +5,9 @@ package org.sisgri.register
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(ExitController)
-@Mock(Exit)
-class ExitControllerSpec extends Specification {
+@TestFor(RegisterController)
+@Mock(Register)
+class RegisterControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class ExitControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.exitInstanceList
-            model.exitInstanceCount == 0
+            !model.registerInstanceList
+            model.registerInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,32 +30,32 @@ class ExitControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.exitInstance!= null
+            model.registerInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
-            def exit = new Exit()
-            exit.validate()
-            controller.save(exit)
+            def register = new Register()
+            register.validate()
+            controller.save(register)
 
         then:"The create view is rendered again with the correct model"
-            model.exitInstance!= null
+            model.registerInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            exit = new Exit(params)
+            register = new Register(params)
 
-            controller.save(exit)
+            controller.save(register)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/exit/show/1'
+            response.redirectedUrl == '/register/show/1'
             controller.flash.message != null
-            Exit.count() == 1
+            Register.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -67,11 +67,11 @@ class ExitControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def exit = new Exit(params)
-            controller.show(exit)
+            def register = new Register(params)
+            controller.show(register)
 
         then:"A model is populated containing the domain instance"
-            model.exitInstance == exit
+            model.registerInstance == register
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -83,11 +83,11 @@ class ExitControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def exit = new Exit(params)
-            controller.edit(exit)
+            def register = new Register(params)
+            controller.edit(register)
 
         then:"A model is populated containing the domain instance"
-            model.exitInstance == exit
+            model.registerInstance == register
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -96,28 +96,28 @@ class ExitControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/exit/index'
+            response.redirectedUrl == '/register/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def exit = new Exit()
-            exit.validate()
-            controller.update(exit)
+            def register = new Register()
+            register.validate()
+            controller.update(register)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.exitInstance == exit
+            model.registerInstance == register
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            exit = new Exit(params).save(flush: true)
-            controller.update(exit)
+            register = new Register(params).save(flush: true)
+            controller.update(register)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/exit/show/$exit.id"
+            response.redirectedUrl == "/register/show/$register.id"
             flash.message != null
     }
 
@@ -127,23 +127,23 @@ class ExitControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/exit/index'
+            response.redirectedUrl == '/register/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def exit = new Exit(params).save(flush: true)
+            def register = new Register(params).save(flush: true)
 
         then:"It exists"
-            Exit.count() == 1
+            Register.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(exit)
+            controller.delete(register)
 
         then:"The instance is deleted"
-            Exit.count() == 0
-            response.redirectedUrl == '/exit/index'
+            Register.count() == 0
+            response.redirectedUrl == '/register/index'
             flash.message != null
     }
 }

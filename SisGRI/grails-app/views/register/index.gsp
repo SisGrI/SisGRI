@@ -1,16 +1,16 @@
 
-<%@ page import="org.sisgri.register.Exit" %>
+<%@ page import="org.sisgri.register.Register" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'exit.label', default: 'Saída')}" />
+		<g:set var="entityName" value="${message(code: 'register.label', default: 'Registro Financeiro')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="page-title">Saída</h3>
+				<h3 class="page-title">Registro Financeiro</h3>
 				<ul class="page-breadcrumb breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 					</li>
 					<li>
 						<g:link>
-							Saídas
+							Registros
 						</g:link>
 					</li>
 				</ul>
@@ -40,7 +40,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Saídas
+							<i class="fa fa-list"></i>Registros
 						</div>
 						<div class="actions">
 							<g:link class="btn green" action="create">
@@ -56,27 +56,35 @@
 							<thead>
 								<tr>
 								
-									<th><g:message code="exit.church.label" default="Igreja" /></th>
+									<th><g:message code="register.church.label" default="Igreja" /></th>
 								
-									<th><g:message code="exit.category.label" default="Categoria" /></th>
+									<th><g:message code="register.date.label" default="Data" /></th>
 								
-									<th><g:message code="exit.name.label" default="Nome" /></th>
+									<th><g:message code="register.type.label" default="Tipo" /></th>
 								
-									<th><g:message code="exit.value.label" default="Valor" /></th>
+									<th><g:message code="register.entryRegister.label" default="Entrada" /></th>
+								
+									<th><g:message code="register.exitRegister.label" default="Saída" /></th>
+								
+									<th><g:message code="register.name.label" default="Nome" /></th>
 								
 								</tr>
 							</thead>
 							<tbody>
-								<g:each in="${exitInstanceList}" status="i" var="exitInstance">
+								<g:each in="${registerInstanceList}" status="i" var="registerInstance">
 									<tr class="odd gradeX">
 									
-										<td><g:link action="show" id="${exitInstance.id}">${fieldValue(bean: exitInstance, field: "church")}</g:link></td>
+										<td><g:link action="show" id="${registerInstance.id}">${fieldValue(bean: registerInstance, field: "church")}</g:link></td>
 									
-										<td>${fieldValue(bean: exitInstance, field: "category")}</td>
+										<td><g:formatDate date="${registerInstance.date}" /></td>
 									
-										<td>${fieldValue(bean: exitInstance, field: "name")}</td>
+										<td>${fieldValue(bean: registerInstance, field: "type")}</td>
 									
-										<td>${fieldValue(bean: exitInstance, field: "value")}</td>
+										<td>${fieldValue(bean: registerInstance, field: "entryRegister")}</td>
+									
+										<td>${fieldValue(bean: registerInstance, field: "exitRegister")}</td>
+									
+										<td>${fieldValue(bean: registerInstance, field: "name")}</td>
 									
 									</tr>
 								</g:each>

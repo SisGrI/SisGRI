@@ -192,21 +192,9 @@
 									</a>
 									<ul class="sub-menu">
 										<li>
-											<g:link controller="entry" action="create">
+											<g:link controller="register" action="create">
 												<i class="fa fa-plus"></i>
-												Registrar entrada
-											</g:link>
-										</li>
-										<li>
-											<g:link controller="exit" action="create">
-												<i class="fa fa-plus"></i>
-												Registrar Saída
-											</g:link>
-										</li>
-										<li>
-											<g:link controller="newsletter">
-												<i class="fa fa-search"></i>
-												Ver Boletim
+												Registrar Movimentação
 											</g:link>
 										</li>
 									</ul>
