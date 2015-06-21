@@ -28,7 +28,7 @@
 			<g:message code="worship.date.label" default="Data" />
 		</label>
 		<div class="col-md-4">
-			<g:datePicker name="date" years="[2013, 2014]" precision="month"  value="${worshipInstance?.date}" default="none" noSelection="['': '']" />
+			<g:datePicker name="date" years="[2013, 2014, 2015]" precision="month"  value="${worshipInstance?.date}" default="none" noSelection="['': '']" />
 		</div>
 	</div>
 </div>

@@ -87,7 +87,7 @@
 			<g:message code="person.birth.label" default="Nascimento" />
 		</label>
 		<div class="col-md-4">
-			<g:datePicker name="birth" years="[2013, 2014]" precision="month"  value="${personInstance?.birth}" default="none" noSelection="['': '']" />
+			<g:datePicker name="birth" years="[2013, 2014, 2015]" precision="month"  value="${personInstance?.birth}" default="none" noSelection="['': '']" />
 		</div>
 	</div>
 </div>
