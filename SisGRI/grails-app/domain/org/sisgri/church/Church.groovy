@@ -4,7 +4,7 @@ import org.sisgri.worship.Worship
 import org.sisgri.people.Person
 import org.sisgri.register.Register
 
-abstract class Church {
+class Church {
 	String name
 	String address
 

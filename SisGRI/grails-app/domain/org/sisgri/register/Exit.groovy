@@ -40,6 +40,10 @@ class Exit extends Register{
 		value blank: false
     }
 
+    static mapping = {
+        table 'exit_register'
+    }
+
     String toString() {
         "$category"
     }

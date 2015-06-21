@@ -113,13 +113,8 @@
 									</a>
 									<ul class="sub-menu">
 										<li>
-											<g:link controller="headquarter">
-												Sedes
-											</g:link>
-										</li>
-										<li>
-											<g:link controller="congregation">
-												Congregações
+											<g:link controller="church">
+												Igrejas
 											</g:link>
 										</li>
 									</ul>

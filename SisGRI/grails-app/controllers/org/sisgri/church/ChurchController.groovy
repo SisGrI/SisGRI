@@ -1,12 +1,12 @@
 package org.sisgri.church
 
-import org.sisgri.people.Person
-import org.sisgri.worship.Worship
+
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
+@Secured(['ROLE_ADMIN'])
 @Transactional(readOnly = true)
 class ChurchController {
 
@@ -17,25 +17,90 @@ class ChurchController {
         respond Church.list(params), model:[churchInstanceCount: Church.count()]
     }
 
-    def showToWorship(Worship worshipInstance) {
-        if(worshipInstance.church.instanceOf(Headquarter))
-            showHeadquarter(worshipInstance.church)
-        else
-            showCongregation(worshipInstance.church)
+    def show(Church churchInstance) {
+        respond churchInstance
     }
 
-    def showToPerson(Person personInstance) {
-        if(personInstance.church.instanceOf(Headquarter))
-            showHeadquarter(personInstance.church)
-        else
-            showCongregation(personInstance.church)
+    def create() {
+        respond new Church(params)
     }
 
-    protected def showHeadquarter(Headquarter headquarterInstance) {
-        redirect controller:"headquarter", action:"show", id:headquarterInstance.id
+    @Transactional
+    def save(Church churchInstance) {
+        if (churchInstance == null) {
+            notFound()
+            return
+        }
+
+        if (churchInstance.hasErrors()) {
+            respond churchInstance.errors, view:'create'
+            return
+        }
+
+        churchInstance.save flush:true
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.created.message', args: [message(code: 'churchInstance.label', default: 'Church'), churchInstance.id])
+                redirect churchInstance
+            }
+            '*' { respond churchInstance, [status: CREATED] }
+        }
     }
 
-    protected def showCongregation(Congregation congregationInstance) {
-        redirect controller:"congregation", action:"show", id:congregationInstance.id
+    def edit(Church churchInstance) {
+        respond churchInstance
+    }
+
+    @Transactional
+    def update(Church churchInstance) {
+        if (churchInstance == null) {
+            notFound()
+            return
+        }
+
+        if (churchInstance.hasErrors()) {
+            respond churchInstance.errors, view:'edit'
+            return
+        }
+
+        churchInstance.save flush:true
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.updated.message', args: [message(code: 'Church.label', default: 'Church'), churchInstance.id])
+                redirect churchInstance
+            }
+            '*'{ respond churchInstance, [status: OK] }
+        }
+    }
+
+    @Transactional
+    def delete(Church churchInstance) {
+
+        if (churchInstance == null) {
+            notFound()
+            return
+        }
+
+        churchInstance.delete flush:true
+
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Church.label', default: 'Church'), churchInstance.id])
+                redirect action:"index", method:"GET"
+            }
+            '*'{ render status: NO_CONTENT }
+        }
+    }
+
+    protected void notFound() {
+        request.withFormat {
+            form multipartForm {
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'churchInstance.label', default: 'Church'), params.id])
+                redirect action: "index", method: "GET"
+            }
+            '*'{ render status: NOT_FOUND }
+        }
     }
 }

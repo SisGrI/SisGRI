@@ -23,6 +23,10 @@ class Entry extends Register{
 		value blank: false
     }
 
+    static mapping = {
+        table 'entry_register'
+    }
+
     String toString() {
         "$category"
     }

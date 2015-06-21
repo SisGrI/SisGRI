@@ -1,15 +1,15 @@
-<%@ page import="org.sisgri.church.Congregation" %>
+<%@ page import="org.sisgri.church.Church" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'congregation.label', default: 'Congregação')}" />
+		<g:set var="entityName" value="${message(code: 'church.label', default: 'Church')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>		
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Congregação</h3>
+	            <h3 class="page-title">Church</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -19,13 +19,13 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="show" id="${congregationInstance.id}">
-							Detalhar Congregação
+	                	<g:link action="show" id="${churchInstance.id}">
+							Detalhar Church
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-						Editar Congregação
+						Editar Church
 	                </li>
 	            </ul>
 	        </div>
@@ -40,9 +40,9 @@
 			</div>
 			
 			<div class="col-md-12">
-				<g:hasErrors bean="${congregationInstance}">
+				<g:hasErrors bean="${churchInstance}">
 					<ul class="errors" role="alert">
-						<g:eachError bean="${congregationInstance}" var="error">
+						<g:eachError bean="${churchInstance}" var="error">
 							<div class="alert alert-danger alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								<g:if test="${error in org.springframework.validation.FieldError}">
@@ -59,11 +59,11 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Editar Congregação
+							<i class="fa fa-list"></i>Editar Church
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<g:form url="[resource:congregationInstance, action:'update']" method="PUT" class="form-horizontal">
+						<g:form url="[resource:churchInstance, action:'update']" method="PUT" class="form-horizontal">
 							<div class="form-body">
 								<div class="form-section">
 								</div>
@@ -74,8 +74,8 @@
 								<g:render template="form"/>
 							</div>
 							<div class="form-actions right">
-								<g:hiddenField name="id" value="${congregationInstance?.id}" />
-								<g:hiddenField name="version" value="${congregationInstance?.version}" />
+								<g:hiddenField name="id" value="${churchInstance?.id}" />
+								<g:hiddenField name="version" value="${churchInstance?.version}" />
 
 								<div class="col-md-offset-3 col-md-9">
 									<g:actionSubmit class="btn blue" action="update" value="Atualizar" />

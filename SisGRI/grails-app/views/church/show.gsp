@@ -1,16 +1,16 @@
 
-<%@ page import="org.sisgri.church.Congregation" %>
+<%@ page import="org.sisgri.church.Church" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'congregation.label', default: 'Congregação')}" />
+		<g:set var="entityName" value="${message(code: 'church.label', default: 'Church')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Congregação</h3>
+	            <h3 class="page-title">Church</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	                <li>
 	                    <i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 	                </li>
 	                <li>
 	                	<g:link>
-							Congregações
+							Churchs
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
@@ -42,7 +42,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Congregação
+							<i class="fa fa-reorder"></i>Detalhar Church
 						</div>
 					</div>
 					<div class="portlet-body form">
@@ -52,14 +52,14 @@
 								<h3 class="form-section">Dados</h3>
 								<div class="row">
 									
-									<g:if test="${congregationInstance?.name}">
+									<g:if test="${churchInstance?.name}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Nome</label>
+												<label class="control-label col-md-3">Name</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${congregationInstance}" field="name"/>
+													<g:fieldValue bean="${churchInstance}" field="name"/>
 												</p>
 											</div>
 											
@@ -67,14 +67,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${congregationInstance?.address}">
+									<g:if test="${churchInstance?.address}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Endereço</label>
+												<label class="control-label col-md-3">Address</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${congregationInstance}" field="address"/>
+													<g:fieldValue bean="${churchInstance}" field="address"/>
 												</p>
 											</div>
 											
@@ -82,12 +82,12 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${congregationInstance?.worship}">
+									<g:if test="${churchInstance?.worship}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Cultos</label>
+												<label class="control-label col-md-3">Worship</label>
 												
-											<g:each status="i" in="${congregationInstance.worship}" var="w">
+											<g:each status="i" in="${churchInstance.worship}" var="w">
 												<g:if test="${i}">
 													<label class="control-label col-md-3"></label>
 												</g:if>
@@ -102,16 +102,41 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${congregationInstance?.headquarter}">
+									<g:if test="${churchInstance?.person}">
 										<div class="col-md-6">
 											<div class="form-group">
-												<label class="control-label col-md-3">Sede</label>
+												<label class="control-label col-md-3">Person</label>
 												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:link controller="headquarter" action="show" id="${congregationInstance?.headquarter?.id}">${congregationInstance?.headquarter?.encodeAsHTML()}</g:link>
-												</p>
+											<g:each status="i" in="${churchInstance.person}" var="p">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="person" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
+										
 											</div>
+										</div>
+									</g:if>
+									
+									<g:if test="${churchInstance?.registers}">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label class="control-label col-md-3">Registers</label>
+												
+											<g:each status="i" in="${churchInstance.registers}" var="r">
+												<g:if test="${i}">
+													<label class="control-label col-md-3"></label>
+												</g:if>
+												<div class="col-md-9">
+													<p class="form-control-static">
+														<g:link controller="register" action="show" id="${r.id}">${r?.encodeAsHTML()}</g:link>
+													</p>
+												</div>
+											</g:each>
 										
 											</div>
 										</div>
@@ -124,9 +149,9 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="col-md-offset-3 col-md-9">
-												<g:hiddenField name="id" value="${congregationInstance?.id}" />
+												<g:hiddenField name="id" value="${churchInstance?.id}" />
 
-												<g:link class="btn blue" action="edit" id="${congregationInstance?.id}">
+												<g:link class="btn blue" action="edit" id="${churchInstance?.id}">
 												<i class="fa fa-pencil"></i> Editar	</g:link>
 
 												<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">

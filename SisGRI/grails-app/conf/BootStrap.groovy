@@ -2,15 +2,16 @@ import org.sisgri.authentication.Role
 import org.sisgri.authentication.Profile
 import org.sisgri.authentication.ProfileRole
 import org.sisgri.people.Person
-import org.sisgri.church.Headquarter
+import org.sisgri.church.Church
 
 class BootStrap {
 
    def init = { servletContext ->
-      if (!Headquarter.get(1)) {
-            def headquarter = new Headquarter(name:'Igreja Sede', address:'Ocidental').save(flush:true)
+      if (!Church.get(1)) {
+            def church = new Church(name:'ADOCI JARDIM ABC',
+               address:'Quadra 20, Lote X, Parque das Américas').save(flush:true)
 
-            def testPerson = new Person(church:headquarter, name: 'Administrador', address: 'Ocidental',
+            def testPerson = new Person(church:church, name: 'Administrador', address: 'Ocidental',
                city:'Ocidental', zipCode:'00000-000', birthPlace:'Ocidental', cpf:'000.000.000-00', rg:'0000000', maritalStatus:'Solteiro(a)',
                department:'Varões', type:'Congregado', situation: true, email: 'administrador@sisgri.com',
                birth: new Date()).save(flush: true)

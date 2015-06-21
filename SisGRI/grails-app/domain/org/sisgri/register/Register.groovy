@@ -11,4 +11,8 @@ abstract class Register {
     	date blank:false, display: false
     	church nullable:false
     }
+
+    static mapping = {
+	    tablePerHierarchy false
+    }
 }

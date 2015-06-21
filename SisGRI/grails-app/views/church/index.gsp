@@ -1,16 +1,16 @@
 
-<%@ page import="org.sisgri.church.Headquarter" %>
+<%@ page import="org.sisgri.church.Church" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'headquarter.label', default: 'Sede')}" />
+		<g:set var="entityName" value="${message(code: 'church.label', default: 'Church')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="page-title">Sede</h3>
+				<h3 class="page-title">Church</h3>
 				<ul class="page-breadcrumb breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 					</li>
 					<li>
 						<g:link>
-							Sedes
+							Churchs
 						</g:link>
 					</li>
 				</ul>
@@ -40,7 +40,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Sedes
+							<i class="fa fa-list"></i>Churchs
 						</div>
 						<div class="actions">
 							<g:link class="btn green" action="create">
@@ -56,19 +56,19 @@
 							<thead>
 								<tr>
 								
-									<th><g:message code="headquarter.name.label" default="Nome" /></th>
+									<th><g:message code="church.name.label" default="Name" /></th>
 								
-									<th><g:message code="headquarter.address.label" default="Endereço" /></th>
+									<th><g:message code="church.address.label" default="Address" /></th>
 								
 								</tr>
 							</thead>
 							<tbody>
-								<g:each in="${headquarterInstanceList}" status="i" var="headquarterInstance">
+								<g:each in="${churchInstanceList}" status="i" var="churchInstance">
 									<tr class="odd gradeX">
 									
-										<td><g:link action="show" id="${headquarterInstance.id}">${fieldValue(bean: headquarterInstance, field: "name")}</g:link></td>
+										<td><g:link action="show" id="${churchInstance.id}">${fieldValue(bean: churchInstance, field: "name")}</g:link></td>
 									
-										<td>${fieldValue(bean: headquarterInstance, field: "address")}</td>
+										<td>${fieldValue(bean: churchInstance, field: "address")}</td>
 									
 									</tr>
 								</g:each>
