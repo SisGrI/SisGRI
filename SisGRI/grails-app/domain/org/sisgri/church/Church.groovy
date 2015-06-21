@@ -17,4 +17,8 @@ class Church {
 		person nullable: true, display: false
 		registers nullable: true
     }
+
+    String toString(){
+		return name
+	}
 }
