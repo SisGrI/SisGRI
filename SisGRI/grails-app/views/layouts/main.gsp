@@ -101,7 +101,7 @@
 									</span>
 								</a>
 							</li>
-							<sec:ifAnyGranted roles="ROLE_ADMIN">
+							<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SECRETARY">
 								<li>
 									<a href="javascript:;">
 										<i class="fa fa-building-o"></i>

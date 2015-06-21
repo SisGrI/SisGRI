@@ -4,13 +4,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'church.label', default: 'Church')}" />
+		<g:set var="entityName" value="${message(code: 'church.label', default: 'Igreja')}" />
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-				<h3 class="page-title">Church</h3>
+				<h3 class="page-title">Igreja</h3>
 				<ul class="page-breadcrumb breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>
@@ -21,7 +21,7 @@
 					</li>
 					<li>
 						<g:link>
-							Churchs
+							Igrejas
 						</g:link>
 					</li>
 				</ul>
@@ -40,12 +40,14 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Churchs
+							<i class="fa fa-list"></i>Igrejas
 						</div>
 						<div class="actions">
-							<g:link class="btn green" action="create">
-								<i class="fa fa-plus"></i> Novo
-							</g:link>
+							<sec:ifAnyGranted roles="ROLE_ADMIN">
+								<g:link class="btn green" action="create">
+									<i class="fa fa-plus"></i> Novo
+								</g:link>
+							</sec:ifAnyGranted>
 							<a href="#" class="btn yellow">
 								<i class="fa fa-print"></i> Imprimir
 							</a>
@@ -56,9 +58,9 @@
 							<thead>
 								<tr>
 								
-									<th><g:message code="church.name.label" default="Name" /></th>
+									<th><g:message code="church.name.label" default="Nome" /></th>
 								
-									<th><g:message code="church.address.label" default="Address" /></th>
+									<th><g:message code="church.address.label" default="Endereço" /></th>
 								
 								</tr>
 							</thead>

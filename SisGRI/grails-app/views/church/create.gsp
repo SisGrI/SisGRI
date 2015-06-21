@@ -2,13 +2,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'church.label', default: 'Church')}" />
+		<g:set var="entityName" value="${message(code: 'church.label', default: 'Igreja')}" />
 		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 	        <div class="col-md-12">
-	            <h3 class="page-title">Church</h3>
+	            <h3 class="page-title">Igreja</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	            	<li>
 	                    <i class="fa fa-home"></i>
@@ -19,12 +19,12 @@
 	                </li>
 	                <li>
 	                	<g:link action="index">
-							Churchs
+							Igrejas
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-						Criar Church
+						Criar Igreja
 	                </li>
 	            </ul>
 	        </div>
@@ -58,7 +58,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Criar novo Church
+							<i class="fa fa-list"></i>Criar nova Igreja
 						</div>
 					</div>
 					<div class="portlet-body form">
