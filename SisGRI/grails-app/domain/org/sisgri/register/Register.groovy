@@ -17,17 +17,16 @@ class Register {
     	date blank: false
     	type blank: false, inList: ['Entrada', 'Saída']
         entryRegister nullable: true, inList: ['1.01 - (*) DIZIMO OBREIROS', '1.02 - (*) DIZIMO MEMBROS', 
-            '1.03 - (*) OFERTA DOS CULTOS', '1.04 - (*) ESCOLA DOMINICAL', 
-            '1.05 - REPASSE DE SUB-SEDE', '1.06 - REPASSE CONGREGAÇÃO', 
-            '1.07 - REPASSE SUB-CONGREG.', '1.08 - REPASSE CONG. ADOLESC.', 
-            '1.09 - REPASSE CONG. MISSÕES', '1.10 - REPASSE CONG. CIBE', 
-            '1.11 - REPASSE CONG. MISSÕES', '1.12 - OFERTAS CIBE', '1.13 - OFERTAS MOCIDADE', 
-            '1.14 - OFERTAS ADOLESCENTES', '1.15 - OFERTAS CRIANÇAS', '1.16 - OFERTAS MISSÕES', 
-            '1.17 - OFERTAS ESPECÍFICAS', '1.18 - VENDA BENS MOV/IMÓVEIS', 
-            '1.19 - VENDA REVISTA EBD/JORNAIS', '1.20 - RECEITAS FINANCEIRAS', 
-            '1.21 - TAXA CARTÃO MEMBRO', '1.22 - TAXA ESCOLA MÚSICA', 
-            '1.23 - TAXA CONS. DIACONAL', '1.24 - OUTRAS TREC.E RENDA', 
-            '1.25 - REPASSE ADMINIST. SEDE', '1.99 - EMPRESTÍMO ADQUIRIDOS']
+            '1.03 - (*) OFERTA DOS CULTOS', '1.04 - (*) OFERTA E.B.D', '1.05 - (*) OFERTAS ESPECÍFICAS',
+            '1.06 - VENDA DE BENS MÓVEIS/IMÓVEIS', '1.07 - VINDO SUB-SEDE/CONG.',
+            '1.08 - REPASSE DE CONG. ADOLESCENTES', '1.09 - REPASSE DE CONG. CRIANÇAS',
+            '1.10 - REPASSE DE CONG. CIBE', '1.11 - REPASSE MISSÕES',
+            '1.12 - OFERTA CIBE', '1.13 - OFERTA MOCIDADE', '1.14 - OFERTA ADOLESCENTES',
+            '1.15 - OFERTA CRIANÇAS', '1.16 - OFERTA MISSÕES', '1.17 - REPASSE CONGREGAÇÃO',
+            '1.18 - OUTRAS TAXAS, REC, REND.', '1.19 - VENDA REVISTAS',
+            '1.20 - REPASSE ADM. P/ SEDE', '1.22 - TAXA ESC. MÚSICA',
+            '1.23 - TAXA CONS. DIACONAL', '1.24 - AQUIS. IMÓVEIS', '1.25 - OFERTA CONAMAD',
+            '1.26 - EMPRES. ADIQUIRIDO']
         exitRegister nullable: true, inList: ['2.01 REPASSE P/ SEDE', '2.02 REP. CONGRESSO JOVENS', 
             '2.03 REP. CONGRES. ADOLESCENTES', '2.04 REP. CONGRES. CRIANÇAS', 
             '2.05 REP. CONGRESSO CIBE', '2.06 REP. CONGRESSO MISSÕES', 

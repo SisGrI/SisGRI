@@ -194,7 +194,7 @@
 										<li>
 											<g:link controller="register" action="create">
 												<i class="fa fa-plus"></i>
-												Registrar Movimentação
+												Registro Financeiro
 											</g:link>
 										</li>
 									</ul>

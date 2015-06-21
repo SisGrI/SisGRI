@@ -27,7 +27,7 @@
 			<g:message code="register.church.label" default="Igreja" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-7">
 			<g:select class="form-control" id="church" name="church.id" from="${churchList}" optionKey="id" required="" value="${registerInstance?.church?.id}"/>
 		</div>
 	</div>
@@ -39,7 +39,7 @@
 			<g:message code="register.type.label" default="Tipo" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-7">
 			<g:select class="form-control" name="type" from="${registerInstance.constraints.type.inList}" required="" value="${registerInstance?.type}" valueMessagePrefix="register.type" onchange="show_category()"/>
 		</div>
 	</div>
@@ -51,7 +51,7 @@
 			<g:message code="register.entryRegister.label" default="Entrada" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-7">
 			<g:select class="form-control" name="entryRegister" from="${registerInstance.constraints.entryRegister.inList}" required="" value="${registerInstance?.entryRegister}" valueMessagePrefix="register.entryRegister" noSelection="['': '']"/>
 		</div>
 	</div>
@@ -63,7 +63,7 @@
 			<g:message code="register.exitRegister.label" default="Saída" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-7">
 			<g:select class="form-control" name="exitRegister" from="${registerInstance.constraints.exitRegister.inList}" required="" value="${registerInstance?.exitRegister}" valueMessagePrefix="register.exitRegister" noSelection="['': '']"/>
 		</div>
 	</div>
@@ -76,7 +76,7 @@
 			<g:message code="register.name.label" default="Nome" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-7">
 			<g:textField class="form-control" name="name" required="" value="${registerInstance?.name}"/>
 		</div>
 	</div>
@@ -89,7 +89,7 @@
 			<g:message code="register.value.label" default="Valor" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-7">
 			<g:field class="form-control" name="value" value="${fieldValue(bean: registerInstance, field: 'value')}" required=""/>
 		</div>
 	</div>
