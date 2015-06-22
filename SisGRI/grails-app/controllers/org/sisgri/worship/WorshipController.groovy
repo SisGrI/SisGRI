@@ -63,7 +63,7 @@ class WorshipController {
             if(params.type!="")
                 eq("type", params.type)
 
-            order("date", "asc")
+            order("date", "desc")
         }
 
         respond worships
