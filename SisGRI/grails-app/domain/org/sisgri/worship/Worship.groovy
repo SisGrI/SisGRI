@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat
 
 class Worship {
 	String type
-	Date date
+	Date date = new Date()
     String observation
     Person ruling
     Person prelector
@@ -33,10 +33,7 @@ class Worship {
     }
 
     public String getStringDate() {
-        if(this.date != null)
-            return new SimpleDateFormat("dd/MM/yyyy").format(this.date)
-        else
-            return ""
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.date)
     }
 
     public void setStringDate(String stringDate) {

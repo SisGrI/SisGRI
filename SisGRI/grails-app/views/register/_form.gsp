@@ -40,6 +40,18 @@
 </div>
 
 <div class="form-group">
+	<div class="fieldcontain ${hasErrors(bean: registerInstance, field: 'date', 'error')} required">
+		<label class="control-label col-md-3" for="date">
+			<g:message code="worship.date.label" default="Data" />
+			<span class="required-indicator">*</span>
+		</label>
+		<div class="col-md-4">
+			<g:textField class="form-control" id="mask_date" name="stringDate" required="" value="${registerInstance?.stringDate}"/>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: registerInstance, field: 'type', 'error')} required">
 		<label class="control-label col-md-3" for="type">
 			<g:message code="register.type.label" default="Tipo" />

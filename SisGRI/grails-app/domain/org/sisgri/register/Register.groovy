@@ -2,6 +2,7 @@ package org.sisgri.register
 
 import org.sisgri.church.Church
 import org.sisgri.people.Person
+import java.text.SimpleDateFormat
 
 class Register {
 	Date date = new Date()
@@ -13,6 +14,8 @@ class Register {
 	Double value
 
 	static belongsTo = [church: Church]
+
+    static transients = ['formatedValue', 'stringDate']
 
     static constraints = {
     	church blank: false
@@ -64,6 +67,16 @@ class Register {
     }
 
     String getFormatedValue() {
-        return "R\$" + String.format("%10.2f", value)
+        return "R\$" + String.format("%10.2f", this.value)
+    }
+
+    public String getStringDate() {
+        return new SimpleDateFormat("dd/MM/yyyy").format(this.date)
+    }
+
+    public void setStringDate(String stringDate) {
+        if(stringDate != null && stringDate != "") {
+            this.date = new SimpleDateFormat("dd/MM/yyyy").parse(stringDate)
+        }
     }
 }
