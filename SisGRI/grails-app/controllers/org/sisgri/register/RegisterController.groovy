@@ -11,33 +11,17 @@ class RegisterController {
 
     def springSecurityService
     def personService
-
-    def dateBefore = new Date()
-    def dateAfter = new Date()
+    def dateService
+    def static registers = []
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
-    protected void setDates(Date dateBefore, Date dateAfter) {
-        if(params.date_year != "" && params.date_month == "") {
-            this.dateBefore = this.dateBefore.parse('dd/MM/yyyy', '01/01/'+params.date_year)
-            this.dateAfter = this.dateAfter.parse('dd/MM/yyyy', '31/12/'+params.date_year)
-        }
-        else if(params.date_year != "" && params.date_month != "") {
-            this.dateBefore = this.dateBefore.parse('dd/MM/yyyy', '01/'+params.date_month+'/'+params.date_year)
-
-            Calendar calendar = Calendar.getInstance()
-            calendar.setTime(this.dateBefore)
-            def lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-            this.dateAfter = this.dateAfter.parse('dd/MM/yyyy', lastDay+'/'+params.date_month+'/'+params.date_year)
-        }
-    }
-
     def resultSearch() {
-        setDates(this.dateBefore, this.dateAfter)
-        
+        dateService.setDates(params)
+
         def criteria = Register.createCriteria()
         
-        def registers = criteria.list {
+        registers = criteria.list {
             church{
                 if(params.church!=""){
                     like("name", "%"+params.church+"%")
@@ -57,7 +41,7 @@ class RegisterController {
             }
             
             if(params.date_year != "" || (params.date_year != "" && params.date_month != ""))
-                between('date', this.dateBefore, this.dateAfter)
+                between('date', dateService.dateBefore, dateService.dateAfter)
             else if(params.date_year == "" && params.date_month != "")
                 sqlRestriction "extract( month from date ) = "+params.date_month
 

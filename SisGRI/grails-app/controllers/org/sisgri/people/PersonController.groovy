@@ -14,8 +14,7 @@ class PersonController {
 
     def springSecurityService
     def jasperService
-    def dateBefore = new Date()
-    def dateAfter = new Date()
+    def dateService
     def static people = []
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
@@ -26,23 +25,9 @@ class PersonController {
         respond new Person(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
-    protected void setDates(Date dateBefore, Date dateAfter) {
-        if(params.birth_year != "" && params.birth_month == "") {
-            this.dateBefore = this.dateBefore.parse('dd/MM/yyyy', '01/01/'+params.birth_year)
-            this.dateAfter = this.dateAfter.parse('dd/MM/yyyy', '31/12/'+params.birth_year)
-        }
-        else if(params.birth_year != "" && params.birth_month != "") {
-            this.dateBefore = this.dateBefore.parse('dd/MM/yyyy', '01/'+params.birth_month+'/'+params.birth_year)
-
-            Calendar calendar = Calendar.getInstance()
-            calendar.setTime(this.dateBefore)
-            def lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
-            this.dateAfter = this.dateAfter.parse('dd/MM/yyyy', lastDay+'/'+params.birth_month+'/'+params.birth_year)
-        }
-    }
-
     def resultSearch(){
-        setDates(this.dateBefore, this.dateAfter)
+        params.date_year = ""
+        dateService.setDates(params)
 
         def criteria = Person.createCriteria()
         people = criteria.list {
@@ -52,10 +37,8 @@ class PersonController {
                     like("name", "%"+params.church+"%")
                 }
             }
-            if(params.birth_year != "" || (params.birth_year != "" && params.birth_month != ""))
-                between('birth', this.dateBefore, this.dateAfter)
-            else if(params.birth_year == "" && params.birth_month != "")
-                sqlRestriction "extract( month from birth ) = "+params.birth_month
+            if(params.date_month != "")
+                sqlRestriction "extract( month from birth ) = "+params.date_month
             if(params.type!="")
                 like("type", "%"+params.type+"%")
             if(params.name!="")
