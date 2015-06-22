@@ -84,8 +84,12 @@
 									
 										<td>${fieldValue(bean: registerInstance, field: "exitRegister")}</td>
 									
-										<td>${fieldValue(bean: registerInstance, field: "name")}</td>
-									
+										<g:if test="${registerInstance?.person}">
+											<td><g:link controller="person" action="show" id="${registerInstance.person.id}">${fieldValue(bean: registerInstance, field: "person")}</g:link></td>
+										</g:if>
+										<g:else>
+											<td>${fieldValue(bean: registerInstance, field: "name")}</td>
+										</g:else>
 									</tr>
 								</g:each>
 							</tbody>

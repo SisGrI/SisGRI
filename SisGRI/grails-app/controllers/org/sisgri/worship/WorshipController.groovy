@@ -15,6 +15,7 @@ class WorshipController {
 
     def springSecurityService
     def jasperService
+    def personService
     def dateBefore = new Date()
     def dateAfter = new Date()
     def static worships = []
@@ -176,21 +177,7 @@ class WorshipController {
     def choosePerson() {
         String name = params.person
         
-        render template: "people", model: [people: searchPeople(name)]
-    }
-
-    protected def searchPeople(String name) {
-        def criteria = Person.createCriteria()
-
-        def people = criteria.list {
-            ne("name","Administrador")
-            eq('situation', true)
-            
-            if(!name?.isAllWhitespace())
-                like("name", "%"+name+"%")
-
-            order("name", "asc")
-        }
+        render template: "people", model: [people: personService.searchPeople(name)]
     }
 
     protected void notFound() {

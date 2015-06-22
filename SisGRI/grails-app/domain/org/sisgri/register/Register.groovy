@@ -1,9 +1,11 @@
 package org.sisgri.register
 
 import org.sisgri.church.Church
+import org.sisgri.people.Person
 
 class Register {
 	Date date = new Date()
+    Person person
 	String name
 	String type
     String entryRegister
@@ -57,6 +59,7 @@ class Register {
             '2.65 - BENS PEQ. VALOR', '2.66 - AQUIS. SOFTWARES', '2.67 - OFERTAS REPASSADAS', 
             '2.99 - PAGAMENTO EMPRÉSTIMO']
     	name blank: false
+        person nullable: true
 		value blank: false
     }
 }

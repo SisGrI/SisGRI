@@ -1,7 +1,6 @@
 package org.sisgri.register
 
-
-
+import org.sisgri.people.Person
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
@@ -11,6 +10,7 @@ import grails.plugin.springsecurity.annotation.Secured
 class RegisterController {
 
     def springSecurityService
+    def personService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
@@ -27,12 +27,29 @@ class RegisterController {
         respond new Register(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
+    def choosePerson() {
+        String name = params.person
+        
+        render template: "people", model: [people: personService.searchPeople(name)]
+    }
+
+    protected def setPerson(Register registerInstance, def params) {
+        registerInstance.person = Person.get(params.personID)
+
+        if (!registerInstance.person)
+            registerInstance.name = params.name
+        else
+            registerInstance.name = registerInstance.person.name
+    }
+
     @Transactional
     def save(Register registerInstance) {
         if (registerInstance == null) {
             notFound()
             return
         }
+
+        setPerson(registerInstance, params)
 
         if (registerInstance.hasErrors()) {
             respond registerInstance.errors, view:'create'

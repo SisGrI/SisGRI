@@ -127,20 +127,23 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${registerInstance?.name}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Nome</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:fieldValue bean="${registerInstance}" field="name"/>
-												</p>
-											</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label class="control-label col-md-3">Nome</label>
 											
-											</div>
+										<div class="col-md-9">
+											<p class="form-control-static">
+												<g:if test="${registerInstance?.person}">
+													<g:link controller="person" action="show" id="${registerInstance?.person?.id}">${registerInstance?.person?.encodeAsHTML()}</g:link>
+												</g:if>
+												<g:else>
+													<g:fieldValue bean="${registerInstance}" field="name"/>
+												</g:else>
+											</p>
 										</div>
-									</g:if>
+										
+										</div>
+									</div>
 									
 									<g:if test="${registerInstance?.value}">
 										<div class="col-md-6">
