@@ -54,8 +54,11 @@ class WorshipController {
     }
     
     def print() {
-        def reportDef = new JasperReportDef(name:'worship_list.jrxml',
-            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: worships)
+        def parametros = [churchName: springSecurityService.currentUser.person.church.name]
+
+        def reportDef = new JasperReportDef(name:'worshipList.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: worships,
+            parameters: parametros)
 
         response.setContentType("application/octet-stream")
         response.setHeader("Content-disposition", "filename=lista_cultos.pdf")
