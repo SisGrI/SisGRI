@@ -39,12 +39,22 @@
 				</g:if>
 			</div>
 			<div class="col-md-12">
+				<g:if test="${personInstance?.situation}">
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-reorder"></i>Detalhar Pessoa
+							<i class="fa fa-reorder"></i>Detalhes Pessoa - Ativa
 						</div>
 					</div>
+				</g:if>
+				<g:else>
+				<div class="portlet box red">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-reorder"></i>Detalhes Pessoa - Inativa
+						</div>
+					</div>
+				</g:else>
 					<div class="portlet-body form">
 						<!-- BEGIN FORM-->
 						<div class="form-horizontal" role="form">
@@ -119,26 +129,6 @@
 													<g:fieldValue bean="${personInstance}" field="rg"/>
 												</p>
 											</div>
-											
-											</div>
-										</div>
-									</g:if>
-									
-									<g:if test="${personInstance?.situation}">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label class="control-label col-md-3">Situação</label>
-												
-											<div class="col-md-9">
-												<p class="form-control-static">
-													<g:if test="${personInstance.situation == true}">
-														Ativo
-													</g:if>
-													<g:if test="${personInstance.situation == false}">
-														Inativo
-													</g:if>
-												</p>
-											</div>	
 											
 											</div>
 										</div>
