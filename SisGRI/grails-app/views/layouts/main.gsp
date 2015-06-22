@@ -168,13 +168,13 @@
 											</li>
 										</sec:ifAnyGranted>
 										<li>
-											<g:link controller="person" action="search">
+											<g:link controller="naturalPerson" action="search">
 												<i class="fa fa-search"></i>
 												Pesquisar Pessoas
 											</g:link>
 										</li>
 										<li>
-											<g:link controller="person" action="create">
+											<g:link controller="naturalPerson" action="create">
 												<i class="fa fa-plus"></i>
 												Cadastrar Pessoa
 											</g:link>

@@ -1,5 +1,5 @@
 
-<%@ page import="org.sisgri.people.Person" %>
+<%@ page import="org.sisgri.people.NaturalPerson" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -39,7 +39,7 @@
 				</g:if>
 			</div>
 			<div class="col-md-12">
-				<g:if test="${personInstance?.situation}">
+				<g:if test="${naturalPersonInstance?.situation}">
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
@@ -66,7 +66,7 @@
 											<div class="col-md-9">
 												<div class="fileinput fileinput-new" data-provides="fileinput">
 													<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-														<img src="${createLink(action:'showPhoto', id: personInstance.id)}" />
+														<img src="${createLink(action:'showPhoto', id: naturalPersonInstance.id)}" />
 													</div>
 												</div>
 											</div>
@@ -74,14 +74,14 @@
 									</div>
 								</div>
 								<div class="row">
-									<g:if test="${personInstance?.church}">
+									<g:if test="${naturalPersonInstance?.church}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Igreja</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:link controller="church" action="show" id="${personInstance?.church?.id}">${personInstance?.church?.encodeAsHTML()}</g:link>
+													<g:link controller="church" action="show" id="${naturalPersonInstance?.church?.id}">${naturalPersonInstance?.church?.encodeAsHTML()}</g:link>
 												</p>
 											</div>
 										
@@ -89,14 +89,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.name}">
+									<g:if test="${naturalPersonInstance?.name}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Nome</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="name"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="name"/>
 												</p>
 											</div>
 											
@@ -104,14 +104,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.cpf}">
+									<g:if test="${naturalPersonInstance?.cpf}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">CPF</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="cpf"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="cpf"/>
 												</p>
 											</div>
 											
@@ -119,14 +119,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.rg}">
+									<g:if test="${naturalPersonInstance?.rg}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">RG</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="rg"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="rg"/>
 												</p>
 											</div>
 											
@@ -134,14 +134,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.profession}">
+									<g:if test="${naturalPersonInstance?.profession}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Profissão</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="profession"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="profession"/>
 												</p>
 											</div>
 											
@@ -149,14 +149,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.address}">
+									<g:if test="${naturalPersonInstance?.address}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Endereço</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="address"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="address"/>
 												</p>
 											</div>
 											
@@ -164,14 +164,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.city}">
+									<g:if test="${naturalPersonInstance?.city}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Cidade</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="city"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="city"/>
 												</p>
 											</div>
 											
@@ -179,14 +179,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.zipCode}">
+									<g:if test="${naturalPersonInstance?.zipCode}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">CEP</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="zipCode"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="zipCode"/>
 												</p>
 											</div>
 											
@@ -194,14 +194,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.telephone}">
+									<g:if test="${naturalPersonInstance?.telephone}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Telefone</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="telephone"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="telephone"/>
 												</p>
 											</div>
 											
@@ -209,14 +209,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.cellular}">
+									<g:if test="${naturalPersonInstance?.cellular}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Celular</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="cellular"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="cellular"/>
 												</p>
 											</div>
 											
@@ -224,14 +224,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.email}">
+									<g:if test="${naturalPersonInstance?.email}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Email</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="email"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="email"/>
 												</p>
 											</div>
 											
@@ -239,14 +239,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.birth}">
+									<g:if test="${naturalPersonInstance?.birth}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Nascimento</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
-														<g:formatDate date="${personInstance?.birth}" />
+														<g:formatDate date="${naturalPersonInstance?.birth}" />
 													</p>
 												</div>
 											
@@ -254,14 +254,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.birthPlace}">
+									<g:if test="${naturalPersonInstance?.birthPlace}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Naturalidade</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="birthPlace"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="birthPlace"/>
 												</p>
 											</div>
 											
@@ -269,14 +269,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.father}">
+									<g:if test="${naturalPersonInstance?.father}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Pai</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="father"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="father"/>
 												</p>
 											</div>
 											
@@ -284,14 +284,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.mother}">
+									<g:if test="${naturalPersonInstance?.mother}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Mãe</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="mother"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="mother"/>
 												</p>
 											</div>
 											
@@ -299,14 +299,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.baptism}">
+									<g:if test="${naturalPersonInstance?.baptism}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Batismo</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
-														<g:formatDate date="${personInstance?.baptism}" />
+														<g:formatDate date="${naturalPersonInstance?.baptism}" />
 													</p>
 												</div>
 											
@@ -314,14 +314,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.memberSince}">
+									<g:if test="${naturalPersonInstance?.memberSince}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Membro Desde</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
-														<g:formatDate date="${personInstance?.memberSince}" />
+														<g:formatDate date="${naturalPersonInstance?.memberSince}" />
 													</p>
 												</div>
 											
@@ -329,14 +329,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.conversion}">
+									<g:if test="${naturalPersonInstance?.conversion}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Conversão</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
-														<g:formatDate date="${personInstance?.conversion}" />
+														<g:formatDate date="${naturalPersonInstance?.conversion}" />
 													</p>
 												</div>
 											
@@ -344,14 +344,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.baptismHollySpirit}">
+									<g:if test="${naturalPersonInstance?.baptismHollySpirit}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Batismo com Espírito Santo</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:formatBoolean boolean="${personInstance?.baptismHollySpirit}" />
+													<g:formatBoolean boolean="${naturalPersonInstance?.baptismHollySpirit}" />
 												</p>
 											</div>	
 											
@@ -359,14 +359,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.maritalStatus}">
+									<g:if test="${naturalPersonInstance?.maritalStatus}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Estado Civil</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="maritalStatus"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="maritalStatus"/>
 												</p>
 											</div>
 											
@@ -374,14 +374,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.spouse}">
+									<g:if test="${naturalPersonInstance?.spouse}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Conjuge</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="spouse"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="spouse"/>
 												</p>
 											</div>
 											
@@ -389,14 +389,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.marriageDate}">
+									<g:if test="${naturalPersonInstance?.marriageDate}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Casamento</label>
 												
 												<div class="col-md-9">
 													<p class="form-control-static">
-														<g:formatDate date="${personInstance?.marriageDate}" />
+														<g:formatDate date="${naturalPersonInstance?.marriageDate}" />
 													</p>
 												</div>
 											
@@ -404,14 +404,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.department}">
+									<g:if test="${naturalPersonInstance?.department}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Departamento</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="department"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="department"/>
 												</p>
 											</div>
 											
@@ -419,14 +419,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.type}">
+									<g:if test="${naturalPersonInstance?.type}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Tipo</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="type"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="type"/>
 												</p>
 											</div>
 											
@@ -434,14 +434,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.post}">
+									<g:if test="${naturalPersonInstance?.post}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Cargo</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="post"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="post"/>
 												</p>
 											</div>
 											
@@ -449,14 +449,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.observation}">
+									<g:if test="${naturalPersonInstance?.observation}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Observação</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${personInstance}" field="observation"/>
+													<g:fieldValue bean="${naturalPersonInstance}" field="observation"/>
 												</p>
 											</div>
 											
@@ -464,14 +464,14 @@
 										</div>
 									</g:if>
 									
-									<g:if test="${personInstance?.profile}">
+									<g:if test="${naturalPersonInstance?.profile}">
 										<div class="col-md-6">
 											<div class="form-group">
 												<label class="control-label col-md-3">Perfil</label>
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:link controller="profile" action="show" id="${personInstance?.profile?.id}">${personInstance?.profile?.encodeAsHTML()}</g:link>
+													<g:link controller="profile" action="show" id="${naturalPersonInstance?.profile?.id}">${naturalPersonInstance?.profile?.encodeAsHTML()}</g:link>
 												</p>
 											</div>
 										
@@ -486,17 +486,17 @@
 									<div class="row">
 										<div class="col-md-12">
 											<div class="col-md-offset-3 col-md-9">
-												<g:hiddenField name="id" value="${personInstance?.id}" />
+												<g:hiddenField name="id" value="${naturalPersonInstance?.id}" />
 
-												<g:link class="btn blue" action="edit" id="${personInstance?.id}">
+												<g:link class="btn blue" action="edit" id="${naturalPersonInstance?.id}">
 												<i class="fa fa-pencil"></i> Editar	</g:link>
 
 												<sec:ifAnyGranted roles="ROLE_ADMIN">
-													<g:if test="${personInstance?.profile == null}">
-								 						<g:link controller="profile" action="create" class="btn blue" id="${personInstance.id}"> <i class="fa fa-plus"></i> Criar Perfil</g:link>
+													<g:if test="${naturalPersonInstance?.profile == null}">
+								 						<g:link controller="profile" action="create" class="btn blue" id="${naturalPersonInstance.id}"> <i class="fa fa-plus"></i> Criar Perfil</g:link>
 								 					</g:if>
 
-								 					<g:if test="${personInstance?.profile != null}">
+								 					<g:if test="${naturalPersonInstance?.profile != null}">
 								 						<g:actionSubmit class="btn red" action="removeProfile" value="Remover Perfil" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
 								 					</g:if>
 

@@ -1,7 +1,7 @@
-<%@ page import="org.sisgri.people.Person" %>
+<%@ page import="org.sisgri.people.NaturalPerson" %>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'name', 'error')} ">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'name', 'error')} ">
 		<label class="control-label col-md-3" for="name">
 			<g:message code="person.name.label" default="Nome" />
 		</label>
@@ -12,18 +12,18 @@
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'church', 'error')} ">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'church', 'error')} ">
 		<label class="control-label col-md-3" for="church">
 			<g:message code="person.church.label" default="Igreja" />
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" name="church" from="${churchList}" value="${personInstance?.church?.id}" noSelection="['': '']"/>
+			<g:select class="form-control" name="church" from="${churchList}" value="${naturalPersonInstance?.church?.id}" noSelection="['': '']"/>
 		</div>
 	</div>
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'situation', 'error')} ">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'situation', 'error')} ">
 		<label class="control-label col-md-3" for="situation">
 			<g:message code="person.situation.label" default="Situação" />
 			
@@ -37,7 +37,7 @@
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'cpf', 'error')} ">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'cpf', 'error')} ">
 		<label class="control-label col-md-3" for="cpf">
 			<g:message code="person.cpf.label" default="CPF" />
 		</label>
@@ -48,41 +48,41 @@
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'department', 'error')} required">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'department', 'error')} required">
 		<label class="control-label col-md-3" for="department">
 			<g:message code="person.department.label" default="Departamento" />
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" name="department" from="${personInstance.constraints.department.inList}" value="${personInstance?.department}" valueMessagePrefix="person.department" noSelection="['': '']"/>
+			<g:select class="form-control" name="department" from="${naturalPersonInstance.constraints.department.inList}" value="${naturalPersonInstance?.department}" valueMessagePrefix="person.department" noSelection="['': '']"/>
 		</div>
 	</div>
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'post', 'error')} ">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'post', 'error')} ">
 		<label class="control-label col-md-3" for="post">
 			<g:message code="person.post.label" default="Cargo" />
 			
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" name="post" from="${['Todos', 'Cooperador(a)','Diácono(a)','Presbítero','Evangelista','Missionário(a)','Pastor']}" value="${personInstance?.post}" valueMessagePrefix="person.post" noSelection="['': '']"/>
+			<g:select class="form-control" name="post" from="${['Todos', 'Cooperador(a)','Diácono(a)','Presbítero','Evangelista','Missionário(a)','Pastor']}" value="${naturalPersonInstance?.post}" valueMessagePrefix="person.post" noSelection="['': '']"/>
 		</div>
 	</div>
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'type', 'error')} required">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'type', 'error')} required">
 		<label class="control-label col-md-3" for="type">
 			<g:message code="person.type.label" default="Tipo" />
 		</label>
 		<div class="col-md-4">
-			<g:select class="form-control" name="type" from="${personInstance.constraints.type.inList}" value="${personInstance?.type}" valueMessagePrefix="person.type" noSelection="['': '']"/>
+			<g:select class="form-control" name="type" from="${naturalPersonInstance.constraints.type.inList}" value="${naturalPersonInstance?.type}" valueMessagePrefix="person.type" noSelection="['': '']"/>
 		</div>
 	</div>
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: personInstance, field: 'birth', 'error')} required">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'birth', 'error')} required">
 		<label class="control-label col-md-3" for="birth">
 			<g:message code="person.birth.label" default="Nascimento" />
 		</label>

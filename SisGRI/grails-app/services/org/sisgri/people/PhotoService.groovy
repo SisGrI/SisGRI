@@ -8,13 +8,13 @@ class PhotoService {
     
     def path = "/opt/sisgri/photos"
 
-    def upload(Person personInstance, def photo) {
+    def upload(NaturalPerson naturalPersonInstance, def photo) {
         if (!photo) {
             return
         }
 
     	new File(this.path).mkdirs()
-        def photoPath = this.path + '/' + personInstance.id + '.jpg'
+        def photoPath = this.path + '/' + naturalPersonInstance.id + '.jpg'
 
         if (!photo.empty) {
             photo.transferTo(new File(photoPath))

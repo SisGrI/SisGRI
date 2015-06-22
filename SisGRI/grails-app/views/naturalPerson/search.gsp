@@ -1,17 +1,16 @@
-<%@ page import="org.sisgri.people.Person" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'person.label', default: 'Pessoa')}" />
-		<title><g:message code="default.edit.label" args="[entityName]" /></title>
+		<title><g:message code="default.search.label" args="[entityName]" /></title>
 	</head>
-	<body>		
+	<body>
 		<div class="row">
-	        <div class="col-md-12">
-	            <h3 class="page-title">Pessoa</h3>
+			<div class="col-md-12">
+	            <h3 class="page-title">Pessoas</h3>
 	            <ul class="page-breadcrumb breadcrumb">
-	                <li>
+	            	<li>
 	                    <i class="fa fa-home"></i>
 	                    <a href="${createLink(uri: '/')}">
 							Página Inicial
@@ -19,18 +18,14 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="show" id="${personInstance.id}">
-							Detalhar Pessoa
+						<g:link action="search">
+							Pesquisar Pessoas
 						</g:link>
-						<i class="fa fa-angle-right"></i>
-	                </li>
-	                <li>
-						Editar Pessoa
 	                </li>
 	            </ul>
 	        </div>
 
-	    	<div class="col-md-12">
+	        <div class="col-md-12">
 				<g:if test="${flash.message}">
 					<div class="alert alert-info alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -38,11 +33,11 @@
 					</div>
 				</g:if>
 			</div>
-			
+
 			<div class="col-md-12">
-				<g:hasErrors bean="${personInstance}">
+				<g:hasErrors bean="${naturalPersonInstance}">
 					<ul class="errors" role="alert">
-						<g:eachError bean="${personInstance}" var="error">
+						<g:eachError bean="${naturalPersonInstance}" var="error">
 							<div class="alert alert-danger alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								<g:if test="${error in org.springframework.validation.FieldError}">
@@ -54,16 +49,16 @@
 					</ul>
 				</g:hasErrors>
 			</div>
-			
+
 			<div class="col-md-12">
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Editar Pessoa
+							<i class="fa fa-list"></i>Pesquisar Pessoas
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<g:uploadForm url="[resource:personInstance, action:'update']" method="POST" class="form-horizontal">
+						<g:form url="[resource:naturalPersonInstance, action:'resultSearch']" class="form-horizontal">
 							<div class="form-body">
 								<div class="form-section">
 								</div>
@@ -71,17 +66,14 @@
 									<button class="close" data-close="alert"></button>
 									O formulário contêm erros. Por favor verifique abaixo.
 								</div>
-								<g:render template="form"/>
+								<g:render template="formSearch"/>
 							</div>
 							<div class="form-actions right">
-								<g:hiddenField name="id" value="${personInstance?.id}" />
-								<g:hiddenField name="version" value="${personInstance?.version}" />
-
 								<div class="col-md-offset-3 col-md-9">
-									<g:actionSubmit class="btn blue" action="update" value="Atualizar" />
+									<g:submitButton name="search" class="btn blue" value="${message(code: 'default.button.search.label', default: 'Search')}" />
 								</div>
 							</div>
-						</g:uploadForm>
+						</g:form>
 					</div>
 				</div>
 			</div>

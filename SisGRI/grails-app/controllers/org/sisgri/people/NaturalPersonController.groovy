@@ -10,7 +10,7 @@ import org.codehaus.groovy.grails.plugins.jasper.JasperReportDef
 
 @Transactional(readOnly = true)
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
-class PersonController {
+class NaturalPersonController {
 
     def springSecurityService
     def jasperService
@@ -22,14 +22,14 @@ class PersonController {
     def photoService
 
     def search(){
-        respond new Person(params), model:[churchList:springSecurityService.currentUser.person.church]
+        respond new NaturalPerson(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     def resultSearch(){
         params.date_year = ""
         dateService.setDates(params)
 
-        def criteria = Person.createCriteria()
+        def criteria = NaturalPerson.createCriteria()
         people = criteria.list {
             ne("name","Administrador")
             church{
@@ -70,11 +70,11 @@ class PersonController {
         response.outputStream << jasperService.generateReport(reportDef).toByteArray()
     }
 
-    def show(Person personInstance) {
-        if(personInstance.name == "Administrador")
+    def show(NaturalPerson naturalPersonInstance) {
+        if(naturalPersonInstance.name == "Administrador")
             render "Essa pessoa não pode ser visualizada!"
         else
-            respond personInstance
+            respond naturalPersonInstance
     }
 
     def showPhoto = {
@@ -83,55 +83,55 @@ class PersonController {
     }
 
     def create() {
-        respond new Person(params), model:[churchList:springSecurityService.currentUser.person.church]
+        respond new NaturalPerson(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     @Transactional
-    def save(Person personInstance) {
-        if (personInstance == null) {
+    def save(NaturalPerson naturalPersonInstance) {
+        if (naturalPersonInstance == null) {
             notFound()
             return
         }
 
-        if (personInstance.hasErrors()) {
-            respond personInstance.errors, view:'create'
+        if (naturalPersonInstance.hasErrors()) {
+            respond naturalPersonInstance.errors, view:'create'
             return
         }
 
         if(params.name == "Administrador") {
             flash.message = "Não é possível colocar o nome Administrador em uma pessoa"
-            respond personInstance, view:'create'
+            respond naturalPersonInstance, view:'create'
             return
         }
 
-        personInstance.save flush:true
-        photoService.upload(personInstance, params.photo)
+        naturalPersonInstance.save flush:true
+        photoService.upload(naturalPersonInstance, params.photo)
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'personInstance.label', default: 'Person'), personInstance.id])
-                redirect personInstance
+                flash.message = message(code: 'default.created.message', args: [message(code: 'naturalPersonInstance.label', default: 'NaturalPerson'), naturalPersonInstance.id])
+                redirect naturalPersonInstance
             }
-            '*' { respond personInstance, [status: CREATED] }
+            '*' { respond naturalPersonInstance, [status: CREATED] }
         }
     }
 
-    def edit(Person personInstance) {
-        if(personInstance.name == "Administrador")
+    def edit(NaturalPerson naturalPersonInstance) {
+        if(naturalPersonInstance.name == "Administrador")
             render "Essa pessoa não pode ser editada!"
         else
-            respond personInstance, model:[churchList:springSecurityService.currentUser.person.church]
+            respond naturalPersonInstance, model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     @Transactional
-    def update(Person personInstance) {
-        if (personInstance == null || personInstance.name == "Administrador") {
+    def update(NaturalPerson naturalPersonInstance) {
+        if (naturalPersonInstance == null || naturalPersonInstance.name == "Administrador") {
             notFound()
             return
         }
 
-        if (personInstance.hasErrors()) {
-            respond personInstance.errors, view:'edit'
+        if (naturalPersonInstance.hasErrors()) {
+            respond naturalPersonInstance.errors, view:'edit'
             return
         }
 
@@ -141,39 +141,39 @@ class PersonController {
             return
         }
         else {
-            personInstance.save flush:true
-            photoService.upload(personInstance, params.photo)
+            naturalPersonInstance.save flush:true
+            photoService.upload(naturalPersonInstance, params.photo)
         
             request.withFormat {
                 form multipartForm {
-                    flash.message = message(code: 'default.updated.message', args: [message(code: 'Person.label', default: 'Person'), personInstance.id])
-                    redirect personInstance
+                    flash.message = message(code: 'default.updated.message', args: [message(code: 'NaturalPerson.label', default: 'NaturalPerson'), naturalPersonInstance.id])
+                    redirect naturalPersonInstance
                 }
-                '*'{ respond personInstance, [status: OK] }
+                '*'{ respond naturalPersonInstance, [status: OK] }
             }
         }
     }
 
     @Transactional
-    def delete(Person personInstance) {
-        if (personInstance == null) {
+    def delete(NaturalPerson naturalPersonInstance) {
+        if (naturalPersonInstance == null) {
             notFound()
             return
         }
 
-        if(personInstance == Person.findByName("Administrador")) {
+        if(naturalPersonInstance == NaturalPerson.findByName("Administrador")) {
             flash.message = "O Administrador não pode ser excluído!"
-            redirect action:"show", id:personInstance.id
+            redirect action:"show", id:naturalPersonInstance.id
             return
         }
 
-        if(personInstance.profile != null) {
-            def profileInstance = personInstance.profile
-            personInstance.profile.discard()
+        if(naturalPersonInstance.profile != null) {
+            def profileInstance = naturalPersonInstance.profile
+            naturalPersonInstance.profile.discard()
             ProfileRole.removeAll(profileInstance)
         }
-        photoService.delete(personInstance.id)
-        personInstance.delete flush:true
+        photoService.delete(naturalPersonInstance.id)
+        naturalPersonInstance.delete flush:true
 
         if(springSecurityService.currentUser == null) {
             redirect controller:"logout", method:"GET"
@@ -182,7 +182,7 @@ class PersonController {
 
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Person.label', default: 'Person'), personInstance.id])
+                flash.message = message(code: 'default.deleted.message', args: [message(code: 'NaturalPerson.label', default: 'NaturalPerson'), naturalPersonInstance.id])
                 redirect action:"search", method:"GET"
             }
             '*'{ render status: NO_CONTENT }
@@ -192,26 +192,26 @@ class PersonController {
     protected void notFound() {
         request.withFormat {
             form multipartForm {
-                flash.message = message(code: 'default.not.found.message', args: [message(code: 'personInstance.label', default: 'Person'), params.id])
+                flash.message = message(code: 'default.not.found.message', args: [message(code: 'naturalPersonInstance.label', default: 'NaturalPerson'), params.id])
                 redirect action: "search", method: "GET"
             }
             '*'{ render status: NOT_FOUND }
         }
     }
     @Transactional
-    def removeProfile(Person personInstance) {
-        if (!personInstance) {
+    def removeProfile(NaturalPerson naturalPersonInstance) {
+        if (!naturalPersonInstance) {
             notFound()
             return
         }
-        if(personInstance.id == 1) {
+        if(naturalPersonInstance.id == 1) {
             flash.message = "O Perfil do Administrador não pode ser excluído!"
-            redirect action:"show", id:personInstance.id
+            redirect action:"show", id:naturalPersonInstance.id
             return
         }
 
         try {
-            def profileInstance = personInstance.profile
+            def profileInstance = naturalPersonInstance.profile
 
             if(profileInstance.deleteProfileCurrent(profileInstance)) {
                 redirect controller:"logout", method:"GET"
@@ -219,10 +219,10 @@ class PersonController {
             }
 
             flash.message = "Perfil Removido"
-            redirect(action: "show", id: personInstance.id)
+            redirect(action: "show", id: naturalPersonInstance.id)
         }catch (Exception e) {
             flash.message = "Perfil não pôde ser removido"
-            redirect(action: "show", id: personInstance.id)            
+            redirect(action: "show", id: naturalPersonInstance.id)            
         }
     }
 }

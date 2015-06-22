@@ -1,5 +1,5 @@
 
-<%@ page import="org.sisgri.people.Person" %>
+<%@ page import="org.sisgri.people.NaturalPerson" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -35,22 +35,22 @@
 								</tr>
 							</thead>
 							<tbody>
-								<g:each in="${personInstanceList}" status="i" var="personInstance">
+								<g:each in="${naturalPersonInstanceList}" status="i" var="naturalPersonInstance">
 									<tr class="odd gradeX">
 									
-										<td><g:link controller="person" action="show" id="${personInstance.id}">${fieldValue(bean: personInstance, field: "name")}</g:link></td>
+										<td><g:link controller="naturalPerson" action="show" id="${naturalPersonInstance.id}">${fieldValue(bean: naturalPersonInstance, field: "name")}</g:link></td>
 					
-										<td><g:formatDate date="${personInstance.birth}" /></td>
+										<td><g:formatDate date="${naturalPersonInstance.birth}" /></td>
 									
-										<td><g:formatDate date="${personInstance.baptism}" /></td>
+										<td><g:formatDate date="${naturalPersonInstance.baptism}" /></td>
 									
-										<td>${fieldValue(bean: personInstance, field: "telephone")}</td>
+										<td>${fieldValue(bean: naturalPersonInstance, field: "telephone")}</td>
 
-										<td>${fieldValue(bean: personInstance, field: "cellular")}</td>
+										<td>${fieldValue(bean: naturalPersonInstance, field: "cellular")}</td>
 
-										<td>${fieldValue(bean: personInstance, field: "type")}</td>
+										<td>${fieldValue(bean: naturalPersonInstance, field: "type")}</td>
 
-										<td>${fieldValue(bean: personInstance, field: "post")}</td>
+										<td>${fieldValue(bean: naturalPersonInstance, field: "post")}</td>
 									
 									</tr>
 								</g:each>

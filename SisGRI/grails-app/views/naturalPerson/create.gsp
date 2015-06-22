@@ -3,12 +3,12 @@
 	<head>
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'person.label', default: 'Pessoa')}" />
-		<title><g:message code="default.search.label" args="[entityName]" /></title>
+		<title><g:message code="default.create.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
-			<div class="col-md-12">
-	            <h3 class="page-title">Pessoas</h3>
+	        <div class="col-md-12">
+	            <h3 class="page-title">Pessoa</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	            	<li>
 	                    <i class="fa fa-home"></i>
@@ -18,14 +18,18 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-						<g:link action="search">
+	                	<g:link action="search">
 							Pesquisar Pessoas
 						</g:link>
+						<i class="fa fa-angle-right"></i>
+	                </li>
+	                <li>
+						Criar Pessoa
 	                </li>
 	            </ul>
 	        </div>
 
-	        <div class="col-md-12">
+	    	<div class="col-md-12">
 				<g:if test="${flash.message}">
 					<div class="alert alert-info alert-dismissable">
 						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -33,11 +37,11 @@
 					</div>
 				</g:if>
 			</div>
-
+			
 			<div class="col-md-12">
-				<g:hasErrors bean="${personInstance}">
+				<g:hasErrors bean="${naturalPersonInstance}">
 					<ul class="errors" role="alert">
-						<g:eachError bean="${personInstance}" var="error">
+						<g:eachError bean="${naturalPersonInstance}" var="error">
 							<div class="alert alert-danger alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								<g:if test="${error in org.springframework.validation.FieldError}">
@@ -54,11 +58,11 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Pesquisar Pessoas
+							<i class="fa fa-list"></i>Criar nova Pessoa
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<g:form url="[resource:personInstance, action:'resultSearch']" class="form-horizontal">
+						<g:uploadForm url="[resource:naturalPersonInstance, action:'save']" class="form-horizontal">
 							<div class="form-body">
 								<div class="form-section">
 								</div>
@@ -66,14 +70,14 @@
 									<button class="close" data-close="alert"></button>
 									O formulário contêm erros. Por favor verifique abaixo.
 								</div>
-								<g:render template="formSearch"/>
+								<g:render template="form"/>
 							</div>
 							<div class="form-actions right">
 								<div class="col-md-offset-3 col-md-9">
-									<g:submitButton name="search" class="btn blue" value="${message(code: 'default.button.search.label', default: 'Search')}" />
+									<button type="submit" class="btn blue">Submeter</button>
 								</div>
 							</div>
-						</g:form>
+						</g:uploadForm>
 					</div>
 				</div>
 			</div>

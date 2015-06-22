@@ -1,6 +1,6 @@
 package org.sisgri.authentication
 
-import org.sisgri.people.Person
+import org.sisgri.people.NaturalPerson
 
 class Profile {
 
@@ -13,14 +13,14 @@ class Profile {
 	boolean accountLocked
 	boolean passwordExpired
 
-	static belongsTo = [person: Person]
+	static belongsTo = [person: NaturalPerson]
 
 	static transients = ['springSecurityService']
 
 	static constraints = {
 		username blank: false, unique: true
 		password blank: false
-		person nullable: false, unique:true
+		person blank: false, unique:true
 		enabled display: false
 		accountExpired display: false
 		accountLocked display: false

@@ -1,7 +1,7 @@
 package org.sisgri
 
 import grails.plugin.springsecurity.annotation.Secured
-import org.sisgri.people.Person
+import org.sisgri.people.NaturalPerson
 
 @Secured(['isAuthenticated()'])
 class IndexController {
@@ -9,7 +9,7 @@ class IndexController {
     def index() {
     	def date = new Date()
 
-    	def criteria = Person.createCriteria()
+    	def criteria = NaturalPerson.createCriteria()
     	def people = criteria.list {
     		ne("name","Administrador")
     		sqlRestriction "extract( month from birth ) = "+(date.month+1)
