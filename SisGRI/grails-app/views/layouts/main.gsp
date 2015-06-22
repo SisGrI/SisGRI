@@ -38,6 +38,8 @@
 
 		<link rel="shortcut icon" href="${resource(dir: 'images', file: 'favicon.ico')}" type="image/x-icon">
 
+		<g:javascript library="jquery"/>
+
 		<g:layoutHead/>
 		<r:layoutResources />
 	</head>
@@ -244,6 +246,7 @@
 		<g:javascript src="bootstrap-fileinput.js" />
 		<g:javascript src="jquery.inputmask.bundle.min.js" />
 		<g:javascript src="jquery.input-ip-address-control-1.0.min.js" />
+		<g:javascript src="jquery.maskMoney.min.js" />
 		<g:javascript src="pwstrength.js" />
 		<g:javascript src="bootstrap-switch.min.js" />
 		<g:javascript src="jquery.tagsinput.min.js" />

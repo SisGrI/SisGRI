@@ -1,7 +1,8 @@
 <%@ page import="org.sisgri.register.Register" %>
 
-<g:javascript>
+<script type="text/javascript">
 	$(document).ready(function() {
+		$('#value').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
 		$('#exit').hide();
 		$('#exitRegister').attr("required",false);
 	});
@@ -24,7 +25,7 @@
 		$('#personID').val("");
 		$('#nameField').attr("readonly", false);
 	}
-</g:javascript>
+</script>
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: registerInstance, field: 'church', 'error')} required">

@@ -62,4 +62,8 @@ class Register {
         person nullable: true
 		value blank: false
     }
+
+    String getFormatedValue() {
+        return "R\$" + String.format("%10.2f", value)
+    }
 }

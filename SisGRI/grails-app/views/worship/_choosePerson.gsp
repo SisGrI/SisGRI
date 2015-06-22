@@ -1,4 +1,4 @@
-<g:javascript>
+<script type="text/javascript">
 	function setPerson() {
 		var typeSearch = $('#typeSearch').val();
 		
@@ -11,7 +11,7 @@
 
 		$('#person').val(name);
 	}
-</g:javascript>
+</script>
 
 <div class="form-group">
 	<label class="control-label col-md-3" for="person">

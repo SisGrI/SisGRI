@@ -1,6 +1,6 @@
 <%@ page import="org.sisgri.worship.Worship" %>
 
-<g:javascript>
+<script type="text/javascript">
 	function setTypeSearch(element) {
 		$('#typeSearch').val(element.id);
 	}
@@ -14,7 +14,7 @@
 		$('#prelectorID').val("");
 		$('#prelectorName').attr("readonly", false);
 	}
-</g:javascript>
+</script>
 
 <div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: worshipInstance, field: 'church', 'error')} required">

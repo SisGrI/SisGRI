@@ -7,12 +7,12 @@
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
 	<body>
-		<g:javascript>
+		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#rulingName').attr("readonly", true);
 				$('#prelectorName').attr("readonly", true);
 			});
-		</g:javascript>
+		</script>
 
 		<div class="row">
 	        <div class="col-md-12">

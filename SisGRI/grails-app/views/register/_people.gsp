@@ -1,4 +1,4 @@
-<g:javascript>
+<script type="text/javascript">
 	function choosePerson(element) {
 		var personInstanceId = element.id;
 		var name = element.headers;
@@ -9,7 +9,7 @@
 
 		$("#modalSearchPerson").modal('hide');
 	}
-</g:javascript>
+</script>
 
 <div id="choosePerson">
 	<g:if test="${people}">

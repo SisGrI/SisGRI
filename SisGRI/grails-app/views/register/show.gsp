@@ -152,7 +152,7 @@
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:fieldValue bean="${registerInstance}" field="value"/>
+													<g:fieldValue bean="${registerInstance}" field="formatedValue"/>
 												</p>
 											</div>
 											
