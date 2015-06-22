@@ -25,7 +25,7 @@ import org.springframework.security.authentication.DisabledException
 import org.springframework.security.authentication.LockedException
 import org.springframework.security.core.context.SecurityContextHolder as SCH
 import org.springframework.security.web.WebAttributes
-import org.sisgri.people.Person
+import org.sisgri.people.NaturalPerson
 
 
 @Secured('permitAll')
@@ -64,7 +64,7 @@ final RANGE = 90000000
 	}
 
 	def sendMail(){
-		def user = Person.findByEmail(params.email)
+		def user = NaturalPerson.findByEmail(params.email)
 		if(!user){
 			flash.message = "Email não encontrado, tente novamente!"
 			redirect action: 'recoveryProfile'

@@ -1,7 +1,5 @@
 package org.sisgri.people
 
-import org.sisgri.church.Church
-
 class Person {
 	String name
 	String address
@@ -11,10 +9,7 @@ class Person {
 	String email
 	String observation
 
-    static belongsTo = [church:Church]
-
     static constraints = {
-        church blank:false
     	name blank:false
     	address blank:false
     	city blank:false

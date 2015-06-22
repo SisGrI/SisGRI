@@ -86,7 +86,7 @@
 										</g:else>
 									
 										<g:if test="${registerInstance?.person}">
-											<td><g:link controller="person" action="show" id="${registerInstance.person.id}">${fieldValue(bean: registerInstance, field: "person")}</g:link></td>
+											<td><g:link controller="naturalPerson" action="show" id="${registerInstance.person.id}">${fieldValue(bean: registerInstance, field: "person")}</g:link></td>
 										</g:if>
 										<g:else>
 											<td>${fieldValue(bean: registerInstance, field: "name")}</td>

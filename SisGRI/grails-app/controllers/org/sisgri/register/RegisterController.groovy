@@ -1,6 +1,6 @@
 package org.sisgri.register
 
-import org.sisgri.people.Person
+import org.sisgri.people.NaturalPerson
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
@@ -71,7 +71,7 @@ class RegisterController {
     }
 
     protected def setPerson(Register registerInstance, def params) {
-        registerInstance.person = Person.get(params.personID)
+        registerInstance.person = NaturalPerson.get(params.personID)
 
         if (!registerInstance.person)
             registerInstance.name = params.name

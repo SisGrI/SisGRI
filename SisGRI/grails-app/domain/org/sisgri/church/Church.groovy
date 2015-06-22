@@ -1,14 +1,14 @@
 package org.sisgri.church
 
 import org.sisgri.worship.Worship
-import org.sisgri.people.Person
+import org.sisgri.people.NaturalPerson
 import org.sisgri.register.Register
 
 class Church {
 	String name
 	String address
 
-	static hasMany = [worship:Worship, person:Person, registers:Register]
+	static hasMany = [worship:Worship, person:NaturalPerson, registers:Register]
 	
     static constraints = {
 		name blank: false, unique:true

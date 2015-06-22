@@ -1,5 +1,6 @@
 package org.sisgri.people
 
+import org.sisgri.church.Church
 import org.sisgri.authentication.Profile
 import java.text.SimpleDateFormat
 
@@ -26,10 +27,12 @@ class NaturalPerson extends Person {
 	String post
 
     static hasOne = [profile:Profile]
+    static belongsTo = [church:Church]
 
     static transients = ['stringBirth', 'stringBaptism', 'stringMemberSince', 'stringMarriageDate', 'stringConversion']
 
     static constraints = {
+        church blank:false
     	cpf nullable:true, unique:true
     	rg nullable:true, unique:true
     	situation blank:false

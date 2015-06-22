@@ -6,7 +6,7 @@ import grails.transaction.Transactional
 class PersonService {
 
     def searchPeople(String name) {
-        def criteria = Person.createCriteria()
+        def criteria = NaturalPerson.createCriteria()
 
         def people = criteria.list {
             ne("name","Administrador")

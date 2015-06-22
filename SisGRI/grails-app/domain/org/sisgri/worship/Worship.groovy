@@ -1,6 +1,6 @@
 package org.sisgri.worship
 
-import org.sisgri.people.Person
+import org.sisgri.people.NaturalPerson
 import org.sisgri.church.Church
 import java.text.SimpleDateFormat
 
@@ -8,8 +8,8 @@ class Worship {
 	String type
 	Date date = new Date()
     String observation
-    Person ruling
-    Person prelector
+    NaturalPerson ruling
+    NaturalPerson prelector
     String rulingName
     String prelectorName
 	

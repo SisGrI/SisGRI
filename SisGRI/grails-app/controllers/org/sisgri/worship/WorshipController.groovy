@@ -7,7 +7,7 @@ import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
 import org.codehaus.groovy.grails.plugins.jasper.JasperExportFormat
 import org.codehaus.groovy.grails.plugins.jasper.JasperReportDef
-import org.sisgri.people.Person
+import org.sisgri.people.NaturalPerson
 
 @Secured(['ROLE_ADMIN', 'ROLE_SECRETARY'])
 @Transactional(readOnly = true)
@@ -99,8 +99,8 @@ class WorshipController {
     }
 
     protected def setRulingAndPrelector(Worship worshipInstance, def params) {
-        worshipInstance.ruling = Person.get(params.rulingID)
-        worshipInstance.prelector = Person.get(params.prelectorID)
+        worshipInstance.ruling = NaturalPerson.get(params.rulingID)
+        worshipInstance.prelector = NaturalPerson.get(params.prelectorID)
 
         if (!worshipInstance.ruling)
             worshipInstance.rulingName = params.rulingName

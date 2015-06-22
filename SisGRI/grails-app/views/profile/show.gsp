@@ -74,7 +74,7 @@
 												
 											<div class="col-md-9">
 												<p class="form-control-static">
-													<g:link controller="person" action="show" id="${profileInstance?.person?.id}">${profileInstance?.person?.encodeAsHTML()}</g:link>
+													<g:link controller="naturalPerson" action="show" id="${profileInstance?.person?.id}">${profileInstance?.person?.encodeAsHTML()}</g:link>
 												</p>
 											</div>
 										

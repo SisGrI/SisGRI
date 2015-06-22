@@ -104,7 +104,7 @@
 										<div class="col-md-9">
 											<p class="form-control-static">
 												<g:if test="${worshipInstance?.ruling}">
-													<g:link controller="person" action="show" id="${worshipInstance?.ruling?.id}">${worshipInstance?.ruling?.encodeAsHTML()}</g:link>
+													<g:link controller="naturalPerson" action="show" id="${worshipInstance?.ruling?.id}">${worshipInstance?.ruling?.encodeAsHTML()}</g:link>
 												</g:if>
 												<g:else>
 													<g:fieldValue bean="${worshipInstance}" field="rulingName"/>
@@ -122,7 +122,7 @@
 										<div class="col-md-9">
 											<p class="form-control-static">
 												<g:if test="${worshipInstance?.prelector}">
-													<g:link controller="person" action="show" id="${worshipInstance?.prelector?.id}">${worshipInstance?.prelector?.encodeAsHTML()}</g:link>
+													<g:link controller="naturalPerson" action="show" id="${worshipInstance?.prelector?.id}">${worshipInstance?.prelector?.encodeAsHTML()}</g:link>
 												</g:if>
 												<g:else>
 													<g:fieldValue bean="${worshipInstance}" field="prelectorName"/>

@@ -1,7 +1,7 @@
 package org.sisgri.authentication
 
 
-import org.sisgri.people.Person
+import org.sisgri.people.NaturalPerson
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import grails.plugin.springsecurity.annotation.Secured
@@ -41,7 +41,7 @@ class ProfileController {
 
     def create() {
         def profileInstance = new Profile(params)
-        profileInstance.person = Person.get(params.id)
+        profileInstance.person = NaturalPerson.get(params.id)
 
         respond profileInstance
     }
