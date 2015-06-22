@@ -70,7 +70,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-6">
-			<g:select class="form-control" name="entryRegister" from="${registerInstance.constraints.entryRegister.inList}" required="" value="${registerInstance?.entryRegister}" valueMessagePrefix="register.entryRegister" />
+			<g:select class="form-control" name="entryRegister" from="${registerInstance.constraints.entryRegister.inList}" required="" value="${registerInstance?.entryRegister}" valueMessagePrefix="register.entryRegister" noSelection="['': '']" />
 		</div>
 	</div>
 </div>
@@ -82,7 +82,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-6">
-			<g:select class="form-control" name="exitRegister" from="${registerInstance.constraints.exitRegister.inList}" required="" value="${registerInstance?.exitRegister}" valueMessagePrefix="register.exitRegister" />
+			<g:select class="form-control" name="exitRegister" from="${registerInstance.constraints.exitRegister.inList}" required="" value="${registerInstance?.exitRegister}" valueMessagePrefix="register.exitRegister" noSelection="['': '']" />
 		</div>
 	</div>
 </div>
@@ -98,7 +98,7 @@
 			<div class="input-group">
 				<g:textField class="form-control" id="nameField" name="name" required="" value="${registerInstance?.name}"/>
 				<span class="input-group-btn">
-	                <a class="btn btn-default blue" id="searchPerson" data-toggle="modal" href="#modalSearchPerson" onclick="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'person=\' + escape(nameField.value)')};setPerson();" title="Pesquisar Pessoa"><i class="fa fa-search"></i></a>
+	                <a class="btn btn-default blue" id="searchPerson" data-toggle="modal" href="#modalSearchPerson" onclick="${remoteFunction(action: 'choosePerson', update: 'choosePerson', params: '\'personName=\' + escape(nameField.value)')};setPerson();" title="Pesquisar Pessoa"><i class="fa fa-search"></i></a>
 	                <button type="button" class="btn btn-default yellow" id="clearName" onclick="clearNameField();"><i class="fa fa-refresh"></i>Limpar</button>
 	            </span>
             </div>
@@ -115,7 +115,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-6">
-			<g:field class="form-control" name="value" value="${fieldValue(bean: registerInstance, field: 'value')}" required=""/>
+			<g:field class="form-control" name="value" value="${fieldValue(bean: registerInstance, field: 'formatedValue')}" required=""/>
 		</div>
 	</div>
 </div>

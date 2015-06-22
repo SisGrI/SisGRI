@@ -6,7 +6,14 @@
 		<g:set var="entityName" value="${message(code: 'register.label', default: 'Registro Financeiro')}" />
 		<title><g:message code="default.edit.label" args="[entityName]" /></title>
 	</head>
-	<body>		
+	<body>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#nameField').attr("readonly", true);
+			});
+		</script>
+
 		<div class="row">
 	        <div class="col-md-12">
 	            <h3 class="page-title">Registro Financeiro</h3>

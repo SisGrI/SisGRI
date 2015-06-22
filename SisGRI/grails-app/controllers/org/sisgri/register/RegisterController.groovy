@@ -65,7 +65,7 @@ class RegisterController {
     }
 
     def choosePerson() {
-        String name = params.person
+        String name = params.personName
         
         render template: "people", model: [people: personService.searchPeople(name)]
     }
@@ -89,7 +89,7 @@ class RegisterController {
         setPerson(registerInstance, params)
 
         if (registerInstance.hasErrors()) {
-            respond registerInstance.errors, view:'create'
+            respond registerInstance.errors, view:'create', model:[churchList:springSecurityService.currentUser.person.church]
             return
         }
 
@@ -105,7 +105,7 @@ class RegisterController {
     }
 
     def edit(Register registerInstance) {
-        respond registerInstance
+        respond registerInstance, model:[churchList:springSecurityService.currentUser.person.church]
     }
 
     @Transactional
@@ -116,7 +116,7 @@ class RegisterController {
         }
 
         if (registerInstance.hasErrors()) {
-            respond registerInstance.errors, view:'edit'
+            respond registerInstance.errors, view:'edit', model:[churchList:springSecurityService.currentUser.person.church]
             return
         }
 

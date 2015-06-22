@@ -67,7 +67,7 @@ class Register {
     }
 
     String getFormatedValue() {
-        return "R\$" + String.format("%10.2f", this.value)
+        return this.value ? "R\$" + String.format("%10.2f", this.value) : ""
     }
 
     public String getStringDate() {
