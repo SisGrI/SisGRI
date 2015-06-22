@@ -60,8 +60,10 @@ class PersonController {
     }
 
     def print() {
-        def reportDef = new JasperReportDef(name:'person_list.jrxml',
-            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: people)
+        def parametros = [churchName: springSecurityService.currentUser.person.church.name]
+
+        def reportDef = new JasperReportDef(name:'peopleList.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: people, parameters: parametros)
 
         response.setContentType("application/octet-stream")
         response.setHeader("Content-disposition", "filename=lista_pessoas.pdf")
