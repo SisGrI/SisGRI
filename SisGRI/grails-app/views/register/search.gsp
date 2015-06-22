@@ -2,13 +2,13 @@
 <html>
 	<head>
 		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'worship.label', default: 'Culto')}" />
+		<g:set var="entityName" value="${message(code: 'worship.label', default: 'Registro Financeiro')}" />
 		<title><g:message code="default.search.label" args="[entityName]" /></title>
 	</head>
 	<body>
 		<div class="row">
 			<div class="col-md-12">
-	            <h3 class="page-title">Cultos</h3>
+	            <h3 class="page-title">Registros</h3>
 	            <ul class="page-breadcrumb breadcrumb">
 	            	<li>
 	                    <i class="fa fa-home"></i>
@@ -19,7 +19,7 @@
 	                </li>
 	                <li>
 						<g:link action="search">
-							Pesquisar Cultos
+							Pesquisar Registros
 						</g:link>
 	                </li>
 	            </ul>
@@ -54,7 +54,7 @@
 				<div class="portlet box blue">
 					<div class="portlet-title">
 						<div class="caption">
-							<i class="fa fa-list"></i>Pesquisar Cultos
+							<i class="fa fa-list"></i>Pesquisar Registros
 						</div>
 					</div>
 					<div class="portlet-body form">

@@ -5,7 +5,7 @@
 		<label class="control-label col-md-3" for="church">
 			<g:message code="worship.church.label" default="Igreja" />
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<g:select class="form-control" name="church" from="${churchList}" value="${personInstance?.church?.id}" noSelection="['': '']"/>
 		</div>
 	</div>
@@ -16,7 +16,7 @@
 		<label class="control-label col-md-3" for="type">
 			<g:message code="worship.type.label" default="Tipo" />
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<g:select class="form-control" name="type" from="${worshipInstance.constraints.type.inList}" value="${worshipInstance?.type}" valueMessagePrefix="worship.type" noSelection="['': '']"/>
 		</div>
 	</div>
@@ -27,7 +27,7 @@
 		<label class="control-label col-md-3" for="date">
 			<g:message code="worship.date.label" default="Data" />
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<g:datePicker name="date" years="[2013, 2014, 2015]" precision="month"  value="" default="none" noSelection="['': '']" />
 		</div>
 	</div>
@@ -38,7 +38,7 @@
 		<label class="control-label col-md-3" for="rulingName">
 			<g:message code="person.rulingName.label" default="Dirigente" />
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<g:textField class="form-control" name="rulingName" value=""/>
 		</div>
 	</div>
@@ -49,7 +49,7 @@
 		<label class="control-label col-md-3" for="prelectorName">
 			<g:message code="person.prelectorName.label" default="Preleitor" />
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<g:textField class="form-control" name="prelectorName" value=""/>
 		</div>
 	</div>

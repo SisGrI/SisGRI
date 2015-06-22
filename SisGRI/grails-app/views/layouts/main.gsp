@@ -194,6 +194,12 @@
 									</a>
 									<ul class="sub-menu">
 										<li>
+											<g:link controller="register" action="search">
+												<i class="fa fa-search"></i>
+												Pesquisar Registros
+											</g:link>
+										</li>
+										<li>
 											<g:link controller="register" action="create">
 												<i class="fa fa-plus"></i>
 												Registro Financeiro

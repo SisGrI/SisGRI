@@ -20,8 +20,8 @@
 						<i class="fa fa-angle-right"></i>
 					</li>
 					<li>
-						<g:link>
-							Registros
+						<g:link action="search">
+							Pesquisar Registros
 						</g:link>
 					</li>
 				</ul>
@@ -55,19 +55,17 @@
 						<table class="table table-striped table-bordered table-hover" id="sample_2">
 							<thead>
 								<tr>
-								
-									<th><g:message code="register.church.label" default="Igreja" /></th>
-								
-									<th><g:message code="register.date.label" default="Data" /></th>
-								
-									<th><g:message code="register.type.label" default="Tipo" /></th>
-								
-									<th><g:message code="register.entryRegister.label" default="Entrada" /></th>
-								
-									<th><g:message code="register.exitRegister.label" default="Saída" /></th>
-								
-									<th><g:message code="register.name.label" default="Nome" /></th>
-								
+									<th>Igreja</th>
+									<th>Data</th>
+									<th>Tipo</th>
+									<g:if test="${typeRegister == 'Entrada'}">
+										<th>Entrada</th>
+									</g:if>
+									<g:else>
+										<th>Saída</th>
+									</g:else>
+									<th>Nome</th>
+									<th>Valor</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -80,9 +78,12 @@
 									
 										<td>${fieldValue(bean: registerInstance, field: "type")}</td>
 									
-										<td>${fieldValue(bean: registerInstance, field: "entryRegister")}</td>
-									
-										<td>${fieldValue(bean: registerInstance, field: "exitRegister")}</td>
+										<g:if test="${typeRegister == 'Entrada'}">
+											<td>${fieldValue(bean: registerInstance, field: "entryRegister")}</td>
+										</g:if>
+										<g:else>
+											<td>${fieldValue(bean: registerInstance, field: "exitRegister")}</td>
+										</g:else>
 									
 										<g:if test="${registerInstance?.person}">
 											<td><g:link controller="person" action="show" id="${registerInstance.person.id}">${fieldValue(bean: registerInstance, field: "person")}</g:link></td>
@@ -90,6 +91,7 @@
 										<g:else>
 											<td>${fieldValue(bean: registerInstance, field: "name")}</td>
 										</g:else>
+										<td>${fieldValue(bean: registerInstance, field: "formatedValue")}</td>
 									</tr>
 								</g:each>
 							</tbody>

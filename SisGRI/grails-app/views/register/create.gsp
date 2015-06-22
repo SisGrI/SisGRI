@@ -18,8 +18,8 @@
 	                    <i class="fa fa-angle-right"></i>
 	                </li>
 	                <li>
-	                	<g:link action="index">
-							Registros
+	                	<g:link action="search">
+							Pequisar Registros
 						</g:link>
 						<i class="fa fa-angle-right"></i>
 	                </li>

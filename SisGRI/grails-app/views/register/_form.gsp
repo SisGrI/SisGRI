@@ -45,7 +45,7 @@
 			<g:message code="worship.date.label" default="Data" />
 			<span class="required-indicator">*</span>
 		</label>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<g:textField class="form-control" id="mask_date" name="stringDate" required="" value="${registerInstance?.stringDate}"/>
 		</div>
 	</div>
@@ -70,7 +70,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-6">
-			<g:select class="form-control" name="entryRegister" from="${registerInstance.constraints.entryRegister.inList}" required="" value="${registerInstance?.entryRegister}" valueMessagePrefix="register.entryRegister" noSelection="['': '']"/>
+			<g:select class="form-control" name="entryRegister" from="${registerInstance.constraints.entryRegister.inList}" required="" value="${registerInstance?.entryRegister}" valueMessagePrefix="register.entryRegister" />
 		</div>
 	</div>
 </div>
@@ -82,7 +82,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-6">
-			<g:select class="form-control" name="exitRegister" from="${registerInstance.constraints.exitRegister.inList}" required="" value="${registerInstance?.exitRegister}" valueMessagePrefix="register.exitRegister" noSelection="['': '']"/>
+			<g:select class="form-control" name="exitRegister" from="${registerInstance.constraints.exitRegister.inList}" required="" value="${registerInstance?.exitRegister}" valueMessagePrefix="register.exitRegister" />
 		</div>
 	</div>
 </div>
