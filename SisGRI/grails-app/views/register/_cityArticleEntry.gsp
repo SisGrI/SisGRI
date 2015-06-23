@@ -1,9 +1,21 @@
 <div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
+			<label class="control-label col-md-6">
+				<div class="btn green">
+					Total de Entradas: ${params?.entryTotal}
+				</div>
+			</label>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<div class="form-group">
 			<label class="control-label col-md-6">1.01 - (*) DIZIMO OBREIROS</label>
 			<p class="form-control-static">
-				${params?.entry01}
+				${params?.entry1}
 			</p>
 		</div>
 	</div>
@@ -11,7 +23,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">1.02 - (*) DIZIMO MEMBROS</label>
 			<p class="form-control-static">
-				${params?.entry02}
+				${params?.entry2}
 			</p>
 		</div>
 	</div>
@@ -19,7 +31,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">1.03 - (*) OFERTA DOS CULTOS</label>
 			<p class="form-control-static">
-				${params?.entry03}
+				${params?.entry3}
 			</p>
 		</div>
 	</div>
@@ -30,7 +42,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">1.04 - (*) OFERTA E.B.D</label>
 			<p class="form-control-static">
-				${params?.entry04}
+				${params?.entry4}
 			</p>
 		</div>
 	</div>
@@ -38,7 +50,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">1.05 - (*) OFERTAS ESPECÍFICAS</label>
 			<p class="form-control-static">
-				${params?.entry05}
+				${params?.entry5}
 			</p>
 		</div>
 	</div>
@@ -46,7 +58,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">1.06 - VENDA DE BENS MÓVEIS/IMÓVEIS</label>
 			<p class="form-control-static">
-				${params?.entry06}
+				${params?.entry6}
 			</p>
 		</div>
 	</div>
@@ -57,7 +69,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">1.07 - VINDO SUB-SEDE/CONG.</label>
 			<p class="form-control-static">
-				${params?.entry07}
+				${params?.entry7}
 			</p>
 		</div>
 	</div>
@@ -65,7 +77,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">1.08 - REPASSE DE CONG. ADOLESCENTES</label>
 			<p class="form-control-static">
-				${params?.entry08}
+				${params?.entry8}
 			</p>
 		</div>
 	</div>
@@ -73,7 +85,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">1.09 - REPASSE DE CONG. CRIANÇAS</label>
 			<p class="form-control-static">
-				${params?.entry09}
+				${params?.entry9}
 			</p>
 		</div>
 	</div>

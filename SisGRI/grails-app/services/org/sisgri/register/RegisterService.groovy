@@ -51,11 +51,41 @@ class RegisterService {
         total = "R\$" + String.format("%10.2f", result)
     }
 
-    def setCityArticle(params) {
-        setIns(params)
+    def setCityArticle(params, registers) {
+        def parameters = [:]
+        parameters += setIns(params, registers)
+
+        parameters.each { key, value ->
+            params[key] = value
+        }
     }
 
-    private def setIns(params) {
-        params.entry01 = "test..."
+    private def setIns(params, registers) {
+        def parameters = [:]
+
+        for (int i = 1; i <= 26; i++) {
+            parameters["entry"+i] = 0.0
+        }
+
+        Double total = 0.0
+
+        registers.each {
+            total += it.value
+
+            String number = it.entryRegister.substring(2,4)
+
+            if (number[0] == '0')
+                parameters["entry"+number[1]] = parameters["entry"+number[1]] + it.value
+            else
+                parameters["entry"+number] = parameters["entry"+number] + it.value
+        }
+        
+        params.entryTotal = "R\$" + String.format("%10.2f", total)
+
+        for (int i = 1; i <= 26; i++) {
+            parameters["entry"+i] = "R\$" + String.format("%10.2f", parameters["entry"+i])
+        }
+
+        return parameters
     }
 }

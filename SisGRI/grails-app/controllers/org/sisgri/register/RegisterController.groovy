@@ -33,23 +33,27 @@ class RegisterController {
                     like("name", "%"+params.church+"%")
                 }
             }
-            if(params.name!="")
-                like("name", "%"+params.name+"%")
-            if(params.type!="")
-                eq("type", params.type)
-            if(params.entryRegister!="")
-                eq("entryRegister", params.entryRegister)
-            if(params.exitRegister!="")
-                eq("exitRegister", params.exitRegister)
-            if(params.value!="") {
-                Double value = params.value.replace(",",".").toDouble()
-                eq("value", value)
-            }
+
             if (params.from != "") {
                 from = from.parse('dd/MM/yyyy', params.from)
                 to = to.parse('dd/MM/yyyy', params.to)
 
                 between('date', from, to)
+            }
+            if (params.search == "Ver registros") {
+                
+                if(params.name!="")
+                    like("name", "%"+params.name+"%")
+                if(params.type!="")
+                    eq("type", params.type)
+                if(params.entryRegister!="")
+                    eq("entryRegister", params.entryRegister)
+                if(params.exitRegister!="")
+                    eq("exitRegister", params.exitRegister)
+                if(params.value!="") {
+                    Double value = params.value.replace(",",".").toDouble()
+                    eq("value", value)
+                }
             }
 
             order("date", "asc")
@@ -71,8 +75,8 @@ class RegisterController {
     }
 
     def cityArticle() {
-        registerService.setCityArticle(params)
-        
+        registerService.setCityArticle(params, registers)
+
         respond params
     }
 
