@@ -14,20 +14,13 @@ class RegisterController {
     def springSecurityService
     def personService
     def jasperService
+    def registerService
     def static registers = []
-    def static parameters = []
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def resultSearch() {
-        if (params.from != "" && params.to == "") {
-            params.to = params.from
-        }
-        else if (params.to != "" && params.from == "") {
-            params.from = params.to
-        }
-
-        setParameters(params)
+        registerService.setRestrictDates(params)
 
         Date from = new Date()
         Date to = new Date()
@@ -62,6 +55,9 @@ class RegisterController {
             order("date", "asc")
         }
 
+        registerService.setTotal(registers)
+        registerService.setParameters(params)
+
         respond registers, model: [typeRegister: params.type]
     }
 
@@ -69,27 +65,13 @@ class RegisterController {
         respond new Register(params), model:[churchList:springSecurityService.currentUser.person.church]
     }
 
-    protected def setParameters(params) {
-        def category = "Lista Geral"
-        
-        if (params.entryRegister != "") {
-            category = params.entryRegister
-        }
-        else if (params.exitRegister != "") {
-            category = params.exitRegister
-        }
-
-        parameters = [churchName: springSecurityService.currentUser.person.church.name,
-            category: category, from: params.from, to: params.to]
-    }
-
     def print() {
         def reportDef = new JasperReportDef(name:'registerList.jrxml',
             fileFormat:JasperExportFormat.PDF_FORMAT, reportData: registers,
-            parameters: parameters)
+            parameters: registerService.parameters)
 
         response.setContentType("application/octet-stream")
-        response.setHeader("Content-disposition", "filename=lista_cultos.pdf")
+        response.setHeader("Content-disposition", "filename=lista_registros.pdf")
         response.outputStream << jasperService.generateReport(reportDef).toByteArray()
     }
 
