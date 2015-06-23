@@ -1,12 +1,12 @@
 package org.sisgri.register
 
 import org.sisgri.church.Church
-import org.sisgri.people.NaturalPerson
+import org.sisgri.people.Person
 import java.text.SimpleDateFormat
 
 class Register {
 	Date date = new Date()
-    NaturalPerson person
+    Person person
 	String name
 	String type
     String entryRegister

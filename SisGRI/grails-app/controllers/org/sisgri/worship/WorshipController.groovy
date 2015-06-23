@@ -164,7 +164,7 @@ class WorshipController {
     def choosePerson() {
         String name = params.person
         
-        render template: "people", model: [people: personService.searchPeople(name)]
+        render template: "people", model: [people: personService.searchNaturalPeople(name)]
     }
 
     protected void notFound() {

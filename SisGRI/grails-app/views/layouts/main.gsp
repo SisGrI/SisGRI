@@ -180,6 +180,18 @@
 												Cadastrar Pessoa
 											</g:link>
 										</li>
+										<li>
+											<g:link controller="legalPerson" action="index">
+												<i class="fa fa-search"></i>
+												Listar Empresas
+											</g:link>
+										</li>
+										<li>
+											<g:link controller="legalPerson" action="create">
+												<i class="fa fa-plus"></i>
+												Cadastrar Empresa
+											</g:link>
+										</li>
 									</ul>
 								</li>
 							</sec:ifAnyGranted>
