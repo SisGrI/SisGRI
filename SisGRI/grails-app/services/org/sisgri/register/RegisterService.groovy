@@ -50,4 +50,12 @@ class RegisterService {
 
         total = "R\$" + String.format("%10.2f", result)
     }
+
+    def setCityArticle(params) {
+        setIns(params)
+    }
+
+    private def setIns(params) {
+        params.entry01 = "test..."
+    }
 }

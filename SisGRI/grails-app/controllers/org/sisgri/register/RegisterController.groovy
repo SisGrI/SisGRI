@@ -57,12 +57,23 @@ class RegisterController {
 
         registerService.setTotal(registers)
         registerService.setParameters(params)
-
-        respond registers, model: [typeRegister: params.type]
+        
+        if (params.search == "Ver registros") {
+            respond registers, model: [typeRegister: params.type]
+        }
+        else {
+            redirect action: "cityArticle", params: params
+        }
     }
 
     def search() {
         respond new Register(params), model:[churchList:springSecurityService.currentUser.person.church]
+    }
+
+    def cityArticle() {
+        registerService.setCityArticle(params)
+        
+        respond params
     }
 
     def print() {
@@ -73,6 +84,10 @@ class RegisterController {
         response.setContentType("application/octet-stream")
         response.setHeader("Content-disposition", "filename=lista_registros.pdf")
         response.outputStream << jasperService.generateReport(reportDef).toByteArray()
+    }
+
+    def printCityArticle() {
+        render params
     }
 
     def show(Register registerInstance) {
