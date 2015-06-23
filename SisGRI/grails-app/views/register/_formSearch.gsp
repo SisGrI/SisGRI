@@ -31,12 +31,14 @@
 </div>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: registerInstance, field: 'date', 'error')}">
-		<label class="control-label col-md-3" for="date">
-			<g:message code="register.date.label" default="Data" />
-		</label>
-		<div class="col-md-6">
-			<g:datePicker name="date" years="[2013, 2014, 2015]" precision="month"  value="" default="none" noSelection="['': '']" />
+	<label class="control-label col-md-3">Data</label>
+	<div class="col-md-4">
+		<div class="input-group input-large date-picker input-daterange" data-date-format="dd/mm/yyyy">
+			<input type="text" class="form-control" name="from">
+			<span class="input-group-addon">
+				 até
+			</span>
+			<input type="text" class="form-control" name="to">
 		</div>
 	</div>
 </div>

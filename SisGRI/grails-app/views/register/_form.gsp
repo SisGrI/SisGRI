@@ -25,6 +25,21 @@
 		$('#personID').val("");
 		$('#nameField').attr("readonly", false);
 	}
+	function hideName(value) {
+		if (value != "1.01 - (*) DIZIMO OBREIROS" &&
+			value != "1.02 - (*) DIZIMO MEMBROS" &&
+			value != "1.05 - (*) OFERTAS ESPECÍFICAS" &&
+			value != "1.16 - OFERTA MISSÕES" &&
+			value != "1.21 - OFERTA P/ CONSTRUÇÃO" &&
+			value != "1.23 - TAXA CONS. DIACONAL") {
+			$('#nameDiv').hide();
+			$('#nameField').attr("required",false);
+		}
+		else {
+			$('#nameDiv').show();
+			$('#nameField').attr("required",true);
+		}
+	}
 </script>
 
 <div class="form-group">
@@ -46,7 +61,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-6">
-			<g:textField class="form-control" id="mask_date" name="stringDate" required="" value="${registerInstance?.stringDate}"/>
+			<g:textField class="form-control date-picker" id="mask_date" name="stringDate" maxlength="10" size="15" value="${registerInstance?.stringDate}" />
 		</div>
 	</div>
 </div>
@@ -70,7 +85,7 @@
 			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-6">
-			<g:select class="form-control" name="entryRegister" from="${registerInstance.constraints.entryRegister.inList}" required="" value="${registerInstance?.entryRegister}" valueMessagePrefix="register.entryRegister" noSelection="['': '']" />
+			<g:select class="form-control" name="entryRegister" from="${registerInstance.constraints.entryRegister.inList}" required="" value="${registerInstance?.entryRegister}" valueMessagePrefix="register.entryRegister" noSelection="['': '']" onchange="hideName(this.value);" />
 		</div>
 	</div>
 </div>
@@ -88,7 +103,7 @@
 </div>
 
 
-<div class="form-group">
+<div class="form-group" id="nameDiv">
 	<div class="fieldcontain ${hasErrors(bean: registerInstance, field: 'name', 'error')} required">
 		<label class="control-label col-md-3" for="name">
 			<g:message code="register.name.label" default="Nome" />

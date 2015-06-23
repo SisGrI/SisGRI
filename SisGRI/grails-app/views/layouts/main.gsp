@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'style.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'style-responsive.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'plugins.css')}" type="text/css">
+        <link rel="stylesheet" href="${resource(dir: 'css', file: 'datepicker.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'default.css')}" type="text/css" id="style_color" >
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'error.css')}" type="text/css">
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'custom.css')}" type="text/css">
@@ -267,6 +268,9 @@
 
         <g:javascript src="app.js" />
         <g:javascript src="components-form-tools.js" />
+        <g:javascript src="bootstrap-datepicker.js"/>
+        <g:javascript src="bootstrap-timepicker.min.js" />
+        <g:javascript src="components-pickers.js"/>
         <g:javascript src="table-managed.js" />
 
         <script>
@@ -274,6 +278,7 @@
 			   App.init();
 			   ComponentsFormTools.init();
 			   TableManaged.init();
+			   ComponentsPickers.init();
 			});
 		</script>
 

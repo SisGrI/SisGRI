@@ -29,7 +29,7 @@ class Register {
             '1.12 - OFERTA CIBE', '1.13 - OFERTA MOCIDADE', '1.14 - OFERTA ADOLESCENTES',
             '1.15 - OFERTA CRIANÇAS', '1.16 - OFERTA MISSÕES', '1.17 - REPASSE CONGREGAÇÃO',
             '1.18 - OUTRAS TAXAS, REC, REND.', '1.19 - VENDA REVISTAS',
-            '1.20 - REPASSE ADM. P/ SEDE', '1.22 - TAXA ESC. MÚSICA',
+            '1.20 - REPASSE ADM. P/ SEDE', '1.21 - OFERTA P/ CONSTRUÇÃO', '1.22 - TAXA ESC. MÚSICA',
             '1.23 - TAXA CONS. DIACONAL', '1.24 - AQUIS. IMÓVEIS', '1.25 - OFERTA CONAMAD',
             '1.26 - EMPRES. ADIQUIRIDO']
         exitRegister nullable: true, inList: ['2.01 - REPASSE P/ SEDE', '2.02 - REP. CONGRESSO JOVENS', 
@@ -61,7 +61,7 @@ class Register {
             '2.62 - AQUIS. EQUIP. INFORMATICA', '2.63 - AQUS. IMÓVEIS', '2.64 - AQUIS. VEÍCULOS', 
             '2.65 - BENS PEQ. VALOR', '2.66 - AQUIS. SOFTWARES', '2.67 - OFERTAS REPASSADAS', 
             '2.99 - PAGAMENTO EMPRÉSTIMO']
-    	name blank: false
+    	name nullable: true
         person nullable: true
 		value blank: false
     }
