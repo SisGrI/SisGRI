@@ -52,38 +52,53 @@ class RegisterService {
     }
 
     def setCityArticle(params, registers) {
-        def parameters = [:]
-        parameters += setIns(params, registers)
+        def parameters = setRegisters(registers)
 
         parameters.each { key, value ->
             params[key] = value
         }
     }
 
-    private def setIns(params, registers) {
+    private def setRegisters(registers) {
         def parameters = [:]
 
         for (int i = 1; i <= 26; i++) {
             parameters["entry"+i] = 0.0
         }
+        for (int i = 1; i <= 68; i++) {
+            parameters["exit"+i] = 0.0
+        }
 
-        Double total = 0.0
+        Double entryTotal = 0.0, exitTotal = 0.0
 
         registers.each {
-            total += it.value
+        	String type = "", number = ""
 
-            String number = it.entryRegister.substring(2,4)
+            if (it.entryRegister) {
+            	type = "entry"
+            	entryTotal += it.value
+            	number = it.entryRegister.substring(2,4)
+            }
+            else {
+            	type = "exit"
+            	exitTotal += it.value
+            	number = it.exitRegister.substring(2,4)
+            }
 
             if (number[0] == '0')
-                parameters["entry"+number[1]] = parameters["entry"+number[1]] + it.value
+                parameters[type + number[1]] = parameters[type + number[1]] + it.value
             else
-                parameters["entry"+number] = parameters["entry"+number] + it.value
+                parameters[type + number] = parameters[type + number] + it.value
         }
         
-        params.entryTotal = "R\$" + String.format("%10.2f", total)
+        parameters.entryTotal = "R\$" + String.format("%10.2f", entryTotal)
+        parameters.exitTotal = "R\$" + String.format("%10.2f", exitTotal)
 
         for (int i = 1; i <= 26; i++) {
             parameters["entry"+i] = "R\$" + String.format("%10.2f", parameters["entry"+i])
+        }
+        for (int i = 1; i <= 68; i++) {
+            parameters["exit"+i] = "R\$" + String.format("%10.2f", parameters["exit"+i])
         }
 
         return parameters
