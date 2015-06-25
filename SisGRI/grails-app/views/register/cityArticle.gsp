@@ -62,22 +62,44 @@
 						</div>
 					</div>
 					<div class="portlet-body form">
-						<g:form url="[resource:registerInstance, action:'printCityArticle']" class="form-horizontal">
-							<div class="form-body">
-								<div class="form-section">
-								</div>
-								<div class="alert alert-danger display-hide">
-									<button class="close" data-close="alert"></button>
-									O formulário contêm erros. Por favor verifique abaixo.
-								</div>
-								<g:render template="cityArticleEntry" />
-							</div>
+						<div class="form-horizontal">
+							<div class="tabbable tabbable-custom boxless tabbable-reversed">
+							    <ul class="nav nav-tabs">
+							        <li class="active">
+							            <a href="#entry" data-toggle="tab">
+							                Entradas
+							            </a>
+							        </li>
+							        <li>
+							            <a href="#exit" data-toggle="tab">
+							                Saídas
+							            </a>
+							        </li>
+							    </ul>
+
+							    <div class="tab-content">
+							        <div class="tab-pane active" id="entry">
+							        	<div class="form-body">
+							        		<div class="form-section">
+							        		</div>
+							        		<g:render template="cityArticleEntry" />
+							        	</div>
+							        </div>
+							        <div class="tab-pane" id="exit">
+							        	<div class="form-body">
+							        		<div class="form-section">
+							        		</div>
+							        		<g:render template="cityArticleExit" />
+							        	</div>
+							        </div>
+						        </div>
+						    </div>
 							<div class="form-actions right">
 								<div class="col-md-offset-3 col-md-9">
-									<g:submitButton name="print" class="btn yellow" value="Imprimir" />
+									<g:link class="btn yellow" action="printCityArticle" params="${params}">Imprimir</g:link>
 								</div>
 							</div>
-						</g:form>
+						</div>
 					</div>
 				</div>
 			</div>
