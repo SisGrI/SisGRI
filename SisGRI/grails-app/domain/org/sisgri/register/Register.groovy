@@ -21,7 +21,8 @@ class Register {
     	church blank: false
     	date blank: false
     	type blank: false, inList: ['Entrada', 'Saída']
-        entryRegister nullable: true, inList: ['1.01 - (*) DIZIMO OBREIROS', '1.02 - (*) DIZIMO MEMBROS', 
+        entryRegister nullable: true, inList: ['Saldo Anterior',
+            '1.01 - (*) DIZIMO OBREIROS', '1.02 - (*) DIZIMO MEMBROS', 
             '1.03 - (*) OFERTA DOS CULTOS', '1.04 - (*) OFERTA E.B.D', '1.05 - (*) OFERTAS ESPECÍFICAS',
             '1.06 - VENDA DE BENS MÓVEIS/IMÓVEIS', '1.07 - VINDO SUB-SEDE/CONG.',
             '1.08 - REPASSE DE CONG. ADOLESCENTES', '1.09 - REPASSE DE CONG. CRIANÇAS',

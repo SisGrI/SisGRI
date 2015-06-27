@@ -3,6 +3,7 @@ import org.sisgri.authentication.Profile
 import org.sisgri.authentication.ProfileRole
 import org.sisgri.people.NaturalPerson
 import org.sisgri.church.Church
+import org.sisgri.register.Register
 
 class BootStrap {
 
@@ -24,8 +25,26 @@ class BootStrap {
 
             testProfile.save(flush: true)
 
-
             ProfileRole.create testProfile, adminRole, true
+      }
+
+      if (!Register.get(1)) {
+         def church = Church.get(1)
+
+         def date = new Date()
+         Calendar calendar = Calendar.getInstance()
+         calendar.setTime(date)
+
+         def month = calendar.get(Calendar.MONTH)
+         def year = calendar.get(Calendar.YEAR)
+
+         date = date.parse("dd/MM/yyyy", "01/" + (month) + "/" + year)
+         new Register(date: date, type: "Entrada", entryRegister: "Saldo Anterior",
+            value: 0.0, church: church).save(flush: true)
+
+         date = date.parse("dd/MM/yyyy", "01/" + (month + 1) + "/" + year)
+         new Register(date: date, type: "Saída", exitRegister: "2.01 - REPASSE P/ SEDE",
+            value: 0.0, church: church).save(flush: true)
       }
    }
 
