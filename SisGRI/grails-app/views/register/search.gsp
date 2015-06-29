@@ -59,19 +59,34 @@
 					</div>
 					<div class="portlet-body form">
 						<g:form url="[resource:registerInstance, action:'resultSearch']" class="form-horizontal">
-							<div class="form-body">
-								<div class="form-section">
+							<div class="tabbable tabbable-custom boxless tabbable-reversed">
+							    <ul class="nav nav-tabs">
+							        <li class="active">
+							            <a href="#registers" onclick="changeSearch('registers');" data-toggle="tab">
+							                Ver Registros
+							            </a>
+							        </li>
+							        <li>
+							            <a href="#cityArticle" onclick="changeSearch('cityArticle');" data-toggle="tab">
+							                Gerar Boletim
+							            </a>
+							        </li>
+							    </ul>
+
+								<div class="form-body">
+									<div class="form-section">
+									</div>
+									<div class="alert alert-danger display-hide">
+										<button class="close" data-close="alert"></button>
+										O formulário contêm erros. Por favor verifique abaixo.
+									</div>
+									<g:render template="formSearch"/>
 								</div>
-								<div class="alert alert-danger display-hide">
-									<button class="close" data-close="alert"></button>
-									O formulário contêm erros. Por favor verifique abaixo.
-								</div>
-								<g:render template="formSearch"/>
-							</div>
+						    </div>
 							<div class="form-actions right">
 								<div class="col-md-offset-3 col-md-9">
-									<g:submitButton name="search" class="btn blue" value="Ver registros" />
-									<g:submitButton name="search" class="btn yellow" value="Gerar Boletim" />
+									<g:submitButton id="registersButton" name="search" class="btn blue" value="Ver registros" />
+									<g:submitButton id="cityArticleButton" name="search" class="btn yellow" value="Gerar Boletim" />
 								</div>
 							</div>
 						</g:form>

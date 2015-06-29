@@ -24,28 +24,33 @@ class RegisterController {
 
         Date from = new Date()
         Date to = new Date()
-
         def criteria = Register.createCriteria()
         
         registers = criteria.list {
+            if (params.type == "Entrada") {
+                ne("entryRegister", "Saldo Anterior")
+            }
+            else {
+                ne("exitRegister", "2.01 - REPASSE P/ SEDE")
+            }
+
             church{
                 if(params.church!=""){
                     like("name", "%"+params.church+"%")
                 }
             }
 
-            if (params.from != "") {
-                from = from.parse('dd/MM/yyyy', params.from)
-                to = to.parse('dd/MM/yyyy', params.to)
+            from = from.parse('dd/MM/yyyy', params.from)
+            to = to.parse('dd/MM/yyyy', params.to)
 
-                between('date', from, to)
-            }
+            between('date', from, to)
+
             if (params.search == "Ver registros") {
                 
+                eq("type", params.type)
+
                 if(params.name!="")
                     like("name", "%"+params.name+"%")
-                if(params.type!="")
-                    eq("type", params.type)
                 if(params.entryRegister!="")
                     eq("entryRegister", params.entryRegister)
                 if(params.exitRegister!="")

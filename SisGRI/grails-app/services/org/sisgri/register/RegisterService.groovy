@@ -28,15 +28,15 @@ class RegisterService {
     	if (params.from == "" && params.to == "") {
     		Date date = new Date()
 
+            date = date.parse("dd/MM/yyy", "01/" + params.month + "/" + params.year)
     		params.from = new SimpleDateFormat("dd/MM/yyyy").format(date)
-    		params.to = new SimpleDateFormat("dd/MM/yyyy").format(date)
+    		
+            Calendar calendar = Calendar.getInstance()
+            calendar.setTime(date)
+            def lastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+            date = date.parse("dd/MM/yyy", lastDay + "/" + params.month + "/" + params.year)
+            params.to = new SimpleDateFormat("dd/MM/yyyy").format(date)
     	}
-    	else if (params.from != "" && params.to == "") {
-            params.to = params.from
-        }
-        else if (params.to != "" && params.from == "") {
-            params.from = params.to
-        }
 
         return params
     }
@@ -52,6 +52,7 @@ class RegisterService {
     }
 
     def setCityArticle(params, registers) {
+        println params
         def parameters = setRegisters(registers)
 
         parameters.each { key, value ->

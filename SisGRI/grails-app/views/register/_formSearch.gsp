@@ -4,6 +4,10 @@
 	$(document).ready(function() {
 		$('#value').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
 		$('#exit').hide();
+		$('#dateToCityArticle').hide();
+		$('#cityArticleButton').hide();
+		$('#month').attr("required",false);
+		$('#year').attr("required",false);
 	});
 	function show_category() {
 		var type = $('#type').val();
@@ -15,6 +19,32 @@
 		else {
 			$('#exit').show();
 			$('#entry').hide();
+		}
+	}
+	function changeSearch(search) {
+		if (search == "cityArticle") {
+			$('#dateToCityArticle').show();
+			$('#cityArticleButton').show();
+			$('#month').attr("required",true);
+			$('#year').attr("required",true);
+			$('#dateToRegisters').hide();
+			$('#registersButton').hide();
+			$('#from').val("");
+			$('#to').val("");
+			$('#from').attr("required",false);
+			$('#to').attr("required",false);
+		}
+		else {
+			$('#dateToRegisters').show();
+			$('#registersButton').show();
+			$('#from').attr("required",true);
+			$('#to').attr("required",true);
+			$('#dateToCityArticle').hide();
+			$('#cityArticleButton').hide();
+			$('#month').val("");
+			$('#year').val("");
+			$('#month').attr("required",false);
+			$('#year').attr("required",false);
 		}
 	}
 </script>
@@ -30,15 +60,47 @@
 	</div>
 </div>
 
-<div class="form-group">
-	<label class="control-label col-md-3">Data</label>
+<div class="form-group" id="dateToRegisters">
+	<label class="control-label col-md-3">
+		Data
+		<span class="required-indicator">*</span>
+	</label>
 	<div class="col-md-4">
 		<div class="input-group input-large date-picker input-daterange" data-date-format="dd/mm/yyyy">
-			<input type="text" class="form-control" name="from">
+			<input type="text" class="form-control" id="from" name="from" required="">
 			<span class="input-group-addon">
 				 até
 			</span>
-			<input type="text" class="form-control" name="to">
+			<input type="text" class="form-control" id="to" name="to" required="">
+		</div>
+	</div>
+</div>
+
+<div class="form-group" id="dateToCityArticle">
+	<label class="control-label col-md-3">Mês de Referência</label>
+	<div class="col-md-4">
+		<div class="input-group">
+			<select class="form-control" id="month" name="month">
+				<option value=''></option>
+				<option value='01'>Janeiro</option>
+				<option value='02'>Fevereiro</option>
+			    <option value='03'>Março</option>
+			    <option value='04'>Abril</option>
+			    <option value='05'>Maio</option>
+			    <option value='06'>Junho</option>
+			    <option value='07'>Julho</option>
+			    <option value='08'>Agosto</option>
+			    <option value='09'>Setembro</option>
+			    <option value='10'>Outubro</option>
+			    <option value='11'>Novembro</option>
+			    <option value='12'>Dezembro</option>
+			</select>
+			<select class="form-control" id="year" name="year">
+				<option value=''></option>
+				<option value='2014'>2014</option>
+				<option value='2015'>2015</option>
+			    <option value='2016'>2016</option>
+			</select>
 		</div>
 	</div>
 </div>
