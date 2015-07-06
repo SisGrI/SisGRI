@@ -19,17 +19,6 @@
 	}
 </script>
 
-<div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: registerInstance, field: 'church', 'error')} ">
-		<label class="control-label col-md-3" for="church">
-			<g:message code="register.church.label" default="Igreja" />
-		</label>
-		<div class="col-md-6">
-			<g:select class="form-control" name="church" from="${churchList}" value="${personInstance?.church?.id}"/>
-		</div>
-	</div>
-</div>
-
 <div class="form-group" id="dateToRegisters">
 	<label class="control-label col-md-3">
 		Data

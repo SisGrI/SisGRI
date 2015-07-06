@@ -24,28 +24,20 @@ class RegisterController {
 
         Date from = new Date()
         Date to = new Date()
-        def criteria = Register.createCriteria()
+        from = from.parse('dd/MM/yyyy', params.from)
+        to = to.parse('dd/MM/yyyy', params.to)
+        def churchName = springSecurityService.currentUser.person.church.name
         
+        def criteria = Register.createCriteria()
         registers = criteria.list {
-            if (params.type == "Entrada") {
-                ne("entryRegister", "Saldo Anterior")
-            }
-            else {
-                ne("exitRegister", "2.01 - REPASSE P/ SEDE")
-            }
-
             church{
-                if(params.church!=""){
-                    like("name", "%"+params.church+"%")
-                }
+                eq("name", churchName)
             }
-
-            from = from.parse('dd/MM/yyyy', params.from)
-            to = to.parse('dd/MM/yyyy', params.to)
 
             between('date', from, to)
 
             if (params.search == "Ver registros") {
+                println "search Ver Registros"
                 
                 eq("type", params.type)
 
