@@ -131,6 +131,7 @@ class RegisterController {
         }
 
         registerInstance.save flush:true
+        registerService.calculateTransferAndBalance(registerInstance)
 
         request.withFormat {
             form multipartForm {
