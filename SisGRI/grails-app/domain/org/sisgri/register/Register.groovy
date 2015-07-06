@@ -61,7 +61,7 @@ class Register {
             '2.60 - AQUIS. MOVEIS E UTENSIL.', '2.61 - AQUIS. MAQ. E EQUIPAMENTOS', 
             '2.62 - AQUIS. EQUIP. INFORMATICA', '2.63 - AQUS. IMÓVEIS', '2.64 - AQUIS. VEÍCULOS', 
             '2.65 - BENS PEQ. VALOR', '2.66 - AQUIS. SOFTWARES', '2.67 - OFERTAS REPASSADAS', 
-            '2.99 - PAGAMENTO EMPRÉSTIMO']
+            '2.68 - PAGAMENTO EMPRÉSTIMO']
     	name nullable: true
         person nullable: true
 		value blank: false
