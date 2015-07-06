@@ -6,6 +6,32 @@
 		<title><g:message code="default.search.label" args="[entityName]" /></title>
 	</head>
 	<body>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#month').attr("required",false);
+				$('#year').attr("required",false);
+			});
+			function changeSearch(search) {
+				if (search == "cityArticle") {
+					$('#month').attr("required",true);
+					$('#year').attr("required",true);
+					$('#from').val("");
+					$('#to').val("");
+					$('#from').attr("required",false);
+					$('#to').attr("required",false);
+				}
+				else {
+					$('#from').attr("required",true);
+					$('#to').attr("required",true);
+					$('#month').val("");
+					$('#year').val("");
+					$('#month').attr("required",false);
+					$('#year').attr("required",false);
+				}
+			}
+		</script>
+
 		<div class="row">
 			<div class="col-md-12">
 	            <h3 class="page-title">Registros</h3>
@@ -73,22 +99,33 @@
 							        </li>
 							    </ul>
 
-								<div class="form-body">
-									<div class="form-section">
-									</div>
-									<div class="alert alert-danger display-hide">
-										<button class="close" data-close="alert"></button>
-										O formulário contêm erros. Por favor verifique abaixo.
-									</div>
-									<g:render template="formSearch"/>
-								</div>
+					    	    <div class="tab-content">
+					    	        <div class="tab-pane active" id="registers">
+					    	        	<div class="form-body">
+					    	        		<div class="form-section">
+					    	        		</div>
+					    	        		<g:render template="formSearch" />
+					    	        	</div>
+					    	        	<div class="form-actions right">
+					    	        		<div class="col-md-offset-3 col-md-9">
+					    	        			<g:submitButton id="registersButton" name="search" class="btn blue" value="Ver registros" />
+					    	        		</div>
+					    	        	</div>
+					    	        </div>
+					    	        <div class="tab-pane" id="cityArticle">
+					    	        	<div class="form-body">
+    										<div class="form-section">
+    										</div>
+    										<g:render template="formGenerateCityArticle"/>
+    									</div>
+    									<div class="form-actions right">
+    										<div class="col-md-offset-3 col-md-9">
+    											<g:submitButton id="cityArticleButton" name="search" class="btn yellow" value="Gerar Boletim" />
+    										</div>
+    									</div>
+					    	        </div>
+					            </div>
 						    </div>
-							<div class="form-actions right">
-								<div class="col-md-offset-3 col-md-9">
-									<g:submitButton id="registersButton" name="search" class="btn blue" value="Ver registros" />
-									<g:submitButton id="cityArticleButton" name="search" class="btn yellow" value="Gerar Boletim" />
-								</div>
-							</div>
 						</g:form>
 					</div>
 				</div>
