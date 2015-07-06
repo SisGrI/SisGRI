@@ -5,6 +5,9 @@
 		$('#value').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
 		$('#exit').hide();
 		$('#exitRegister').attr("required",false);
+
+		$("#entryRegister").children('option[value="Saldo Anterior"]').hide();
+		$("#exitRegister").children('option[value="2.01 - REPASSE P/ SEDE"]').hide();
 	});
 	function show_category() {
 		var type = $('#type').val();
