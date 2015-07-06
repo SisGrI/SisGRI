@@ -52,15 +52,14 @@ class RegisterService {
     }
 
     def setCityArticle(params, registers) {
-        println params
-        def parameters = setRegisters(registers)
+        def parameters = setRegisters(registers, getPreviousBalance(params))
 
         parameters.each { key, value ->
             params[key] = value
         }
     }
 
-    private def setRegisters(registers) {
+    private def setRegisters(registers, previousBalance) {
         def parameters = [:]
 
         for (int i = 1; i <= 26; i++) {
@@ -92,6 +91,8 @@ class RegisterService {
                 parameters[type + number] = parameters[type + number] + it.value
         }
         
+        entryTotal += previousBalance
+        
         parameters.entryTotal = "R\$" + String.format("%10.2f", entryTotal)
         parameters.exitTotal = "R\$" + String.format("%10.2f", exitTotal)
 
@@ -103,5 +104,22 @@ class RegisterService {
         }
 
         return parameters
+    }
+
+    private def getPreviousBalance(params) {
+        Date date = new Date()
+        def month = params.month.toInteger() - 1
+        def year = params.year.toLong()
+
+        if (!month) {
+            month = 12;
+            year--;
+        }
+        
+        date = date.parse("dd/MM/yyyy", "01/" + month + "/" + year)
+
+        def register = Register.findByEntryRegisterAndDate("Saldo Anterior", date)
+
+        return register ? register.value : 0.0
     }
 }
