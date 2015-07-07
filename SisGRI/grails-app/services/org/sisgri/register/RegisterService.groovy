@@ -75,9 +75,11 @@ class RegisterService {
         	String type = "", number = ""
 
             if (it.entryRegister) {
-            	type = "entry"
-            	entryTotal += it.value
-            	number = it.entryRegister.substring(2,4)
+                if (it.entryRegister != "Saldo Anterior") {
+                    type = "entry"
+                    entryTotal += it.value
+                    number = it.entryRegister.substring(2,4)
+                }
             }
             else {
             	type = "exit"
@@ -85,13 +87,16 @@ class RegisterService {
             	number = it.exitRegister.substring(2,4)
             }
 
-            if (number[0] == '0')
-                parameters[type + number[1]] = parameters[type + number[1]] + it.value
-            else
-                parameters[type + number] = parameters[type + number] + it.value
+            if (number != "") {
+                if (number[0] == '0')
+                    parameters[type + number[1]] = parameters[type + number[1]] + it.value
+                else
+                    parameters[type + number] = parameters[type + number] + it.value
+            }
         }
         
         entryTotal += previousBalance
+        parameters.previousBalance = "R\$" + String.format("%10.2f", previousBalance)
         
         parameters.entryTotal = "R\$" + String.format("%10.2f", entryTotal)
         parameters.exitTotal = "R\$" + String.format("%10.2f", exitTotal)

@@ -13,6 +13,14 @@
 <div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
+			<label class="control-label col-md-6">SALDO ANTERIOR</label>
+			<p class="form-control-static">
+				${params?.previousBalance}
+			</p>
+		</div>
+	</div>
+	<div class="col-md-4">
+		<div class="form-group">
 			<label class="control-label col-md-6">1.01 - (*) DIZIMO OBREIROS</label>
 			<p class="form-control-static">
 				${params?.entry1}
@@ -27,6 +35,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.03 - (*) OFERTA DOS CULTOS</label>
@@ -35,9 +46,6 @@
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.04 - (*) OFERTA E.B.D</label>
@@ -54,6 +62,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.06 - VENDA DE BENS MÓVEIS/IMÓVEIS</label>
@@ -62,9 +73,6 @@
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.07 - VINDO SUB-SEDE/CONG.</label>
@@ -81,6 +89,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.09 - REPASSE DE CONG. CRIANÇAS</label>
@@ -89,9 +100,6 @@
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.10 - REPASSE DE CONG. CIBE</label>
@@ -108,6 +116,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.12 - OFERTA CIBE</label>
@@ -116,9 +127,6 @@
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.13 - OFERTA MOCIDADE</label>
@@ -135,6 +143,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.15 - OFERTA CRIANÇAS</label>
@@ -143,9 +154,6 @@
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.16 - OFERTA MISSÕES</label>
@@ -162,6 +170,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.18 - OUTRAS TAXAS, REC, REND.</label>
@@ -170,9 +181,6 @@
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.19 - VENDA REVISTAS</label>
@@ -189,6 +197,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.21 - OFERTA P/ CONSTRUÇÃO</label>
@@ -197,9 +208,6 @@
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.22 - TAXA ESC. MÚSICA</label>
@@ -216,6 +224,9 @@
 			</p>
 		</div>
 	</div>
+</div>
+
+<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.24 - AQUIS. IMÓVEIS</label>
@@ -224,9 +235,6 @@
 			</p>
 		</div>
 	</div>
-</div>
-
-<div class="row">
 	<div class="col-md-4">
 		<div class="form-group">
 			<label class="control-label col-md-6">1.25 - OFERTA CONAMAD</label>
