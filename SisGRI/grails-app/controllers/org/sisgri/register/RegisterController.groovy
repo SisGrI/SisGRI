@@ -88,7 +88,15 @@ class RegisterController {
     }
 
     def printCityArticle() {
-        render params
+        def period = params.month + "/" + params.year
+        def parameters = [churchName: springSecurityService.currentUser.person.church.name, period: period] + params
+
+        def reportDef = new JasperReportDef(name:'cityArticle.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: [registers], parameters: parameters)
+
+        response.setContentType("application/octet-stream")
+        response.setHeader("Content-disposition", "filename=boletim.pdf")
+        response.outputStream << jasperService.generateReport(reportDef).toByteArray()
     }
 
     def show(Register registerInstance) {

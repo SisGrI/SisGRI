@@ -69,7 +69,7 @@ class RegisterService {
             parameters["exit"+i] = 0.0
         }
 
-        Double entryTotal = 0.0, exitTotal = 0.0
+        Double entryTotal = 0.0, exitTotal = 0.0, calculationBasis = 0.0
 
         registers.each {
         	String type = "", number = ""
@@ -79,6 +79,11 @@ class RegisterService {
                     type = "entry"
                     entryTotal += it.value
                     number = it.entryRegister.substring(2,4)
+                }
+                if (it.entryRegister.startsWith("1.01") || it.entryRegister.startsWith("1.02") ||
+                    it.entryRegister.startsWith("1.03") || it.entryRegister.startsWith("1.04") ||
+                    it.entryRegister.startsWith("1.05")) {
+                    calculationBasis += it.value
                 }
             }
             else {
@@ -100,7 +105,8 @@ class RegisterService {
         
         parameters.entryTotal = "R\$" + String.format("%10.2f", entryTotal)
         parameters.exitTotal = "R\$" + String.format("%10.2f", exitTotal)
-        parameters.generalResult = "R\$" + String.format("%10.2f", entryTotal - exitTotal)
+        parameters.cashBalance = "R\$" + String.format("%10.2f", entryTotal - exitTotal)
+        parameters.calculationBasis = "R\$" + String.format("%10.2f", calculationBasis)
 
         for (int i = 1; i <= 26; i++) {
             parameters["entry"+i] = "R\$" + String.format("%10.2f", parameters["entry"+i])
