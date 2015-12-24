@@ -100,6 +100,7 @@ class RegisterService {
         
         parameters.entryTotal = "R\$" + String.format("%10.2f", entryTotal)
         parameters.exitTotal = "R\$" + String.format("%10.2f", exitTotal)
+        parameters.generalResult = "R\$" + String.format("%10.2f", entryTotal - exitTotal)
 
         for (int i = 1; i <= 26; i++) {
             parameters["entry"+i] = "R\$" + String.format("%10.2f", parameters["entry"+i])

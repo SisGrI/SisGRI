@@ -75,6 +75,11 @@
 							                Saídas
 							            </a>
 							        </li>
+							        <li>
+							            <a href="#general" data-toggle="tab">
+							                Resultado Geral
+							            </a>
+							        </li>
 							    </ul>
 
 							    <div class="tab-content">
@@ -90,6 +95,13 @@
 							        		<div class="form-section">
 							        		</div>
 							        		<g:render template="cityArticleExit" />
+							        	</div>
+							        </div>
+							        <div class="tab-pane" id="general">
+							        	<div class="form-body">
+							        		<div class="form-section">
+							        		</div>
+							        		<g:render template="cityArticleResult" />
 							        	</div>
 							        </div>
 						        </div>
