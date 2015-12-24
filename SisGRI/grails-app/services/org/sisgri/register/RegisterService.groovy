@@ -150,25 +150,18 @@ class RegisterService {
             return
         }
 
-        def transfer = Register.findByExitRegisterAndDate("2.01 - REPASSE P/ SEDE", date)
+        def balance = getBalance(register, date)
+        def transfer = getTransfer(register, date)
 
-        if (!transfer) {
-            transfer = new Register(date: date, type: "Saída", exitRegister: "2.01 - REPASSE P/ SEDE",
-                value: 0.0, church: register.church).save(flush: true)
-        }
-
+        balance.value -= register.value * 0.3
+        balance.save(flush: true)
         transfer.value += register.value * 0.3
         transfer.save(flush: true)
     }
 
     def setBalance(register, date) {
-        def transfer = Register.findByExitRegisterAndDate("2.01 - REPASSE P/ SEDE", date)
-        def balance = Register.findByEntryRegisterAndDate("Saldo Anterior", date)
-
-        if (!balance) {
-            balance = new Register(date: date, type: "Entrada", entryRegister: "Saldo Anterior",
-                value: 0.0, church: register.church).save(flush: true)
-        }
+        def transfer = getTransfer(register, date)
+        def balance = getBalance(register, date)
 
         if (register.type == "Entrada") {
             balance.value += register.value
@@ -178,5 +171,27 @@ class RegisterService {
         }
 
         balance.save(flush: true)
+    }
+
+    private def getBalance(register, date) {
+        def balance = Register.findByEntryRegisterAndDate("Saldo Anterior", date)
+
+        if (!balance) {
+            balance = new Register(date: date, type: "Entrada", entryRegister: "Saldo Anterior",
+                value: 0.0, church: register.church).save(flush: true)
+        }
+
+        return balance
+    }
+
+    private def getTransfer(register, date) {
+        def transfer = Register.findByExitRegisterAndDate("2.01 - REPASSE P/ SEDE", date)
+
+        if (!transfer) {
+            transfer = new Register(date: date, type: "Saída", exitRegister: "2.01 - REPASSE P/ SEDE",
+                value: 0.0, church: register.church).save(flush: true)
+        }
+
+        return transfer
     }
 }
