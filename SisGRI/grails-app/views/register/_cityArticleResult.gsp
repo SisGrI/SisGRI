@@ -21,7 +21,7 @@
 		<div class="form-group">
 			<label class="control-label col-md-6">
 				<div class="btn green">
-					Total Geral: ${params?.cashBalance}
+					Saldo em Caixa: ${params?.cashBalance}
 				</div>
 			</label>
 		</div>

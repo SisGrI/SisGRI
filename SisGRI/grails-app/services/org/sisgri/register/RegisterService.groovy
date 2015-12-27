@@ -59,6 +59,18 @@ class RegisterService {
         }
     }
 
+    def calculateTransferAndBalance(register) {
+        initBalanceAndTransfer(register)
+
+        Date date = getDate(register.date)
+
+        def balance = Register.findByEntryRegisterAndDate("Saldo Anterior", date)
+        def transfer = Register.findByExitRegisterAndDate("2.01 - REPASSE P/ SEDE", date)
+
+        setBalance(register, balance)
+        setTranfer(register, balance, transfer)
+    }
+
     private def setRegisters(registers, previousBalance) {
         def parameters = [:]
 
@@ -72,7 +84,7 @@ class RegisterService {
         Double entryTotal = 0.0, exitTotal = 0.0, calculationBasis = 0.0
 
         registers.each {
-        	String type = "", number = ""
+            String type = "", number = ""
 
             if (it.entryRegister) {
                 if (it.entryRegister != "Saldo Anterior") {
@@ -87,9 +99,9 @@ class RegisterService {
                 }
             }
             else {
-            	type = "exit"
-            	exitTotal += it.value
-            	number = it.exitRegister.substring(2,4)
+                type = "exit"
+                exitTotal += it.value
+                number = it.exitRegister.substring(2,4)
             }
 
             if (number != "") {
@@ -118,11 +130,53 @@ class RegisterService {
         return parameters
     }
 
+    private def initBalanceAndTransfer(register) {
+        Date date = getDate(register.date)
+
+        def actualBalance = Register.findByEntryRegisterAndDate("Saldo Anterior", date)
+        if (!actualBalance)
+            new Register(date: date, type: "Entrada", entryRegister: "Saldo Anterior",
+               value: 0.0, church: register.church).save(flush: true)
+
+        def transfer = Register.findByExitRegisterAndDate("2.01 - REPASSE P/ SEDE", date)
+        if (!transfer)
+            new Register(date: date, type: "Saída", exitRegister: "2.01 - REPASSE P/ SEDE",
+                value: 0.0, church: register.church).save(flush: true)
+
+        date = getDate(register.date, 0)
+        
+        def previousBalance = Register.findByEntryRegisterAndDate("Saldo Anterior", date)
+        if (!previousBalance)
+            new Register(date: date, type: "Entrada", entryRegister: "Saldo Anterior",
+               value: 0.0, church: register.church).save(flush: true)
+    }
+
+    private def setTranfer(register, balance, transfer) {
+        int entry = (register.type == "Entrada" ? register.entryRegister.substring(2, 4).toInteger() : 6)
+        if (entry > 5 || entry < 1) {
+            return
+        }
+
+        balance.value -= register.value * 0.3
+        balance.save(flush: true)
+        transfer.value += register.value * 0.3
+        transfer.save(flush: true)
+    }
+
+    private def setBalance(register, balance) {
+        if (register.type == "Entrada")
+            balance.value += register.value
+        else
+            balance.value -= register.value
+
+        balance.save(flush: true)
+    }
+
     private def getPreviousBalance(params) {
         Date date = new Date()
         def month = params.month.toInteger() - 1
         def year = params.year.toLong()
-
+        
         if (!month) {
             month = 12;
             year--;
@@ -135,69 +189,16 @@ class RegisterService {
         return register ? register.value : 0.0
     }
 
-    def calculateTransferAndBalance(register) {
-        Date date = register.date
+    private def getDate(registerDate, advancingMonths = 1) { //advancing months = 1, when use same register date
+        Date date = registerDate
         Calendar calendar = Calendar.getInstance()
         calendar.setTime(date)
 
         def month = calendar.get(Calendar.MONTH)
         def year = calendar.get(Calendar.YEAR)
 
-        date = date.parse("dd/MM/yyyy", "01/" + (month + 1) + "/" + year)
+        date = date.parse("dd/MM/yyyy", "01/" + (month + advancingMonths) + "/" + year)
 
-        setTranfer(register, date)
-        setBalance(register, date)
-    }
-
-    def setTranfer(register, date) {
-        if (register.type != "Entrada" && register.entryRegister != "1.01 - (*) DIZIMO OBREIROS" &&
-            register.entryRegister != "1.02 - (*) DIZIMO MEMBROS" && register.entryRegister != "1.03 - (*) OFERTA DOS CULTOS" &&
-            register.entryRegister != "1.04 - (*) OFERTA E.B.D" && register.entryRegister != "1.05 - (*) OFERTAS ESPECÍFICA") {
-            return
-        }
-
-        def balance = getBalance(register, date)
-        def transfer = getTransfer(register, date)
-
-        balance.value -= register.value * 0.3
-        balance.save(flush: true)
-        transfer.value += register.value * 0.3
-        transfer.save(flush: true)
-    }
-
-    def setBalance(register, date) {
-        def transfer = getTransfer(register, date)
-        def balance = getBalance(register, date)
-
-        if (register.type == "Entrada") {
-            balance.value += register.value
-        }
-        else {
-            balance.value -= register.value
-        }
-
-        balance.save(flush: true)
-    }
-
-    private def getBalance(register, date) {
-        def balance = Register.findByEntryRegisterAndDate("Saldo Anterior", date)
-
-        if (!balance) {
-            balance = new Register(date: date, type: "Entrada", entryRegister: "Saldo Anterior",
-                value: 0.0, church: register.church).save(flush: true)
-        }
-
-        return balance
-    }
-
-    private def getTransfer(register, date) {
-        def transfer = Register.findByExitRegisterAndDate("2.01 - REPASSE P/ SEDE", date)
-
-        if (!transfer) {
-            transfer = new Register(date: date, type: "Saída", exitRegister: "2.01 - REPASSE P/ SEDE",
-                value: 0.0, church: register.church).save(flush: true)
-        }
-
-        return transfer
+        return date
     }
 }
