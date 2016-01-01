@@ -17,7 +17,7 @@ class RegisterController {
     def registerService
     def static registers = []
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+    static allowedMethods = [save: "POST", delete: "DELETE"]
 
     def resultSearch() {
         registerService.setRestrictDates(params)
@@ -150,33 +150,6 @@ class RegisterController {
         }
     }
 
-    def edit(Register registerInstance) {
-        respond registerInstance, model:[churchList:springSecurityService.currentUser.person.church]
-    }
-
-    @Transactional
-    def update(Register registerInstance) {
-        if (registerInstance == null) {
-            notFound()
-            return
-        }
-
-        if (registerInstance.hasErrors()) {
-            respond registerInstance.errors, view:'edit', model:[churchList:springSecurityService.currentUser.person.church]
-            return
-        }
-
-        registerInstance.save flush:true
-
-        request.withFormat {
-            form multipartForm {
-                flash.message = message(code: 'default.updated.message', args: [message(code: 'Register.label', default: 'Register'), registerInstance.id])
-                redirect registerInstance
-            }
-            '*'{ respond registerInstance, [status: OK] }
-        }
-    }
-
     @Transactional
     def delete(Register registerInstance) {
 
@@ -185,6 +158,7 @@ class RegisterController {
             return
         }
 
+        registerService.deleteRegister(registerInstance)
         registerInstance.delete flush:true
 
         request.withFormat {

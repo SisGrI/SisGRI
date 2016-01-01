@@ -71,6 +71,31 @@ class RegisterService {
         setTranfer(register, balance, transfer)
     }
 
+    def deleteRegister(register) {
+        Date date = getDate(register.date)
+
+        def balance = Register.findByEntryRegisterAndDate("Saldo Anterior", date)
+        def transfer = Register.findByExitRegisterAndDate("2.01 - REPASSE P/ SEDE", date)
+
+        if (register.type == "Saída") {
+            balance.value += register.value
+        }
+        else {
+            int entry = (register.type == "Entrada" ? register.entryRegister.substring(2, 4).toInteger() : 0)
+            
+            if (entry >= 1 && entry <= 5) {
+                balance.value -= register.value * 0.7
+                transfer.value -= register.value * 0.3
+            }
+            else {
+                balance.value -= register.value
+            }
+        }
+
+        balance.save(flush: true)
+        transfer.save(flush: true)
+    }
+
     private def setRegisters(registers, previousBalance) {
         def parameters = [:]
 
@@ -118,6 +143,7 @@ class RegisterService {
         parameters.entryTotal = "R\$" + String.format("%10.2f", entryTotal)
         parameters.exitTotal = "R\$" + String.format("%10.2f", exitTotal)
         parameters.cashBalance = "R\$" + String.format("%10.2f", entryTotal - exitTotal)
+        parameters.monthEntries = "R\$" + String.format("%10.2f", entryTotal - previousBalance)
         parameters.calculationBasis = "R\$" + String.format("%10.2f", calculationBasis)
 
         for (int i = 1; i <= 26; i++) {
@@ -152,7 +178,7 @@ class RegisterService {
     }
 
     private def setTranfer(register, balance, transfer) {
-        int entry = (register.type == "Entrada" ? register.entryRegister.substring(2, 4).toInteger() : 6)
+        int entry = (register.type == "Entrada" ? register.entryRegister.substring(2, 4).toInteger() : 0)
         if (entry > 5 || entry < 1) {
             return
         }

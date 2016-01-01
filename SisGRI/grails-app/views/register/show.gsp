@@ -171,11 +171,10 @@
 											<div class="col-md-offset-3 col-md-9">
 												<g:hiddenField name="id" value="${registerInstance?.id}" />
 
-												<g:link class="btn blue" action="edit" id="${registerInstance?.id}">
-												<i class="fa fa-pencil"></i> Editar	</g:link>
-
-												<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
-												</g:actionSubmit>
+												<g:if test="${registerInstance.entryRegister != 'Saldo Anterior' && registerInstance.exitRegister != '2.01 - REPASSE P/ SEDE'}" >
+													<g:actionSubmit class="btn red" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Você tem certeza?')}');">
+													</g:actionSubmit>
+												</g:if>
 											</div>
 										</div>
 									</div>
