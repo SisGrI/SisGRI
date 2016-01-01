@@ -99,6 +99,19 @@ class RegisterController {
         response.outputStream << jasperService.generateReport(reportDef).toByteArray()
     }
 
+    def printEntry(Register registerInstance) {
+        def data = [registerInstance]
+        def parameters = [churchName: springSecurityService.currentUser.person.church.name]
+
+        def reportDef = new JasperReportDef(name:'entry_register.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: data,
+            parameters: parameters)
+
+        response.setContentType("application/octet-stream")
+        response.setHeader("Content-disposition", "filename=registro_entrada.pdf")
+        response.outputStream << jasperService.generateReport(reportDef).toByteArray()
+    }
+
     def show(Register registerInstance) {
         respond registerInstance
     }
