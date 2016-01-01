@@ -112,6 +112,23 @@ class RegisterController {
         response.outputStream << jasperService.generateReport(reportDef).toByteArray()
     }
 
+    def printExity(Register registerInstance) {
+        def data = [registerInstance]
+
+        def cpf = registerInstance.person?.cpf ? registerInstance.person.cpf : ""
+
+        def parameters = [churchName: springSecurityService.currentUser.person.church.name,
+            exitRegister: registerInstance.exitRegister.substring(7), cpf: cpf]
+
+        def reportDef = new JasperReportDef(name:'exit_register.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: data,
+            parameters: parameters)
+
+        response.setContentType("application/octet-stream")
+        response.setHeader("Content-disposition", "filename=registro_saida.pdf")
+        response.outputStream << jasperService.generateReport(reportDef).toByteArray()
+    }
+
     def show(Register registerInstance) {
         respond registerInstance
     }
