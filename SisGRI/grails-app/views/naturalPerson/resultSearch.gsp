@@ -52,9 +52,16 @@
 							<g:link class="btn green" action="create">
 								<i class="fa fa-plus"></i> Novo
 							</g:link>
-							<g:link class="btn yellow" action="print">
-								<i class="fa fa-print"></i> Imprimir
-							</g:link>
+							<g:if test="${params.post != ''}">
+								<g:link class="btn yellow" action="printWorkers">
+									<i class="fa fa-print"></i> Imprimir
+								</g:link>
+							</g:if>
+							<g:else>
+								<g:link class="btn yellow" action="print">
+									<i class="fa fa-print"></i> Imprimir
+								</g:link>
+							</g:else>
 						</div>
 					</div>
 					<div class="portlet-body">

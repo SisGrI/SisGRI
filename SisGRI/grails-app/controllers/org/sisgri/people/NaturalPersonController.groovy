@@ -70,6 +70,17 @@ class NaturalPersonController {
         response.outputStream << jasperService.generateReport(reportDef).toByteArray()
     }
 
+    def printWorkers() {
+        def parameters = [churchName: springSecurityService.currentUser.person.church.name]
+
+        def reportDef = new JasperReportDef(name:'workersList.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: people, parameters: parameters)
+
+        response.setContentType("application/octet-stream")
+        response.setHeader("Content-disposition", "filename=lista_pessoas.pdf")
+        response.outputStream << jasperService.generateReport(reportDef).toByteArray()
+    }
+
     def show(NaturalPerson naturalPersonInstance) {
         if(naturalPersonInstance.name == "Administrador")
             render "Essa pessoa não pode ser visualizada!"
