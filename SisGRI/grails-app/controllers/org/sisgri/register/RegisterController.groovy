@@ -37,8 +37,6 @@ class RegisterController {
             between('date', from, to)
 
             if (params.search == "Ver registros") {
-                println "search Ver Registros"
-                
                 eq("type", params.type)
 
                 if(params.name!="")
@@ -80,6 +78,21 @@ class RegisterController {
     def print() {
         def reportDef = new JasperReportDef(name:'registerList.jrxml',
             fileFormat:JasperExportFormat.PDF_FORMAT, reportData: registers,
+            parameters: registerService.parameters)
+
+        response.setContentType("application/octet-stream")
+        response.setHeader("Content-disposition", "filename=lista_registros.pdf")
+        response.outputStream << jasperService.generateReport(reportDef).toByteArray()
+    }
+
+    def printWorkers() {
+        def data = []
+        registers.each {
+            data << [date: it.date, name: it.name, formatedValue: it.formatedValue, post: it.person?.post]
+        }
+
+        def reportDef = new JasperReportDef(name:'registerWorkers.jrxml',
+            fileFormat:JasperExportFormat.PDF_FORMAT, reportData: data,
             parameters: registerService.parameters)
 
         response.setContentType("application/octet-stream")
