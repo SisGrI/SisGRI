@@ -135,7 +135,12 @@
 											<div class="col-md-9">
 												<p class="form-control-static">
 													<g:if test="${registerInstance?.person}">
-														<g:link controller="naturalPerson" action="show" id="${registerInstance?.person?.id}">${registerInstance?.person?.encodeAsHTML()}</g:link>
+														<g:if test="${registerInstance.person.instanceOf(NaturalPerson)}">
+															<g:link controller="naturalPerson" action="show" id="${registerInstance?.person?.id}">${registerInstance?.person?.encodeAsHTML()}</g:link>
+														</g:if>
+														<g:else>
+															<g:link controller="legalPerson" action="show" id="${registerInstance?.person?.id}">${registerInstance?.person?.encodeAsHTML()}</g:link>
+														</g:else>
 													</g:if>
 													<g:else>
 														<g:fieldValue bean="${registerInstance}" field="name"/>

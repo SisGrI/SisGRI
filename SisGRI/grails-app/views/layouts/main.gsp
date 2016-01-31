@@ -149,7 +149,7 @@
 									</ul>
 								</li>
 							</sec:ifAnyGranted>
-							<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SECRETARY">
+							<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SECRETARY,ROLE_TREASURER">
 								<li>
 									<a href="javascript:;">
 										<i class="fa fa-users"></i>
@@ -168,30 +168,34 @@
 												</g:link>
 											</li>
 										</sec:ifAnyGranted>
-										<li>
-											<g:link controller="naturalPerson" action="search">
-												<i class="fa fa-search"></i>
-												Pesquisar Pessoas
-											</g:link>
-										</li>
-										<li>
-											<g:link controller="naturalPerson" action="create">
-												<i class="fa fa-plus"></i>
-												Cadastrar Pessoa
-											</g:link>
-										</li>
-										<li>
-											<g:link controller="legalPerson" action="index">
-												<i class="fa fa-search"></i>
-												Listar Empresas
-											</g:link>
-										</li>
-										<li>
-											<g:link controller="legalPerson" action="create">
-												<i class="fa fa-plus"></i>
-												Cadastrar Empresa
-											</g:link>
-										</li>
+										<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_SECRETARY">
+											<li>
+												<g:link controller="naturalPerson" action="search">
+													<i class="fa fa-search"></i>
+													Pesquisar Pessoas
+												</g:link>
+											</li>
+											<li>
+												<g:link controller="naturalPerson" action="create">
+													<i class="fa fa-plus"></i>
+													Cadastrar Pessoa
+												</g:link>
+											</li>
+										</sec:ifAnyGranted>
+										<sec:ifAnyGranted roles="ROLE_ADMIN,ROLE_TREASURER">
+											<li>
+												<g:link controller="legalPerson" action="index">
+													<i class="fa fa-search"></i>
+													Listar Empresas
+												</g:link>
+											</li>
+											<li>
+												<g:link controller="legalPerson" action="create">
+													<i class="fa fa-plus"></i>
+													Cadastrar Empresa
+												</g:link>
+											</li>
+										</sec:ifAnyGranted>
 									</ul>
 								</li>
 							</sec:ifAnyGranted>

@@ -6,7 +6,7 @@
 			<g:message code="worship.church.label" default="Igreja" />
 		</label>
 		<div class="col-md-6">
-			<g:select class="form-control" name="church" from="${churchList}" value="${personInstance?.church?.id}" noSelection="['': '']"/>
+			<g:select class="form-control" name="church" from="${churchList}" value="${personInstance?.church?.id}"/>
 		</div>
 	</div>
 </div>
@@ -28,7 +28,7 @@
 			<g:message code="worship.date.label" default="Data" />
 		</label>
 		<div class="col-md-6">
-			<g:datePicker name="date" years="[2013, 2014, 2015, 2016]" precision="month"  value="" default="none" noSelection="['': '']" />
+			<g:datePicker name="date" years="[2015, 2016]" precision="month"  value="" default="none" noSelection="['': '']" />
 		</div>
 	</div>
 </div>
