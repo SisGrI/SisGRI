@@ -8,12 +8,14 @@ import grails.plugin.springsecurity.annotation.Secured
 @Transactional(readOnly = true)
 class ChurchController {
 
+    def springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     @Secured(['isAuthenticated()'])
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Church.list(params), model:[churchInstanceCount: Church.count()]
+        respond Church.list(params), model:[churchInstanceCount: Church.count(),
+            currentChurch: springSecurityService.currentUser.person.church]
     }
 
     @Secured(['isAuthenticated()'])

@@ -44,9 +44,11 @@
 						</div>
 						<div class="actions">
 							<sec:ifAnyGranted roles="ROLE_ADMIN">
-								<g:link class="btn green" action="create">
-									<i class="fa fa-plus"></i> Novo
-								</g:link>
+								<g:if test="${currentChurch?.type == 'Sede'}">
+									<g:link class="btn green" action="create">
+										<i class="fa fa-plus"></i> Novo
+									</g:link>
+								</g:if>
 							</sec:ifAnyGranted>
 							<a href="#" class="btn yellow">
 								<i class="fa fa-print"></i> Imprimir
