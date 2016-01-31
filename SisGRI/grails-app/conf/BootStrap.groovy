@@ -9,10 +9,13 @@ class BootStrap {
 
    def init = { servletContext ->
       if (!Church.get(1)) {
-            def church = new Church(name:'ADOCI JARDIM ABC',
-               address:'Quadra 20, Lote X, Parque das Américas').save(flush:true)
+            def church = new Church(name:'Assembléia de Deus em Cidade Ocidental',
+               address:'Cidade Ocidental', type: "Sede").save(flush:true)
 
-            def testNaturalPerson = new NaturalPerson(church:church, name: 'Administrador', address: 'Ocidental',
+            def abcChurch = new Church(name:'ADOCI JARDIM ABC',
+               address:'Quadra 20, Lote X, Parque das Américas', church: church).save(flush:true)
+
+            def testNaturalPerson = new NaturalPerson(church: abcChurch, name: 'Administrador', address: 'Ocidental',
                city:'Ocidental', zipCode:'00000-000', birthPlace:'Ocidental', cpf:'000.000.000-00', rg:'0000000', maritalStatus:'Solteiro(a)',
                department:'Varões', type:'Congregado', situation: true, email: 'administrador@sisgri.com',
                birth: new Date()).save(flush: true, failOnError: true)
