@@ -15,6 +15,7 @@ class NaturalPersonController {
     def springSecurityService
     def jasperService
     def dateService
+    def churchService
     def static people = []
 
     static allowedMethods = [save: "POST", update: "POST", delete: "DELETE"]
@@ -22,7 +23,7 @@ class NaturalPersonController {
     def photoService
 
     def search(){
-        respond new NaturalPerson(params), model:[churchList:springSecurityService.currentUser.person.church]
+        respond new NaturalPerson(params), model:[churchList: churchService.churchList()]
     }
 
     def resultSearch(){
@@ -94,7 +95,7 @@ class NaturalPersonController {
     }
 
     def create() {
-        respond new NaturalPerson(params), model:[churchList:springSecurityService.currentUser.person.church]
+        respond new NaturalPerson(params), model:[churchList: churchService.churchList()]
     }
 
     @Transactional
@@ -131,7 +132,7 @@ class NaturalPersonController {
         if(naturalPersonInstance.name == "Administrador")
             render "Essa pessoa não pode ser editada!"
         else
-            respond naturalPersonInstance, model:[churchList:springSecurityService.currentUser.person.church]
+            respond naturalPersonInstance, model:[churchList: churchService.churchList()]
     }
 
     @Transactional

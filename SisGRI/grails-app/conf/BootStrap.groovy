@@ -15,7 +15,7 @@ class BootStrap {
             def abcChurch = new Church(name:'ADOCI JARDIM ABC',
                address:'Quadra 20, Lote X, Parque das Américas', church: church).save(flush:true)
 
-            def testNaturalPerson = new NaturalPerson(church: abcChurch, name: 'Administrador', address: 'Ocidental',
+            def administrador = new NaturalPerson(church: church, name: 'Administrador', address: 'Ocidental',
                city:'Ocidental', zipCode:'00000-000', birthPlace:'Ocidental', cpf:'000.000.000-00', rg:'0000000', maritalStatus:'Solteiro(a)',
                department:'Varões', type:'Congregado', situation: true, email: 'administrador@sisgri.com',
                birth: new Date()).save(flush: true, failOnError: true)
@@ -24,7 +24,7 @@ class BootStrap {
             def secretaryRole = new Role(authority: 'ROLE_SECRETARY').save(flush: true)
             def treasurerRole = new Role(authority: 'ROLE_TREASURER').save(flush: true)
 
-            def testProfile = new Profile(username: 'admin', password: 'admin', person: testNaturalPerson)
+            def testProfile = new Profile(username: 'admin', password: 'admin', person: administrador)
 
             testProfile.save(flush: true)
 

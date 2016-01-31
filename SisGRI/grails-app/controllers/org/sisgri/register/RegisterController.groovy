@@ -15,6 +15,7 @@ class RegisterController {
     def personService
     def jasperService
     def registerService
+    def churchService
     def static registers = []
 
     static allowedMethods = [save: "POST", delete: "DELETE"]
@@ -26,12 +27,13 @@ class RegisterController {
         Date to = new Date()
         from = from.parse('dd/MM/yyyy', params.from)
         to = to.parse('dd/MM/yyyy', params.to)
-        def churchName = springSecurityService.currentUser.person.church.name
         
         def criteria = Register.createCriteria()
         registers = criteria.list {
             church{
-                eq("name", churchName)
+                if(params.church!=""){
+                    eq("name", params.church[0])
+                }
             }
 
             between('date', from, to)
@@ -66,7 +68,7 @@ class RegisterController {
     }
 
     def search() {
-        respond new Register(params), model:[churchList:springSecurityService.currentUser.person.church]
+        respond new Register(params), model:[churchList: churchService.churchList()]
     }
 
     def cityArticle() {
@@ -147,7 +149,7 @@ class RegisterController {
     }
 
     def create() {
-        respond new Register(params), model:[churchList:springSecurityService.currentUser.person.church]
+        respond new Register(params), model:[churchList: churchService.churchList()]
     }
 
     def choosePerson() {
@@ -177,7 +179,7 @@ class RegisterController {
         }
 
         if (registerInstance.hasErrors()) {
-            respond registerInstance.errors, view:'create', model:[churchList:springSecurityService.currentUser.person.church]
+            respond registerInstance.errors, view:'create', model:[churchList: churchService.churchList()]
             return
         }
 

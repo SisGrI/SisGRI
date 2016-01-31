@@ -1,23 +1,23 @@
 <%@ page import="org.sisgri.people.NaturalPerson" %>
 
 <div class="form-group">
-	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'name', 'error')} ">
-		<label class="control-label col-md-3" for="name">
-			<g:message code="person.name.label" default="Nome" />
-		</label>
-		<div class="col-md-4">
-			<g:textField class="form-control" name="name" value=""/>
-		</div>
-	</div>
-</div>
-
-<div class="form-group">
 	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'church', 'error')} ">
 		<label class="control-label col-md-3" for="church">
 			<g:message code="person.church.label" default="Igreja" />
 		</label>
 		<div class="col-md-4">
 			<g:select class="form-control" name="church" from="${churchList}" value="${naturalPersonInstance?.church?.id}"/>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<div class="fieldcontain ${hasErrors(bean: naturalPersonInstance, field: 'name', 'error')} ">
+		<label class="control-label col-md-3" for="name">
+			<g:message code="person.name.label" default="Nome" />
+		</label>
+		<div class="col-md-4">
+			<g:textField class="form-control" name="name" value=""/>
 		</div>
 	</div>
 </div>

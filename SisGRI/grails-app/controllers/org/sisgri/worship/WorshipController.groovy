@@ -17,12 +17,13 @@ class WorshipController {
     def jasperService
     def personService
     def dateService
+    def churchService
     def static worships = []
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def search() {
-        respond new Worship(params), model:[churchList:springSecurityService.currentUser.person.church]
+        respond new Worship(params), model:[churchList: churchService.churchList()]
     }
 
     def resultSearch() {
@@ -32,7 +33,7 @@ class WorshipController {
         worships = criteria.list {
             church{
                 if(params.church!=""){
-                    like("name", "%"+params.church+"%")
+                    eq("name", params.church)
                 }
             }
             if(params.rulingName!="")
@@ -70,7 +71,7 @@ class WorshipController {
     }
 
     def create() {
-        respond new Worship(params), model:[churchList:springSecurityService.currentUser.person.church]
+        respond new Worship(params), model:[churchList: churchService.churchList()]
     }
 
     @Transactional
@@ -114,7 +115,7 @@ class WorshipController {
     }
 
     def edit(Worship worshipInstance) {
-        respond worshipInstance, model:[churchList:springSecurityService.currentUser.person.church]
+        respond worshipInstance, model:[churchList: churchService.churchList()]
     }
 
     @Transactional
