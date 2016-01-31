@@ -6,7 +6,10 @@ class LegalPerson extends Person {
 	String field
 
     static constraints = {
-    	cnpj blank: false, unique: true
-    	field blank: false
+		cnpj blank: false, unique: true
+		field nullable: true
+		address nullable: true
+		city nullable: true
+		zipCode nullable: true
     }
 }

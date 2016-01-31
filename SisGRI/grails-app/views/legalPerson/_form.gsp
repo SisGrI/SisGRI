@@ -36,10 +36,9 @@
 	<div class="fieldcontain ${hasErrors(bean: legalPersonInstance, field: 'field', 'error')} required">
 		<label class="control-label col-md-3" for="field">
 			<g:message code="legalPerson.field.label" default="Área de Atuação" />
-			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="field" required="" value="${legalPersonInstance?.field}"/>
+			<g:textField class="form-control" name="field" value="${legalPersonInstance?.field}"/>
 		</div>
 	</div>
 </div>
@@ -48,10 +47,9 @@
 	<div class="fieldcontain ${hasErrors(bean: legalPersonInstance, field: 'address', 'error')} required">
 		<label class="control-label col-md-3" for="address">
 			<g:message code="legalPerson.address.label" default="Endereço" />
-			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="address" required="" value="${legalPersonInstance?.address}"/>
+			<g:textField class="form-control" name="address" value="${legalPersonInstance?.address}"/>
 		</div>
 	</div>
 </div>
@@ -61,10 +59,9 @@
 	<div class="fieldcontain ${hasErrors(bean: legalPersonInstance, field: 'city', 'error')} required">
 		<label class="control-label col-md-3" for="city">
 			<g:message code="legalPerson.city.label" default="Cidade" />
-			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" name="city" required="" value="${legalPersonInstance?.city}"/>
+			<g:textField class="form-control" name="city" value="${legalPersonInstance?.city}"/>
 		</div>
 	</div>
 </div>
@@ -74,10 +71,9 @@
 	<div class="fieldcontain ${hasErrors(bean: legalPersonInstance, field: 'zipCode', 'error')} required">
 		<label class="control-label col-md-3" for="zipCode">
 			<g:message code="legalPerson.zipCode.label" default="CEP" />
-			<span class="required-indicator">*</span>
 		</label>
 		<div class="col-md-4">
-			<g:textField class="form-control" id="mask_cep" name="zipCode" required="" value="${legalPersonInstance?.zipCode}"/>
+			<g:textField class="form-control" id="mask_cep" name="zipCode" value="${legalPersonInstance?.zipCode}"/>
 		</div>
 	</div>
 </div>

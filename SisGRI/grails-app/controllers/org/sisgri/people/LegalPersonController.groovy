@@ -12,6 +12,8 @@ class LegalPersonController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+    def legalPersonService
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond LegalPerson.list(params), model:[legalPersonInstanceCount: LegalPerson.count()]
@@ -31,6 +33,8 @@ class LegalPersonController {
             notFound()
             return
         }
+
+        legalPersonService.adjustingParams(legalPersonInstance)
 
         if (legalPersonInstance.hasErrors()) {
             respond legalPersonInstance.errors, view:'create'
@@ -58,6 +62,8 @@ class LegalPersonController {
             notFound()
             return
         }
+
+        legalPersonService.adjustingParams(legalPersonInstance)
 
         if (legalPersonInstance.hasErrors()) {
             respond legalPersonInstance.errors, view:'edit'
